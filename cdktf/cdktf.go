@@ -171,12 +171,12 @@ type AppOptions struct {
 // Experimental.
 type ArtifactoryBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -190,6 +190,16 @@ type ArtifactoryBackend interface {
 // The jsii proxy struct for ArtifactoryBackend
 type jsiiProxy_ArtifactoryBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_ArtifactoryBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ArtifactoryBackend) ConstructNode() constructs.Node {
@@ -237,16 +247,6 @@ func (j *jsiiProxy_ArtifactoryBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ArtifactoryBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -408,14 +408,23 @@ type ArtifactoryBackendProps struct {
 }
 
 // Experimental.
+type AssetType string
+
+const (
+	AssetType_FILE AssetType = "FILE"
+	AssetType_DIRECTORY AssetType = "DIRECTORY"
+	AssetType_ARCHIVE AssetType = "ARCHIVE"
+)
+
+// Experimental.
 type AzurermBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -429,6 +438,16 @@ type AzurermBackend interface {
 // The jsii proxy struct for AzurermBackend
 type jsiiProxy_AzurermBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_AzurermBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AzurermBackend) ConstructNode() constructs.Node {
@@ -476,16 +495,6 @@ func (j *jsiiProxy_AzurermBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AzurermBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -929,12 +938,12 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 // Experimental.
 type ConsulBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -948,6 +957,16 @@ type ConsulBackend interface {
 // The jsii proxy struct for ConsulBackend
 type jsiiProxy_ConsulBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_ConsulBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ConsulBackend) ConstructNode() constructs.Node {
@@ -995,16 +1014,6 @@ func (j *jsiiProxy_ConsulBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ConsulBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -1180,12 +1189,12 @@ type ConsulBackendProps struct {
 // Experimental.
 type CosBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -1199,6 +1208,16 @@ type CosBackend interface {
 // The jsii proxy struct for CosBackend
 type jsiiProxy_CosBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_CosBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CosBackend) ConstructNode() constructs.Node {
@@ -1246,16 +1265,6 @@ func (j *jsiiProxy_CosBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CosBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -1425,11 +1434,11 @@ type CosBackendProps struct {
 // Experimental.
 type DataTerraformRemoteState interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -1447,6 +1456,16 @@ type DataTerraformRemoteState interface {
 // The jsii proxy struct for DataTerraformRemoteState
 type jsiiProxy_DataTerraformRemoteState struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteState) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteState) ConstructNode() constructs.Node {
@@ -1484,16 +1503,6 @@ func (j *jsiiProxy_DataTerraformRemoteState) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteState) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -1699,11 +1708,11 @@ func (d *jsiiProxy_DataTerraformRemoteState) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateArtifactory interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -1721,6 +1730,16 @@ type DataTerraformRemoteStateArtifactory interface {
 // The jsii proxy struct for DataTerraformRemoteStateArtifactory
 type jsiiProxy_DataTerraformRemoteStateArtifactory struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) ConstructNode() constructs.Node {
@@ -1758,16 +1777,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) RawOverrides() interface
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -1991,11 +2000,11 @@ type DataTerraformRemoteStateArtifactoryConfig struct {
 // Experimental.
 type DataTerraformRemoteStateAzurerm interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -2013,6 +2022,16 @@ type DataTerraformRemoteStateAzurerm interface {
 // The jsii proxy struct for DataTerraformRemoteStateAzurerm
 type jsiiProxy_DataTerraformRemoteStateAzurerm struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) ConstructNode() constructs.Node {
@@ -2050,16 +2069,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -2309,11 +2318,11 @@ type DataTerraformRemoteStateConfig struct {
 // Experimental.
 type DataTerraformRemoteStateConsul interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -2331,6 +2340,16 @@ type DataTerraformRemoteStateConsul interface {
 // The jsii proxy struct for DataTerraformRemoteStateConsul
 type jsiiProxy_DataTerraformRemoteStateConsul struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateConsul) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateConsul) ConstructNode() constructs.Node {
@@ -2368,16 +2387,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateConsul) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateConsul) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -2613,11 +2622,11 @@ type DataTerraformRemoteStateConsulConfig struct {
 // Experimental.
 type DataTerraformRemoteStateCos interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -2635,6 +2644,16 @@ type DataTerraformRemoteStateCos interface {
 // The jsii proxy struct for DataTerraformRemoteStateCos
 type jsiiProxy_DataTerraformRemoteStateCos struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateCos) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateCos) ConstructNode() constructs.Node {
@@ -2672,16 +2691,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateCos) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateCos) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -2911,11 +2920,11 @@ type DataTerraformRemoteStateCosConfig struct {
 // Experimental.
 type DataTerraformRemoteStateEtcd interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -2933,6 +2942,16 @@ type DataTerraformRemoteStateEtcd interface {
 // The jsii proxy struct for DataTerraformRemoteStateEtcd
 type jsiiProxy_DataTerraformRemoteStateEtcd struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcd) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateEtcd) ConstructNode() constructs.Node {
@@ -2970,16 +2989,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcd) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateEtcd) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -3201,11 +3210,11 @@ type DataTerraformRemoteStateEtcdConfig struct {
 // Experimental.
 type DataTerraformRemoteStateEtcdV3 interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -3223,6 +3232,16 @@ type DataTerraformRemoteStateEtcdV3 interface {
 // The jsii proxy struct for DataTerraformRemoteStateEtcdV3
 type jsiiProxy_DataTerraformRemoteStateEtcdV3 struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) ConstructNode() constructs.Node {
@@ -3260,16 +3279,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -3499,11 +3508,11 @@ type DataTerraformRemoteStateEtcdV3Config struct {
 // Experimental.
 type DataTerraformRemoteStateGcs interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -3521,6 +3530,16 @@ type DataTerraformRemoteStateGcs interface {
 // The jsii proxy struct for DataTerraformRemoteStateGcs
 type jsiiProxy_DataTerraformRemoteStateGcs struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateGcs) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateGcs) ConstructNode() constructs.Node {
@@ -3558,16 +3577,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateGcs) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateGcs) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -3791,11 +3800,11 @@ type DataTerraformRemoteStateGcsConfig struct {
 // Experimental.
 type DataTerraformRemoteStateHttp interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -3813,6 +3822,16 @@ type DataTerraformRemoteStateHttp interface {
 // The jsii proxy struct for DataTerraformRemoteStateHttp
 type jsiiProxy_DataTerraformRemoteStateHttp struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateHttp) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateHttp) ConstructNode() constructs.Node {
@@ -3850,16 +3869,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateHttp) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateHttp) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -4097,11 +4106,11 @@ type DataTerraformRemoteStateHttpConfig struct {
 // Experimental.
 type DataTerraformRemoteStateLocal interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -4119,6 +4128,16 @@ type DataTerraformRemoteStateLocal interface {
 // The jsii proxy struct for DataTerraformRemoteStateLocal
 type jsiiProxy_DataTerraformRemoteStateLocal struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateLocal) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateLocal) ConstructNode() constructs.Node {
@@ -4156,16 +4175,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateLocal) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateLocal) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -4383,11 +4392,11 @@ type DataTerraformRemoteStateLocalConfig struct {
 // Experimental.
 type DataTerraformRemoteStateManta interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -4405,6 +4414,16 @@ type DataTerraformRemoteStateManta interface {
 // The jsii proxy struct for DataTerraformRemoteStateManta
 type jsiiProxy_DataTerraformRemoteStateManta struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateManta) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateManta) ConstructNode() constructs.Node {
@@ -4442,16 +4461,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateManta) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateManta) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -4681,11 +4690,11 @@ type DataTerraformRemoteStateMantaConfig struct {
 // Experimental.
 type DataTerraformRemoteStateOss interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -4703,6 +4712,16 @@ type DataTerraformRemoteStateOss interface {
 // The jsii proxy struct for DataTerraformRemoteStateOss
 type jsiiProxy_DataTerraformRemoteStateOss struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateOss) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateOss) ConstructNode() constructs.Node {
@@ -4740,16 +4759,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateOss) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateOss) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -4995,11 +5004,11 @@ type DataTerraformRemoteStateOssConfig struct {
 // Experimental.
 type DataTerraformRemoteStatePg interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -5017,6 +5026,16 @@ type DataTerraformRemoteStatePg interface {
 // The jsii proxy struct for DataTerraformRemoteStatePg
 type jsiiProxy_DataTerraformRemoteStatePg struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStatePg) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStatePg) ConstructNode() constructs.Node {
@@ -5054,16 +5073,6 @@ func (j *jsiiProxy_DataTerraformRemoteStatePg) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStatePg) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -5299,11 +5308,11 @@ type DataTerraformRemoteStateRemoteConfig struct {
 // Experimental.
 type DataTerraformRemoteStateS3 interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -5321,6 +5330,16 @@ type DataTerraformRemoteStateS3 interface {
 // The jsii proxy struct for DataTerraformRemoteStateS3
 type jsiiProxy_DataTerraformRemoteStateS3 struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateS3) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateS3) ConstructNode() constructs.Node {
@@ -5358,16 +5377,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateS3) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateS3) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -5633,11 +5642,11 @@ type DataTerraformRemoteStateS3Config struct {
 // Experimental.
 type DataTerraformRemoteStateSwift interface {
 	TerraformRemoteState
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -5655,6 +5664,16 @@ type DataTerraformRemoteStateSwift interface {
 // The jsii proxy struct for DataTerraformRemoteStateSwift
 type jsiiProxy_DataTerraformRemoteStateSwift struct {
 	jsiiProxy_TerraformRemoteState
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateSwift) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DataTerraformRemoteStateSwift) ConstructNode() constructs.Node {
@@ -5692,16 +5711,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateSwift) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DataTerraformRemoteStateSwift) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -6065,12 +6074,12 @@ type EncodingOptions struct {
 // Experimental.
 type EtcdBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -6084,6 +6093,16 @@ type EtcdBackend interface {
 // The jsii proxy struct for EtcdBackend
 type jsiiProxy_EtcdBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_EtcdBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EtcdBackend) ConstructNode() constructs.Node {
@@ -6131,16 +6150,6 @@ func (j *jsiiProxy_EtcdBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_EtcdBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -6302,12 +6311,12 @@ type EtcdBackendProps struct {
 // Experimental.
 type EtcdV3Backend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -6321,6 +6330,16 @@ type EtcdV3Backend interface {
 // The jsii proxy struct for EtcdV3Backend
 type jsiiProxy_EtcdV3Backend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_EtcdV3Backend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EtcdV3Backend) ConstructNode() constructs.Node {
@@ -6368,16 +6387,6 @@ func (j *jsiiProxy_EtcdV3Backend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_EtcdV3Backend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -6547,12 +6556,12 @@ type EtcdV3BackendProps struct {
 // Experimental.
 type GcsBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -6566,6 +6575,16 @@ type GcsBackend interface {
 // The jsii proxy struct for GcsBackend
 type jsiiProxy_GcsBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_GcsBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_GcsBackend) ConstructNode() constructs.Node {
@@ -6613,16 +6632,6 @@ func (j *jsiiProxy_GcsBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_GcsBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -6786,12 +6795,12 @@ type GcsBackendProps struct {
 // Experimental.
 type HttpBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -6805,6 +6814,16 @@ type HttpBackend interface {
 // The jsii proxy struct for HttpBackend
 type jsiiProxy_HttpBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_HttpBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_HttpBackend) ConstructNode() constructs.Node {
@@ -6852,16 +6871,6 @@ func (j *jsiiProxy_HttpBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_HttpBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -7747,12 +7756,12 @@ type LazyStringValueOptions struct {
 // Experimental.
 type LocalBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -7766,6 +7775,16 @@ type LocalBackend interface {
 // The jsii proxy struct for LocalBackend
 type jsiiProxy_LocalBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_LocalBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_LocalBackend) ConstructNode() constructs.Node {
@@ -7813,16 +7832,6 @@ func (j *jsiiProxy_LocalBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_LocalBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -8122,12 +8131,12 @@ func (m *jsiiProxy_Manifest) WriteToFile() {
 // Experimental.
 type MantaBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -8141,6 +8150,16 @@ type MantaBackend interface {
 // The jsii proxy struct for MantaBackend
 type jsiiProxy_MantaBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_MantaBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_MantaBackend) ConstructNode() constructs.Node {
@@ -8188,16 +8207,6 @@ func (j *jsiiProxy_MantaBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_MantaBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -8527,12 +8536,12 @@ type OssAssumeRole struct {
 // Experimental.
 type OssBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -8546,6 +8555,16 @@ type OssBackend interface {
 // The jsii proxy struct for OssBackend
 type jsiiProxy_OssBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_OssBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_OssBackend) ConstructNode() constructs.Node {
@@ -8593,16 +8612,6 @@ func (j *jsiiProxy_OssBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_OssBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -8788,12 +8797,12 @@ type OssBackendProps struct {
 // Experimental.
 type PgBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -8807,6 +8816,16 @@ type PgBackend interface {
 // The jsii proxy struct for PgBackend
 type jsiiProxy_PgBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_PgBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_PgBackend) ConstructNode() constructs.Node {
@@ -8854,16 +8873,6 @@ func (j *jsiiProxy_PgBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PgBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -9080,12 +9089,12 @@ func (j *jsiiProxy_PrefixedRemoteWorkspaces) SetPrefix(val *string) {
 // Experimental.
 type RemoteBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -9099,6 +9108,16 @@ type RemoteBackend interface {
 // The jsii proxy struct for RemoteBackend
 type jsiiProxy_RemoteBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_RemoteBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_RemoteBackend) ConstructNode() constructs.Node {
@@ -9146,16 +9165,6 @@ func (j *jsiiProxy_RemoteBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_RemoteBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -9442,12 +9451,12 @@ func (r *jsiiProxy_Resource) ToString() *string {
 // Experimental.
 type S3Backend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -9461,6 +9470,16 @@ type S3Backend interface {
 // The jsii proxy struct for S3Backend
 type jsiiProxy_S3Backend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_S3Backend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_S3Backend) ConstructNode() constructs.Node {
@@ -9508,16 +9527,6 @@ func (j *jsiiProxy_S3Backend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_S3Backend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -9881,12 +9890,12 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 // Experimental.
 type SwiftBackend interface {
 	TerraformBackend
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -9900,6 +9909,16 @@ type SwiftBackend interface {
 // The jsii proxy struct for SwiftBackend
 type jsiiProxy_SwiftBackend struct {
 	jsiiProxy_TerraformBackend
+}
+
+func (j *jsiiProxy_SwiftBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SwiftBackend) ConstructNode() constructs.Node {
@@ -9947,16 +9966,6 @@ func (j *jsiiProxy_SwiftBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_SwiftBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -10162,14 +10171,210 @@ type SwiftBackendProps struct {
 }
 
 // Experimental.
+type TerraformAsset interface {
+	Resource
+	AssetHash() *string
+	SetAssetHash(val *string)
+	FileName() *string
+	Path() *string
+	Stack() TerraformStack
+	Type() AssetType
+	SetType(val AssetType)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	ToString() *string
+}
+
+// The jsii proxy struct for TerraformAsset
+type jsiiProxy_TerraformAsset struct {
+	jsiiProxy_Resource
+}
+
+func (j *jsiiProxy_TerraformAsset) AssetHash() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetHash",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformAsset) FileName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fileName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformAsset) Path() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"path",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformAsset) Stack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformAsset) Type() AssetType {
+	var returns AssetType
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
+
+// A Terraform Asset takes a file or directory outside of the CDK for Terraform context and moves it into it.
+//
+// Assets copy referenced files into the stacks context for further usage in other resources.
+// Experimental.
+func NewTerraformAsset(scope constructs.Construct, id *string, config *TerraformAssetConfig) TerraformAsset {
+	_init_.Initialize()
+
+	j := jsiiProxy_TerraformAsset{}
+
+	_jsii_.Create(
+		"cdktf.TerraformAsset",
+		[]interface{}{scope, id, config},
+		&j,
+	)
+
+	return &j
+}
+
+// A Terraform Asset takes a file or directory outside of the CDK for Terraform context and moves it into it.
+//
+// Assets copy referenced files into the stacks context for further usage in other resources.
+// Experimental.
+func NewTerraformAsset_Override(t TerraformAsset, scope constructs.Construct, id *string, config *TerraformAssetConfig) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.TerraformAsset",
+		[]interface{}{scope, id, config},
+		t,
+	)
+}
+
+func (j *jsiiProxy_TerraformAsset) SetAssetHash(val *string) {
+	_jsii_.Set(
+		j,
+		"assetHash",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformAsset) SetType(val AssetType) {
+	_jsii_.Set(
+		j,
+		"type",
+		val,
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TerraformAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TerraformAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if there the construct is valid.
+// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
+// instead of overriding this method.
+func (t *jsiiProxy_TerraformAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (t *jsiiProxy_TerraformAsset) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		t,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+type TerraformAssetConfig struct {
+	// Experimental.
+	Path *string `json:"path"`
+	// Experimental.
+	AssetHash *string `json:"assetHash"`
+	// Experimental.
+	Type AssetType `json:"type"`
+}
+
+// Experimental.
 type TerraformBackend interface {
 	TerraformElement
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -10183,6 +10388,16 @@ type TerraformBackend interface {
 // The jsii proxy struct for TerraformBackend
 type jsiiProxy_TerraformBackend struct {
 	jsiiProxy_TerraformElement
+}
+
+func (j *jsiiProxy_TerraformBackend) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformBackend) ConstructNode() constructs.Node {
@@ -10230,16 +10445,6 @@ func (j *jsiiProxy_TerraformBackend) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformBackend) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -10376,6 +10581,7 @@ type TerraformDataSource interface {
 	TerraformElement
 	ITerraformDependable
 	ITerraformResource
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Count() *float64
@@ -10389,7 +10595,6 @@ type TerraformDataSource interface {
 	Provider() TerraformProvider
 	SetProvider(val TerraformProvider)
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
 	TerraformMetaArguments() *map[string]interface{}
 	TerraformResourceType() *string
@@ -10413,6 +10618,16 @@ type jsiiProxy_TerraformDataSource struct {
 	jsiiProxy_TerraformElement
 	jsiiProxy_ITerraformDependable
 	jsiiProxy_ITerraformResource
+}
+
+func (j *jsiiProxy_TerraformDataSource) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformDataSource) ConstructNode() constructs.Node {
@@ -10500,16 +10715,6 @@ func (j *jsiiProxy_TerraformDataSource) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformDataSource) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -10791,11 +10996,11 @@ func (t *jsiiProxy_TerraformDataSource) ToTerraform() interface{} {
 // Experimental.
 type TerraformElement interface {
 	constructs.Construct
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -10808,6 +11013,16 @@ type TerraformElement interface {
 // The jsii proxy struct for TerraformElement
 type jsiiProxy_TerraformElement struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_TerraformElement) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformElement) ConstructNode() constructs.Node {
@@ -10845,16 +11060,6 @@ func (j *jsiiProxy_TerraformElement) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformElement) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -10999,6 +11204,7 @@ type TerraformElementMetadata struct {
 // Experimental.
 type TerraformHclModule interface {
 	TerraformModule
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]*string
@@ -11008,7 +11214,6 @@ type TerraformHclModule interface {
 	Providers() *[]interface{}
 	RawOverrides() interface{}
 	Source() *string
-	Stack() TerraformStack
 	Variables() *map[string]interface{}
 	Version() *string
 	AddOverride(path *string, value interface{})
@@ -11032,6 +11237,16 @@ type TerraformHclModule interface {
 // The jsii proxy struct for TerraformHclModule
 type jsiiProxy_TerraformHclModule struct {
 	jsiiProxy_TerraformModule
+}
+
+func (j *jsiiProxy_TerraformHclModule) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformHclModule) ConstructNode() constructs.Node {
@@ -11109,16 +11324,6 @@ func (j *jsiiProxy_TerraformHclModule) Source() *string {
 	_jsii_.Get(
 		j,
 		"source",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformHclModule) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -11415,13 +11620,13 @@ type TerraformLocal interface {
 	AsList() *[]*string
 	AsNumber() *float64
 	AsString() *string
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Expression() interface{}
 	SetExpression(val interface{})
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -11476,6 +11681,16 @@ func (j *jsiiProxy_TerraformLocal) AsString() *string {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformLocal) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformLocal) ConstructNode() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -11521,16 +11736,6 @@ func (j *jsiiProxy_TerraformLocal) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformLocal) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -11686,6 +11891,7 @@ type TerraformMetaArguments struct {
 type TerraformModule interface {
 	TerraformElement
 	ITerraformDependable
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]*string
@@ -11695,7 +11901,6 @@ type TerraformModule interface {
 	Providers() *[]interface{}
 	RawOverrides() interface{}
 	Source() *string
-	Stack() TerraformStack
 	Version() *string
 	AddOverride(path *string, value interface{})
 	AddProvider(provider interface{})
@@ -11713,6 +11918,16 @@ type TerraformModule interface {
 type jsiiProxy_TerraformModule struct {
 	jsiiProxy_TerraformElement
 	jsiiProxy_ITerraformDependable
+}
+
+func (j *jsiiProxy_TerraformModule) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformModule) ConstructNode() constructs.Node {
@@ -11790,16 +12005,6 @@ func (j *jsiiProxy_TerraformModule) Source() *string {
 	_jsii_.Get(
 		j,
 		"source",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformModule) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -11994,6 +12199,7 @@ type TerraformModuleProvider struct {
 // Experimental.
 type TerraformOutput interface {
 	TerraformElement
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]ITerraformDependable
@@ -12004,7 +12210,6 @@ type TerraformOutput interface {
 	RawOverrides() interface{}
 	Sensitive() *bool
 	SetSensitive(val *bool)
-	Stack() TerraformStack
 	Value() interface{}
 	SetValue(val interface{})
 	AddOverride(path *string, value interface{})
@@ -12020,6 +12225,16 @@ type TerraformOutput interface {
 // The jsii proxy struct for TerraformOutput
 type jsiiProxy_TerraformOutput struct {
 	jsiiProxy_TerraformElement
+}
+
+func (j *jsiiProxy_TerraformOutput) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformOutput) ConstructNode() constructs.Node {
@@ -12087,16 +12302,6 @@ func (j *jsiiProxy_TerraformOutput) Sensitive() *bool {
 	_jsii_.Get(
 		j,
 		"sensitive",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformOutput) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -12301,13 +12506,13 @@ type TerraformProvider interface {
 	TerraformElement
 	Alias() *string
 	SetAlias(val *string)
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Fqn() *string
 	FriendlyUniqueId() *string
 	MetaAttributes() *map[string]interface{}
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
 	TerraformProviderSource() *string
 	TerraformResourceType() *string
@@ -12331,6 +12536,16 @@ func (j *jsiiProxy_TerraformProvider) Alias() *string {
 	_jsii_.Get(
 		j,
 		"alias",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformProvider) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
 		&returns,
 	)
 	return returns
@@ -12391,16 +12606,6 @@ func (j *jsiiProxy_TerraformProvider) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformProvider) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -12591,11 +12796,11 @@ type TerraformProviderGeneratorMetadata struct {
 // Experimental.
 type TerraformRemoteState interface {
 	TerraformElement
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
 	GetBoolean(output *string) *bool
@@ -12613,6 +12818,16 @@ type TerraformRemoteState interface {
 // The jsii proxy struct for TerraformRemoteState
 type jsiiProxy_TerraformRemoteState struct {
 	jsiiProxy_TerraformElement
+}
+
+func (j *jsiiProxy_TerraformRemoteState) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformRemoteState) ConstructNode() constructs.Node {
@@ -12650,16 +12865,6 @@ func (j *jsiiProxy_TerraformRemoteState) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformRemoteState) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -12852,6 +13057,7 @@ type TerraformResource interface {
 	TerraformElement
 	ITerraformDependable
 	ITerraformResource
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Count() *float64
@@ -12865,7 +13071,6 @@ type TerraformResource interface {
 	Provider() TerraformProvider
 	SetProvider(val TerraformProvider)
 	RawOverrides() interface{}
-	Stack() TerraformStack
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
 	TerraformMetaArguments() *map[string]interface{}
 	TerraformResourceType() *string
@@ -12889,6 +13094,16 @@ type jsiiProxy_TerraformResource struct {
 	jsiiProxy_TerraformElement
 	jsiiProxy_ITerraformDependable
 	jsiiProxy_ITerraformResource
+}
+
+func (j *jsiiProxy_TerraformResource) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformResource) ConstructNode() constructs.Node {
@@ -12976,16 +13191,6 @@ func (j *jsiiProxy_TerraformResource) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformResource) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -13294,9 +13499,9 @@ type TerraformResourceLifecycle struct {
 type TerraformStack interface {
 	constructs.Construct
 	AddOverride(path *string, value interface{})
-	AllocateLogicalId(tfElement TerraformElement) *string
+	AllocateLogicalId(tfElement interface{}) *string
 	AllProviders() *[]TerraformProvider
-	GetLogicalId(tfElement TerraformElement) *string
+	GetLogicalId(tfElement interface{}) *string
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
@@ -13382,7 +13587,7 @@ func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) 
 // the `HashedAddressingScheme` but this method can be overridden to customize
 // this behavior.
 // Experimental.
-func (t *jsiiProxy_TerraformStack) AllocateLogicalId(tfElement TerraformElement) *string {
+func (t *jsiiProxy_TerraformStack) AllocateLogicalId(tfElement interface{}) *string {
 	var returns *string
 
 	_jsii_.Invoke(
@@ -13410,7 +13615,7 @@ func (t *jsiiProxy_TerraformStack) AllProviders() *[]TerraformProvider {
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement TerraformElement) *string {
+func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 	var returns *string
 
 	_jsii_.Invoke(
@@ -13515,6 +13720,7 @@ type TerraformStackMetadata struct {
 type TerraformVariable interface {
 	TerraformElement
 	BooleanValue() *bool
+	CdktfStack() TerraformStack
 	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Default() interface{}
@@ -13523,7 +13729,7 @@ type TerraformVariable interface {
 	ListValue() *[]*string
 	NumberValue() *float64
 	RawOverrides() interface{}
-	Stack() TerraformStack
+	Sensitive() *bool
 	StringValue() *string
 	Type() *string
 	Value() interface{}
@@ -13547,6 +13753,16 @@ func (j *jsiiProxy_TerraformVariable) BooleanValue() *bool {
 	_jsii_.Get(
 		j,
 		"booleanValue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformVariable) CdktfStack() TerraformStack {
+	var returns TerraformStack
+	_jsii_.Get(
+		j,
+		"cdktfStack",
 		&returns,
 	)
 	return returns
@@ -13632,11 +13848,11 @@ func (j *jsiiProxy_TerraformVariable) RawOverrides() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_TerraformVariable) Stack() TerraformStack {
-	var returns TerraformStack
+func (j *jsiiProxy_TerraformVariable) Sensitive() *bool {
+	var returns *bool
 	_jsii_.Get(
 		j,
-		"stack",
+		"sensitive",
 		&returns,
 	)
 	return returns
@@ -13818,6 +14034,8 @@ type TerraformVariableConfig struct {
 	Default interface{} `json:"default"`
 	// Experimental.
 	Description *string `json:"description"`
+	// Experimental.
+	Sensitive *bool `json:"sensitive"`
 	// The type argument in a variable block allows you to restrict the type of value that will be accepted as the value for a variable.
 	//
 	// If no type constraint is set then a value of any type is accepted.
