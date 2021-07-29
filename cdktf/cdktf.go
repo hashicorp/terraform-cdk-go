@@ -183,6 +183,7 @@ type ArtifactoryBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -363,6 +364,20 @@ func (a *jsiiProxy_ArtifactoryBackend) SynthesizeAttributes() *map[string]interf
 	return returns
 }
 
+// Experimental.
+func (a *jsiiProxy_ArtifactoryBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) ToString() *string {
@@ -431,6 +446,7 @@ type AzurermBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -604,6 +620,20 @@ func (a *jsiiProxy_AzurermBackend) SynthesizeAttributes() *map[string]interface{
 	_jsii_.Invoke(
 		a,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (a *jsiiProxy_AzurermBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -950,6 +980,7 @@ type ConsulBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -1130,6 +1161,20 @@ func (c *jsiiProxy_ConsulBackend) SynthesizeAttributes() *map[string]interface{}
 	return returns
 }
 
+// Experimental.
+func (c *jsiiProxy_ConsulBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_ConsulBackend) ToString() *string {
@@ -1201,6 +1246,7 @@ type CosBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -1381,6 +1427,20 @@ func (c *jsiiProxy_CosBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
+// Experimental.
+func (c *jsiiProxy_CosBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CosBackend) ToString() *string {
@@ -1449,6 +1509,7 @@ type DataTerraformRemoteState interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -1675,6 +1736,20 @@ func (d *jsiiProxy_DataTerraformRemoteState) OverrideLogicalId(newLogicalId *str
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteState) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ToString() *string {
@@ -1723,6 +1798,7 @@ type DataTerraformRemoteStateArtifactory interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -1949,6 +2025,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OverrideLogicalId(newLog
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToString() *string {
@@ -2015,6 +2105,7 @@ type DataTerraformRemoteStateAzurerm interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -2241,6 +2332,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OverrideLogicalId(newLogical
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToString() *string {
@@ -2333,6 +2438,7 @@ type DataTerraformRemoteStateConsul interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -2559,6 +2665,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) OverrideLogicalId(newLogicalI
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToString() *string {
@@ -2637,6 +2757,7 @@ type DataTerraformRemoteStateCos interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -2863,6 +2984,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateCos) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ToString() *string {
@@ -2935,6 +3070,7 @@ type DataTerraformRemoteStateEtcd interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -3161,6 +3297,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OverrideLogicalId(newLogicalId 
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToString() *string {
@@ -3225,6 +3375,7 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -3451,6 +3602,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OverrideLogicalId(newLogicalI
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToString() *string {
@@ -3523,6 +3688,7 @@ type DataTerraformRemoteStateGcs interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -3749,6 +3915,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToString() *string {
@@ -3815,6 +3995,7 @@ type DataTerraformRemoteStateHttp interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -4041,6 +4222,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) OverrideLogicalId(newLogicalId 
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToString() *string {
@@ -4121,6 +4316,7 @@ type DataTerraformRemoteStateLocal interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -4347,6 +4543,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) OverrideLogicalId(newLogicalId
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToString() *string {
@@ -4407,6 +4617,7 @@ type DataTerraformRemoteStateManta interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -4633,6 +4844,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) OverrideLogicalId(newLogicalId
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateManta) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ToString() *string {
@@ -4705,6 +4930,7 @@ type DataTerraformRemoteStateOss interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -4931,6 +5157,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateOss) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ToString() *string {
@@ -5019,6 +5259,7 @@ type DataTerraformRemoteStatePg interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -5245,6 +5486,20 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) OverrideLogicalId(newLogicalId *s
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStatePg) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ToString() *string {
@@ -5323,6 +5578,7 @@ type DataTerraformRemoteStateS3 interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -5549,6 +5805,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) OverrideLogicalId(newLogicalId *s
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateS3) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ToString() *string {
@@ -5657,6 +5927,7 @@ type DataTerraformRemoteStateSwift interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -5883,6 +6154,20 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) OverrideLogicalId(newLogicalId
 	)
 }
 
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToString() *string {
@@ -6086,6 +6371,7 @@ type EtcdBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -6266,6 +6552,20 @@ func (e *jsiiProxy_EtcdBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
+// Experimental.
+func (e *jsiiProxy_EtcdBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (e *jsiiProxy_EtcdBackend) ToString() *string {
@@ -6323,6 +6623,7 @@ type EtcdV3Backend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -6503,6 +6804,20 @@ func (e *jsiiProxy_EtcdV3Backend) SynthesizeAttributes() *map[string]interface{}
 	return returns
 }
 
+// Experimental.
+func (e *jsiiProxy_EtcdV3Backend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (e *jsiiProxy_EtcdV3Backend) ToString() *string {
@@ -6568,6 +6883,7 @@ type GcsBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -6748,6 +7064,20 @@ func (g *jsiiProxy_GcsBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
+// Experimental.
+func (g *jsiiProxy_GcsBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (g *jsiiProxy_GcsBackend) ToString() *string {
@@ -6807,6 +7137,7 @@ type HttpBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -6980,6 +7311,20 @@ func (h *jsiiProxy_HttpBackend) SynthesizeAttributes() *map[string]interface{} {
 	_jsii_.Invoke(
 		h,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (h *jsiiProxy_HttpBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		h,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -7768,6 +8113,7 @@ type LocalBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -7941,6 +8287,20 @@ func (l *jsiiProxy_LocalBackend) SynthesizeAttributes() *map[string]interface{} 
 	_jsii_.Invoke(
 		l,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (l *jsiiProxy_LocalBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -8143,6 +8503,7 @@ type MantaBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -8316,6 +8677,20 @@ func (m *jsiiProxy_MantaBackend) SynthesizeAttributes() *map[string]interface{} 
 	_jsii_.Invoke(
 		m,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (m *jsiiProxy_MantaBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		m,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -8548,6 +8923,7 @@ type OssBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -8728,6 +9104,20 @@ func (o *jsiiProxy_OssBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
+// Experimental.
+func (o *jsiiProxy_OssBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		o,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (o *jsiiProxy_OssBackend) ToString() *string {
@@ -8809,6 +9199,7 @@ type PgBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -8989,6 +9380,20 @@ func (p *jsiiProxy_PgBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
+// Experimental.
+func (p *jsiiProxy_PgBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_PgBackend) ToString() *string {
@@ -9101,6 +9506,7 @@ type RemoteBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -9274,6 +9680,20 @@ func (r *jsiiProxy_RemoteBackend) SynthesizeAttributes() *map[string]interface{}
 	_jsii_.Invoke(
 		r,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (r *jsiiProxy_RemoteBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		r,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -9463,6 +9883,7 @@ type S3Backend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -9636,6 +10057,20 @@ func (s *jsiiProxy_S3Backend) SynthesizeAttributes() *map[string]interface{} {
 	_jsii_.Invoke(
 		s,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (s *jsiiProxy_S3Backend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -9902,6 +10337,7 @@ type SwiftBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -10075,6 +10511,20 @@ func (s *jsiiProxy_SwiftBackend) SynthesizeAttributes() *map[string]interface{} 
 	_jsii_.Invoke(
 		s,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (s *jsiiProxy_SwiftBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
@@ -10381,6 +10831,7 @@ type TerraformBackend interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -10546,6 +10997,20 @@ func (t *jsiiProxy_TerraformBackend) SynthesizeAttributes() *map[string]interfac
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformBackend) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformBackend) ToString() *string {
@@ -10609,6 +11074,7 @@ type TerraformDataSource interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -10963,6 +11429,20 @@ func (t *jsiiProxy_TerraformDataSource) SynthesizeAttributes() *map[string]inter
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformDataSource) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformDataSource) ToString() *string {
@@ -11006,6 +11486,7 @@ type TerraformElement interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -11162,6 +11643,20 @@ func (t *jsiiProxy_TerraformElement) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformElement) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformElement) ToString() *string {
@@ -11230,6 +11725,7 @@ type TerraformHclModule interface {
 	OverrideLogicalId(newLogicalId *string)
 	Set(variable *string, value interface{})
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -11570,6 +12066,20 @@ func (t *jsiiProxy_TerraformHclModule) SynthesizeAttributes() *map[string]interf
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformHclModule) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformHclModule) ToString() *string {
@@ -11632,6 +12142,7 @@ type TerraformLocal interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -11846,6 +12357,20 @@ func (t *jsiiProxy_TerraformLocal) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformLocal) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformLocal) ToString() *string {
@@ -11910,6 +12435,7 @@ type TerraformModule interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -12147,6 +12673,20 @@ func (t *jsiiProxy_TerraformModule) SynthesizeAttributes() *map[string]interface
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformModule) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformModule) ToString() *string {
@@ -12218,6 +12758,7 @@ type TerraformOutput interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -12460,6 +13001,20 @@ func (t *jsiiProxy_TerraformOutput) SynthesizeAttributes() *map[string]interface
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformOutput) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformOutput) ToString() *string {
@@ -12522,6 +13077,7 @@ type TerraformProvider interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -12745,6 +13301,20 @@ func (t *jsiiProxy_TerraformProvider) SynthesizeAttributes() *map[string]interfa
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformProvider) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformProvider) ToString() *string {
@@ -12811,6 +13381,7 @@ type TerraformRemoteState interface {
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -13022,6 +13593,20 @@ func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string)
 	)
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformRemoteState) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ToString() *string {
@@ -13085,6 +13670,7 @@ type TerraformResource interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -13439,6 +14025,20 @@ func (t *jsiiProxy_TerraformResource) SynthesizeAttributes() *map[string]interfa
 	return returns
 }
 
+// Experimental.
+func (t *jsiiProxy_TerraformResource) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformResource) ToString() *string {
@@ -13711,6 +14311,8 @@ func (t *jsiiProxy_TerraformStack) ToTerraform() interface{} {
 // Experimental.
 type TerraformStackMetadata struct {
 	// Experimental.
+	Backend *string `json:"backend"`
+	// Experimental.
 	StackName *string `json:"stackName"`
 	// Experimental.
 	Version *string `json:"version"`
@@ -13739,6 +14341,7 @@ type TerraformVariable interface {
 	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
+	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -13992,6 +14595,20 @@ func (t *jsiiProxy_TerraformVariable) SynthesizeAttributes() *map[string]interfa
 	_jsii_.Invoke(
 		t,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformVariable) ToMetadata() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toMetadata",
 		nil, // no parameters
 		&returns,
 	)
