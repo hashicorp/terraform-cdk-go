@@ -14,6 +14,7 @@ import (
 type App interface {
 	constructs.Construct
 	Outdir() *string
+	SkipValidation() *bool
 	TargetStackId() *string
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -32,6 +33,16 @@ func (j *jsiiProxy_App) Outdir() *string {
 	_jsii_.Get(
 		j,
 		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_App) SkipValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipValidation",
 		&returns,
 	)
 	return returns
@@ -164,6 +175,9 @@ type AppOptions struct {
 	// The directory to output Terraform resources.
 	// Experimental.
 	Outdir *string `json:"outdir"`
+	// Whether to skip the validation during synthesis of the app.
+	// Experimental.
+	SkipValidation *bool `json:"skipValidation"`
 	// Experimental.
 	StackTraces *bool `json:"stackTraces"`
 }
@@ -14717,6 +14731,22 @@ func Testing_EnableFutureFlags(app App) App {
 		"cdktf.Testing",
 		"enableFutureFlags",
 		[]interface{}{app},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_FullSynth(stack TerraformStack) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"fullSynth",
+		[]interface{}{stack},
 		&returns,
 	)
 
