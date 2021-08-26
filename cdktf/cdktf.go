@@ -5,20 +5,96 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go"
 	_init_ "github.com/hashicorp/terraform-cdk-go/cdktf/jsii"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/hashicorp/terraform-cdk-go/cdktf/internal"
 )
+
+// Experimental.
+type AnnotationMetadataEntryType string
+
+const (
+	AnnotationMetadataEntryType_INFO AnnotationMetadataEntryType = "INFO"
+	AnnotationMetadataEntryType_WARN AnnotationMetadataEntryType = "WARN"
+	AnnotationMetadataEntryType_ERROR AnnotationMetadataEntryType = "ERROR"
+)
+
+// Includes API for attaching annotations such as warning messages to constructs.
+// Experimental.
+type Annotations interface {
+	AddError(message *string)
+	AddInfo(message *string)
+	AddWarning(message *string)
+}
+
+// The jsii proxy struct for Annotations
+type jsiiProxy_Annotations struct {
+	_ byte // padding
+}
+
+// Returns the annotations API for a construct scope.
+// Experimental.
+func Annotations_Of(scope constructs.IConstruct) Annotations {
+	_init_.Initialize()
+
+	var returns Annotations
+
+	_jsii_.StaticInvoke(
+		"cdktf.Annotations",
+		"of",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds an { "error": <message> } metadata entry to this construct.
+//
+// The toolkit will fail synthesis when errors are reported.
+// Experimental.
+func (a *jsiiProxy_Annotations) AddError(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addError",
+		[]interface{}{message},
+	)
+}
+
+// Adds an info metadata entry to this construct.
+//
+// The CLI will display the info message when apps are synthesized.
+// Experimental.
+func (a *jsiiProxy_Annotations) AddInfo(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addInfo",
+		[]interface{}{message},
+	)
+}
+
+// Adds a warning metadata entry to this construct.
+//
+// The CLI will display the warning when an app is synthesized.
+// In a future release the CLI might introduce a --strict flag which
+// will then fail the synthesis if it encounters a warning.
+// Experimental.
+func (a *jsiiProxy_Annotations) AddWarning(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addWarning",
+		[]interface{}{message},
+	)
+}
 
 // Represents a cdktf application.
 // Experimental.
 type App interface {
 	constructs.Construct
+	Manifest() Manifest
+	Node() constructs.Node
 	Outdir() *string
 	SkipValidation() *bool
 	TargetStackId() *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	Synth()
 	ToString() *string
 }
@@ -26,6 +102,26 @@ type App interface {
 // The jsii proxy struct for App
 type jsiiProxy_App struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_App) Manifest() Manifest {
+	var returns Manifest
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_App) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_App) Outdir() *string {
@@ -87,51 +183,19 @@ func NewApp_Override(a App, options *AppOptions) {
 	)
 }
 
-// Perform final modifications before synthesis.
+// Checks if `x` is a construct.
 //
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_App) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func App_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_App) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
+	var returns *bool
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (a *jsiiProxy_App) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
+	_jsii_.StaticInvoke(
+		"cdktf.App",
+		"isConstruct",
+		[]interface{}{x},
 		&returns,
 	)
 
@@ -186,15 +250,12 @@ type AppOptions struct {
 type ArtifactoryBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -212,16 +273,6 @@ func (j *jsiiProxy_ArtifactoryBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ArtifactoryBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -252,6 +303,16 @@ func (j *jsiiProxy_ArtifactoryBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ArtifactoryBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -294,6 +355,25 @@ func NewArtifactoryBackend_Override(a ArtifactoryBackend, scope constructs.Const
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ArtifactoryBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -301,57 +381,6 @@ func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ArtifactoryBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ArtifactoryBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (a *jsiiProxy_ArtifactoryBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -436,6 +465,56 @@ type ArtifactoryBackendProps struct {
 	Username *string `json:"username"`
 }
 
+// Aspects can be applied to CDK tree scopes and can operate on the tree before synthesis.
+// Experimental.
+type Aspects interface {
+	All() *[]IAspect
+	Add(aspect IAspect)
+}
+
+// The jsii proxy struct for Aspects
+type jsiiProxy_Aspects struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Aspects) All() *[]IAspect {
+	var returns *[]IAspect
+	_jsii_.Get(
+		j,
+		"all",
+		&returns,
+	)
+	return returns
+}
+
+
+// Returns the `Aspects` object associated with a construct scope.
+// Experimental.
+func Aspects_Of(scope constructs.IConstruct) Aspects {
+	_init_.Initialize()
+
+	var returns Aspects
+
+	_jsii_.StaticInvoke(
+		"cdktf.Aspects",
+		"of",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds an aspect to apply this scope before synthesis.
+// Experimental.
+func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
+	_jsii_.InvokeVoid(
+		a,
+		"add",
+		[]interface{}{aspect},
+	)
+}
+
 // Experimental.
 type AssetType string
 
@@ -449,15 +528,12 @@ const (
 type AzurermBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -475,16 +551,6 @@ func (j *jsiiProxy_AzurermBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AzurermBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -515,6 +581,16 @@ func (j *jsiiProxy_AzurermBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AzurermBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -557,6 +633,25 @@ func NewAzurermBackend_Override(a AzurermBackend, scope constructs.Construct, pr
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func AzurermBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.AzurermBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -564,57 +659,6 @@ func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) 
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AzurermBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AzurermBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (a *jsiiProxy_AzurermBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -983,15 +1027,12 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 type ConsulBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -1009,16 +1050,6 @@ func (j *jsiiProxy_ConsulBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ConsulBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -1049,6 +1080,16 @@ func (j *jsiiProxy_ConsulBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConsulBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -1091,6 +1132,25 @@ func NewConsulBackend_Override(c ConsulBackend, scope constructs.Construct, prop
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func ConsulBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ConsulBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -1098,57 +1158,6 @@ func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_ConsulBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_ConsulBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (c *jsiiProxy_ConsulBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -1249,15 +1258,12 @@ type ConsulBackendProps struct {
 type CosBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -1275,16 +1281,6 @@ func (j *jsiiProxy_CosBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CosBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -1315,6 +1311,16 @@ func (j *jsiiProxy_CosBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CosBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -1357,6 +1363,25 @@ func NewCosBackend_Override(c CosBackend, scope constructs.Construct, props *Cos
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func CosBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.CosBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -1364,57 +1389,6 @@ func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CosBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CosBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (c *jsiiProxy_CosBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -1509,9 +1483,9 @@ type CosBackendProps struct {
 type DataTerraformRemoteState interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -1519,9 +1493,6 @@ type DataTerraformRemoteState interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -1543,16 +1514,6 @@ func (j *jsiiProxy_DataTerraformRemoteState) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteState) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteState) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1568,6 +1529,16 @@ func (j *jsiiProxy_DataTerraformRemoteState) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteState) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -1608,6 +1579,25 @@ func NewDataTerraformRemoteState_Override(d DataTerraformRemoteState, scope cons
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteState_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteState",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -1689,57 +1679,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) GetString(output *string) *string {
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteState) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteState) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteState) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) OverrideLogicalId(newLogicalId *string) {
@@ -1798,9 +1737,9 @@ func (d *jsiiProxy_DataTerraformRemoteState) ToTerraform() interface{} {
 type DataTerraformRemoteStateArtifactory interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -1808,9 +1747,6 @@ type DataTerraformRemoteStateArtifactory interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -1832,16 +1768,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) CdktfStack() TerraformSt
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1857,6 +1783,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) FriendlyUniqueId() *stri
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -1897,6 +1833,25 @@ func NewDataTerraformRemoteStateArtifactory_Override(d DataTerraformRemoteStateA
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateArtifactory_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateArtifactory",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -1972,57 +1927,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetString(output *string
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -2105,9 +2009,9 @@ type DataTerraformRemoteStateArtifactoryConfig struct {
 type DataTerraformRemoteStateAzurerm interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -2115,9 +2019,6 @@ type DataTerraformRemoteStateAzurerm interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -2139,16 +2040,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) CdktfStack() TerraformStack 
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -2164,6 +2055,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -2204,6 +2105,25 @@ func NewDataTerraformRemoteStateAzurerm_Override(d DataTerraformRemoteStateAzure
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateAzurerm_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateAzurerm",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -2279,57 +2199,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetString(output *string) *s
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -2438,9 +2307,9 @@ type DataTerraformRemoteStateConfig struct {
 type DataTerraformRemoteStateConsul interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -2448,9 +2317,6 @@ type DataTerraformRemoteStateConsul interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -2472,16 +2338,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateConsul) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateConsul) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateConsul) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -2497,6 +2353,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateConsul) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateConsul) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -2537,6 +2403,25 @@ func NewDataTerraformRemoteStateConsul_Override(d DataTerraformRemoteStateConsul
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateConsul_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateConsul",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -2612,57 +2497,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetString(output *string) *st
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateConsul) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateConsul) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateConsul) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -2757,9 +2591,9 @@ type DataTerraformRemoteStateConsulConfig struct {
 type DataTerraformRemoteStateCos interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -2767,9 +2601,6 @@ type DataTerraformRemoteStateCos interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -2791,16 +2622,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateCos) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateCos) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateCos) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -2816,6 +2637,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateCos) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateCos) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -2856,6 +2687,25 @@ func NewDataTerraformRemoteStateCos_Override(d DataTerraformRemoteStateCos, scop
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateCos_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateCos",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -2931,57 +2781,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) GetString(output *string) *strin
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateCos) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateCos) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateCos) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -3070,9 +2869,9 @@ type DataTerraformRemoteStateCosConfig struct {
 type DataTerraformRemoteStateEtcd interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -3080,9 +2879,6 @@ type DataTerraformRemoteStateEtcd interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -3104,16 +2900,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcd) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateEtcd) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateEtcd) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -3129,6 +2915,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcd) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcd) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -3169,6 +2965,25 @@ func NewDataTerraformRemoteStateEtcd_Override(d DataTerraformRemoteStateEtcd, sc
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateEtcd_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateEtcd",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -3250,57 +3065,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetString(output *string) *stri
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OverrideLogicalId(newLogicalId *string) {
@@ -3375,9 +3139,9 @@ type DataTerraformRemoteStateEtcdConfig struct {
 type DataTerraformRemoteStateEtcdV3 interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -3385,9 +3149,6 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -3409,16 +3170,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -3434,6 +3185,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -3474,6 +3235,25 @@ func NewDataTerraformRemoteStateEtcdV3_Override(d DataTerraformRemoteStateEtcdV3
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateEtcdV3_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateEtcdV3",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -3549,57 +3329,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetString(output *string) *st
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -3688,9 +3417,9 @@ type DataTerraformRemoteStateEtcdV3Config struct {
 type DataTerraformRemoteStateGcs interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -3698,9 +3427,6 @@ type DataTerraformRemoteStateGcs interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -3722,16 +3448,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateGcs) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateGcs) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateGcs) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -3747,6 +3463,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateGcs) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateGcs) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -3787,6 +3513,25 @@ func NewDataTerraformRemoteStateGcs_Override(d DataTerraformRemoteStateGcs, scop
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateGcs_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateGcs",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -3862,57 +3607,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetString(output *string) *strin
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateGcs) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateGcs) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateGcs) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -3995,9 +3689,9 @@ type DataTerraformRemoteStateGcsConfig struct {
 type DataTerraformRemoteStateHttp interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -4005,9 +3699,6 @@ type DataTerraformRemoteStateHttp interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -4029,16 +3720,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateHttp) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateHttp) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateHttp) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -4054,6 +3735,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateHttp) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateHttp) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -4094,6 +3785,25 @@ func NewDataTerraformRemoteStateHttp_Override(d DataTerraformRemoteStateHttp, sc
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateHttp_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateHttp",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -4169,57 +3879,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetString(output *string) *stri
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateHttp) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateHttp) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateHttp) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -4316,9 +3975,9 @@ type DataTerraformRemoteStateHttpConfig struct {
 type DataTerraformRemoteStateLocal interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -4326,9 +3985,6 @@ type DataTerraformRemoteStateLocal interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -4350,16 +4006,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateLocal) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateLocal) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateLocal) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -4375,6 +4021,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateLocal) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateLocal) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -4415,6 +4071,25 @@ func NewDataTerraformRemoteStateLocal_Override(d DataTerraformRemoteStateLocal, 
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateLocal_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateLocal",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -4496,57 +4171,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetString(output *string) *str
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateLocal) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateLocal) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateLocal) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) OverrideLogicalId(newLogicalId *string) {
@@ -4617,9 +4241,9 @@ type DataTerraformRemoteStateLocalConfig struct {
 type DataTerraformRemoteStateManta interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -4627,9 +4251,6 @@ type DataTerraformRemoteStateManta interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -4651,16 +4272,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateManta) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateManta) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateManta) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -4676,6 +4287,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateManta) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateManta) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -4716,6 +4337,25 @@ func NewDataTerraformRemoteStateManta_Override(d DataTerraformRemoteStateManta, 
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateManta_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateManta",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -4791,57 +4431,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) GetString(output *string) *str
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateManta) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateManta) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateManta) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -4930,9 +4519,9 @@ type DataTerraformRemoteStateMantaConfig struct {
 type DataTerraformRemoteStateOss interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -4940,9 +4529,6 @@ type DataTerraformRemoteStateOss interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -4964,16 +4550,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateOss) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateOss) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateOss) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -4989,6 +4565,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateOss) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateOss) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -5029,6 +4615,25 @@ func NewDataTerraformRemoteStateOss_Override(d DataTerraformRemoteStateOss, scop
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateOss_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateOss",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -5104,57 +4709,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) GetString(output *string) *strin
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateOss) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateOss) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateOss) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -5259,9 +4813,9 @@ type DataTerraformRemoteStateOssConfig struct {
 type DataTerraformRemoteStatePg interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -5269,9 +4823,6 @@ type DataTerraformRemoteStatePg interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -5293,16 +4844,6 @@ func (j *jsiiProxy_DataTerraformRemoteStatePg) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStatePg) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStatePg) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -5318,6 +4859,16 @@ func (j *jsiiProxy_DataTerraformRemoteStatePg) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStatePg) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -5358,6 +4909,25 @@ func NewDataTerraformRemoteStatePg_Override(d DataTerraformRemoteStatePg, scope 
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStatePg_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStatePg",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -5433,57 +5003,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) GetString(output *string) *string
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStatePg) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStatePg) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStatePg) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -5578,9 +5097,9 @@ type DataTerraformRemoteStateRemoteConfig struct {
 type DataTerraformRemoteStateS3 interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -5588,9 +5107,6 @@ type DataTerraformRemoteStateS3 interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -5612,16 +5128,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateS3) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateS3) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateS3) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -5637,6 +5143,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateS3) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateS3) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -5677,6 +5193,25 @@ func NewDataTerraformRemoteStateS3_Override(d DataTerraformRemoteStateS3, scope 
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateS3_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateS3",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -5752,57 +5287,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) GetString(output *string) *string
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateS3) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateS3) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateS3) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -5927,9 +5411,9 @@ type DataTerraformRemoteStateS3Config struct {
 type DataTerraformRemoteStateSwift interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -5937,9 +5421,6 @@ type DataTerraformRemoteStateSwift interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -5961,16 +5442,6 @@ func (j *jsiiProxy_DataTerraformRemoteStateSwift) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_DataTerraformRemoteStateSwift) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_DataTerraformRemoteStateSwift) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -5986,6 +5457,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateSwift) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateSwift) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -6026,6 +5507,25 @@ func NewDataTerraformRemoteStateSwift_Override(d DataTerraformRemoteStateSwift, 
 		[]interface{}{scope, id, config},
 		d,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateSwift",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -6101,57 +5601,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetString(output *string) *str
 		d,
 		"getString",
 		[]interface{}{output},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateSwift) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateSwift) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (d *jsiiProxy_DataTerraformRemoteStateSwift) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -6374,15 +5823,12 @@ type EncodingOptions struct {
 type EtcdBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -6400,16 +5846,6 @@ func (j *jsiiProxy_EtcdBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_EtcdBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -6440,6 +5876,16 @@ func (j *jsiiProxy_EtcdBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EtcdBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -6482,6 +5928,25 @@ func NewEtcdBackend_Override(e EtcdBackend, scope constructs.Construct, props *E
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func EtcdBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -6489,57 +5954,6 @@ func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_EtcdBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_EtcdBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (e *jsiiProxy_EtcdBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -6626,15 +6040,12 @@ type EtcdBackendProps struct {
 type EtcdV3Backend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -6652,16 +6063,6 @@ func (j *jsiiProxy_EtcdV3Backend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_EtcdV3Backend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -6692,6 +6093,16 @@ func (j *jsiiProxy_EtcdV3Backend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EtcdV3Backend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -6734,6 +6145,25 @@ func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, prop
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func EtcdV3Backend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdV3Backend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -6741,57 +6171,6 @@ func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_EtcdV3Backend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_EtcdV3Backend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (e *jsiiProxy_EtcdV3Backend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -6886,15 +6265,12 @@ type EtcdV3BackendProps struct {
 type GcsBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -6912,16 +6288,6 @@ func (j *jsiiProxy_GcsBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_GcsBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -6952,6 +6318,16 @@ func (j *jsiiProxy_GcsBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GcsBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -6994,6 +6370,25 @@ func NewGcsBackend_Override(g GcsBackend, scope constructs.Construct, props *Gcs
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func GcsBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.GcsBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -7001,57 +6396,6 @@ func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (g *jsiiProxy_GcsBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (g *jsiiProxy_GcsBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (g *jsiiProxy_GcsBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		g,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -7140,15 +6484,12 @@ type GcsBackendProps struct {
 type HttpBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -7166,16 +6507,6 @@ func (j *jsiiProxy_HttpBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_HttpBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -7206,6 +6537,16 @@ func (j *jsiiProxy_HttpBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -7248,6 +6589,25 @@ func NewHttpBackend_Override(h HttpBackend, scope constructs.Construct, props *H
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func HttpBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.HttpBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -7255,57 +6615,6 @@ func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (h *jsiiProxy_HttpBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		h,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (h *jsiiProxy_HttpBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		h,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (h *jsiiProxy_HttpBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		h,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -7428,6 +6737,27 @@ func (i *jsiiProxy_IAnyProducer) Produce(context IResolveContext) interface{} {
 	)
 
 	return returns
+}
+
+// Represents an Aspect.
+// Experimental.
+type IAspect interface {
+	// All aspects can visit an IConstruct.
+	// Experimental.
+	Visit(node constructs.IConstruct)
+}
+
+// The jsii proxy for IAspect
+type jsiiProxy_IAspect struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IAspect) Visit(node constructs.IConstruct) {
+	_jsii_.InvokeVoid(
+		i,
+		"visit",
+		[]interface{}{node},
+	)
 }
 
 // Function used to concatenate symbols in the target document language.
@@ -7692,6 +7022,27 @@ func (j *jsiiProxy_IResource) Stack() TerraformStack {
 	return returns
 }
 
+// Encodes information how a certain Stack should be deployed inspired by AWS CDK v2 implementation (synth functionality was removed in constructs v10).
+// Experimental.
+type IStackSynthesizer interface {
+	// Synthesize the associated stack to the session.
+	// Experimental.
+	Synthesize(session ISynthesisSession)
+}
+
+// The jsii proxy for IStackSynthesizer
+type jsiiProxy_IStackSynthesizer struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IStackSynthesizer) Synthesize(session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Interface for lazy string producers.
 // Experimental.
 type IStringProducer interface {
@@ -7715,6 +7066,56 @@ func (i *jsiiProxy_IStringProducer) Produce(context IResolveContext) *string {
 		&returns,
 	)
 
+	return returns
+}
+
+// Represents a single session of synthesis.
+//
+// Passed into `TerraformStack.onSynthesize()` methods.
+// originally from aws/constructs lib v3.3.126 (synth functionality was removed in constructs v10)
+// Experimental.
+type ISynthesisSession interface {
+	// Experimental.
+	Manifest() Manifest
+	// The output directory for this synthesis session.
+	// Experimental.
+	Outdir() *string
+	// Experimental.
+	SkipValidation() *bool
+}
+
+// The jsii proxy for ISynthesisSession
+type jsiiProxy_ISynthesisSession struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ISynthesisSession) Manifest() Manifest {
+	var returns Manifest
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISynthesisSession) Outdir() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISynthesisSession) SkipValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipValidation",
+		&returns,
+	)
 	return returns
 }
 
@@ -8116,15 +7517,12 @@ type LazyStringValueOptions struct {
 type LocalBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -8142,16 +7540,6 @@ func (j *jsiiProxy_LocalBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_LocalBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -8182,6 +7570,16 @@ func (j *jsiiProxy_LocalBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LocalBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -8224,6 +7622,25 @@ func NewLocalBackend_Override(l LocalBackend, scope constructs.Construct, props 
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func LocalBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.LocalBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -8231,57 +7648,6 @@ func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (l *jsiiProxy_LocalBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (l *jsiiProxy_LocalBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (l *jsiiProxy_LocalBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -8363,7 +7729,7 @@ type LocalBackendProps struct {
 // Experimental.
 type Manifest interface {
 	Outdir() *string
-	Stacks() *[]*StackManifest
+	Stacks() *map[string]*StackManifest
 	Version() *string
 	BuildManifest() interface{}
 	ForStack(stack TerraformStack) *StackManifest
@@ -8385,8 +7751,8 @@ func (j *jsiiProxy_Manifest) Outdir() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Manifest) Stacks() *[]*StackManifest {
-	var returns *[]*StackManifest
+func (j *jsiiProxy_Manifest) Stacks() *map[string]*StackManifest {
+	var returns *map[string]*StackManifest
 	_jsii_.Get(
 		j,
 		"stacks",
@@ -8506,15 +7872,12 @@ func (m *jsiiProxy_Manifest) WriteToFile() {
 type MantaBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -8532,16 +7895,6 @@ func (j *jsiiProxy_MantaBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_MantaBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -8572,6 +7925,16 @@ func (j *jsiiProxy_MantaBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MantaBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -8614,6 +7977,25 @@ func NewMantaBackend_Override(m MantaBackend, scope constructs.Construct, props 
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func MantaBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.MantaBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -8621,57 +8003,6 @@ func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (m *jsiiProxy_MantaBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		m,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (m *jsiiProxy_MantaBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		m,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (m *jsiiProxy_MantaBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		m,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -8926,15 +8257,12 @@ type OssAssumeRole struct {
 type OssBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -8952,16 +8280,6 @@ func (j *jsiiProxy_OssBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_OssBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -8992,6 +8310,16 @@ func (j *jsiiProxy_OssBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OssBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -9034,6 +8362,25 @@ func NewOssBackend_Override(o OssBackend, scope constructs.Construct, props *Oss
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func OssBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.OssBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -9041,57 +8388,6 @@ func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (o *jsiiProxy_OssBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		o,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (o *jsiiProxy_OssBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		o,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (o *jsiiProxy_OssBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		o,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -9202,15 +8498,12 @@ type OssBackendProps struct {
 type PgBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -9228,16 +8521,6 @@ func (j *jsiiProxy_PgBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PgBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -9268,6 +8551,16 @@ func (j *jsiiProxy_PgBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PgBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -9310,6 +8603,25 @@ func NewPgBackend_Override(p PgBackend, scope constructs.Construct, props *PgBac
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func PgBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.PgBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -9317,57 +8629,6 @@ func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_PgBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_PgBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (p *jsiiProxy_PgBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -9509,15 +8770,12 @@ func (j *jsiiProxy_PrefixedRemoteWorkspaces) SetPrefix(val *string) {
 type RemoteBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -9535,16 +8793,6 @@ func (j *jsiiProxy_RemoteBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_RemoteBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -9575,6 +8823,16 @@ func (j *jsiiProxy_RemoteBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RemoteBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -9617,6 +8875,25 @@ func NewRemoteBackend_Override(r RemoteBackend, scope constructs.Construct, prop
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func RemoteBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.RemoteBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -9624,57 +8901,6 @@ func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (r *jsiiProxy_RemoteBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (r *jsiiProxy_RemoteBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (r *jsiiProxy_RemoteBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -9781,10 +9007,8 @@ type ResolveOptions struct {
 type Resource interface {
 	constructs.Construct
 	IResource
+	Node() constructs.Node
 	Stack() TerraformStack
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	ToString() *string
 }
 
@@ -9792,6 +9016,16 @@ type Resource interface {
 type jsiiProxy_Resource struct {
 	internal.Type__constructsConstruct
 	jsiiProxy_IResource
+}
+
+func (j *jsiiProxy_Resource) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Resource) Stack() TerraformStack {
@@ -9816,51 +9050,19 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string) {
 	)
 }
 
-// Perform final modifications before synthesis.
+// Checks if `x` is a construct.
 //
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (r *jsiiProxy_Resource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func Resource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (r *jsiiProxy_Resource) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
+	var returns *bool
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (r *jsiiProxy_Resource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"onValidate",
-		nil, // no parameters
+	_jsii_.StaticInvoke(
+		"cdktf.Resource",
+		"isConstruct",
+		[]interface{}{x},
 		&returns,
 	)
 
@@ -9886,15 +9088,12 @@ func (r *jsiiProxy_Resource) ToString() *string {
 type S3Backend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -9912,16 +9111,6 @@ func (j *jsiiProxy_S3Backend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_S3Backend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -9952,6 +9141,16 @@ func (j *jsiiProxy_S3Backend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3Backend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -9994,6 +9193,25 @@ func NewS3Backend_Override(s S3Backend, scope constructs.Construct, props *S3Bac
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func S3Backend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.S3Backend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -10001,57 +9219,6 @@ func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_S3Backend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_S3Backend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (s *jsiiProxy_S3Backend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -10179,7 +9346,21 @@ type S3BackendProps struct {
 }
 
 // Experimental.
+type StackAnnotation struct {
+	// Experimental.
+	ConstructPath *string `json:"constructPath"`
+	// Experimental.
+	Level AnnotationMetadataEntryType `json:"level"`
+	// Experimental.
+	Message *string `json:"message"`
+	// Experimental.
+	Stacktrace *[]*string `json:"stacktrace"`
+}
+
+// Experimental.
 type StackManifest struct {
+	// Experimental.
+	Annotations *[]*StackAnnotation `json:"annotations"`
 	// Experimental.
 	ConstructPath *string `json:"constructPath"`
 	// Experimental.
@@ -10340,15 +9521,12 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 type SwiftBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -10366,16 +9544,6 @@ func (j *jsiiProxy_SwiftBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_SwiftBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -10406,6 +9574,16 @@ func (j *jsiiProxy_SwiftBackend) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SwiftBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -10448,6 +9626,25 @@ func NewSwiftBackend_Override(s SwiftBackend, scope constructs.Construct, props 
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func SwiftBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.SwiftBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -10455,57 +9652,6 @@ func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_SwiftBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_SwiftBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (s *jsiiProxy_SwiftBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -10640,13 +9786,11 @@ type TerraformAsset interface {
 	AssetHash() *string
 	SetAssetHash(val *string)
 	FileName() *string
+	Node() constructs.Node
 	Path() *string
 	Stack() TerraformStack
 	Type() AssetType
 	SetType(val AssetType)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	ToString() *string
 }
 
@@ -10670,6 +9814,16 @@ func (j *jsiiProxy_TerraformAsset) FileName() *string {
 	_jsii_.Get(
 		j,
 		"fileName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformAsset) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -10754,51 +9908,19 @@ func (j *jsiiProxy_TerraformAsset) SetType(val AssetType) {
 	)
 }
 
-// Perform final modifications before synthesis.
+// Checks if `x` is a construct.
 //
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformAsset) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformAsset_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformAsset) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
+	var returns *bool
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformAsset) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformAsset",
+		"isConstruct",
+		[]interface{}{x},
 		&returns,
 	)
 
@@ -10834,15 +9956,12 @@ type TerraformAssetConfig struct {
 type TerraformBackend interface {
 	TerraformElement
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
 	Name() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -10860,16 +9979,6 @@ func (j *jsiiProxy_TerraformBackend) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformBackend) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -10905,6 +10014,16 @@ func (j *jsiiProxy_TerraformBackend) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformBackend) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformBackend) RawOverrides() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -10927,6 +10046,25 @@ func NewTerraformBackend_Override(t TerraformBackend, scope constructs.Construct
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformBackend_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformBackend",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -10934,57 +10072,6 @@ func (t *jsiiProxy_TerraformBackend) AddOverride(path *string, value interface{}
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformBackend) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformBackend) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformBackend) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -11061,7 +10148,6 @@ type TerraformDataSource interface {
 	ITerraformDependable
 	ITerraformResource
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Count() *float64
 	SetCount(val *float64)
@@ -11071,6 +10157,7 @@ type TerraformDataSource interface {
 	FriendlyUniqueId() *string
 	Lifecycle() *TerraformResourceLifecycle
 	SetLifecycle(val *TerraformResourceLifecycle)
+	Node() constructs.Node
 	Provider() TerraformProvider
 	SetProvider(val TerraformProvider)
 	RawOverrides() interface{}
@@ -11083,9 +10170,6 @@ type TerraformDataSource interface {
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -11105,16 +10189,6 @@ func (j *jsiiProxy_TerraformDataSource) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformDataSource) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -11175,6 +10249,16 @@ func (j *jsiiProxy_TerraformDataSource) Lifecycle() *TerraformResourceLifecycle 
 	_jsii_.Get(
 		j,
 		"lifecycle",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformDataSource) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -11289,6 +10373,25 @@ func (j *jsiiProxy_TerraformDataSource) SetProvider(val TerraformProvider) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformDataSource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformDataSource",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -11368,57 +10471,6 @@ func (t *jsiiProxy_TerraformDataSource) InterpolationForAttribute(terraformAttri
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformDataSource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformDataSource) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformDataSource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (t *jsiiProxy_TerraformDataSource) OverrideLogicalId(newLogicalId *string) {
@@ -11491,14 +10543,11 @@ func (t *jsiiProxy_TerraformDataSource) ToTerraform() interface{} {
 type TerraformElement interface {
 	constructs.Construct
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -11520,16 +10569,6 @@ func (j *jsiiProxy_TerraformElement) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_TerraformElement) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_TerraformElement) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -11545,6 +10584,16 @@ func (j *jsiiProxy_TerraformElement) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformElement) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -11587,6 +10636,25 @@ func NewTerraformElement_Override(t TerraformElement, scope constructs.Construct
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformElement_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformElement",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformElement) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -11594,57 +10662,6 @@ func (t *jsiiProxy_TerraformElement) AddOverride(path *string, value interface{}
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformElement) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformElement) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformElement) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -11714,12 +10731,12 @@ type TerraformElementMetadata struct {
 type TerraformHclModule interface {
 	TerraformModule
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	Providers() *[]interface{}
 	RawOverrides() interface{}
 	Source() *string
@@ -11733,9 +10750,6 @@ type TerraformHclModule interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	InterpolationForOutput(moduleOutput *string) interface{}
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	Set(variable *string, value interface{})
 	SynthesizeAttributes() *map[string]interface{}
@@ -11754,16 +10768,6 @@ func (j *jsiiProxy_TerraformHclModule) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformHclModule) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -11804,6 +10808,16 @@ func (j *jsiiProxy_TerraformHclModule) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformHclModule) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -11892,6 +10906,25 @@ func (j *jsiiProxy_TerraformHclModule) SetDependsOn(val *[]*string) {
 		"dependsOn",
 		val,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformHclModule_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformHclModule",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -11996,57 +11029,6 @@ func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *stri
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformHclModule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformHclModule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformHclModule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (t *jsiiProxy_TerraformHclModule) OverrideLogicalId(newLogicalId *string) {
@@ -12145,16 +11127,13 @@ type TerraformLocal interface {
 	AsNumber() *float64
 	AsString() *string
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Expression() interface{}
 	SetExpression(val interface{})
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -12216,16 +11195,6 @@ func (j *jsiiProxy_TerraformLocal) CdktfStack() TerraformStack {
 	return returns
 }
 
-func (j *jsiiProxy_TerraformLocal) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_TerraformLocal) ConstructNodeMetadata() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -12251,6 +11220,16 @@ func (j *jsiiProxy_TerraformLocal) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformLocal) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -12301,6 +11280,25 @@ func (j *jsiiProxy_TerraformLocal) SetExpression(val interface{}) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformLocal_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformLocal",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -12308,57 +11306,6 @@ func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) 
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformLocal) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformLocal) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformLocal) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -12431,12 +11378,12 @@ type TerraformModule interface {
 	TerraformElement
 	ITerraformDependable
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	Providers() *[]interface{}
 	RawOverrides() interface{}
 	Source() *string
@@ -12444,9 +11391,6 @@ type TerraformModule interface {
 	AddOverride(path *string, value interface{})
 	AddProvider(provider interface{})
 	InterpolationForOutput(moduleOutput *string) interface{}
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -12465,16 +11409,6 @@ func (j *jsiiProxy_TerraformModule) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformModule) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -12515,6 +11449,16 @@ func (j *jsiiProxy_TerraformModule) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformModule) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -12580,6 +11524,25 @@ func (j *jsiiProxy_TerraformModule) SetDependsOn(val *[]*string) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformModule_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformModule",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformModule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -12606,57 +11569,6 @@ func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string)
 		t,
 		"interpolationForOutput",
 		[]interface{}{moduleOutput},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformModule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformModule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformModule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -12754,22 +11666,19 @@ type TerraformModuleProvider struct {
 type TerraformOutput interface {
 	TerraformElement
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	DependsOn() *[]ITerraformDependable
 	SetDependsOn(val *[]ITerraformDependable)
 	Description() *string
 	SetDescription(val *string)
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	Sensitive() *bool
 	SetSensitive(val *bool)
 	Value() interface{}
 	SetValue(val interface{})
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -12787,16 +11696,6 @@ func (j *jsiiProxy_TerraformOutput) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformOutput) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -12837,6 +11736,16 @@ func (j *jsiiProxy_TerraformOutput) FriendlyUniqueId() *string {
 	_jsii_.Get(
 		j,
 		"friendlyUniqueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformOutput) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -12931,6 +11840,25 @@ func (j *jsiiProxy_TerraformOutput) SetValue(val interface{}) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformOutput_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformOutput",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -12938,57 +11866,6 @@ func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{})
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformOutput) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformOutput) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformOutput) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -13076,19 +11953,16 @@ type TerraformProvider interface {
 	Alias() *string
 	SetAlias(val *string)
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Fqn() *string
 	FriendlyUniqueId() *string
 	MetaAttributes() *map[string]interface{}
+	Node() constructs.Node
 	RawOverrides() interface{}
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
 	TerraformProviderSource() *string
 	TerraformResourceType() *string
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -13116,16 +11990,6 @@ func (j *jsiiProxy_TerraformProvider) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformProvider) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -13166,6 +12030,16 @@ func (j *jsiiProxy_TerraformProvider) MetaAttributes() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"metaAttributes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformProvider) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -13231,6 +12105,25 @@ func (j *jsiiProxy_TerraformProvider) SetAlias(val *string) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformProvider_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformProvider",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -13238,57 +12131,6 @@ func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformProvider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformProvider) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformProvider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -13381,9 +12223,9 @@ type TerraformProviderGeneratorMetadata struct {
 type TerraformRemoteState interface {
 	TerraformElement
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	FriendlyUniqueId() *string
+	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) interface{}
@@ -13391,9 +12233,6 @@ type TerraformRemoteState interface {
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	ToMetadata() interface{}
 	ToString() *string
@@ -13410,16 +12249,6 @@ func (j *jsiiProxy_TerraformRemoteState) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformRemoteState) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -13445,6 +12274,16 @@ func (j *jsiiProxy_TerraformRemoteState) FriendlyUniqueId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformRemoteState) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformRemoteState) RawOverrides() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -13465,6 +12304,25 @@ func NewTerraformRemoteState_Override(t TerraformRemoteState, scope constructs.C
 		[]interface{}{scope, id, backend, config},
 		t,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformRemoteState_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformRemoteState",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -13546,57 +12404,6 @@ func (t *jsiiProxy_TerraformRemoteState) GetString(output *string) *string {
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformRemoteState) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformRemoteState) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformRemoteState) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string) {
@@ -13657,7 +12464,6 @@ type TerraformResource interface {
 	ITerraformDependable
 	ITerraformResource
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Count() *float64
 	SetCount(val *float64)
@@ -13667,6 +12473,7 @@ type TerraformResource interface {
 	FriendlyUniqueId() *string
 	Lifecycle() *TerraformResourceLifecycle
 	SetLifecycle(val *TerraformResourceLifecycle)
+	Node() constructs.Node
 	Provider() TerraformProvider
 	SetProvider(val TerraformProvider)
 	RawOverrides() interface{}
@@ -13679,9 +12486,6 @@ type TerraformResource interface {
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -13701,16 +12505,6 @@ func (j *jsiiProxy_TerraformResource) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformResource) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -13771,6 +12565,16 @@ func (j *jsiiProxy_TerraformResource) Lifecycle() *TerraformResourceLifecycle {
 	_jsii_.Get(
 		j,
 		"lifecycle",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformResource) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -13885,6 +12689,25 @@ func (j *jsiiProxy_TerraformResource) SetProvider(val TerraformProvider) {
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformResource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformResource",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -13958,57 +12781,6 @@ func (t *jsiiProxy_TerraformResource) InterpolationForAttribute(terraformAttribu
 		t,
 		"interpolationForAttribute",
 		[]interface{}{terraformAttribute},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformResource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformResource) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformResource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -14112,13 +12884,13 @@ type TerraformResourceLifecycle struct {
 // Experimental.
 type TerraformStack interface {
 	constructs.Construct
+	Node() constructs.Node
+	Synthesizer() IStackSynthesizer
+	SetSynthesizer(val IStackSynthesizer)
 	AddOverride(path *string, value interface{})
 	AllocateLogicalId(tfElement interface{}) *string
 	AllProviders() *[]TerraformProvider
 	GetLogicalId(tfElement interface{}) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -14127,6 +12899,27 @@ type TerraformStack interface {
 type jsiiProxy_TerraformStack struct {
 	internal.Type__constructsConstruct
 }
+
+func (j *jsiiProxy_TerraformStack) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformStack) Synthesizer() IStackSynthesizer {
+	var returns IStackSynthesizer
+	_jsii_.Get(
+		j,
+		"synthesizer",
+		&returns,
+	)
+	return returns
+}
+
 
 // Experimental.
 func NewTerraformStack(scope constructs.Construct, id *string) TerraformStack {
@@ -14152,6 +12945,33 @@ func NewTerraformStack_Override(t TerraformStack, scope constructs.Construct, id
 		[]interface{}{scope, id},
 		t,
 	)
+}
+
+func (j *jsiiProxy_TerraformStack) SetSynthesizer(val IStackSynthesizer) {
+	_jsii_.Set(
+		j,
+		"synthesizer",
+		val,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformStack_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformStack",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -14242,57 +13062,6 @@ func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformStack) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformStack) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformStack) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_TerraformStack) ToString() *string {
@@ -14337,12 +13106,12 @@ type TerraformVariable interface {
 	TerraformElement
 	BooleanValue() *bool
 	CdktfStack() TerraformStack
-	ConstructNode() constructs.Node
 	ConstructNodeMetadata() *map[string]interface{}
 	Default() interface{}
 	Description() *string
 	FriendlyUniqueId() *string
 	ListValue() *[]*string
+	Node() constructs.Node
 	NumberValue() *float64
 	RawOverrides() interface{}
 	Sensitive() *bool
@@ -14350,9 +13119,6 @@ type TerraformVariable interface {
 	Type() *string
 	Value() interface{}
 	AddOverride(path *string, value interface{})
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -14380,16 +13146,6 @@ func (j *jsiiProxy_TerraformVariable) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformVariable) ConstructNode() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"constructNode",
 		&returns,
 	)
 	return returns
@@ -14440,6 +13196,16 @@ func (j *jsiiProxy_TerraformVariable) ListValue() *[]*string {
 	_jsii_.Get(
 		j,
 		"listValue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformVariable) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -14532,6 +13298,25 @@ func NewTerraformVariable_Override(t TerraformVariable, scope constructs.Constru
 	)
 }
 
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func TerraformVariable_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformVariable",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -14539,57 +13324,6 @@ func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{
 		"addOverride",
 		[]interface{}{path, value},
 	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TerraformVariable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TerraformVariable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-// instead of overriding this method.
-func (t *jsiiProxy_TerraformVariable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -14747,6 +13481,22 @@ func Testing_FullSynth(stack TerraformStack) *string {
 		"cdktf.Testing",
 		"fullSynth",
 		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_RenderConstructTree(construct constructs.IConstruct) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"renderConstructTree",
+		[]interface{}{construct},
 		&returns,
 	)
 
