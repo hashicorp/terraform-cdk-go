@@ -828,6 +828,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.IManifest",
+		reflect.TypeOf((*IManifest)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "stacks", GoGetter: "Stacks"},
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IManifest{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.INumberProducer",
 		reflect.TypeOf((*INumberProducer)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1033,7 +1044,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "writeToFile", GoMethod: "WriteToFile"},
 		},
 		func() interface{} {
-			return &jsiiProxy_Manifest{}
+			j := jsiiProxy_Manifest{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IManifest)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(

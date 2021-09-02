@@ -6814,6 +6814,39 @@ func (i *jsiiProxy_IListProducer) Produce(context IResolveContext) *[]*string {
 	return returns
 }
 
+// Experimental.
+type IManifest interface {
+	// Experimental.
+	Stacks() *map[string]*StackManifest
+	// Experimental.
+	Version() *string
+}
+
+// The jsii proxy for IManifest
+type jsiiProxy_IManifest struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IManifest) Stacks() *map[string]*StackManifest {
+	var returns *map[string]*StackManifest
+	_jsii_.Get(
+		j,
+		"stacks",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IManifest) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
+		&returns,
+	)
+	return returns
+}
+
 // Interface for lazy number producers.
 // Experimental.
 type INumberProducer interface {
@@ -7728,17 +7761,18 @@ type LocalBackendProps struct {
 
 // Experimental.
 type Manifest interface {
+	IManifest
 	Outdir() *string
 	Stacks() *map[string]*StackManifest
 	Version() *string
-	BuildManifest() interface{}
+	BuildManifest() IManifest
 	ForStack(stack TerraformStack) *StackManifest
 	WriteToFile()
 }
 
 // The jsii proxy struct for Manifest
 type jsiiProxy_Manifest struct {
-	_ byte // padding
+	jsiiProxy_IManifest
 }
 
 func (j *jsiiProxy_Manifest) Outdir() *string {
@@ -7832,8 +7866,8 @@ func Manifest_StacksFolder() *string {
 }
 
 // Experimental.
-func (m *jsiiProxy_Manifest) BuildManifest() interface{} {
-	var returns interface{}
+func (m *jsiiProxy_Manifest) BuildManifest() IManifest {
+	var returns IManifest
 
 	_jsii_.Invoke(
 		m,
