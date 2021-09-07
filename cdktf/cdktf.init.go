@@ -905,6 +905,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.IResourceConstructor",
+		reflect.TypeOf((*IResourceConstructor)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_IResourceConstructor{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktf.IScopeCallback",
+		reflect.TypeOf((*IScopeCallback)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_IScopeCallback{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.IStackSynthesizer",
 		reflect.TypeOf((*IStackSynthesizer)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -7055,6 +7055,24 @@ func (j *jsiiProxy_IResource) Stack() TerraformStack {
 	return returns
 }
 
+// Experimental.
+type IResourceConstructor interface {
+}
+
+// The jsii proxy for IResourceConstructor
+type jsiiProxy_IResourceConstructor struct {
+	_ byte // padding
+}
+
+// Experimental.
+type IScopeCallback interface {
+}
+
+// The jsii proxy for IScopeCallback
+type jsiiProxy_IScopeCallback struct {
+	_ byte // padding
+}
+
 // Encodes information how a certain Stack should be deployed inspired by AWS CDK v2 implementation (synth functionality was removed in constructs v10).
 // Experimental.
 type IStackSynthesizer interface {
@@ -13538,6 +13556,17 @@ func Testing_RenderConstructTree(construct constructs.IConstruct) *string {
 }
 
 // Experimental.
+func Testing_SetupJest() {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"cdktf.Testing",
+		"setupJest",
+		nil, // no parameters
+	)
+}
+
+// Experimental.
 func Testing_StubVersion(app App) App {
 	_init_.Initialize()
 
@@ -13564,6 +13593,22 @@ func Testing_Synth(stack TerraformStack) *string {
 		"cdktf.Testing",
 		"synth",
 		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_SynthScope(fn IScopeCallback) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"synthScope",
+		[]interface{}{fn},
 		&returns,
 	)
 
