@@ -734,6 +734,14 @@ func init() {
 		reflect.TypeOf((*EtcdV3BackendProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdktf.Fn",
+		reflect.TypeOf((*Fn)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Fn{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.GcsBackend",
 		reflect.TypeOf((*GcsBackend)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1761,8 +1769,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToken", GoMethod: "AddToken"},
 			_jsii_.MemberProperty{JsiiProperty: "firstToken", GoGetter: "FirstToken"},
 			_jsii_.MemberProperty{JsiiProperty: "firstValue", GoGetter: "FirstValue"},
+			_jsii_.MemberProperty{JsiiProperty: "intrinsic", GoGetter: "Intrinsic"},
 			_jsii_.MemberMethod{JsiiMethod: "join", GoMethod: "Join"},
 			_jsii_.MemberProperty{JsiiProperty: "length", GoGetter: "Length"},
+			_jsii_.MemberProperty{JsiiProperty: "literals", GoGetter: "Literals"},
 			_jsii_.MemberMethod{JsiiMethod: "mapTokens", GoMethod: "MapTokens"},
 			_jsii_.MemberProperty{JsiiProperty: "tokens", GoGetter: "Tokens"},
 		},
