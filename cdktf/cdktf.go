@@ -7401,7 +7401,7 @@ func Fn_Regexall(pattern interface{}, value interface{}) *[]*string {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/split.html replace} searches a given string for another given substring, and replaces each occurrence with a given replacement string.
+// {@link https://www.terraform.io/docs/language/functions/replace.html replace} searches a given string for another given substring, and replaces each occurrence with a given replacement string.
 // Experimental.
 func Fn_Replace(value interface{}, substring interface{}, replacement interface{}) *string {
 	_init_.Initialize()
