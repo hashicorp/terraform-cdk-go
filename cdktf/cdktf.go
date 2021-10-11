@@ -9084,9 +9084,9 @@ type ITerraformResource interface {
 	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	// Experimental.
-	Count() *float64
+	Count() interface{}
 	// Experimental.
-	SetCount(c *float64)
+	SetCount(c interface{})
 	// Experimental.
 	DependsOn() *[]*string
 	// Experimental.
@@ -9125,8 +9125,8 @@ func (i *jsiiProxy_ITerraformResource) InterpolationForAttribute(terraformAttrib
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) Count() *float64 {
-	var returns *float64
+func (j *jsiiProxy_ITerraformResource) Count() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"count",
@@ -9135,7 +9135,7 @@ func (j *jsiiProxy_ITerraformResource) Count() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetCount(val *float64) {
+func (j *jsiiProxy_ITerraformResource) SetCount(val interface{}) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -9431,6 +9431,116 @@ type LazyAnyValueOptions struct {
 	// If the produced value is an array and it is empty, return 'undefined' instead.
 	// Experimental.
 	OmitEmptyArray *bool `json:"omitEmptyArray"`
+}
+
+// Experimental.
+type LazyBase interface {
+	IResolvable
+	CreationStack() *[]*string
+	AddPostProcessor(postProcessor IPostProcessor)
+	Resolve(context IResolveContext) interface{}
+	ResolveLazy(context IResolveContext) interface{}
+	ToJSON() interface{}
+	ToString() *string
+}
+
+// The jsii proxy struct for LazyBase
+type jsiiProxy_LazyBase struct {
+	jsiiProxy_IResolvable
+}
+
+func (j *jsiiProxy_LazyBase) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewLazyBase_Override(l LazyBase) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.LazyBase",
+		nil, // no parameters
+		l,
+	)
+}
+
+// Experimental.
+func (l *jsiiProxy_LazyBase) AddPostProcessor(postProcessor IPostProcessor) {
+	_jsii_.InvokeVoid(
+		l,
+		"addPostProcessor",
+		[]interface{}{postProcessor},
+	)
+}
+
+// Produce the Token's value at resolution time.
+// Experimental.
+func (l *jsiiProxy_LazyBase) Resolve(context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"resolve",
+		[]interface{}{context},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (l *jsiiProxy_LazyBase) ResolveLazy(context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"resolveLazy",
+		[]interface{}{context},
+		&returns,
+	)
+
+	return returns
+}
+
+// Turn this Token into JSON.
+//
+// Called automatically when JSON.stringify() is called on a Token.
+// Experimental.
+func (l *jsiiProxy_LazyBase) ToJSON() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"toJSON",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a string representation of this resolvable object.
+//
+// Returns a reversible string representation.
+// Experimental.
+func (l *jsiiProxy_LazyBase) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		l,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 // Options for creating a lazy list token.
@@ -12089,8 +12199,8 @@ type TerraformDataSource interface {
 	ITerraformResource
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
-	Count() *float64
-	SetCount(val *float64)
+	Count() interface{}
+	SetCount(val interface{})
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
@@ -12144,8 +12254,8 @@ func (j *jsiiProxy_TerraformDataSource) ConstructNodeMetadata() *map[string]inte
 	return returns
 }
 
-func (j *jsiiProxy_TerraformDataSource) Count() *float64 {
-	var returns *float64
+func (j *jsiiProxy_TerraformDataSource) Count() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"count",
@@ -12281,7 +12391,7 @@ func NewTerraformDataSource_Override(t TerraformDataSource, scope constructs.Con
 	)
 }
 
-func (j *jsiiProxy_TerraformDataSource) SetCount(val *float64) {
+func (j *jsiiProxy_TerraformDataSource) SetCount(val interface{}) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -13304,7 +13414,7 @@ func (t *jsiiProxy_TerraformLocal) ToTerraform() interface{} {
 // Experimental.
 type TerraformMetaArguments struct {
 	// Experimental.
-	Count *float64 `json:"count"`
+	Count interface{} `json:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn"`
 	// Experimental.
@@ -14405,8 +14515,8 @@ type TerraformResource interface {
 	ITerraformResource
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
-	Count() *float64
-	SetCount(val *float64)
+	Count() interface{}
+	SetCount(val interface{})
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
@@ -14460,8 +14570,8 @@ func (j *jsiiProxy_TerraformResource) ConstructNodeMetadata() *map[string]interf
 	return returns
 }
 
-func (j *jsiiProxy_TerraformResource) Count() *float64 {
-	var returns *float64
+func (j *jsiiProxy_TerraformResource) Count() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"count",
@@ -14597,7 +14707,7 @@ func NewTerraformResource_Override(t TerraformResource, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_TerraformResource) SetCount(val *float64) {
+func (j *jsiiProxy_TerraformResource) SetCount(val interface{}) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -14798,7 +14908,7 @@ func (t *jsiiProxy_TerraformResource) ToTerraform() interface{} {
 // Experimental.
 type TerraformResourceConfig struct {
 	// Experimental.
-	Count *float64 `json:"count"`
+	Count interface{} `json:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn"`
 	// Experimental.

@@ -1021,6 +1021,23 @@ func init() {
 		"cdktf.LazyAnyValueOptions",
 		reflect.TypeOf((*LazyAnyValueOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"cdktf.LazyBase",
+		reflect.TypeOf((*LazyBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addPostProcessor", GoMethod: "AddPostProcessor"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberMethod{JsiiMethod: "resolveLazy", GoMethod: "ResolveLazy"},
+			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LazyBase{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"cdktf.LazyListValueOptions",
 		reflect.TypeOf((*LazyListValueOptions)(nil)).Elem(),
