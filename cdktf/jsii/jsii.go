@@ -12,7 +12,7 @@ import (
 	constructs "github.com/aws/constructs-go/constructs/v10/jsii"
 )
 
-//go:embed cdktf-0.6.4-pre.379.tgz
+//go:embed cdktf-0.7.0-pre.380.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -22,5 +22,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("cdktf", "0.6.4-pre.379", tarball)
+	_jsii_.Load("cdktf", "0.7.0-pre.380", tarball)
 }
