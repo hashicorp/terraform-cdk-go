@@ -2,7 +2,7 @@
 package cdktf
 
 import (
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 	_init_ "github.com/hashicorp/terraform-cdk-go/cdktf/jsii"
 
 	"github.com/aws/constructs-go/constructs/v10"
