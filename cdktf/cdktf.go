@@ -1024,6 +1024,192 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 }
 
 // Experimental.
+type ComplexObject interface {
+	IsSingleItem() *bool
+	SetIsSingleItem(val *bool)
+	TerraformAttribute() *string
+	SetTerraformAttribute(val *string)
+	TerraformResource() ITerraformResource
+	SetTerraformResource(val ITerraformResource)
+	GetBooleanAttribute(terraformAttribute *string) interface{}
+	GetListAttribute(terraformAttribute *string) *[]*string
+	GetNumberAttribute(terraformAttribute *string) *float64
+	GetStringAttribute(terraformAttribute *string) *string
+	InterpolationAsList() IResolvable
+	InterpolationForAttribute(property *string) IResolvable
+}
+
+// The jsii proxy struct for ComplexObject
+type jsiiProxy_ComplexObject struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ComplexObject) IsSingleItem() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isSingleItem",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) TerraformResource() ITerraformResource {
+	var returns ITerraformResource
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewComplexObject(terraformResource ITerraformResource, terraformAttribute *string, isSingleItem *bool) ComplexObject {
+	_init_.Initialize()
+
+	j := jsiiProxy_ComplexObject{}
+
+	_jsii_.Create(
+		"cdktf.ComplexObject",
+		[]interface{}{terraformResource, terraformAttribute, isSingleItem},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewComplexObject_Override(c ComplexObject, terraformResource ITerraformResource, terraformAttribute *string, isSingleItem *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.ComplexObject",
+		[]interface{}{terraformResource, terraformAttribute, isSingleItem},
+		c,
+	)
+}
+
+func (j *jsiiProxy_ComplexObject) SetIsSingleItem(val *bool) {
+	_jsii_.Set(
+		j,
+		"isSingleItem",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexObject) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexObject) SetTerraformResource(val ITerraformResource) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getBooleanAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetListAttribute(terraformAttribute *string) *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"getListAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string) *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		c,
+		"getNumberAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getStringAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) InterpolationAsList() IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		c,
+		"interpolationAsList",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		c,
+		"interpolationForAttribute",
+		[]interface{}{property},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 type ConsulBackend interface {
 	TerraformBackend
 	CdktfStack() TerraformStack
