@@ -257,6 +257,7 @@ type ArtifactoryBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -390,6 +391,16 @@ func (a *jsiiProxy_ArtifactoryBackend) OverrideLogicalId(newLogicalId *string) {
 		a,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (a *jsiiProxy_ArtifactoryBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		a,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -535,6 +546,7 @@ type AzurermBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -668,6 +680,16 @@ func (a *jsiiProxy_AzurermBackend) OverrideLogicalId(newLogicalId *string) {
 		a,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (a *jsiiProxy_AzurermBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		a,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -1220,6 +1242,7 @@ type ConsulBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -1356,6 +1379,16 @@ func (c *jsiiProxy_ConsulBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (c *jsiiProxy_ConsulBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		c,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (c *jsiiProxy_ConsulBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -1451,6 +1484,7 @@ type CosBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -1587,6 +1621,16 @@ func (c *jsiiProxy_CosBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (c *jsiiProxy_CosBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		c,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (c *jsiiProxy_CosBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -1680,6 +1724,7 @@ type DataTerraformRemoteState interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -1875,6 +1920,16 @@ func (d *jsiiProxy_DataTerraformRemoteState) OverrideLogicalId(newLogicalId *str
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteState) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ToMetadata() interface{} {
 	var returns interface{}
@@ -1934,6 +1989,7 @@ type DataTerraformRemoteStateArtifactory interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -2129,6 +2185,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OverrideLogicalId(newLog
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToMetadata() interface{} {
 	var returns interface{}
@@ -2206,6 +2272,7 @@ type DataTerraformRemoteStateAzurerm interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -2401,6 +2468,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OverrideLogicalId(newLogical
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToMetadata() interface{} {
 	var returns interface{}
@@ -2504,6 +2581,7 @@ type DataTerraformRemoteStateConsul interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -2699,6 +2777,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) OverrideLogicalId(newLogicalI
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateConsul) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToMetadata() interface{} {
 	var returns interface{}
@@ -2788,6 +2876,7 @@ type DataTerraformRemoteStateCos interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -2983,6 +3072,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateCos) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ToMetadata() interface{} {
 	var returns interface{}
@@ -3066,6 +3165,7 @@ type DataTerraformRemoteStateEtcd interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -3261,6 +3361,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OverrideLogicalId(newLogicalId 
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToMetadata() interface{} {
 	var returns interface{}
@@ -3336,6 +3446,7 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -3531,6 +3642,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OverrideLogicalId(newLogicalI
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToMetadata() interface{} {
 	var returns interface{}
@@ -3614,6 +3735,7 @@ type DataTerraformRemoteStateGcs interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -3809,6 +3931,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateGcs) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToMetadata() interface{} {
 	var returns interface{}
@@ -3886,6 +4018,7 @@ type DataTerraformRemoteStateHttp interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -4081,6 +4214,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) OverrideLogicalId(newLogicalId 
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateHttp) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToMetadata() interface{} {
 	var returns interface{}
@@ -4172,6 +4315,7 @@ type DataTerraformRemoteStateLocal interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -4367,6 +4511,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) OverrideLogicalId(newLogicalId
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateLocal) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToMetadata() interface{} {
 	var returns interface{}
@@ -4438,6 +4592,7 @@ type DataTerraformRemoteStateManta interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -4633,6 +4788,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) OverrideLogicalId(newLogicalId
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateManta) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ToMetadata() interface{} {
 	var returns interface{}
@@ -4716,6 +4881,7 @@ type DataTerraformRemoteStateOss interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -4911,6 +5077,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) OverrideLogicalId(newLogicalId *
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateOss) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ToMetadata() interface{} {
 	var returns interface{}
@@ -5010,6 +5186,7 @@ type DataTerraformRemoteStatePg interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -5205,6 +5382,16 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) OverrideLogicalId(newLogicalId *s
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStatePg) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ToMetadata() interface{} {
 	var returns interface{}
@@ -5294,6 +5481,7 @@ type DataTerraformRemoteStateS3 interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -5489,6 +5677,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) OverrideLogicalId(newLogicalId *s
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateS3) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ToMetadata() interface{} {
 	var returns interface{}
@@ -5608,6 +5806,7 @@ type DataTerraformRemoteStateSwift interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -5800,6 +5999,16 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) OverrideLogicalId(newLogicalId
 		d,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (d *jsiiProxy_DataTerraformRemoteStateSwift) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		d,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -6016,6 +6225,7 @@ type EtcdBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -6152,6 +6362,16 @@ func (e *jsiiProxy_EtcdBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (e *jsiiProxy_EtcdBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		e,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (e *jsiiProxy_EtcdBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -6233,6 +6453,7 @@ type EtcdV3Backend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -6366,6 +6587,16 @@ func (e *jsiiProxy_EtcdV3Backend) OverrideLogicalId(newLogicalId *string) {
 		e,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (e *jsiiProxy_EtcdV3Backend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		e,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -8346,6 +8577,7 @@ type GcsBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -8482,6 +8714,16 @@ func (g *jsiiProxy_GcsBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (g *jsiiProxy_GcsBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		g,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (g *jsiiProxy_GcsBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -8565,6 +8807,7 @@ type HttpBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -8698,6 +8941,16 @@ func (h *jsiiProxy_HttpBackend) OverrideLogicalId(newLogicalId *string) {
 		h,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (h *jsiiProxy_HttpBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		h,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -9759,6 +10012,7 @@ type LocalBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -9892,6 +10146,16 @@ func (l *jsiiProxy_LocalBackend) OverrideLogicalId(newLogicalId *string) {
 		l,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (l *jsiiProxy_LocalBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		l,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -10115,6 +10379,7 @@ type MantaBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -10248,6 +10513,16 @@ func (m *jsiiProxy_MantaBackend) OverrideLogicalId(newLogicalId *string) {
 		m,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (m *jsiiProxy_MantaBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		m,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -10500,6 +10775,7 @@ type OssBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -10636,6 +10912,16 @@ func (o *jsiiProxy_OssBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (o *jsiiProxy_OssBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		o,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (o *jsiiProxy_OssBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -10741,6 +11027,7 @@ type PgBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -10874,6 +11161,16 @@ func (p *jsiiProxy_PgBackend) OverrideLogicalId(newLogicalId *string) {
 		p,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (p *jsiiProxy_PgBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		p,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -11013,6 +11310,7 @@ type RemoteBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -11146,6 +11444,16 @@ func (r *jsiiProxy_RemoteBackend) OverrideLogicalId(newLogicalId *string) {
 		r,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (r *jsiiProxy_RemoteBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		r,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -11331,6 +11639,7 @@ type S3Backend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -11464,6 +11773,16 @@ func (s *jsiiProxy_S3Backend) OverrideLogicalId(newLogicalId *string) {
 		s,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (s *jsiiProxy_S3Backend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		s,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -11764,6 +12083,7 @@ type SwiftBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -11897,6 +12217,16 @@ func (s *jsiiProxy_SwiftBackend) OverrideLogicalId(newLogicalId *string) {
 		s,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (s *jsiiProxy_SwiftBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		s,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -12199,6 +12529,7 @@ type TerraformBackend interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -12320,6 +12651,16 @@ func (t *jsiiProxy_TerraformBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformBackend) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -12407,6 +12748,7 @@ type TerraformDataSource interface {
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -12717,6 +13059,16 @@ func (t *jsiiProxy_TerraformDataSource) OverrideLogicalId(newLogicalId *string) 
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformDataSource) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformDataSource) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -12785,6 +13137,7 @@ type TerraformElement interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -12910,6 +13263,16 @@ func (t *jsiiProxy_TerraformElement) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformElement) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformElement) ToMetadata() interface{} {
 	var returns interface{}
@@ -12987,6 +13350,7 @@ type TerraformHclModule interface {
 	GetString(output *string) *string
 	InterpolationForOutput(moduleOutput *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	Set(variable *string, value interface{})
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
@@ -13275,6 +13639,16 @@ func (t *jsiiProxy_TerraformHclModule) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformHclModule) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformHclModule) Set(variable *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -13371,6 +13745,7 @@ type TerraformLocal interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -13554,6 +13929,16 @@ func (t *jsiiProxy_TerraformLocal) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformLocal) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformLocal) ToMetadata() interface{} {
 	var returns interface{}
@@ -13628,6 +14013,7 @@ type TerraformModule interface {
 	AddProvider(provider interface{})
 	InterpolationForOutput(moduleOutput *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -13821,6 +14207,16 @@ func (t *jsiiProxy_TerraformModule) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformModule) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformModule) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -13912,10 +14308,13 @@ type TerraformOutput interface {
 	RawOverrides() interface{}
 	Sensitive() *bool
 	SetSensitive(val *bool)
+	StaticId() *bool
+	SetStaticId(val *bool)
 	Value() interface{}
 	SetValue(val interface{})
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -14007,6 +14406,16 @@ func (j *jsiiProxy_TerraformOutput) Sensitive() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformOutput) StaticId() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"staticId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformOutput) Value() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -14068,6 +14477,14 @@ func (j *jsiiProxy_TerraformOutput) SetSensitive(val *bool) {
 	)
 }
 
+func (j *jsiiProxy_TerraformOutput) SetStaticId(val *bool) {
+	_jsii_.Set(
+		j,
+		"staticId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_TerraformOutput) SetValue(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -14111,6 +14528,16 @@ func (t *jsiiProxy_TerraformOutput) OverrideLogicalId(newLogicalId *string) {
 		t,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformOutput) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -14179,6 +14606,9 @@ type TerraformOutputConfig struct {
 	Description *string `json:"description"`
 	// Experimental.
 	Sensitive *bool `json:"sensitive"`
+	// If set to true the synthesized Terraform Output will be named after the `id` passed to the constructor instead of the default (TerraformOutput.friendlyUniqueId).
+	// Experimental.
+	StaticId *bool `json:"staticId"`
 	// Experimental.
 	Value interface{} `json:"value"`
 }
@@ -14200,6 +14630,7 @@ type TerraformProvider interface {
 	TerraformResourceType() *string
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -14379,6 +14810,16 @@ func (t *jsiiProxy_TerraformProvider) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformProvider) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformProvider) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
@@ -14470,6 +14911,7 @@ type TerraformRemoteState interface {
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	ToMetadata() interface{}
 	ToString() *string
 	ToTerraform() interface{}
@@ -14650,6 +15092,16 @@ func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string)
 	)
 }
 
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformRemoteState) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ToMetadata() interface{} {
 	var returns interface{}
@@ -14723,6 +15175,7 @@ type TerraformResource interface {
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -15030,6 +15483,16 @@ func (t *jsiiProxy_TerraformResource) OverrideLogicalId(newLogicalId *string) {
 		t,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformResource) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
@@ -15356,6 +15819,7 @@ type TerraformVariable interface {
 	Value() interface{}
 	AddOverride(path *string, value interface{})
 	OverrideLogicalId(newLogicalId *string)
+	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
 	ToMetadata() interface{}
 	ToString() *string
@@ -15569,6 +16033,16 @@ func (t *jsiiProxy_TerraformVariable) OverrideLogicalId(newLogicalId *string) {
 		t,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Resets a previously passed logical Id to use the auto-generated logical id again.
+// Experimental.
+func (t *jsiiProxy_TerraformVariable) ResetOverrideLogicalId() {
+	_jsii_.InvokeVoid(
+		t,
+		"resetOverrideLogicalId",
+		nil, // no parameters
 	)
 }
 
