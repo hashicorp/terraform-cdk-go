@@ -7801,6 +7801,23 @@ func Fn_Range(start interface{}, limit interface{}, step *float64) *[]*string {
 	return returns
 }
 
+// Use this function to wrap a string and escape it properly for the use in Terraform This is only needed in certain scenarios (e.g., if you have unescaped double quotes in the string).
+// Experimental.
+func Fn_RawString(str *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"rawString",
+		[]interface{}{str},
+		&returns,
+	)
+
+	return returns
+}
+
 // {@link https://www.terraform.io/docs/language/functions/regexall.html regexall} applies a regular expression to a string and returns a list of all matches.
 // Experimental.
 func Fn_Regexall(pattern interface{}, value interface{}) *[]*string {
