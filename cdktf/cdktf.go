@@ -1714,6 +1714,7 @@ type DataTerraformRemoteState interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -1750,6 +1751,16 @@ func (j *jsiiProxy_DataTerraformRemoteState) ConstructNodeMetadata() *map[string
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteState) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -1979,6 +1990,7 @@ type DataTerraformRemoteStateArtifactory interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -2015,6 +2027,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) ConstructNodeMetadata() 
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -2262,6 +2284,7 @@ type DataTerraformRemoteStateAzurerm interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -2298,6 +2321,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) ConstructNodeMetadata() *map
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateAzurerm) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -2571,6 +2604,7 @@ type DataTerraformRemoteStateConsul interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -2607,6 +2641,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateConsul) ConstructNodeMetadata() *map[
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateConsul) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -2866,6 +2910,7 @@ type DataTerraformRemoteStateCos interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -2902,6 +2947,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateCos) ConstructNodeMetadata() *map[str
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateCos) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -3155,6 +3210,7 @@ type DataTerraformRemoteStateEtcd interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -3191,6 +3247,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcd) ConstructNodeMetadata() *map[st
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcd) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -3436,6 +3502,7 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -3472,6 +3539,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) ConstructNodeMetadata() *map[
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateEtcdV3) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -3725,6 +3802,7 @@ type DataTerraformRemoteStateGcs interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -3761,6 +3839,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateGcs) ConstructNodeMetadata() *map[str
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateGcs) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -4008,6 +4096,7 @@ type DataTerraformRemoteStateHttp interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -4044,6 +4133,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateHttp) ConstructNodeMetadata() *map[st
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateHttp) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -4305,6 +4404,7 @@ type DataTerraformRemoteStateLocal interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -4341,6 +4441,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateLocal) ConstructNodeMetadata() *map[s
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateLocal) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -4582,6 +4692,7 @@ type DataTerraformRemoteStateManta interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -4618,6 +4729,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateManta) ConstructNodeMetadata() *map[s
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateManta) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -4871,6 +4992,7 @@ type DataTerraformRemoteStateOss interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -4907,6 +5029,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateOss) ConstructNodeMetadata() *map[str
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateOss) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -5176,6 +5308,7 @@ type DataTerraformRemoteStatePg interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -5212,6 +5345,16 @@ func (j *jsiiProxy_DataTerraformRemoteStatePg) ConstructNodeMetadata() *map[stri
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStatePg) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -5471,6 +5614,7 @@ type DataTerraformRemoteStateS3 interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -5507,6 +5651,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateS3) ConstructNodeMetadata() *map[stri
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateS3) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -5796,6 +5950,7 @@ type DataTerraformRemoteStateSwift interface {
 	TerraformRemoteState
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -5832,6 +5987,16 @@ func (j *jsiiProxy_DataTerraformRemoteStateSwift) ConstructNodeMetadata() *map[s
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataTerraformRemoteStateSwift) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -9515,17 +9680,17 @@ func (j *jsiiProxy_ISynthesisSession) SkipValidation() *bool {
 }
 
 // Experimental.
-type ITerraformDependable interface {
+type ITerraformAddressable interface {
 	// Experimental.
 	Fqn() *string
 }
 
-// The jsii proxy for ITerraformDependable
-type jsiiProxy_ITerraformDependable struct {
+// The jsii proxy for ITerraformAddressable
+type jsiiProxy_ITerraformAddressable struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_ITerraformDependable) Fqn() *string {
+func (j *jsiiProxy_ITerraformAddressable) Fqn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
@@ -9533,6 +9698,16 @@ func (j *jsiiProxy_ITerraformDependable) Fqn() *string {
 		&returns,
 	)
 	return returns
+}
+
+// Experimental.
+type ITerraformDependable interface {
+	ITerraformAddressable
+}
+
+// The jsii proxy for ITerraformDependable
+type jsiiProxy_ITerraformDependable struct {
+	jsiiProxy_ITerraformAddressable
 }
 
 // Experimental.
@@ -13749,6 +13924,7 @@ type TerraformHclModuleOptions struct {
 // Experimental.
 type TerraformLocal interface {
 	TerraformElement
+	ITerraformAddressable
 	AsBoolean() IResolvable
 	AsList() *[]*string
 	AsNumber() *float64
@@ -13757,6 +13933,7 @@ type TerraformLocal interface {
 	ConstructNodeMetadata() *map[string]interface{}
 	Expression() interface{}
 	SetExpression(val interface{})
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -13771,6 +13948,7 @@ type TerraformLocal interface {
 // The jsii proxy struct for TerraformLocal
 type jsiiProxy_TerraformLocal struct {
 	jsiiProxy_TerraformElement
+	jsiiProxy_ITerraformAddressable
 }
 
 func (j *jsiiProxy_TerraformLocal) AsBoolean() IResolvable {
@@ -13838,6 +14016,16 @@ func (j *jsiiProxy_TerraformLocal) Expression() interface{} {
 	_jsii_.Get(
 		j,
 		"expression",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformLocal) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -14618,6 +14806,8 @@ func (t *jsiiProxy_TerraformOutput) ToTerraform() interface{} {
 // Experimental.
 type TerraformOutputConfig struct {
 	// Experimental.
+	Value interface{} `json:"value"`
+	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn"`
 	// Experimental.
 	Description *string `json:"description"`
@@ -14626,8 +14816,6 @@ type TerraformOutputConfig struct {
 	// If set to true the synthesized Terraform Output will be named after the `id` passed to the constructor instead of the default (TerraformOutput.friendlyUniqueId).
 	// Experimental.
 	StaticId *bool `json:"staticId"`
-	// Experimental.
-	Value interface{} `json:"value"`
 }
 
 // Experimental.
@@ -14916,8 +15104,10 @@ type TerraformProviderGeneratorMetadata struct {
 // Experimental.
 type TerraformRemoteState interface {
 	TerraformElement
+	ITerraformAddressable
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
+	Fqn() *string
 	FriendlyUniqueId() *string
 	Node() constructs.Node
 	RawOverrides() interface{}
@@ -14937,6 +15127,7 @@ type TerraformRemoteState interface {
 // The jsii proxy struct for TerraformRemoteState
 type jsiiProxy_TerraformRemoteState struct {
 	jsiiProxy_TerraformElement
+	jsiiProxy_ITerraformAddressable
 }
 
 func (j *jsiiProxy_TerraformRemoteState) CdktfStack() TerraformStack {
@@ -14954,6 +15145,16 @@ func (j *jsiiProxy_TerraformRemoteState) ConstructNodeMetadata() *map[string]int
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformRemoteState) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -15820,11 +16021,13 @@ type TerraformStackMetadata struct {
 // Experimental.
 type TerraformVariable interface {
 	TerraformElement
+	ITerraformAddressable
 	BooleanValue() *bool
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
 	Default() interface{}
 	Description() *string
+	Fqn() *string
 	FriendlyUniqueId() *string
 	ListValue() *[]*string
 	Node() constructs.Node
@@ -15846,6 +16049,7 @@ type TerraformVariable interface {
 // The jsii proxy struct for TerraformVariable
 type jsiiProxy_TerraformVariable struct {
 	jsiiProxy_TerraformElement
+	jsiiProxy_ITerraformAddressable
 }
 
 func (j *jsiiProxy_TerraformVariable) BooleanValue() *bool {
@@ -15893,6 +16097,16 @@ func (j *jsiiProxy_TerraformVariable) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformVariable) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
