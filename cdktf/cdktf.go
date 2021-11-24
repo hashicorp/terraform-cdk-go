@@ -7745,7 +7745,7 @@ func Fn_Log(value interface{}, base interface{}) *float64 {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/matchkeys.html lookup} retrieves the value of a single element from a map, given its key. If the given key does not exist, the given default value is returned instead.
+// {@link https://www.terraform.io/docs/language/functions/lookup.html lookup} retrieves the value of a single element from a map, given its key. If the given key does not exist, the given default value is returned instead.
 // Experimental.
 func Fn_Lookup(value interface{}, key interface{}, defaultValue interface{}) interface{} {
 	_init_.Initialize()
