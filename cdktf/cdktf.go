@@ -16031,6 +16031,7 @@ type TerraformVariable interface {
 	FriendlyUniqueId() *string
 	ListValue() *[]*string
 	Node() constructs.Node
+	Nullable() *bool
 	NumberValue() *float64
 	RawOverrides() interface{}
 	Sensitive() *bool
@@ -16137,6 +16138,16 @@ func (j *jsiiProxy_TerraformVariable) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformVariable) Nullable() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"nullable",
 		&returns,
 	)
 	return returns
@@ -16340,6 +16351,8 @@ type TerraformVariableConfig struct {
 	Default interface{} `json:"default"`
 	// Experimental.
 	Description *string `json:"description"`
+	// Experimental.
+	Nullable *bool `json:"nullable"`
 	// Experimental.
 	Sensitive *bool `json:"sensitive"`
 	// The type argument in a variable block allows you to restrict the type of value that will be accepted as the value for a variable.
