@@ -95,6 +95,7 @@ type App interface {
 	Outdir() *string
 	SkipValidation() *bool
 	TargetStackId() *string
+	CrossStackReference(fromStack TerraformStack, toStack TerraformStack, identifier *string) *string
 	Synth()
 	ToString() *string
 }
@@ -183,6 +184,22 @@ func NewApp_Override(a App, options *AppOptions) {
 	)
 }
 
+// Experimental.
+func App_IsApp(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.App",
+		"isApp",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -196,6 +213,37 @@ func App_IsConstruct(x interface{}) *bool {
 		"cdktf.App",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func App_Of(construct constructs.IConstruct) App {
+	_init_.Initialize()
+
+	var returns App
+
+	_jsii_.StaticInvoke(
+		"cdktf.App",
+		"of",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a reference from one stack to another, invoked on prepareStack since it creates extra resources.
+// Experimental.
+func (a *jsiiProxy_App) CrossStackReference(fromStack TerraformStack, toStack TerraformStack, identifier *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"crossStackReference",
+		[]interface{}{fromStack, toStack, identifier},
 		&returns,
 	)
 
@@ -256,6 +304,7 @@ type ArtifactoryBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -356,6 +405,22 @@ func NewArtifactoryBackend_Override(a ArtifactoryBackend, scope constructs.Const
 	)
 }
 
+// Experimental.
+func ArtifactoryBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ArtifactoryBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -382,6 +447,21 @@ func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		a,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -545,6 +625,7 @@ type AzurermBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -645,6 +726,22 @@ func NewAzurermBackend_Override(a AzurermBackend, scope constructs.Construct, pr
 	)
 }
 
+// Experimental.
+func AzurermBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.AzurermBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -671,6 +768,21 @@ func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) 
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		a,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -1241,6 +1353,7 @@ type ConsulBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -1341,6 +1454,22 @@ func NewConsulBackend_Override(c ConsulBackend, scope constructs.Construct, prop
 	)
 }
 
+// Experimental.
+func ConsulBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ConsulBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -1367,6 +1496,21 @@ func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (c *jsiiProxy_ConsulBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		c,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -1483,6 +1627,7 @@ type CosBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -1583,6 +1728,22 @@ func NewCosBackend_Override(c CosBackend, scope constructs.Construct, props *Cos
 	)
 }
 
+// Experimental.
+func CosBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.CosBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -1609,6 +1770,21 @@ func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		c,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -1719,7 +1895,7 @@ type DataTerraformRemoteState interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -1842,6 +2018,17 @@ func DataTerraformRemoteState_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteState_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteState",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -1852,8 +2039,8 @@ func (d *jsiiProxy_DataTerraformRemoteState) AddOverride(path *string, value int
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteState) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteState) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -1995,7 +2182,7 @@ type DataTerraformRemoteStateArtifactory interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -2118,6 +2305,17 @@ func DataTerraformRemoteStateArtifactory_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateArtifactory_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateArtifactory",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -2128,8 +2326,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -2289,7 +2487,7 @@ type DataTerraformRemoteStateAzurerm interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -2412,6 +2610,17 @@ func DataTerraformRemoteStateAzurerm_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateAzurerm_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateAzurerm",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -2422,8 +2631,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) AddOverride(path *string, va
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -2609,7 +2818,7 @@ type DataTerraformRemoteStateConsul interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -2732,6 +2941,17 @@ func DataTerraformRemoteStateConsul_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateConsul_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateConsul",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -2742,8 +2962,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) AddOverride(path *string, val
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateConsul) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateConsul) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -2915,7 +3135,7 @@ type DataTerraformRemoteStateCos interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -3038,6 +3258,17 @@ func DataTerraformRemoteStateCos_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateCos_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateCos",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -3048,8 +3279,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) AddOverride(path *string, value 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateCos) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateCos) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3215,7 +3446,7 @@ type DataTerraformRemoteStateEtcd interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -3338,6 +3569,17 @@ func DataTerraformRemoteStateEtcd_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateEtcd_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateEtcd",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -3348,8 +3590,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) AddOverride(path *string, value
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcd) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateEtcd) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3507,7 +3749,7 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -3630,6 +3872,17 @@ func DataTerraformRemoteStateEtcdV3_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateEtcdV3_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateEtcdV3",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -3640,8 +3893,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) AddOverride(path *string, val
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3807,7 +4060,7 @@ type DataTerraformRemoteStateGcs interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -3930,6 +4183,17 @@ func DataTerraformRemoteStateGcs_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateGcs_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateGcs",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -3940,8 +4204,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) AddOverride(path *string, value 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateGcs) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateGcs) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4101,7 +4365,7 @@ type DataTerraformRemoteStateHttp interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -4224,6 +4488,17 @@ func DataTerraformRemoteStateHttp_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateHttp_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateHttp",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -4234,8 +4509,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) AddOverride(path *string, value
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateHttp) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateHttp) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4409,7 +4684,7 @@ type DataTerraformRemoteStateLocal interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -4532,6 +4807,17 @@ func DataTerraformRemoteStateLocal_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateLocal_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateLocal",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -4542,8 +4828,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) AddOverride(path *string, valu
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateLocal) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateLocal) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4697,7 +4983,7 @@ type DataTerraformRemoteStateManta interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -4820,6 +5106,17 @@ func DataTerraformRemoteStateManta_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateManta_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateManta",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -4830,8 +5127,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) AddOverride(path *string, valu
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateManta) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateManta) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4997,7 +5294,7 @@ type DataTerraformRemoteStateOss interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -5120,6 +5417,17 @@ func DataTerraformRemoteStateOss_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateOss_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateOss",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -5130,8 +5438,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) AddOverride(path *string, value 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateOss) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateOss) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5313,7 +5621,7 @@ type DataTerraformRemoteStatePg interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -5436,6 +5744,17 @@ func DataTerraformRemoteStatePg_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStatePg_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStatePg",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -5446,8 +5765,8 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) AddOverride(path *string, value i
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStatePg) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStatePg) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5619,7 +5938,7 @@ type DataTerraformRemoteStateS3 interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -5742,6 +6061,17 @@ func DataTerraformRemoteStateS3_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateS3_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateS3",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -5752,8 +6082,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) AddOverride(path *string, value i
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateS3) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateS3) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5955,7 +6285,7 @@ type DataTerraformRemoteStateSwift interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -6078,6 +6408,17 @@ func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func DataTerraformRemoteStateSwift_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.DataTerraformRemoteStateSwift",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -6088,8 +6429,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) AddOverride(path *string, valu
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateSwift) Get(output *string) interface{} {
-	var returns interface{}
+func (d *jsiiProxy_DataTerraformRemoteStateSwift) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -6389,6 +6730,7 @@ type EtcdBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -6489,6 +6831,22 @@ func NewEtcdBackend_Override(e EtcdBackend, scope constructs.Construct, props *E
 	)
 }
 
+// Experimental.
+func EtcdBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -6515,6 +6873,21 @@ func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (e *jsiiProxy_EtcdBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		e,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -6617,6 +6990,7 @@ type EtcdV3Backend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -6717,6 +7091,22 @@ func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, prop
 	)
 }
 
+// Experimental.
+func EtcdV3Backend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdV3Backend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -6743,6 +7133,21 @@ func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		e,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -8758,6 +9163,7 @@ type GcsBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -8858,6 +9264,22 @@ func NewGcsBackend_Override(g GcsBackend, scope constructs.Construct, props *Gcs
 	)
 }
 
+// Experimental.
+func GcsBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.GcsBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -8884,6 +9306,21 @@ func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		g,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -8988,6 +9425,7 @@ type HttpBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -9088,6 +9526,22 @@ func NewHttpBackend_Override(h HttpBackend, scope constructs.Construct, props *H
 	)
 }
 
+// Experimental.
+func HttpBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.HttpBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -9114,6 +9568,21 @@ func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (h *jsiiProxy_HttpBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		h,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -10203,6 +10672,7 @@ type LocalBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -10303,6 +10773,22 @@ func NewLocalBackend_Override(l LocalBackend, scope constructs.Construct, props 
 	)
 }
 
+// Experimental.
+func LocalBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.LocalBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -10329,6 +10815,21 @@ func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (l *jsiiProxy_LocalBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		l,
+		"getRemoteStateDataSource",
+		[]interface{}{scope, name, fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -10570,6 +11071,7 @@ type MantaBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -10670,6 +11172,22 @@ func NewMantaBackend_Override(m MantaBackend, scope constructs.Construct, props 
 	)
 }
 
+// Experimental.
+func MantaBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.MantaBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -10696,6 +11214,21 @@ func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		m,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -10966,6 +11499,7 @@ type OssBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11066,6 +11600,22 @@ func NewOssBackend_Override(o OssBackend, scope constructs.Construct, props *Oss
 	)
 }
 
+// Experimental.
+func OssBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.OssBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -11092,6 +11642,21 @@ func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (o *jsiiProxy_OssBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		o,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -11218,6 +11783,7 @@ type PgBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11318,6 +11884,22 @@ func NewPgBackend_Override(p PgBackend, scope constructs.Construct, props *PgBac
 	)
 }
 
+// Experimental.
+func PgBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.PgBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -11344,6 +11926,21 @@ func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (p *jsiiProxy_PgBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		p,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -11501,6 +12098,7 @@ type RemoteBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11601,6 +12199,22 @@ func NewRemoteBackend_Override(r RemoteBackend, scope constructs.Construct, prop
 	)
 }
 
+// Experimental.
+func RemoteBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.RemoteBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -11627,6 +12241,21 @@ func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (r *jsiiProxy_RemoteBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		r,
+		"getRemoteStateDataSource",
+		[]interface{}{scope, name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -11830,6 +12459,7 @@ type S3Backend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11930,6 +12560,22 @@ func NewS3Backend_Override(s S3Backend, scope constructs.Construct, props *S3Bac
 	)
 }
 
+// Experimental.
+func S3Backend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.S3Backend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -11956,6 +12602,21 @@ func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (s *jsiiProxy_S3Backend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		s,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -12110,6 +12771,8 @@ type StackManifest struct {
 	Annotations *[]*StackAnnotation `json:"annotations" yaml:"annotations"`
 	// Experimental.
 	ConstructPath *string `json:"constructPath" yaml:"constructPath"`
+	// Experimental.
+	Dependencies *[]*string `json:"dependencies" yaml:"dependencies"`
 	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// Experimental.
@@ -12274,6 +12937,7 @@ type SwiftBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -12374,6 +13038,22 @@ func NewSwiftBackend_Override(s SwiftBackend, scope constructs.Construct, props 
 	)
 }
 
+// Experimental.
+func SwiftBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.SwiftBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -12400,6 +13080,21 @@ func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (s *jsiiProxy_SwiftBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		s,
+		"getRemoteStateDataSource",
+		[]interface{}{_scope, _name, _fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -12720,6 +13415,7 @@ type TerraformBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -12805,6 +13501,22 @@ func NewTerraformBackend_Override(t TerraformBackend, scope constructs.Construct
 	)
 }
 
+// Experimental.
+func TerraformBackend_IsBackend(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformBackend",
+		"isBackend",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -12831,6 +13543,21 @@ func (t *jsiiProxy_TerraformBackend) AddOverride(path *string, value interface{}
 		"addOverride",
 		[]interface{}{path, value},
 	)
+}
+
+// Creates a TerraformRemoteState resource that accesses this backend.
+// Experimental.
+func (t *jsiiProxy_TerraformBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		t,
+		"getRemoteStateDataSource",
+		[]interface{}{scope, name, fromStack},
+		&returns,
+	)
+
+	return returns
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
@@ -15112,7 +15839,7 @@ type TerraformRemoteState interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	Get(output *string) interface{}
+	Get(output *string) IResolvable
 	GetBoolean(output *string) *bool
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
@@ -15221,6 +15948,17 @@ func TerraformRemoteState_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func TerraformRemoteState_TfResourceType() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.TerraformRemoteState",
+		"tfResourceType",
+		&returns,
+	)
+	return returns
+}
+
 // Experimental.
 func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
@@ -15231,8 +15969,8 @@ func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interfa
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformRemoteState) Get(output *string) interface{} {
-	var returns interface{}
+func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
@@ -15801,13 +16539,21 @@ type TerraformResourceLifecycle struct {
 // Experimental.
 type TerraformStack interface {
 	constructs.Construct
+	Dependencies() *[]TerraformStack
+	SetDependencies(val *[]TerraformStack)
 	Node() constructs.Node
 	Synthesizer() IStackSynthesizer
 	SetSynthesizer(val IStackSynthesizer)
+	AddDependency(dependency TerraformStack)
 	AddOverride(path *string, value interface{})
 	AllocateLogicalId(tfElement interface{}) *string
 	AllProviders() *[]TerraformProvider
+	DependsOn(stack TerraformStack) *bool
+	EnsureBackendExists() TerraformBackend
 	GetLogicalId(tfElement interface{}) *string
+	PrepareStack()
+	RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState
+	RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput
 	ToString() *string
 	ToTerraform() interface{}
 }
@@ -15815,6 +16561,16 @@ type TerraformStack interface {
 // The jsii proxy struct for TerraformStack
 type jsiiProxy_TerraformStack struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_TerraformStack) Dependencies() *[]TerraformStack {
+	var returns *[]TerraformStack
+	_jsii_.Get(
+		j,
+		"dependencies",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TerraformStack) Node() constructs.Node {
@@ -15861,6 +16617,14 @@ func NewTerraformStack_Override(t TerraformStack, scope constructs.Construct, id
 		"cdktf.TerraformStack",
 		[]interface{}{scope, id},
 		t,
+	)
+}
+
+func (j *jsiiProxy_TerraformStack) SetDependencies(val *[]TerraformStack) {
+	_jsii_.Set(
+		j,
+		"dependencies",
+		val,
 	)
 }
 
@@ -15924,6 +16688,15 @@ func TerraformStack_Of(construct constructs.IConstruct) TerraformStack {
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformStack) AddDependency(dependency TerraformStack) {
+	_jsii_.InvokeVoid(
+		t,
+		"addDependency",
+		[]interface{}{dependency},
+	)
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15966,6 +16739,34 @@ func (t *jsiiProxy_TerraformStack) AllProviders() *[]TerraformProvider {
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformStack) DependsOn(stack TerraformStack) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"dependsOn",
+		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformStack) EnsureBackendExists() TerraformBackend {
+	var returns TerraformBackend
+
+	_jsii_.Invoke(
+		t,
+		"ensureBackendExists",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 	var returns *string
 
@@ -15973,6 +16774,43 @@ func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 		t,
 		"getLogicalId",
 		[]interface{}{tfElement},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformStack) PrepareStack() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepareStack",
+		nil, // no parameters
+	)
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformStack) RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState {
+	var returns TerraformRemoteState
+
+	_jsii_.Invoke(
+		t,
+		"registerIncomingCrossStackReference",
+		[]interface{}{fromStack},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformStack) RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput {
+	var returns TerraformOutput
+
+	_jsii_.Invoke(
+		t,
+		"registerOutgoingCrossStackReference",
+		[]interface{}{identifier},
 		&returns,
 	)
 
