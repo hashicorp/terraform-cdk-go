@@ -899,8 +899,8 @@ type AzurermBackendProps struct {
 type BooleanMap interface {
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
-	TerraformResource() ITerraformResource
-	SetTerraformResource(val ITerraformResource)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
 	Lookup(key *string) *bool
 }
 
@@ -919,8 +919,8 @@ func (j *jsiiProxy_BooleanMap) TerraformAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_BooleanMap) TerraformResource() ITerraformResource {
-	var returns ITerraformResource
+func (j *jsiiProxy_BooleanMap) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
 	_jsii_.Get(
 		j,
 		"terraformResource",
@@ -931,7 +931,7 @@ func (j *jsiiProxy_BooleanMap) TerraformResource() ITerraformResource {
 
 
 // Experimental.
-func NewBooleanMap(terraformResource ITerraformResource, terraformAttribute *string) BooleanMap {
+func NewBooleanMap(terraformResource IInterpolatingParent, terraformAttribute *string) BooleanMap {
 	_init_.Initialize()
 
 	j := jsiiProxy_BooleanMap{}
@@ -946,7 +946,7 @@ func NewBooleanMap(terraformResource ITerraformResource, terraformAttribute *str
 }
 
 // Experimental.
-func NewBooleanMap_Override(b BooleanMap, terraformResource ITerraformResource, terraformAttribute *string) {
+func NewBooleanMap_Override(b BooleanMap, terraformResource IInterpolatingParent, terraformAttribute *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -964,7 +964,7 @@ func (j *jsiiProxy_BooleanMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_BooleanMap) SetTerraformResource(val ITerraformResource) {
+func (j *jsiiProxy_BooleanMap) SetTerraformResource(val IInterpolatingParent) {
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -988,12 +988,13 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) *bool {
 
 // Experimental.
 type ComplexComputedList interface {
+	IInterpolatingParent
 	ComplexComputedListIndex() *string
 	SetComplexComputedListIndex(val *string)
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
-	TerraformResource() ITerraformResource
-	SetTerraformResource(val ITerraformResource)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
 	GetBooleanAttribute(terraformAttribute *string) interface{}
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
@@ -1003,7 +1004,7 @@ type ComplexComputedList interface {
 
 // The jsii proxy struct for ComplexComputedList
 type jsiiProxy_ComplexComputedList struct {
-	_ byte // padding
+	jsiiProxy_IInterpolatingParent
 }
 
 func (j *jsiiProxy_ComplexComputedList) ComplexComputedListIndex() *string {
@@ -1026,8 +1027,8 @@ func (j *jsiiProxy_ComplexComputedList) TerraformAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ComplexComputedList) TerraformResource() ITerraformResource {
-	var returns ITerraformResource
+func (j *jsiiProxy_ComplexComputedList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
 	_jsii_.Get(
 		j,
 		"terraformResource",
@@ -1038,7 +1039,7 @@ func (j *jsiiProxy_ComplexComputedList) TerraformResource() ITerraformResource {
 
 
 // Experimental.
-func NewComplexComputedList(terraformResource ITerraformResource, terraformAttribute *string, complexComputedListIndex *string) ComplexComputedList {
+func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string) ComplexComputedList {
 	_init_.Initialize()
 
 	j := jsiiProxy_ComplexComputedList{}
@@ -1053,7 +1054,7 @@ func NewComplexComputedList(terraformResource ITerraformResource, terraformAttri
 }
 
 // Experimental.
-func NewComplexComputedList_Override(c ComplexComputedList, terraformResource ITerraformResource, terraformAttribute *string, complexComputedListIndex *string) {
+func NewComplexComputedList_Override(c ComplexComputedList, terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -1079,7 +1080,7 @@ func (j *jsiiProxy_ComplexComputedList) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val ITerraformResource) {
+func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val IInterpolatingParent) {
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -1159,12 +1160,13 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 
 // Experimental.
 type ComplexObject interface {
+	IInterpolatingParent
 	IsSingleItem() *bool
 	SetIsSingleItem(val *bool)
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
-	TerraformResource() ITerraformResource
-	SetTerraformResource(val ITerraformResource)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
 	GetBooleanAttribute(terraformAttribute *string) interface{}
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
@@ -1175,7 +1177,7 @@ type ComplexObject interface {
 
 // The jsii proxy struct for ComplexObject
 type jsiiProxy_ComplexObject struct {
-	_ byte // padding
+	jsiiProxy_IInterpolatingParent
 }
 
 func (j *jsiiProxy_ComplexObject) IsSingleItem() *bool {
@@ -1198,8 +1200,8 @@ func (j *jsiiProxy_ComplexObject) TerraformAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ComplexObject) TerraformResource() ITerraformResource {
-	var returns ITerraformResource
+func (j *jsiiProxy_ComplexObject) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
 	_jsii_.Get(
 		j,
 		"terraformResource",
@@ -1210,7 +1212,7 @@ func (j *jsiiProxy_ComplexObject) TerraformResource() ITerraformResource {
 
 
 // Experimental.
-func NewComplexObject(terraformResource ITerraformResource, terraformAttribute *string, isSingleItem *bool) ComplexObject {
+func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, isSingleItem *bool) ComplexObject {
 	_init_.Initialize()
 
 	j := jsiiProxy_ComplexObject{}
@@ -1225,7 +1227,7 @@ func NewComplexObject(terraformResource ITerraformResource, terraformAttribute *
 }
 
 // Experimental.
-func NewComplexObject_Override(c ComplexObject, terraformResource ITerraformResource, terraformAttribute *string, isSingleItem *bool) {
+func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolatingParent, terraformAttribute *string, isSingleItem *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -1251,7 +1253,7 @@ func (j *jsiiProxy_ComplexObject) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetTerraformResource(val ITerraformResource) {
+func (j *jsiiProxy_ComplexObject) SetTerraformResource(val IInterpolatingParent) {
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -9766,6 +9768,30 @@ func (i *jsiiProxy_IFragmentConcatenator) Join(left interface{}, right interface
 	return returns
 }
 
+// Experimental.
+type IInterpolatingParent interface {
+	// Experimental.
+	InterpolationForAttribute(terraformAttribute *string) IResolvable
+}
+
+// The jsii proxy for IInterpolatingParent
+type jsiiProxy_IInterpolatingParent struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IInterpolatingParent) InterpolationForAttribute(terraformAttribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		i,
+		"interpolationForAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
 // Interface for lazy list producers.
 // Experimental.
 type IListProducer interface {
@@ -11390,8 +11416,8 @@ func (j *jsiiProxy_NamedRemoteWorkspace) SetName(val *string) {
 type NumberMap interface {
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
-	TerraformResource() ITerraformResource
-	SetTerraformResource(val ITerraformResource)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
 	Lookup(key *string) *float64
 }
 
@@ -11410,8 +11436,8 @@ func (j *jsiiProxy_NumberMap) TerraformAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_NumberMap) TerraformResource() ITerraformResource {
-	var returns ITerraformResource
+func (j *jsiiProxy_NumberMap) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
 	_jsii_.Get(
 		j,
 		"terraformResource",
@@ -11422,7 +11448,7 @@ func (j *jsiiProxy_NumberMap) TerraformResource() ITerraformResource {
 
 
 // Experimental.
-func NewNumberMap(terraformResource ITerraformResource, terraformAttribute *string) NumberMap {
+func NewNumberMap(terraformResource IInterpolatingParent, terraformAttribute *string) NumberMap {
 	_init_.Initialize()
 
 	j := jsiiProxy_NumberMap{}
@@ -11437,7 +11463,7 @@ func NewNumberMap(terraformResource ITerraformResource, terraformAttribute *stri
 }
 
 // Experimental.
-func NewNumberMap_Override(n NumberMap, terraformResource ITerraformResource, terraformAttribute *string) {
+func NewNumberMap_Override(n NumberMap, terraformResource IInterpolatingParent, terraformAttribute *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -11455,7 +11481,7 @@ func (j *jsiiProxy_NumberMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_NumberMap) SetTerraformResource(val ITerraformResource) {
+func (j *jsiiProxy_NumberMap) SetTerraformResource(val IInterpolatingParent) {
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -12840,8 +12866,8 @@ func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) inter
 type StringMap interface {
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
-	TerraformResource() ITerraformResource
-	SetTerraformResource(val ITerraformResource)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
 	Lookup(key *string) *string
 }
 
@@ -12860,8 +12886,8 @@ func (j *jsiiProxy_StringMap) TerraformAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_StringMap) TerraformResource() ITerraformResource {
-	var returns ITerraformResource
+func (j *jsiiProxy_StringMap) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
 	_jsii_.Get(
 		j,
 		"terraformResource",
@@ -12872,7 +12898,7 @@ func (j *jsiiProxy_StringMap) TerraformResource() ITerraformResource {
 
 
 // Experimental.
-func NewStringMap(terraformResource ITerraformResource, terraformAttribute *string) StringMap {
+func NewStringMap(terraformResource IInterpolatingParent, terraformAttribute *string) StringMap {
 	_init_.Initialize()
 
 	j := jsiiProxy_StringMap{}
@@ -12887,7 +12913,7 @@ func NewStringMap(terraformResource ITerraformResource, terraformAttribute *stri
 }
 
 // Experimental.
-func NewStringMap_Override(s StringMap, terraformResource ITerraformResource, terraformAttribute *string) {
+func NewStringMap_Override(s StringMap, terraformResource IInterpolatingParent, terraformAttribute *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -12905,7 +12931,7 @@ func (j *jsiiProxy_StringMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_StringMap) SetTerraformResource(val ITerraformResource) {
+func (j *jsiiProxy_StringMap) SetTerraformResource(val IInterpolatingParent) {
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -13641,6 +13667,7 @@ func (t *jsiiProxy_TerraformBackend) ToTerraform() interface{} {
 // Experimental.
 type TerraformDataSource interface {
 	TerraformElement
+	IInterpolatingParent
 	ITerraformDependable
 	ITerraformResource
 	CdktfStack() TerraformStack
@@ -13677,6 +13704,7 @@ type TerraformDataSource interface {
 // The jsii proxy struct for TerraformDataSource
 type jsiiProxy_TerraformDataSource struct {
 	jsiiProxy_TerraformElement
+	jsiiProxy_IInterpolatingParent
 	jsiiProxy_ITerraformDependable
 	jsiiProxy_ITerraformResource
 }
@@ -16105,6 +16133,7 @@ func (t *jsiiProxy_TerraformRemoteState) ToTerraform() interface{} {
 // Experimental.
 type TerraformResource interface {
 	TerraformElement
+	IInterpolatingParent
 	ITerraformDependable
 	ITerraformResource
 	CdktfStack() TerraformStack
@@ -16141,6 +16170,7 @@ type TerraformResource interface {
 // The jsii proxy struct for TerraformResource
 type jsiiProxy_TerraformResource struct {
 	jsiiProxy_TerraformElement
+	jsiiProxy_IInterpolatingParent
 	jsiiProxy_ITerraformDependable
 	jsiiProxy_ITerraformResource
 }

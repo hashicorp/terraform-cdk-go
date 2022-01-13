@@ -155,7 +155,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_ComplexComputedList{}
+			j := jsiiProxy_ComplexComputedList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -173,7 +175,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_ComplexObject{}
+			j := jsiiProxy_ComplexObject{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -891,6 +895,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.IInterpolatingParent",
+		reflect.TypeOf((*IInterpolatingParent)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IInterpolatingParent{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.IListProducer",
 		reflect.TypeOf((*IListProducer)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1514,6 +1528,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_TerraformDataSource{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformElement)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformDependable)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformResource)
 			return &j
@@ -1789,6 +1804,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_TerraformResource{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformElement)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformDependable)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformResource)
 			return &j
