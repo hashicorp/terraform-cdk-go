@@ -17262,7 +17262,7 @@ type jsiiProxy_Testing struct {
 
 // Returns an app for testing with the following properties: - Output directory is a temp dir.
 // Experimental.
-func Testing_App() App {
+func Testing_App(options *TestingAppOptions) App {
 	_init_.Initialize()
 
 	var returns App
@@ -17270,7 +17270,7 @@ func Testing_App() App {
 	_jsii_.StaticInvoke(
 		"cdktf.Testing",
 		"app",
-		nil, // no parameters
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -17286,6 +17286,22 @@ func Testing_EnableFutureFlags(app App) App {
 	_jsii_.StaticInvoke(
 		"cdktf.Testing",
 		"enableFutureFlags",
+		[]interface{}{app},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_FakeCdktfJsonPath(app App) App {
+	_init_.Initialize()
+
+	var returns App
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"fakeCdktfJsonPath",
 		[]interface{}{app},
 		&returns,
 	)
@@ -17383,6 +17399,20 @@ func Testing_SynthScope(fn IScopeCallback) *string {
 	)
 
 	return returns
+}
+
+// Experimental.
+type TestingAppOptions struct {
+	// Experimental.
+	EnableFutureFlags *bool `json:"enableFutureFlags" yaml:"enableFutureFlags"`
+	// Experimental.
+	FakeCdktfJsonPath *bool `json:"fakeCdktfJsonPath" yaml:"fakeCdktfJsonPath"`
+	// Experimental.
+	Outdir *string `json:"outdir" yaml:"outdir"`
+	// Experimental.
+	StackTraces *bool `json:"stackTraces" yaml:"stackTraces"`
+	// Experimental.
+	StubVersion *bool `json:"stubVersion" yaml:"stubVersion"`
 }
 
 // Represents a special or lazily-evaluated value.

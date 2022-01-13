@@ -1895,6 +1895,10 @@ func init() {
 			return &jsiiProxy_Testing{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"cdktf.TestingAppOptions",
+		reflect.TypeOf((*TestingAppOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"cdktf.Token",
 		reflect.TypeOf((*Token)(nil)).Elem(),
