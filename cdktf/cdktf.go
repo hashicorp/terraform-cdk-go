@@ -998,6 +998,7 @@ type ComplexComputedList interface {
 	GetBooleanAttribute(terraformAttribute *string) interface{}
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
+	GetNumberListAttribute(terraformAttribute *string) *[]*float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(property *string) IResolvable
 }
@@ -1131,6 +1132,20 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *s
 }
 
 // Experimental.
+func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		c,
+		"getNumberListAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -1170,6 +1185,7 @@ type ComplexObject interface {
 	GetBooleanAttribute(terraformAttribute *string) interface{}
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
+	GetNumberListAttribute(terraformAttribute *string) *[]*float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationAsList() IResolvable
 	InterpolationForAttribute(property *string) IResolvable
@@ -1296,6 +1312,20 @@ func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string)
 	_jsii_.Invoke(
 		c,
 		"getNumberAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		c,
+		"getNumberListAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -6631,6 +6661,7 @@ type DataTerraformRemoteStateSwiftConfig struct {
 type DefaultTokenResolver interface {
 	ITokenResolver
 	ResolveList(xs *[]*string, context IResolveContext) interface{}
+	ResolveNumberList(xs *[]*float64, context IResolveContext) interface{}
 	ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{}
 	ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{}
 }
@@ -6674,6 +6705,21 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IRes
 	_jsii_.Invoke(
 		d,
 		"resolveList",
+		[]interface{}{xs, context},
+		&returns,
+	)
+
+	return returns
+}
+
+// Resolve a tokenized number list.
+// Experimental.
+func (d *jsiiProxy_DefaultTokenResolver) ResolveNumberList(xs *[]*float64, context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"resolveNumberList",
 		[]interface{}{xs, context},
 		&returns,
 	)
@@ -10387,6 +10433,9 @@ type ITokenResolver interface {
 	// Resolve a tokenized list.
 	// Experimental.
 	ResolveList(l *[]*string, context IResolveContext) interface{}
+	// Resolve a tokenized number list.
+	// Experimental.
+	ResolveNumberList(l *[]*float64, context IResolveContext) interface{}
 	// Resolve a string with at least one stringified token in it.
 	//
 	// (May use concatenation)
@@ -10408,6 +10457,19 @@ func (i *jsiiProxy_ITokenResolver) ResolveList(l *[]*string, context IResolveCon
 	_jsii_.Invoke(
 		i,
 		"resolveList",
+		[]interface{}{l, context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ITokenResolver) ResolveNumberList(l *[]*float64, context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		i,
+		"resolveNumberList",
 		[]interface{}{l, context},
 		&returns,
 	)
@@ -13691,6 +13753,7 @@ type TerraformDataSource interface {
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
+	GetNumberListAttribute(terraformAttribute *string) *[]*float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
@@ -13961,6 +14024,20 @@ func (t *jsiiProxy_TerraformDataSource) GetNumberAttribute(terraformAttribute *s
 	_jsii_.Invoke(
 		t,
 		"getNumberAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformDataSource) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberListAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -16157,6 +16234,7 @@ type TerraformResource interface {
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
+	GetNumberListAttribute(terraformAttribute *string) *[]*float64
 	GetStringAttribute(terraformAttribute *string) *string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
@@ -16427,6 +16505,20 @@ func (t *jsiiProxy_TerraformResource) GetNumberAttribute(terraformAttribute *str
 	_jsii_.Invoke(
 		t,
 		"getNumberAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformResource) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberListAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -17509,6 +17601,23 @@ func Token_AsNumber(value interface{}) *float64 {
 	return returns
 }
 
+// Return a reversible list representation of this token.
+// Experimental.
+func Token_AsNumberList(value interface{}) *[]*float64 {
+	_init_.Initialize()
+
+	var returns *[]*float64
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asNumberList",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return a reversible string representation of this token.
 //
 // If the Token is initialized with a literal, the stringified value of the
@@ -17681,6 +17790,23 @@ func Tokenization_ReverseNumber(n *float64) IResolvable {
 		"cdktf.Tokenization",
 		"reverseNumber",
 		[]interface{}{n},
+		&returns,
+	)
+
+	return returns
+}
+
+// Un-encode a Tokenized value from a list.
+// Experimental.
+func Tokenization_ReverseNumberList(l *[]*float64) IResolvable {
+	_init_.Initialize()
+
+	var returns IResolvable
+
+	_jsii_.StaticInvoke(
+		"cdktf.Tokenization",
+		"reverseNumberList",
+		[]interface{}{l},
 		&returns,
 	)
 
