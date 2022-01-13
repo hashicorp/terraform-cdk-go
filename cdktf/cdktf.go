@@ -4999,6 +4999,7 @@ type DataTerraformRemoteStateLocalConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// Path where the state file is stored.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// Experimental.
@@ -11000,6 +11001,7 @@ func (l *jsiiProxy_LocalBackend) ToTerraform() interface{} {
 
 // Experimental.
 type LocalBackendProps struct {
+	// Path where the state file is stored.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// Experimental.
