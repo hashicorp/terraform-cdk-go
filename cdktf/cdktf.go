@@ -395,7 +395,7 @@ type ArtifactoryBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -542,13 +542,13 @@ func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		a,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -716,7 +716,7 @@ type AzurermBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -863,13 +863,13 @@ func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) 
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		a,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -1596,7 +1596,7 @@ type ConsulBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -1743,13 +1743,13 @@ func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (c *jsiiProxy_ConsulBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (c *jsiiProxy_ConsulBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		c,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -1870,7 +1870,7 @@ type CosBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -2017,13 +2017,13 @@ func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		c,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -7006,7 +7006,7 @@ type EtcdBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -7153,13 +7153,13 @@ func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (e *jsiiProxy_EtcdBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (e *jsiiProxy_EtcdBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		e,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -7266,7 +7266,7 @@ type EtcdV3Backend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -7413,13 +7413,13 @@ func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		e,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -9439,7 +9439,7 @@ type GcsBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -9586,13 +9586,13 @@ func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		g,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -9701,7 +9701,7 @@ type HttpBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -9848,13 +9848,13 @@ func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (h *jsiiProxy_HttpBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (h *jsiiProxy_HttpBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		h,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -11404,7 +11404,7 @@ type MantaBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11551,13 +11551,13 @@ func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		m,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -11832,7 +11832,7 @@ type OssBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -11979,13 +11979,13 @@ func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (o *jsiiProxy_OssBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (o *jsiiProxy_OssBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		o,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -12116,7 +12116,7 @@ type PgBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -12263,13 +12263,13 @@ func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (p *jsiiProxy_PgBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (p *jsiiProxy_PgBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		p,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -12792,7 +12792,7 @@ type S3Backend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -12939,13 +12939,13 @@ func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (s *jsiiProxy_S3Backend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (s *jsiiProxy_S3Backend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		s,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
@@ -13270,7 +13270,7 @@ type SwiftBackend interface {
 	Node() constructs.Node
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
-	GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState
+	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -13417,13 +13417,13 @@ func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 
 // Creates a TerraformRemoteState resource that accesses this backend.
 // Experimental.
-func (s *jsiiProxy_SwiftBackend) GetRemoteStateDataSource(_scope constructs.Construct, _name *string, _fromStack *string) TerraformRemoteState {
+func (s *jsiiProxy_SwiftBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
 		s,
 		"getRemoteStateDataSource",
-		[]interface{}{_scope, _name, _fromStack},
+		[]interface{}{scope, name, _fromStack},
 		&returns,
 	)
 
