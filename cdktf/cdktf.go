@@ -86,6 +86,97 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 	)
 }
 
+// Experimental.
+type AnyMap interface {
+	TerraformAttribute() *string
+	SetTerraformAttribute(val *string)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
+	Lookup(key *string) interface{}
+}
+
+// The jsii proxy struct for AnyMap
+type jsiiProxy_AnyMap struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_AnyMap) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMap) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewAnyMap(terraformResource IInterpolatingParent, terraformAttribute *string) AnyMap {
+	_init_.Initialize()
+
+	j := jsiiProxy_AnyMap{}
+
+	_jsii_.Create(
+		"cdktf.AnyMap",
+		[]interface{}{terraformResource, terraformAttribute},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAnyMap_Override(a AnyMap, terraformResource IInterpolatingParent, terraformAttribute *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.AnyMap",
+		[]interface{}{terraformResource, terraformAttribute},
+		a,
+	)
+}
+
+func (j *jsiiProxy_AnyMap) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AnyMap) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+// Experimental.
+func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"lookup",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
 // Represents a cdktf application.
 // Experimental.
 type App interface {
@@ -995,11 +1086,15 @@ type ComplexComputedList interface {
 	SetTerraformAttribute(val *string)
 	TerraformResource() IInterpolatingParent
 	SetTerraformResource(val IInterpolatingParent)
+	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	GetBooleanAttribute(terraformAttribute *string) interface{}
+	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
 	GetStringAttribute(terraformAttribute *string) *string
+	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 	InterpolationForAttribute(property *string) IResolvable
 }
 
@@ -1090,12 +1185,40 @@ func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val IInterpolatingP
 }
 
 // Experimental.
+func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getAnyMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"getBooleanAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		c,
+		"getBooleanMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -1146,12 +1269,40 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribut
 }
 
 // Experimental.
+func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		c,
+		"getNumberMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"getStringAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		c,
+		"getStringMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -1182,11 +1333,15 @@ type ComplexObject interface {
 	SetTerraformAttribute(val *string)
 	TerraformResource() IInterpolatingParent
 	SetTerraformResource(val IInterpolatingParent)
+	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	GetBooleanAttribute(terraformAttribute *string) interface{}
+	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
 	GetStringAttribute(terraformAttribute *string) *string
+	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 	InterpolationAsList() IResolvable
 	InterpolationForAttribute(property *string) IResolvable
 }
@@ -1278,12 +1433,40 @@ func (j *jsiiProxy_ComplexObject) SetTerraformResource(val IInterpolatingParent)
 }
 
 // Experimental.
+func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getAnyMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"getBooleanAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		c,
+		"getBooleanMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -1334,12 +1517,40 @@ func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *str
 }
 
 // Experimental.
+func (c *jsiiProxy_ComplexObject) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		c,
+		"getNumberMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"getStringAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_ComplexObject) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		c,
+		"getStringMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -6662,6 +6873,7 @@ type DataTerraformRemoteStateSwiftConfig struct {
 type DefaultTokenResolver interface {
 	ITokenResolver
 	ResolveList(xs *[]*string, context IResolveContext) interface{}
+	ResolveMap(xs *map[string]interface{}, context IResolveContext) interface{}
 	ResolveNumberList(xs *[]*float64, context IResolveContext) interface{}
 	ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{}
 	ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{}
@@ -6706,6 +6918,21 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IRes
 	_jsii_.Invoke(
 		d,
 		"resolveList",
+		[]interface{}{xs, context},
+		&returns,
+	)
+
+	return returns
+}
+
+// Resolve a tokenized map.
+// Experimental.
+func (d *jsiiProxy_DefaultTokenResolver) ResolveMap(xs *map[string]interface{}, context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"resolveMap",
 		[]interface{}{xs, context},
 		&returns,
 	)
@@ -10434,6 +10661,9 @@ type ITokenResolver interface {
 	// Resolve a tokenized list.
 	// Experimental.
 	ResolveList(l *[]*string, context IResolveContext) interface{}
+	// Resolve a tokenized map.
+	// Experimental.
+	ResolveMap(m *map[string]interface{}, context IResolveContext) interface{}
 	// Resolve a tokenized number list.
 	// Experimental.
 	ResolveNumberList(l *[]*float64, context IResolveContext) interface{}
@@ -10459,6 +10689,19 @@ func (i *jsiiProxy_ITokenResolver) ResolveList(l *[]*string, context IResolveCon
 		i,
 		"resolveList",
 		[]interface{}{l, context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ITokenResolver) ResolveMap(m *map[string]interface{}, context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		i,
+		"resolveMap",
+		[]interface{}{m, context},
 		&returns,
 	)
 
@@ -13752,11 +13995,15 @@ type TerraformDataSource interface {
 	TerraformMetaArguments() *map[string]interface{}
 	TerraformResourceType() *string
 	AddOverride(path *string, value interface{})
+	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
 	GetStringAttribute(terraformAttribute *string) *string
+	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
@@ -13992,12 +14239,40 @@ func (t *jsiiProxy_TerraformDataSource) AddOverride(path *string, value interfac
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformDataSource) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"getAnyMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
 		"getBooleanAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformDataSource) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		t,
+		"getBooleanMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -14048,12 +14323,40 @@ func (t *jsiiProxy_TerraformDataSource) GetNumberListAttribute(terraformAttribut
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformDataSource) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"getStringAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformDataSource) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		t,
+		"getStringMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -16233,11 +16536,15 @@ type TerraformResource interface {
 	TerraformMetaArguments() *map[string]interface{}
 	TerraformResourceType() *string
 	AddOverride(path *string, value interface{})
+	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
 	GetStringAttribute(terraformAttribute *string) *string
+	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
@@ -16473,12 +16780,40 @@ func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformResource) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"getAnyMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformResource) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
 		"getBooleanAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformResource) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		t,
+		"getBooleanMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -16529,12 +16864,40 @@ func (t *jsiiProxy_TerraformResource) GetNumberListAttribute(terraformAttribute 
 }
 
 // Experimental.
+func (t *jsiiProxy_TerraformResource) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberMapAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformResource) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"getStringAttribute",
+		[]interface{}{terraformAttribute},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformResource) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		t,
+		"getStringMapAttribute",
 		[]interface{}{terraformAttribute},
 		&returns,
 	)
@@ -17569,6 +17932,40 @@ func Token_AsAny(value interface{}) IResolvable {
 	return returns
 }
 
+// Return a reversible map representation of this token.
+// Experimental.
+func Token_AsAnyMap(value interface{}, options *EncodingOptions) *map[string]interface{} {
+	_init_.Initialize()
+
+	var returns *map[string]interface{}
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asAnyMap",
+		[]interface{}{value, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a reversible map representation of this token.
+// Experimental.
+func Token_AsBooleanMap(value interface{}, options *EncodingOptions) *map[string]*bool {
+	_init_.Initialize()
+
+	var returns *map[string]*bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asBooleanMap",
+		[]interface{}{value, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return a reversible list representation of this token.
 // Experimental.
 func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
@@ -17580,6 +17977,23 @@ func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 		"cdktf.Token",
 		"asList",
 		[]interface{}{value, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a reversible map representation of this token.
+// Experimental.
+func Token_AsMap(value interface{}, mapValue interface{}, options *EncodingOptions) *map[string]interface{} {
+	_init_.Initialize()
+
+	var returns *map[string]interface{}
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asMap",
+		[]interface{}{value, mapValue, options},
 		&returns,
 	)
 
@@ -17620,6 +18034,23 @@ func Token_AsNumberList(value interface{}) *[]*float64 {
 	return returns
 }
 
+// Return a reversible map representation of this token.
+// Experimental.
+func Token_AsNumberMap(value interface{}, options *EncodingOptions) *map[string]*float64 {
+	_init_.Initialize()
+
+	var returns *map[string]*float64
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asNumberMap",
+		[]interface{}{value, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return a reversible string representation of this token.
 //
 // If the Token is initialized with a literal, the stringified value of the
@@ -17638,6 +18069,23 @@ func Token_AsString(value interface{}, options *EncodingOptions) *string {
 	_jsii_.StaticInvoke(
 		"cdktf.Token",
 		"asString",
+		[]interface{}{value, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a reversible map representation of this token.
+// Experimental.
+func Token_AsStringMap(value interface{}, options *EncodingOptions) *map[string]*string {
+	_init_.Initialize()
+
+	var returns *map[string]*string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"asStringMap",
 		[]interface{}{value, options},
 		&returns,
 	)
@@ -17668,6 +18116,39 @@ func Token_IsUnresolved(obj interface{}) *bool {
 		&returns,
 	)
 
+	return returns
+}
+
+func Token_ANY_MAP_TOKEN_VALUE() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.Token",
+		"ANY_MAP_TOKEN_VALUE",
+		&returns,
+	)
+	return returns
+}
+
+func Token_NUMBER_MAP_TOKEN_VALUE() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"cdktf.Token",
+		"NUMBER_MAP_TOKEN_VALUE",
+		&returns,
+	)
+	return returns
+}
+
+func Token_STRING_MAP_TOKEN_VALUE() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktf.Token",
+		"STRING_MAP_TOKEN_VALUE",
+		&returns,
+	)
 	return returns
 }
 
@@ -17775,6 +18256,23 @@ func Tokenization_ReverseList(l *[]*string) IResolvable {
 		"cdktf.Tokenization",
 		"reverseList",
 		[]interface{}{l},
+		&returns,
+	)
+
+	return returns
+}
+
+// Un-encode a Tokenized value from a map.
+// Experimental.
+func Tokenization_ReverseMap(m *map[string]interface{}) IResolvable {
+	_init_.Initialize()
+
+	var returns IResolvable
+
+	_jsii_.StaticInvoke(
+		"cdktf.Tokenization",
+		"reverseMap",
+		[]interface{}{m},
 		&returns,
 	)
 
