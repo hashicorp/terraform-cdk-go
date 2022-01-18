@@ -1086,6 +1086,8 @@ type ComplexComputedList interface {
 	SetTerraformAttribute(val *string)
 	TerraformResource() IInterpolatingParent
 	SetTerraformResource(val IInterpolatingParent)
+	WrapsSet() *bool
+	SetWrapsSet(val *bool)
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	GetBooleanAttribute(terraformAttribute *string) interface{}
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
@@ -1133,16 +1135,26 @@ func (j *jsiiProxy_ComplexComputedList) TerraformResource() IInterpolatingParent
 	return returns
 }
 
+func (j *jsiiProxy_ComplexComputedList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
 
 // Experimental.
-func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string) ComplexComputedList {
+func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) ComplexComputedList {
 	_init_.Initialize()
 
 	j := jsiiProxy_ComplexComputedList{}
 
 	_jsii_.Create(
 		"cdktf.ComplexComputedList",
-		[]interface{}{terraformResource, terraformAttribute, complexComputedListIndex},
+		[]interface{}{terraformResource, terraformAttribute, complexComputedListIndex, wrapsSet},
 		&j,
 	)
 
@@ -1150,12 +1162,12 @@ func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAtt
 }
 
 // Experimental.
-func NewComplexComputedList_Override(c ComplexComputedList, terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string) {
+func NewComplexComputedList_Override(c ComplexComputedList, terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.ComplexComputedList",
-		[]interface{}{terraformResource, terraformAttribute, complexComputedListIndex},
+		[]interface{}{terraformResource, terraformAttribute, complexComputedListIndex, wrapsSet},
 		c,
 	)
 }
@@ -1180,6 +1192,14 @@ func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val IInterpolatingP
 	_jsii_.Set(
 		j,
 		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexComputedList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
 		val,
 	)
 }
