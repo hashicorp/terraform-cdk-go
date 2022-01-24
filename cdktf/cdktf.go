@@ -15875,6 +15875,22 @@ func TerraformOutput_IsConstruct(x interface{}) *bool {
 }
 
 // Experimental.
+func TerraformOutput_IsTerrafromOutput(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformOutput",
+		"isTerrafromOutput",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
