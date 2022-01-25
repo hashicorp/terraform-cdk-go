@@ -992,7 +992,7 @@ type BooleanMap interface {
 	SetTerraformAttribute(val *string)
 	TerraformResource() IInterpolatingParent
 	SetTerraformResource(val IInterpolatingParent)
-	Lookup(key *string) *bool
+	Lookup(key *string) IResolvable
 }
 
 // The jsii proxy struct for BooleanMap
@@ -1064,8 +1064,8 @@ func (j *jsiiProxy_BooleanMap) SetTerraformResource(val IInterpolatingParent) {
 }
 
 // Experimental.
-func (b *jsiiProxy_BooleanMap) Lookup(key *string) *bool {
-	var returns *bool
+func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		b,
@@ -1089,7 +1089,7 @@ type ComplexComputedList interface {
 	WrapsSet() *bool
 	SetWrapsSet(val *bool)
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
-	GetBooleanAttribute(terraformAttribute *string) interface{}
+	GetBooleanAttribute(terraformAttribute *string) IResolvable
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
@@ -1219,8 +1219,8 @@ func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *s
 }
 
 // Experimental.
-func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) interface{} {
-	var returns interface{}
+func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		c,
@@ -1354,7 +1354,7 @@ type ComplexObject interface {
 	TerraformResource() IInterpolatingParent
 	SetTerraformResource(val IInterpolatingParent)
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
-	GetBooleanAttribute(terraformAttribute *string) interface{}
+	GetBooleanAttribute(terraformAttribute *string) IResolvable
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
 	GetListAttribute(terraformAttribute *string) *[]*string
 	GetNumberAttribute(terraformAttribute *string) *float64
@@ -1467,8 +1467,8 @@ func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string)
 }
 
 // Experimental.
-func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) interface{} {
-	var returns interface{}
+func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		c,
@@ -2159,7 +2159,7 @@ type DataTerraformRemoteState interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -2316,8 +2316,8 @@ func (d *jsiiProxy_DataTerraformRemoteState) Get(output *string) IResolvable {
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteState) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteState) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -2446,7 +2446,7 @@ type DataTerraformRemoteStateArtifactory interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -2603,8 +2603,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IRes
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -2751,7 +2751,7 @@ type DataTerraformRemoteStateAzurerm interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -2908,8 +2908,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) Get(output *string) IResolva
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3082,7 +3082,7 @@ type DataTerraformRemoteStateConsul interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -3239,8 +3239,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) Get(output *string) IResolvab
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3399,7 +3399,7 @@ type DataTerraformRemoteStateCos interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -3556,8 +3556,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) Get(output *string) IResolvable 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateCos) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateCos) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -3710,7 +3710,7 @@ type DataTerraformRemoteStateEtcd interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -3867,8 +3867,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) Get(output *string) IResolvable
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4013,7 +4013,7 @@ type DataTerraformRemoteStateEtcdV3 interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -4170,8 +4170,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) Get(output *string) IResolvab
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4324,7 +4324,7 @@ type DataTerraformRemoteStateGcs interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -4481,8 +4481,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) Get(output *string) IResolvable 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4629,7 +4629,7 @@ type DataTerraformRemoteStateHttp interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -4786,8 +4786,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) Get(output *string) IResolvable
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -4948,7 +4948,7 @@ type DataTerraformRemoteStateLocal interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -5105,8 +5105,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) Get(output *string) IResolvabl
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5248,7 +5248,7 @@ type DataTerraformRemoteStateManta interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -5405,8 +5405,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) Get(output *string) IResolvabl
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateManta) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateManta) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5559,7 +5559,7 @@ type DataTerraformRemoteStateOss interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -5716,8 +5716,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) Get(output *string) IResolvable 
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateOss) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateOss) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -5886,7 +5886,7 @@ type DataTerraformRemoteStatePg interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -6043,8 +6043,8 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) Get(output *string) IResolvable {
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStatePg) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStatePg) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -6203,7 +6203,7 @@ type DataTerraformRemoteStateS3 interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -6360,8 +6360,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) Get(output *string) IResolvable {
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateS3) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateS3) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -6550,7 +6550,7 @@ type DataTerraformRemoteStateSwift interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -6707,8 +6707,8 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) Get(output *string) IResolvabl
 }
 
 // Experimental.
-func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetBoolean(output *string) *bool {
-	var returns *bool
+func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		d,
@@ -7581,7 +7581,7 @@ func NewFn_Override(f Fn) {
 
 // {@link https://www.terraform.io/docs/language/functions/abs.html abs} returns the absolute value of the given number.
 // Experimental.
-func Fn_Abs(value interface{}) *float64 {
+func Fn_Abs(value *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -7598,7 +7598,7 @@ func Fn_Abs(value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/abspath.html abspath} takes a string containing a filesystem path and converts it to an absolute path.
 // Experimental.
-func Fn_Abspath(value interface{}) *string {
+func Fn_Abspath(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7649,7 +7649,7 @@ func Fn_Anytrue(value *[]interface{}) IResolvable {
 
 // {@link https://www.terraform.io/docs/language/functions/base64decode.html base64decode} takes a string containing a Base64 character sequence and returns the original string.
 // Experimental.
-func Fn_Base64decode(value interface{}) *string {
+func Fn_Base64decode(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7666,7 +7666,7 @@ func Fn_Base64decode(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/base64encode.html base64encode} takes a string containing a Base64 character sequence and returns the original string.
 // Experimental.
-func Fn_Base64encode(value interface{}) *string {
+func Fn_Base64encode(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7683,7 +7683,7 @@ func Fn_Base64encode(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/base64gzip.html base64gzip} compresses a string with gzip and then encodes the result in Base64 encoding.
 // Experimental.
-func Fn_Base64gzip(value interface{}) *string {
+func Fn_Base64gzip(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7700,7 +7700,7 @@ func Fn_Base64gzip(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/base64sha256.html base64sha256} computes the SHA256 hash of a given string and encodes it with Base64.
 // Experimental.
-func Fn_Base64sha256(value interface{}) *string {
+func Fn_Base64sha256(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7717,7 +7717,7 @@ func Fn_Base64sha256(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/base64sha512.html base64sha512} computes the SHA512 hash of a given string and encodes it with Base64.
 // Experimental.
-func Fn_Base64sha512(value interface{}) *string {
+func Fn_Base64sha512(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7734,7 +7734,7 @@ func Fn_Base64sha512(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/basename.html basename} takes a string containing a filesystem path and removes all except the last portion from it.
 // Experimental.
-func Fn_Basename(value interface{}) *string {
+func Fn_Basename(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7751,7 +7751,7 @@ func Fn_Basename(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/bcrypt.html bcrypt} computes a hash of the given string using the Blowfish cipher, returning a string in the Modular Crypt Format usually expected in the shadow password file on many Unix systems.
 // Experimental.
-func Fn_Bcrypt(value interface{}, cost interface{}) *string {
+func Fn_Bcrypt(value *string, cost *float64) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7785,7 +7785,7 @@ func Fn_Can(expression interface{}) IResolvable {
 
 // {@link https://www.terraform.io/docs/language/functions/ceil.html ceil} returns the closest whole number that is greater than or equal to the given value, which may be a fraction.
 // Experimental.
-func Fn_Ceil(value interface{}) *float64 {
+func Fn_Ceil(value *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -7802,7 +7802,7 @@ func Fn_Ceil(value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/chomp.html chomp} removes newline characters at the end of a string.
 // Experimental.
-func Fn_Chomp(value interface{}) *string {
+func Fn_Chomp(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7819,7 +7819,7 @@ func Fn_Chomp(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/chunklist.html chunklist} splits a single list into fixed-size chunks, returning a list of lists.
 // Experimental.
-func Fn_Chunklist(value *[]interface{}, chunkSize interface{}) *[]*string {
+func Fn_Chunklist(value *[]interface{}, chunkSize *float64) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -7836,7 +7836,7 @@ func Fn_Chunklist(value *[]interface{}, chunkSize interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/cidrhost.html cidrhost} calculates a full host IP address for a given host number within a given IP network address prefix.
 // Experimental.
-func Fn_Cidrhost(prefix interface{}, hostnum interface{}) *string {
+func Fn_Cidrhost(prefix *string, hostnum *float64) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7853,7 +7853,7 @@ func Fn_Cidrhost(prefix interface{}, hostnum interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/cidrnetmask.html cidrnetmask} converts an IPv4 address prefix given in CIDR notation into a subnet mask address.
 // Experimental.
-func Fn_Cidrnetmask(prefix interface{}) *string {
+func Fn_Cidrnetmask(prefix *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7870,7 +7870,7 @@ func Fn_Cidrnetmask(prefix interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/cidrsubnet.html cidrsubnet} calculates a subnet address within given IP network address prefix.
 // Experimental.
-func Fn_Cidrsubnet(prefix interface{}, newbits interface{}, netnum interface{}) *string {
+func Fn_Cidrsubnet(prefix *string, newbits *float64, netnum *float64) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -7887,7 +7887,7 @@ func Fn_Cidrsubnet(prefix interface{}, newbits interface{}, netnum interface{}) 
 
 // {@link https://www.terraform.io/docs/language/functions/cidrsubnets.html cidrsubnets} calculates a sequence of consecutive IP address ranges within a particular CIDR prefix.
 // Experimental.
-func Fn_Cidrsubnets(prefix interface{}, newbits *[]interface{}) *[]*string {
+func Fn_Cidrsubnets(prefix *string, newbits *[]*float64) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -7972,7 +7972,7 @@ func Fn_Concat(value *[]*[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/contains.html contains} determines whether a given list or set contains a given single value as one of its elements.
 // Experimental.
-func Fn_Contains(list *[]interface{}, value interface{}) IResolvable {
+func Fn_Contains(list interface{}, value interface{}) IResolvable {
 	_init_.Initialize()
 
 	var returns IResolvable
@@ -7989,7 +7989,7 @@ func Fn_Contains(list *[]interface{}, value interface{}) IResolvable {
 
 // {@link https://www.terraform.io/docs/language/functions/csvdecode.html csvdecode} decodes a string containing CSV-formatted data and produces a list of maps representing that data.
 // Experimental.
-func Fn_Csvdecode(value interface{}) *[]*string {
+func Fn_Csvdecode(value *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8006,7 +8006,7 @@ func Fn_Csvdecode(value interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/dirname.html dirname} takes a string containing a filesystem path and removes the last portion from it.
 // Experimental.
-func Fn_Dirname(value interface{}) *string {
+func Fn_Dirname(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8023,7 +8023,7 @@ func Fn_Dirname(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/distinct.html distinct} takes a list and returns a new list with any duplicate elements removed.
 // Experimental.
-func Fn_Distinct(list *[]interface{}) *[]*string {
+func Fn_Distinct(list interface{}) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8040,7 +8040,7 @@ func Fn_Distinct(list *[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/element.html element} retrieves a single element from a list.
 // Experimental.
-func Fn_Element(list interface{}, index interface{}) interface{} {
+func Fn_Element(list interface{}, index *float64) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
@@ -8057,7 +8057,7 @@ func Fn_Element(list interface{}, index interface{}) interface{} {
 
 // {@link https://www.terraform.io/docs/language/functions/file.html file} takes a string containing a filesystem path and removes all except the last portion from it.
 // Experimental.
-func Fn_File(value interface{}) *string {
+func Fn_File(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8074,7 +8074,7 @@ func Fn_File(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/filebase64.html filebase64} reads the contents of a file at the given path and returns them as a base64-encoded string.
 // Experimental.
-func Fn_Filebase64(value interface{}) *string {
+func Fn_Filebase64(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8091,7 +8091,7 @@ func Fn_Filebase64(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/filebase64sha256.html filebase64sha256} is a variant of base64sha256 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filebase64sha256(value interface{}) *string {
+func Fn_Filebase64sha256(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8108,7 +8108,7 @@ func Fn_Filebase64sha256(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/filebase64sha512.html filebase64sha512} is a variant of base64sha512 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filebase64sha512(value interface{}) *string {
+func Fn_Filebase64sha512(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8125,7 +8125,7 @@ func Fn_Filebase64sha512(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/fileexists.html fileexists} determines whether a file exists at a given path.
 // Experimental.
-func Fn_Fileexists(value interface{}) IResolvable {
+func Fn_Fileexists(value *string) IResolvable {
 	_init_.Initialize()
 
 	var returns IResolvable
@@ -8142,7 +8142,7 @@ func Fn_Fileexists(value interface{}) IResolvable {
 
 // {@link https://www.terraform.io/docs/language/functions/filemd5.html filemd5} is a variant of md5 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filemd5(value interface{}) *string {
+func Fn_Filemd5(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8159,7 +8159,7 @@ func Fn_Filemd5(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/fileset.html fileset} enumerates a set of regular file names given a path and pattern.
 // Experimental.
-func Fn_Fileset(path interface{}, pattern interface{}) *[]*string {
+func Fn_Fileset(path *string, pattern *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8176,7 +8176,7 @@ func Fn_Fileset(path interface{}, pattern interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/filesha1.html filesha1} is a variant of sha1 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filesha1(value interface{}) *string {
+func Fn_Filesha1(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8193,7 +8193,7 @@ func Fn_Filesha1(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/filesha256.html filesha256} is a variant of sha256 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filesha256(value interface{}) *string {
+func Fn_Filesha256(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8210,7 +8210,7 @@ func Fn_Filesha256(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/filesha512.html filesha512} is a variant of sha512 that hashes the contents of a given file rather than a literal string.
 // Experimental.
-func Fn_Filesha512(value interface{}) *string {
+func Fn_Filesha512(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8244,7 +8244,7 @@ func Fn_Flatten(list interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/floor.html floor} returns the closest whole number that is less than or equal to the given value, which may be a fraction.
 // Experimental.
-func Fn_Floor(value interface{}) *float64 {
+func Fn_Floor(value *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8261,7 +8261,7 @@ func Fn_Floor(value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/format.html format} produces a string by formatting a number of other values according to a specification string.
 // Experimental.
-func Fn_Format(spec interface{}, values *[]interface{}) *string {
+func Fn_Format(spec *string, values *[]interface{}) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8278,7 +8278,7 @@ func Fn_Format(spec interface{}, values *[]interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/formatdate.html formatdate} converts a timestamp into a different time format.
 // Experimental.
-func Fn_Formatdate(spec interface{}, timestamp interface{}) *string {
+func Fn_Formatdate(spec *string, timestamp *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8295,7 +8295,7 @@ func Fn_Formatdate(spec interface{}, timestamp interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/formatlist.html formatlist} produces a list of strings by formatting a number of other values according to a specification string.
 // Experimental.
-func Fn_Formatlist(spec interface{}, values *[]interface{}) *[]*string {
+func Fn_Formatlist(spec *string, values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8312,7 +8312,7 @@ func Fn_Formatlist(spec interface{}, values *[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/indent.html indent} adds a given number of spaces to the beginnings of all but the first line in a given multi-line string.
 // Experimental.
-func Fn_Indent(indentation interface{}, value interface{}) *string {
+func Fn_Indent(indentation *float64, value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8346,7 +8346,7 @@ func Fn_Index(list interface{}, value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/join.html join} produces a string by concatenating together all elements of a given list of strings with the given delimiter.
 // Experimental.
-func Fn_Join(separator interface{}, value *[]interface{}) *string {
+func Fn_Join(separator *string, value *[]*string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8363,7 +8363,7 @@ func Fn_Join(separator interface{}, value *[]interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/jsondecode.html jsondecode} interprets a given string as JSON, returning a representation of the result of decoding that string.
 // Experimental.
-func Fn_Jsondecode(value interface{}) interface{} {
+func Fn_Jsondecode(value *string) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
@@ -8431,7 +8431,7 @@ func Fn_LengthOf(value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/log.html log} returns the logarithm of a given number in a given base.
 // Experimental.
-func Fn_Log(value interface{}, base interface{}) *float64 {
+func Fn_Log(value *float64, base *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8465,7 +8465,7 @@ func Fn_Lookup(value interface{}, key interface{}, defaultValue interface{}) int
 
 // {@link https://www.terraform.io/docs/language/functions/lower.html lower} converts all cased letters in the given string to lowercase.
 // Experimental.
-func Fn_Lower(value interface{}) *string {
+func Fn_Lower(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8499,7 +8499,7 @@ func Fn_Matchkeys(valuesList interface{}, keysList interface{}, searchSet interf
 
 // {@link https://www.terraform.io/docs/language/functions/max.html max} takes one or more numbers and returns the greatest number from the set.
 // Experimental.
-func Fn_Max(values *[]interface{}) *float64 {
+func Fn_Max(values *[]*float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8516,7 +8516,7 @@ func Fn_Max(values *[]interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/md5.html md5} computes the MD5 hash of a given string and encodes it with hexadecimal digits.
 // Experimental.
-func Fn_Md5(value interface{}) *string {
+func Fn_Md5(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8550,7 +8550,7 @@ func Fn_Merge(values *[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/min.html min} takes one or more numbers and returns the smallest number from the set.
 // Experimental.
-func Fn_Min(values *[]interface{}) *float64 {
+func Fn_Min(values *[]*float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8601,7 +8601,7 @@ func Fn_One(list interface{}) interface{} {
 
 // {@link https://www.terraform.io/docs/language/functions/parseint.html parseInt} parses the given string as a representation of an integer in the specified base and returns the resulting number. The base must be between 2 and 62 inclusive.
 // Experimental.
-func Fn_ParseInt(value interface{}, base interface{}) *float64 {
+func Fn_ParseInt(value *string, base *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8618,7 +8618,7 @@ func Fn_ParseInt(value interface{}, base interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/pathexpand.html pathexpand} takes a string containing a filesystem path and removes the last portion from it.
 // Experimental.
-func Fn_Pathexpand(value interface{}) *string {
+func Fn_Pathexpand(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8635,7 +8635,7 @@ func Fn_Pathexpand(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/pow.html pow} calculates an exponent, by raising its first argument to the power of the second argument.
 // Experimental.
-func Fn_Pow(value interface{}, power interface{}) *float64 {
+func Fn_Pow(value *float64, power *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8652,7 +8652,7 @@ func Fn_Pow(value interface{}, power interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/range.html range} generates a list of numbers using a start value, a limit value, and a step value.
 // Experimental.
-func Fn_Range(start interface{}, limit interface{}, step *float64) *[]*string {
+func Fn_Range(start *float64, limit *float64, step *float64) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8686,7 +8686,7 @@ func Fn_RawString(str *string) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/regexall.html regexall} applies a regular expression to a string and returns a list of all matches.
 // Experimental.
-func Fn_Regexall(pattern interface{}, value interface{}) *[]*string {
+func Fn_Regexall(pattern *string, value *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8703,7 +8703,7 @@ func Fn_Regexall(pattern interface{}, value interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/replace.html replace} searches a given string for another given substring, and replaces each occurrence with a given replacement string.
 // Experimental.
-func Fn_Replace(value interface{}, substring interface{}, replacement interface{}) *string {
+func Fn_Replace(value *string, substring *string, replacement *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8720,7 +8720,7 @@ func Fn_Replace(value interface{}, substring interface{}, replacement interface{
 
 // {@link https://www.terraform.io/docs/language/functions/reverse.html reverse} takes a sequence and produces a new sequence of the same length with all of the same elements as the given sequence but in reverse order.
 // Experimental.
-func Fn_Reverse(values *[]interface{}) *[]*string {
+func Fn_Reverse(values interface{}) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8737,7 +8737,7 @@ func Fn_Reverse(values *[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/rsadecrypt.html rsadecrypt} decrypts an RSA-encrypted ciphertext, returning the corresponding cleartext.
 // Experimental.
-func Fn_Rsadecrypt(ciphertext interface{}, privatekey interface{}) *string {
+func Fn_Rsadecrypt(ciphertext *string, privatekey *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8839,7 +8839,7 @@ func Fn_Setunion(values *[]interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/sha1.html sha1} computes the SHA1 hash of a given string and encodes it with hexadecimal digits.
 // Experimental.
-func Fn_Sha1(value interface{}) *string {
+func Fn_Sha1(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8856,7 +8856,7 @@ func Fn_Sha1(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/sha256.html sha256} computes the SHA256 hash of a given string and encodes it with hexadecimal digits.
 // Experimental.
-func Fn_Sha256(value interface{}) *string {
+func Fn_Sha256(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8873,7 +8873,7 @@ func Fn_Sha256(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/sha512.html sha512} computes the SHA512 hash of a given string and encodes it with hexadecimal digits.
 // Experimental.
-func Fn_Sha512(value interface{}) *string {
+func Fn_Sha512(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8890,7 +8890,7 @@ func Fn_Sha512(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/signum.html signum} determines the sign of a number, returning a number between -1 and 1 to represent the sign.
 // Experimental.
-func Fn_Signum(value interface{}) *float64 {
+func Fn_Signum(value *float64) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
@@ -8907,7 +8907,7 @@ func Fn_Signum(value interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/slice.html slice} extracts some consecutive elements from within a list.
 // Experimental.
-func Fn_Slice(list interface{}, startindex interface{}, endindex interface{}) *[]*string {
+func Fn_Slice(list interface{}, startindex *float64, endindex *float64) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8941,7 +8941,7 @@ func Fn_Sort(list interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/split.html split} produces a list by dividing a given string at all occurrences of a given separator.
 // Experimental.
-func Fn_Split(seperator interface{}, value interface{}) *[]*string {
+func Fn_Split(seperator *string, value *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
@@ -8958,7 +8958,7 @@ func Fn_Split(seperator interface{}, value interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/strrev.html strrev} reverses the characters in a string.
 // Experimental.
-func Fn_Strrev(value interface{}) *string {
+func Fn_Strrev(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -8975,7 +8975,7 @@ func Fn_Strrev(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/substr.html substr} extracts a substring from a given string by offset and length.
 // Experimental.
-func Fn_Substr(value interface{}, offset interface{}, length interface{}) *string {
+func Fn_Substr(value *string, offset *float64, length *float64) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9009,7 +9009,7 @@ func Fn_Sum(list interface{}) *float64 {
 
 // {@link https://www.terraform.io/docs/language/functions/templatefile.html templatefile} reads the file at the given path and renders its content as a template using a supplied set of template variables.
 // Experimental.
-func Fn_Templatefile(path interface{}, vars interface{}) *string {
+func Fn_Templatefile(path *string, vars interface{}) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9026,7 +9026,7 @@ func Fn_Templatefile(path interface{}, vars interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/textdecodebase64.html textdecodebase64} function decodes a string that was previously Base64-encoded, and then interprets the result as characters in a specified character encoding.
 // Experimental.
-func Fn_Textdecodebase64(value interface{}, encodingName interface{}) *string {
+func Fn_Textdecodebase64(value *string, encodingName *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9043,7 +9043,7 @@ func Fn_Textdecodebase64(value interface{}, encodingName interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/textencodebase64.html textencodebase64}  encodes the unicode characters in a given string using a specified character encoding, returning the result base64 encoded because Terraform language strings are always sequences of unicode characters.
 // Experimental.
-func Fn_Textencodebase64(value interface{}, encodingName interface{}) *string {
+func Fn_Textencodebase64(value *string, encodingName *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9060,7 +9060,7 @@ func Fn_Textencodebase64(value interface{}, encodingName interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/timeadd.html timeadd} adds a duration to a timestamp, returning a new timestamp.
 // Experimental.
-func Fn_Timeadd(timestamp interface{}, duration interface{}) *string {
+func Fn_Timeadd(timestamp *string, duration *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9094,7 +9094,7 @@ func Fn_Timestamp() *string {
 
 // {@link https://www.terraform.io/docs/language/functions/title.html title} converts the first letter of each word in the given string to uppercase.
 // Experimental.
-func Fn_Title(value interface{}) *string {
+func Fn_Title(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9230,7 +9230,7 @@ func Fn_Transpose(value interface{}) interface{} {
 
 // {@link https://www.terraform.io/docs/language/functions/trim.html trim} removes the specified characters from the start and end of the given string.
 // Experimental.
-func Fn_Trim(value interface{}, replacement interface{}) *string {
+func Fn_Trim(value *string, replacement *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9247,7 +9247,7 @@ func Fn_Trim(value interface{}, replacement interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/trimprefix.html trimprefix} removes the specified prefix from the start of the given string.
 // Experimental.
-func Fn_Trimprefix(value interface{}, prefix interface{}) *string {
+func Fn_Trimprefix(value *string, prefix *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9264,7 +9264,7 @@ func Fn_Trimprefix(value interface{}, prefix interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/trimspace.html trimspace} removes any space characters from the start and end of the given string.
 // Experimental.
-func Fn_Trimspace(value interface{}) *string {
+func Fn_Trimspace(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9281,7 +9281,7 @@ func Fn_Trimspace(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/trimsuffix.html trimsuffix} removes the specified suffix from the end of the given string.
 // Experimental.
-func Fn_Trimsuffix(value interface{}, suffix interface{}) *string {
+func Fn_Trimsuffix(value *string, suffix *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9315,7 +9315,7 @@ func Fn_Try(expression *[]interface{}) interface{} {
 
 // {@link https://www.terraform.io/docs/language/functions/upper.html upper} converts all cased letters in the given string to uppercase.
 // Experimental.
-func Fn_Upper(value interface{}) *string {
+func Fn_Upper(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9332,7 +9332,7 @@ func Fn_Upper(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/urlencode.html urlencode} applies URL encoding to a given string.
 // Experimental.
-func Fn_Urlencode(value interface{}) *string {
+func Fn_Urlencode(value *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9366,7 +9366,7 @@ func Fn_Uuid() *string {
 
 // {@link https://www.terraform.io/docs/language/functions/uuidv5.html uuidv5} generates a unique identifier string.
 // Experimental.
-func Fn_Uuidv5(namespace interface{}, name interface{}) *string {
+func Fn_Uuidv5(namespace *string, name *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -9400,7 +9400,7 @@ func Fn_Values(value interface{}) *[]*string {
 
 // {@link https://www.terraform.io/docs/language/functions/yamldecode.html yamldecode} parses a string as a subset of YAML, and produces a representation of its value.
 // Experimental.
-func Fn_Yamldecode(value interface{}) interface{} {
+func Fn_Yamldecode(value *string) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
@@ -9434,7 +9434,7 @@ func Fn_Yamlencode(value interface{}) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/zipmap.html zipmap} constructs a map from a list of keys and a corresponding list of values.
 // Experimental.
-func Fn_Zipmap(keyslist *[]interface{}, valueslist *[]interface{}) interface{} {
+func Fn_Zipmap(keyslist interface{}, valueslist interface{}) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
@@ -10504,9 +10504,9 @@ type ITerraformResource interface {
 	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	// Experimental.
-	Count() interface{}
+	Count() *float64
 	// Experimental.
-	SetCount(c interface{})
+	SetCount(c *float64)
 	// Experimental.
 	DependsOn() *[]*string
 	// Experimental.
@@ -10545,8 +10545,8 @@ func (i *jsiiProxy_ITerraformResource) InterpolationForAttribute(terraformAttrib
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) Count() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_ITerraformResource) Count() *float64 {
+	var returns *float64
 	_jsii_.Get(
 		j,
 		"count",
@@ -10555,7 +10555,7 @@ func (j *jsiiProxy_ITerraformResource) Count() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetCount(val interface{}) {
+func (j *jsiiProxy_ITerraformResource) SetCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -13999,8 +13999,8 @@ type TerraformDataSource interface {
 	ITerraformResource
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
-	Count() interface{}
-	SetCount(val interface{})
+	Count() *float64
+	SetCount(val *float64)
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
@@ -14061,8 +14061,8 @@ func (j *jsiiProxy_TerraformDataSource) ConstructNodeMetadata() *map[string]inte
 	return returns
 }
 
-func (j *jsiiProxy_TerraformDataSource) Count() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_TerraformDataSource) Count() *float64 {
+	var returns *float64
 	_jsii_.Get(
 		j,
 		"count",
@@ -14198,7 +14198,7 @@ func NewTerraformDataSource_Override(t TerraformDataSource, scope constructs.Con
 	)
 }
 
-func (j *jsiiProxy_TerraformDataSource) SetCount(val interface{}) {
+func (j *jsiiProxy_TerraformDataSource) SetCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -14693,11 +14693,11 @@ type TerraformHclModule interface {
 	AddOverride(path *string, value interface{})
 	AddProvider(provider interface{})
 	Get(output *string) interface{}
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
-	InterpolationForOutput(moduleOutput *string) *string
+	InterpolationForOutput(moduleOutput *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	Set(variable *string, value interface{})
@@ -14909,8 +14909,8 @@ func (t *jsiiProxy_TerraformHclModule) Get(output *string) interface{} {
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) *bool {
-	var returns *bool
+func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
@@ -14965,8 +14965,8 @@ func (t *jsiiProxy_TerraformHclModule) GetString(output *string) *string {
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *string) *string {
-	var returns *string
+func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
@@ -15347,7 +15347,7 @@ func (t *jsiiProxy_TerraformLocal) ToTerraform() interface{} {
 // Experimental.
 type TerraformMetaArguments struct {
 	// Experimental.
-	Count interface{} `json:"count" yaml:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
@@ -15373,7 +15373,8 @@ type TerraformModule interface {
 	Version() *string
 	AddOverride(path *string, value interface{})
 	AddProvider(provider interface{})
-	InterpolationForOutput(moduleOutput *string) *string
+	GetString(output *string) *string
+	InterpolationForOutput(moduleOutput *string) IResolvable
 	OverrideLogicalId(newLogicalId *string)
 	ResetOverrideLogicalId()
 	SynthesizeAttributes() *map[string]interface{}
@@ -15546,8 +15547,22 @@ func (t *jsiiProxy_TerraformModule) AddProvider(provider interface{}) {
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string) *string {
+func (t *jsiiProxy_TerraformModule) GetString(output *string) *string {
 	var returns *string
+
+	_jsii_.Invoke(
+		t,
+		"getString",
+		[]interface{}{output},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
@@ -16286,7 +16301,7 @@ type TerraformRemoteState interface {
 	RawOverrides() interface{}
 	AddOverride(path *string, value interface{})
 	Get(output *string) IResolvable
-	GetBoolean(output *string) *bool
+	GetBoolean(output *string) IResolvable
 	GetList(output *string) *[]*string
 	GetNumber(output *string) *float64
 	GetString(output *string) *string
@@ -16429,8 +16444,8 @@ func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
 }
 
 // Experimental.
-func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) *bool {
-	var returns *bool
+func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) IResolvable {
+	var returns IResolvable
 
 	_jsii_.Invoke(
 		t,
@@ -16556,8 +16571,8 @@ type TerraformResource interface {
 	ITerraformResource
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
-	Count() interface{}
-	SetCount(val interface{})
+	Count() *float64
+	SetCount(val *float64)
 	DependsOn() *[]*string
 	SetDependsOn(val *[]*string)
 	Fqn() *string
@@ -16618,8 +16633,8 @@ func (j *jsiiProxy_TerraformResource) ConstructNodeMetadata() *map[string]interf
 	return returns
 }
 
-func (j *jsiiProxy_TerraformResource) Count() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_TerraformResource) Count() *float64 {
+	var returns *float64
 	_jsii_.Get(
 		j,
 		"count",
@@ -16755,7 +16770,7 @@ func NewTerraformResource_Override(t TerraformResource, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_TerraformResource) SetCount(val interface{}) {
+func (j *jsiiProxy_TerraformResource) SetCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -17036,7 +17051,7 @@ func (t *jsiiProxy_TerraformResource) ToTerraform() interface{} {
 // Experimental.
 type TerraformResourceConfig struct {
 	// Experimental.
-	Count interface{} `json:"count" yaml:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
@@ -17383,7 +17398,7 @@ type TerraformStackMetadata struct {
 type TerraformVariable interface {
 	TerraformElement
 	ITerraformAddressable
-	BooleanValue() *bool
+	BooleanValue() IResolvable
 	CdktfStack() TerraformStack
 	ConstructNodeMetadata() *map[string]interface{}
 	Default() interface{}
@@ -17414,8 +17429,8 @@ type jsiiProxy_TerraformVariable struct {
 	jsiiProxy_ITerraformAddressable
 }
 
-func (j *jsiiProxy_TerraformVariable) BooleanValue() *bool {
-	var returns *bool
+func (j *jsiiProxy_TerraformVariable) BooleanValue() IResolvable {
+	var returns IResolvable
 	_jsii_.Get(
 		j,
 		"booleanValue",
