@@ -7613,7 +7613,7 @@ func Fn_Abspath(value *string) *string {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/anytrue.html anytrue} returns true if all elements in a given collection are true or "true".
+// {@link https://www.terraform.io/docs/language/functions/alltrue.html alltrue} returns true if all elements in a given collection are true or "true".
 // Experimental.
 func Fn_Alltrue(values *[]interface{}) IResolvable {
 	_init_.Initialize()
@@ -8678,6 +8678,23 @@ func Fn_RawString(str *string) *string {
 		"cdktf.Fn",
 		"rawString",
 		[]interface{}{str},
+		&returns,
+	)
+
+	return returns
+}
+
+// {@link https://www.terraform.io/docs/language/functions/regex.html regex} applies a regular expression to a string and returns the matching substrings in pattern.
+// Experimental.
+func Fn_Regex(pattern *string, value *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"regex",
+		[]interface{}{pattern, value},
 		&returns,
 	)
 
