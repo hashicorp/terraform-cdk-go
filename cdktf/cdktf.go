@@ -4615,6 +4615,10 @@ type DataTerraformRemoteStateGcsConfig struct {
 	// Experimental.
 	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
 	// Experimental.
+	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	// Experimental.
+	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
@@ -9724,6 +9728,10 @@ type GcsBackendProps struct {
 	Credentials *string `json:"credentials" yaml:"credentials"`
 	// Experimental.
 	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	// Experimental.
+	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	// Experimental.
+	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
 }
