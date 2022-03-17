@@ -1077,7 +1077,8 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 type ComplexComputedList interface {
 	IInterpolatingParent
 	ComplexComputedListIndex() *string
@@ -1146,7 +1147,8 @@ func (j *jsiiProxy_ComplexComputedList) WrapsSet() *bool {
 }
 
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) ComplexComputedList {
 	_init_.Initialize()
 
@@ -1161,7 +1163,8 @@ func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAtt
 	return &j
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func NewComplexComputedList_Override(c ComplexComputedList, terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) {
 	_init_.Initialize()
 
@@ -1204,7 +1207,8 @@ func (j *jsiiProxy_ComplexComputedList) SetWrapsSet(val *bool) {
 	)
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -1218,7 +1222,8 @@ func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -1232,7 +1237,8 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
 	var returns *map[string]*bool
 
@@ -1246,7 +1252,8 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribut
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *string) *[]*string {
 	var returns *[]*string
 
@@ -1260,7 +1267,8 @@ func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *string) *float64 {
 	var returns *float64
 
@@ -1274,7 +1282,8 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
 	var returns *[]*float64
 
@@ -1288,7 +1297,8 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribut
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
 	var returns *map[string]*float64
 
@@ -1302,7 +1312,8 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -1316,7 +1327,8 @@ func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
 	var returns *map[string]*string
 
@@ -1330,7 +1342,8 @@ func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute
 	return returns
 }
 
-// Experimental.
+// Deprecated: Going to be replaced by Array of ComplexListItem
+// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *string) IResolvable {
 	var returns IResolvable
 
@@ -1345,10 +1358,105 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 }
 
 // Experimental.
+type ComplexList interface {
+	ITerraformAddressable
+	Fqn() *string
+	TerraformAttribute() *string
+	SetTerraformAttribute(val *string)
+	TerraformResource() IInterpolatingParent
+	SetTerraformResource(val IInterpolatingParent)
+	WrapsSet() *bool
+	SetWrapsSet(val *bool)
+}
+
+// The jsii proxy struct for ComplexList
+type jsiiProxy_ComplexList struct {
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_ComplexList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexList) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewComplexList_Override(c ComplexList, terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.ComplexList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		c,
+	)
+}
+
+func (j *jsiiProxy_ComplexList) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexList) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
+		val,
+	)
+}
+
+// Experimental.
 type ComplexObject interface {
 	IInterpolatingParent
-	IsSingleItem() *bool
-	SetIsSingleItem(val *bool)
+	ComplexObjectIndex() *float64
+	SetComplexObjectIndex(val *float64)
+	ComplexObjectIsFromSet() *bool
+	SetComplexObjectIsFromSet(val *bool)
 	TerraformAttribute() *string
 	SetTerraformAttribute(val *string)
 	TerraformResource() IInterpolatingParent
@@ -1371,11 +1479,21 @@ type jsiiProxy_ComplexObject struct {
 	jsiiProxy_IInterpolatingParent
 }
 
-func (j *jsiiProxy_ComplexObject) IsSingleItem() *bool {
+func (j *jsiiProxy_ComplexObject) ComplexObjectIndex() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"complexObjectIndex",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) ComplexObjectIsFromSet() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
-		"isSingleItem",
+		"complexObjectIsFromSet",
 		&returns,
 	)
 	return returns
@@ -1403,14 +1521,14 @@ func (j *jsiiProxy_ComplexObject) TerraformResource() IInterpolatingParent {
 
 
 // Experimental.
-func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, isSingleItem *bool) ComplexObject {
+func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIndex *float64, complexObjectIsFromSet *bool) ComplexObject {
 	_init_.Initialize()
 
 	j := jsiiProxy_ComplexObject{}
 
 	_jsii_.Create(
 		"cdktf.ComplexObject",
-		[]interface{}{terraformResource, terraformAttribute, isSingleItem},
+		[]interface{}{terraformResource, terraformAttribute, complexObjectIndex, complexObjectIsFromSet},
 		&j,
 	)
 
@@ -1418,20 +1536,28 @@ func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute
 }
 
 // Experimental.
-func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolatingParent, terraformAttribute *string, isSingleItem *bool) {
+func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIndex *float64, complexObjectIsFromSet *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.ComplexObject",
-		[]interface{}{terraformResource, terraformAttribute, isSingleItem},
+		[]interface{}{terraformResource, terraformAttribute, complexObjectIndex, complexObjectIsFromSet},
 		c,
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetIsSingleItem(val *bool) {
+func (j *jsiiProxy_ComplexObject) SetComplexObjectIndex(val *float64) {
 	_jsii_.Set(
 		j,
-		"isSingleItem",
+		"complexObjectIndex",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexObject) SetComplexObjectIsFromSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"complexObjectIsFromSet",
 		val,
 	)
 }
