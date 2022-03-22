@@ -13,16 +13,33 @@ import (
 type AnnotationMetadataEntryType string
 
 const (
+	// Experimental.
 	AnnotationMetadataEntryType_INFO AnnotationMetadataEntryType = "INFO"
+	// Experimental.
 	AnnotationMetadataEntryType_WARN AnnotationMetadataEntryType = "WARN"
+	// Experimental.
 	AnnotationMetadataEntryType_ERROR AnnotationMetadataEntryType = "ERROR"
 )
 
 // Includes API for attaching annotations such as warning messages to constructs.
 // Experimental.
 type Annotations interface {
+	// Adds an { "error": <message> } metadata entry to this construct.
+	//
+	// The toolkit will fail synthesis when errors are reported.
+	// Experimental.
 	AddError(message *string)
+	// Adds an info metadata entry to this construct.
+	//
+	// The CLI will display the info message when apps are synthesized.
+	// Experimental.
 	AddInfo(message *string)
+	// Adds a warning metadata entry to this construct.
+	//
+	// The CLI will display the warning when an app is synthesized.
+	// In a future release the CLI might introduce a --strict flag which
+	// will then fail the synthesis if it encounters a warning.
+	// Experimental.
 	AddWarning(message *string)
 }
 
@@ -48,10 +65,6 @@ func Annotations_Of(scope constructs.IConstruct) Annotations {
 	return returns
 }
 
-// Adds an { "error": <message> } metadata entry to this construct.
-//
-// The toolkit will fail synthesis when errors are reported.
-// Experimental.
 func (a *jsiiProxy_Annotations) AddError(message *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -60,10 +73,6 @@ func (a *jsiiProxy_Annotations) AddError(message *string) {
 	)
 }
 
-// Adds an info metadata entry to this construct.
-//
-// The CLI will display the info message when apps are synthesized.
-// Experimental.
 func (a *jsiiProxy_Annotations) AddInfo(message *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -72,12 +81,6 @@ func (a *jsiiProxy_Annotations) AddInfo(message *string) {
 	)
 }
 
-// Adds a warning metadata entry to this construct.
-//
-// The CLI will display the warning when an app is synthesized.
-// In a future release the CLI might introduce a --strict flag which
-// will then fail the synthesis if it encounters a warning.
-// Experimental.
 func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -88,10 +91,15 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 
 // Experimental.
 type AnyMap interface {
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	Lookup(key *string) interface{}
 }
 
@@ -163,7 +171,6 @@ func (j *jsiiProxy_AnyMap) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
 	var returns interface{}
 
@@ -181,13 +188,30 @@ func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
 // Experimental.
 type App interface {
 	constructs.Construct
+	// Experimental.
 	Manifest() Manifest
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// The output directory into which resources will be synthesized.
+	// Experimental.
 	Outdir() *string
+	// Whether to skip the validation during synthesis of the app.
+	// Experimental.
 	SkipValidation() *bool
+	// The stack which will be synthesized.
+	//
+	// If not set, all stacks will be synthesized.
+	// Experimental.
 	TargetStackId() *string
+	// Creates a reference from one stack to another, invoked on prepareStack since it creates extra resources.
+	// Experimental.
 	CrossStackReference(fromStack TerraformStack, toStack TerraformStack, identifier *string) *string
+	// Synthesizes all resources to the output directory.
+	// Experimental.
 	Synth()
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
 }
 
@@ -294,7 +318,7 @@ func App_IsApp(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func App_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -326,8 +350,6 @@ func App_Of(construct constructs.IConstruct) App {
 	return returns
 }
 
-// Creates a reference from one stack to another, invoked on prepareStack since it creates extra resources.
-// Experimental.
 func (a *jsiiProxy_App) CrossStackReference(fromStack TerraformStack, toStack TerraformStack, identifier *string) *string {
 	var returns *string
 
@@ -341,8 +363,6 @@ func (a *jsiiProxy_App) CrossStackReference(fromStack TerraformStack, toStack Te
 	return returns
 }
 
-// Synthesizes all resources to the output directory.
-// Experimental.
 func (a *jsiiProxy_App) Synth() {
 	_jsii_.InvokeVoid(
 		a,
@@ -351,8 +371,6 @@ func (a *jsiiProxy_App) Synth() {
 	)
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_App) ToString() *string {
 	var returns *string
 
@@ -388,19 +406,39 @@ type AppOptions struct {
 // Experimental.
 type ArtifactoryBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -515,7 +553,7 @@ func ArtifactoryBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -531,7 +569,6 @@ func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -540,8 +577,6 @@ func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -555,8 +590,6 @@ func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(scope constructs
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -565,8 +598,6 @@ func (a *jsiiProxy_ArtifactoryBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		a,
@@ -575,7 +606,6 @@ func (a *jsiiProxy_ArtifactoryBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -589,7 +619,6 @@ func (a *jsiiProxy_ArtifactoryBackend) SynthesizeAttributes() *map[string]interf
 	return returns
 }
 
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -603,8 +632,6 @@ func (a *jsiiProxy_ArtifactoryBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) ToString() *string {
 	var returns *string
 
@@ -618,8 +645,6 @@ func (a *jsiiProxy_ArtifactoryBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (a *jsiiProxy_ArtifactoryBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -650,7 +675,11 @@ type ArtifactoryBackendProps struct {
 // Aspects can be applied to CDK tree scopes and can operate on the tree before synthesis.
 // Experimental.
 type Aspects interface {
+	// The list of aspects which were directly applied on this scope.
+	// Experimental.
 	All() *[]IAspect
+	// Adds an aspect to apply this scope before synthesis.
+	// Experimental.
 	Add(aspect IAspect)
 }
 
@@ -687,8 +716,6 @@ func Aspects_Of(scope constructs.IConstruct) Aspects {
 	return returns
 }
 
-// Adds an aspect to apply this scope before synthesis.
-// Experimental.
 func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
 	_jsii_.InvokeVoid(
 		a,
@@ -701,27 +728,50 @@ func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
 type AssetType string
 
 const (
+	// Experimental.
 	AssetType_FILE AssetType = "FILE"
+	// Experimental.
 	AssetType_DIRECTORY AssetType = "DIRECTORY"
+	// Experimental.
 	AssetType_ARCHIVE AssetType = "ARCHIVE"
 )
 
 // Experimental.
 type AzurermBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -836,7 +886,7 @@ func AzurermBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func AzurermBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -852,7 +902,6 @@ func AzurermBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -861,8 +910,6 @@ func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -876,8 +923,6 @@ func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(scope constructs.Con
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -886,8 +931,6 @@ func (a *jsiiProxy_AzurermBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		a,
@@ -896,7 +939,6 @@ func (a *jsiiProxy_AzurermBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -910,7 +952,6 @@ func (a *jsiiProxy_AzurermBackend) SynthesizeAttributes() *map[string]interface{
 	return returns
 }
 
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -924,8 +965,6 @@ func (a *jsiiProxy_AzurermBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) ToString() *string {
 	var returns *string
 
@@ -939,8 +978,6 @@ func (a *jsiiProxy_AzurermBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (a *jsiiProxy_AzurermBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -988,10 +1025,15 @@ type AzurermBackendProps struct {
 
 // Experimental.
 type BooleanMap interface {
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	Lookup(key *string) IResolvable
 }
 
@@ -1063,7 +1105,6 @@ func (j *jsiiProxy_BooleanMap) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
-// Experimental.
 func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 	var returns IResolvable
 
@@ -1078,26 +1119,62 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 }
 
 // Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
+// and will be removed in the future.
 type ComplexComputedList interface {
 	IInterpolatingParent
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	ComplexComputedListIndex() *string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	SetComplexComputedListIndex(val *string)
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	TerraformAttribute() *string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	SetTerraformAttribute(val *string)
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	TerraformResource() IInterpolatingParent
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	SetTerraformResource(val IInterpolatingParent)
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	WrapsSet() *bool
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	SetWrapsSet(val *bool)
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetListAttribute(terraformAttribute *string) *[]*string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetNumberAttribute(terraformAttribute *string) *float64
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetStringAttribute(terraformAttribute *string) *string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
 	InterpolationForAttribute(property *string) IResolvable
 }
 
@@ -1148,7 +1225,7 @@ func (j *jsiiProxy_ComplexComputedList) WrapsSet() *bool {
 
 
 // Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
+// and will be removed in the future.
 func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) ComplexComputedList {
 	_init_.Initialize()
 
@@ -1164,7 +1241,7 @@ func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAtt
 }
 
 // Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
+// and will be removed in the future.
 func NewComplexComputedList_Override(c ComplexComputedList, terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) {
 	_init_.Initialize()
 
@@ -1207,8 +1284,6 @@ func (j *jsiiProxy_ComplexComputedList) SetWrapsSet(val *bool) {
 	)
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -1222,8 +1297,6 @@ func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *s
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -1237,8 +1310,6 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
 	var returns *map[string]*bool
 
@@ -1252,8 +1323,6 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribut
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *string) *[]*string {
 	var returns *[]*string
 
@@ -1267,8 +1336,6 @@ func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *str
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *string) *float64 {
 	var returns *float64
 
@@ -1282,8 +1349,6 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *s
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
 	var returns *[]*float64
 
@@ -1297,8 +1362,6 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribut
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
 	var returns *map[string]*float64
 
@@ -1312,8 +1375,6 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -1327,8 +1388,6 @@ func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *s
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
 	var returns *map[string]*string
 
@@ -1342,8 +1401,6 @@ func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute
 	return returns
 }
 
-// Deprecated: Going to be replaced by Array of ComplexListItem
-// and will be removed in the future
 func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *string) IResolvable {
 	var returns IResolvable
 
@@ -1360,12 +1417,19 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 // Experimental.
 type ComplexList interface {
 	ITerraformAddressable
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	WrapsSet() *bool
+	// Experimental.
 	SetWrapsSet(val *bool)
 }
 
@@ -1453,24 +1517,45 @@ func (j *jsiiProxy_ComplexList) SetWrapsSet(val *bool) {
 // Experimental.
 type ComplexObject interface {
 	IInterpolatingParent
+	// the index of the complex object in a list.
+	// Experimental.
 	ComplexObjectIndex() *float64
+	// Experimental.
 	SetComplexObjectIndex(val *float64)
+	// set to true if this item is from inside a set and needs tolist() for accessing it set to "0" for single list items.
+	// Experimental.
 	ComplexObjectIsFromSet() *bool
+	// Experimental.
 	SetComplexObjectIsFromSet(val *bool)
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
+	// Experimental.
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	// Experimental.
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
+	// Experimental.
 	GetListAttribute(terraformAttribute *string) *[]*string
+	// Experimental.
 	GetNumberAttribute(terraformAttribute *string) *float64
+	// Experimental.
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	// Experimental.
 	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
+	// Experimental.
 	GetStringAttribute(terraformAttribute *string) *string
+	// Experimental.
 	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
+	// Experimental.
 	InterpolationAsList() IResolvable
+	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
 }
 
@@ -1578,7 +1663,6 @@ func (j *jsiiProxy_ComplexObject) SetTerraformResource(val IInterpolatingParent)
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -1592,7 +1676,6 @@ func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string)
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -1606,7 +1689,6 @@ func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
 	var returns *map[string]*bool
 
@@ -1620,7 +1702,6 @@ func (c *jsiiProxy_ComplexObject) GetBooleanMapAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetListAttribute(terraformAttribute *string) *[]*string {
 	var returns *[]*string
 
@@ -1634,7 +1715,6 @@ func (c *jsiiProxy_ComplexObject) GetListAttribute(terraformAttribute *string) *
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string) *float64 {
 	var returns *float64
 
@@ -1648,7 +1728,6 @@ func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string)
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
 	var returns *[]*float64
 
@@ -1662,7 +1741,6 @@ func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
 	var returns *map[string]*float64
 
@@ -1676,7 +1754,6 @@ func (c *jsiiProxy_ComplexObject) GetNumberMapAttribute(terraformAttribute *stri
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -1690,7 +1767,6 @@ func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string)
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
 	var returns *map[string]*string
 
@@ -1704,7 +1780,6 @@ func (c *jsiiProxy_ComplexObject) GetStringMapAttribute(terraformAttribute *stri
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) InterpolationAsList() IResolvable {
 	var returns IResolvable
 
@@ -1718,7 +1793,6 @@ func (c *jsiiProxy_ComplexObject) InterpolationAsList() IResolvable {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IResolvable {
 	var returns IResolvable
 
@@ -1735,19 +1809,39 @@ func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IR
 // Experimental.
 type ConsulBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -1862,7 +1956,7 @@ func ConsulBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func ConsulBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1878,7 +1972,6 @@ func ConsulBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1887,8 +1980,6 @@ func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -1902,8 +1993,6 @@ func (c *jsiiProxy_ConsulBackend) GetRemoteStateDataSource(scope constructs.Cons
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1912,8 +2001,6 @@ func (c *jsiiProxy_ConsulBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		c,
@@ -1922,7 +2009,6 @@ func (c *jsiiProxy_ConsulBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -1936,7 +2022,6 @@ func (c *jsiiProxy_ConsulBackend) SynthesizeAttributes() *map[string]interface{}
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -1950,8 +2035,6 @@ func (c *jsiiProxy_ConsulBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) ToString() *string {
 	var returns *string
 
@@ -1965,8 +2048,6 @@ func (c *jsiiProxy_ConsulBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (c *jsiiProxy_ConsulBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -2009,19 +2090,39 @@ type ConsulBackendProps struct {
 // Experimental.
 type CosBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -2136,7 +2237,7 @@ func CosBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func CosBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2152,7 +2253,6 @@ func CosBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2161,8 +2261,6 @@ func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -2176,8 +2274,6 @@ func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(scope constructs.Constru
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CosBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2186,8 +2282,6 @@ func (c *jsiiProxy_CosBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (c *jsiiProxy_CosBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		c,
@@ -2196,7 +2290,6 @@ func (c *jsiiProxy_CosBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CosBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -2210,7 +2303,6 @@ func (c *jsiiProxy_CosBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CosBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -2224,8 +2316,6 @@ func (c *jsiiProxy_CosBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CosBackend) ToString() *string {
 	var returns *string
 
@@ -2239,8 +2329,6 @@ func (c *jsiiProxy_CosBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (c *jsiiProxy_CosBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -2277,22 +2365,44 @@ type CosBackendProps struct {
 // Experimental.
 type DataTerraformRemoteState interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -2391,7 +2501,7 @@ func NewDataTerraformRemoteState_Override(d DataTerraformRemoteState, scope cons
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteState_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2418,7 +2528,6 @@ func DataTerraformRemoteState_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -2427,7 +2536,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) AddOverride(path *string, value int
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -2441,7 +2549,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) Get(output *string) IResolvable {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -2455,7 +2562,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) GetBoolean(output *string) IResolva
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -2469,7 +2575,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) GetList(output *string) *[]*string 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -2483,7 +2588,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) GetNumber(output *string) *float64 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) GetString(output *string) *string {
 	var returns *string
 
@@ -2497,8 +2601,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) GetString(output *string) *string {
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -2507,8 +2609,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) OverrideLogicalId(newLogicalId *str
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -2517,7 +2617,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -2531,8 +2630,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ToString() *string {
 	var returns *string
 
@@ -2546,8 +2643,6 @@ func (d *jsiiProxy_DataTerraformRemoteState) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteState) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -2564,22 +2659,44 @@ func (d *jsiiProxy_DataTerraformRemoteState) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateArtifactory interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -2678,7 +2795,7 @@ func NewDataTerraformRemoteStateArtifactory_Override(d DataTerraformRemoteStateA
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateArtifactory_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2705,7 +2822,6 @@ func DataTerraformRemoteStateArtifactory_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -2714,7 +2830,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -2728,7 +2843,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IRes
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -2742,7 +2856,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *strin
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -2756,7 +2869,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetList(output *string) 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -2770,7 +2882,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetNumber(output *string
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetString(output *string) *string {
 	var returns *string
 
@@ -2784,8 +2895,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetString(output *string
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -2794,8 +2903,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OverrideLogicalId(newLog
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -2804,7 +2911,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ResetOverrideLogicalId()
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -2818,8 +2924,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToMetadata() interface{}
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToString() *string {
 	var returns *string
 
@@ -2833,8 +2937,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -2869,22 +2971,44 @@ type DataTerraformRemoteStateArtifactoryConfig struct {
 // Experimental.
 type DataTerraformRemoteStateAzurerm interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -2983,7 +3107,7 @@ func NewDataTerraformRemoteStateAzurerm_Override(d DataTerraformRemoteStateAzure
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateAzurerm_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3010,7 +3134,6 @@ func DataTerraformRemoteStateAzurerm_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3019,7 +3142,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) AddOverride(path *string, va
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3033,7 +3155,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) Get(output *string) IResolva
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3047,7 +3168,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetBoolean(output *string) I
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -3061,7 +3181,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetList(output *string) *[]*
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -3075,7 +3194,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetNumber(output *string) *f
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetString(output *string) *string {
 	var returns *string
 
@@ -3089,8 +3207,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) GetString(output *string) *s
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3099,8 +3215,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) OverrideLogicalId(newLogical
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -3109,7 +3223,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -3123,8 +3236,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToString() *string {
 	var returns *string
 
@@ -3138,8 +3249,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -3200,22 +3309,44 @@ type DataTerraformRemoteStateConfig struct {
 // Experimental.
 type DataTerraformRemoteStateConsul interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -3314,7 +3445,7 @@ func NewDataTerraformRemoteStateConsul_Override(d DataTerraformRemoteStateConsul
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateConsul_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3341,7 +3472,6 @@ func DataTerraformRemoteStateConsul_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3350,7 +3480,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) AddOverride(path *string, val
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3364,7 +3493,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) Get(output *string) IResolvab
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3378,7 +3506,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetBoolean(output *string) IR
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -3392,7 +3519,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetList(output *string) *[]*s
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -3406,7 +3532,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetNumber(output *string) *fl
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetString(output *string) *string {
 	var returns *string
 
@@ -3420,8 +3545,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) GetString(output *string) *st
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3430,8 +3553,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) OverrideLogicalId(newLogicalI
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -3440,7 +3561,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -3454,8 +3574,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToString() *string {
 	var returns *string
 
@@ -3469,8 +3587,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -3517,22 +3633,44 @@ type DataTerraformRemoteStateConsulConfig struct {
 // Experimental.
 type DataTerraformRemoteStateCos interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -3631,7 +3769,7 @@ func NewDataTerraformRemoteStateCos_Override(d DataTerraformRemoteStateCos, scop
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateCos_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3658,7 +3796,6 @@ func DataTerraformRemoteStateCos_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3667,7 +3804,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) AddOverride(path *string, value 
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3681,7 +3817,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) Get(output *string) IResolvable 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3695,7 +3830,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) GetBoolean(output *string) IReso
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -3709,7 +3843,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) GetList(output *string) *[]*stri
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -3723,7 +3856,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) GetNumber(output *string) *float
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) GetString(output *string) *string {
 	var returns *string
 
@@ -3737,8 +3869,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) GetString(output *string) *strin
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3747,8 +3877,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) OverrideLogicalId(newLogicalId *
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -3757,7 +3885,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -3771,8 +3898,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ToString() *string {
 	var returns *string
 
@@ -3786,8 +3911,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateCos) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -3828,22 +3951,44 @@ type DataTerraformRemoteStateCosConfig struct {
 // Experimental.
 type DataTerraformRemoteStateEtcd interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -3942,7 +4087,7 @@ func NewDataTerraformRemoteStateEtcd_Override(d DataTerraformRemoteStateEtcd, sc
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateEtcd_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3969,7 +4114,6 @@ func DataTerraformRemoteStateEtcd_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -3978,7 +4122,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) AddOverride(path *string, value
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -3992,7 +4135,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) Get(output *string) IResolvable
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4006,7 +4148,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetBoolean(output *string) IRes
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -4020,7 +4161,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetList(output *string) *[]*str
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -4034,7 +4174,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetNumber(output *string) *floa
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetString(output *string) *string {
 	var returns *string
 
@@ -4048,8 +4187,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) GetString(output *string) *stri
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4058,8 +4195,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) OverrideLogicalId(newLogicalId 
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -4068,7 +4203,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -4082,8 +4216,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToString() *string {
 	var returns *string
 
@@ -4097,8 +4229,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -4131,22 +4261,44 @@ type DataTerraformRemoteStateEtcdConfig struct {
 // Experimental.
 type DataTerraformRemoteStateEtcdV3 interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -4245,7 +4397,7 @@ func NewDataTerraformRemoteStateEtcdV3_Override(d DataTerraformRemoteStateEtcdV3
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateEtcdV3_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4272,7 +4424,6 @@ func DataTerraformRemoteStateEtcdV3_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4281,7 +4432,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) AddOverride(path *string, val
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4295,7 +4445,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) Get(output *string) IResolvab
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4309,7 +4458,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetBoolean(output *string) IR
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -4323,7 +4471,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetList(output *string) *[]*s
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -4337,7 +4484,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetNumber(output *string) *fl
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetString(output *string) *string {
 	var returns *string
 
@@ -4351,8 +4497,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) GetString(output *string) *st
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4361,8 +4505,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) OverrideLogicalId(newLogicalI
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -4371,7 +4513,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -4385,8 +4526,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToString() *string {
 	var returns *string
 
@@ -4400,8 +4539,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -4442,22 +4579,44 @@ type DataTerraformRemoteStateEtcdV3Config struct {
 // Experimental.
 type DataTerraformRemoteStateGcs interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -4556,7 +4715,7 @@ func NewDataTerraformRemoteStateGcs_Override(d DataTerraformRemoteStateGcs, scop
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateGcs_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4583,7 +4742,6 @@ func DataTerraformRemoteStateGcs_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4592,7 +4750,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) AddOverride(path *string, value 
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4606,7 +4763,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) Get(output *string) IResolvable 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4620,7 +4776,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetBoolean(output *string) IReso
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -4634,7 +4789,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetList(output *string) *[]*stri
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -4648,7 +4802,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetNumber(output *string) *float
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetString(output *string) *string {
 	var returns *string
 
@@ -4662,8 +4815,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) GetString(output *string) *strin
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4672,8 +4823,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) OverrideLogicalId(newLogicalId *
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -4682,7 +4831,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -4696,8 +4844,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToString() *string {
 	var returns *string
 
@@ -4711,8 +4857,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -4751,22 +4895,44 @@ type DataTerraformRemoteStateGcsConfig struct {
 // Experimental.
 type DataTerraformRemoteStateHttp interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -4865,7 +5031,7 @@ func NewDataTerraformRemoteStateHttp_Override(d DataTerraformRemoteStateHttp, sc
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateHttp_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4892,7 +5058,6 @@ func DataTerraformRemoteStateHttp_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4901,7 +5066,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) AddOverride(path *string, value
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4915,7 +5079,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) Get(output *string) IResolvable
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -4929,7 +5092,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetBoolean(output *string) IRes
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -4943,7 +5105,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetList(output *string) *[]*str
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -4957,7 +5118,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetNumber(output *string) *floa
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetString(output *string) *string {
 	var returns *string
 
@@ -4971,8 +5131,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) GetString(output *string) *stri
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -4981,8 +5139,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) OverrideLogicalId(newLogicalId 
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -4991,7 +5147,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -5005,8 +5160,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToString() *string {
 	var returns *string
 
@@ -5020,8 +5173,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -5070,22 +5221,44 @@ type DataTerraformRemoteStateHttpConfig struct {
 // Experimental.
 type DataTerraformRemoteStateLocal interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -5184,7 +5357,7 @@ func NewDataTerraformRemoteStateLocal_Override(d DataTerraformRemoteStateLocal, 
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateLocal_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5211,7 +5384,6 @@ func DataTerraformRemoteStateLocal_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5220,7 +5392,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) AddOverride(path *string, valu
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5234,7 +5405,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) Get(output *string) IResolvabl
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5248,7 +5418,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetBoolean(output *string) IRe
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -5262,7 +5431,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetList(output *string) *[]*st
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -5276,7 +5444,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetNumber(output *string) *flo
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetString(output *string) *string {
 	var returns *string
 
@@ -5290,8 +5457,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) GetString(output *string) *str
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5300,8 +5465,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) OverrideLogicalId(newLogicalId
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -5310,7 +5473,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -5324,8 +5486,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToString() *string {
 	var returns *string
 
@@ -5339,8 +5499,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -5370,22 +5528,44 @@ type DataTerraformRemoteStateLocalConfig struct {
 // Experimental.
 type DataTerraformRemoteStateManta interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -5484,7 +5664,7 @@ func NewDataTerraformRemoteStateManta_Override(d DataTerraformRemoteStateManta, 
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateManta_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5511,7 +5691,6 @@ func DataTerraformRemoteStateManta_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5520,7 +5699,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) AddOverride(path *string, valu
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5534,7 +5712,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) Get(output *string) IResolvabl
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5548,7 +5725,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) GetBoolean(output *string) IRe
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -5562,7 +5738,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) GetList(output *string) *[]*st
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -5576,7 +5751,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) GetNumber(output *string) *flo
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) GetString(output *string) *string {
 	var returns *string
 
@@ -5590,8 +5764,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) GetString(output *string) *str
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5600,8 +5772,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) OverrideLogicalId(newLogicalId
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -5610,7 +5780,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -5624,8 +5793,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ToString() *string {
 	var returns *string
 
@@ -5639,8 +5806,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateManta) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -5681,22 +5846,44 @@ type DataTerraformRemoteStateMantaConfig struct {
 // Experimental.
 type DataTerraformRemoteStateOss interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -5795,7 +5982,7 @@ func NewDataTerraformRemoteStateOss_Override(d DataTerraformRemoteStateOss, scop
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateOss_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5822,7 +6009,6 @@ func DataTerraformRemoteStateOss_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5831,7 +6017,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) AddOverride(path *string, value 
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5845,7 +6030,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) Get(output *string) IResolvable 
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -5859,7 +6043,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) GetBoolean(output *string) IReso
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -5873,7 +6056,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) GetList(output *string) *[]*stri
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -5887,7 +6069,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) GetNumber(output *string) *float
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) GetString(output *string) *string {
 	var returns *string
 
@@ -5901,8 +6082,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) GetString(output *string) *strin
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5911,8 +6090,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) OverrideLogicalId(newLogicalId *
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -5921,7 +6098,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -5935,8 +6111,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ToString() *string {
 	var returns *string
 
@@ -5950,8 +6124,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateOss) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -6008,22 +6180,44 @@ type DataTerraformRemoteStateOssConfig struct {
 // Experimental.
 type DataTerraformRemoteStatePg interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -6122,7 +6316,7 @@ func NewDataTerraformRemoteStatePg_Override(d DataTerraformRemoteStatePg, scope 
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStatePg_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6149,7 +6343,6 @@ func DataTerraformRemoteStatePg_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6158,7 +6351,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) AddOverride(path *string, value i
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6172,7 +6364,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) Get(output *string) IResolvable {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6186,7 +6377,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) GetBoolean(output *string) IResol
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -6200,7 +6390,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) GetList(output *string) *[]*strin
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -6214,7 +6403,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) GetNumber(output *string) *float6
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) GetString(output *string) *string {
 	var returns *string
 
@@ -6228,8 +6416,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) GetString(output *string) *string
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6238,8 +6424,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) OverrideLogicalId(newLogicalId *s
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -6248,7 +6432,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -6262,8 +6445,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ToString() *string {
 	var returns *string
 
@@ -6277,8 +6458,6 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStatePg) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -6325,22 +6504,44 @@ type DataTerraformRemoteStateRemoteConfig struct {
 // Experimental.
 type DataTerraformRemoteStateS3 interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -6439,7 +6640,7 @@ func NewDataTerraformRemoteStateS3_Override(d DataTerraformRemoteStateS3, scope 
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateS3_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6466,7 +6667,6 @@ func DataTerraformRemoteStateS3_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6475,7 +6675,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) AddOverride(path *string, value i
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6489,7 +6688,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) Get(output *string) IResolvable {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6503,7 +6701,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) GetBoolean(output *string) IResol
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -6517,7 +6714,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) GetList(output *string) *[]*strin
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -6531,7 +6727,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) GetNumber(output *string) *float6
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) GetString(output *string) *string {
 	var returns *string
 
@@ -6545,8 +6740,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) GetString(output *string) *string
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6555,8 +6748,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) OverrideLogicalId(newLogicalId *s
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -6565,7 +6756,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -6579,8 +6769,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ToString() *string {
 	var returns *string
 
@@ -6594,8 +6782,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateS3) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -6672,22 +6858,44 @@ type DataTerraformRemoteStateS3Config struct {
 // Experimental.
 type DataTerraformRemoteStateSwift interface {
 	TerraformRemoteState
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -6786,7 +6994,7 @@ func NewDataTerraformRemoteStateSwift_Override(d DataTerraformRemoteStateSwift, 
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6813,7 +7021,6 @@ func DataTerraformRemoteStateSwift_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6822,7 +7029,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) AddOverride(path *string, valu
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6836,7 +7042,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) Get(output *string) IResolvabl
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -6850,7 +7055,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetBoolean(output *string) IRe
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -6864,7 +7068,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetList(output *string) *[]*st
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -6878,7 +7081,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetNumber(output *string) *flo
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetString(output *string) *string {
 	var returns *string
 
@@ -6892,8 +7094,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) GetString(output *string) *str
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6902,8 +7102,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) OverrideLogicalId(newLogicalId
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		d,
@@ -6912,7 +7110,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -6926,8 +7123,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToString() *string {
 	var returns *string
 
@@ -6941,8 +7136,6 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -7022,10 +7215,23 @@ type DataTerraformRemoteStateSwiftConfig struct {
 // Experimental.
 type DefaultTokenResolver interface {
 	ITokenResolver
+	// Resolve a tokenized list.
+	// Experimental.
 	ResolveList(xs *[]*string, context IResolveContext) interface{}
+	// Resolve a tokenized map.
+	// Experimental.
 	ResolveMap(xs *map[string]interface{}, context IResolveContext) interface{}
+	// Resolve a tokenized number list.
+	// Experimental.
 	ResolveNumberList(xs *[]*float64, context IResolveContext) interface{}
+	// Resolve string fragments to Tokens.
+	// Experimental.
 	ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{}
+	// Default Token resolution.
+	//
+	// Resolve the Token, recurse into whatever it returns,
+	// then finally post-process it.
+	// Experimental.
 	ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{}
 }
 
@@ -7060,8 +7266,6 @@ func NewDefaultTokenResolver_Override(d DefaultTokenResolver, concat IFragmentCo
 	)
 }
 
-// Resolve a tokenized list.
-// Experimental.
 func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -7075,8 +7279,6 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IRes
 	return returns
 }
 
-// Resolve a tokenized map.
-// Experimental.
 func (d *jsiiProxy_DefaultTokenResolver) ResolveMap(xs *map[string]interface{}, context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -7090,8 +7292,6 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveMap(xs *map[string]interface{}, 
 	return returns
 }
 
-// Resolve a tokenized number list.
-// Experimental.
 func (d *jsiiProxy_DefaultTokenResolver) ResolveNumberList(xs *[]*float64, context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -7105,8 +7305,6 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveNumberList(xs *[]*float64, conte
 	return returns
 }
 
-// Resolve string fragments to Tokens.
-// Experimental.
 func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -7120,11 +7318,6 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedString
 	return returns
 }
 
-// Default Token resolution.
-//
-// Resolve the Token, recurse into whatever it returns,
-// then finally post-process it.
-// Experimental.
 func (d *jsiiProxy_DefaultTokenResolver) ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{} {
 	var returns interface{}
 
@@ -7149,19 +7342,39 @@ type EncodingOptions struct {
 // Experimental.
 type EtcdBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -7276,7 +7489,7 @@ func EtcdBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func EtcdBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7292,7 +7505,6 @@ func EtcdBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		e,
@@ -7301,8 +7513,6 @@ func (e *jsiiProxy_EtcdBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -7316,8 +7526,6 @@ func (e *jsiiProxy_EtcdBackend) GetRemoteStateDataSource(scope constructs.Constr
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		e,
@@ -7326,8 +7534,6 @@ func (e *jsiiProxy_EtcdBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		e,
@@ -7336,7 +7542,6 @@ func (e *jsiiProxy_EtcdBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -7350,7 +7555,6 @@ func (e *jsiiProxy_EtcdBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -7364,8 +7568,6 @@ func (e *jsiiProxy_EtcdBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) ToString() *string {
 	var returns *string
 
@@ -7379,8 +7581,6 @@ func (e *jsiiProxy_EtcdBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (e *jsiiProxy_EtcdBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -7409,19 +7609,39 @@ type EtcdBackendProps struct {
 // Experimental.
 type EtcdV3Backend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -7536,7 +7756,7 @@ func EtcdV3Backend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7552,7 +7772,6 @@ func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		e,
@@ -7561,8 +7780,6 @@ func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -7576,8 +7793,6 @@ func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(scope constructs.Cons
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		e,
@@ -7586,8 +7801,6 @@ func (e *jsiiProxy_EtcdV3Backend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		e,
@@ -7596,7 +7809,6 @@ func (e *jsiiProxy_EtcdV3Backend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -7610,7 +7822,6 @@ func (e *jsiiProxy_EtcdV3Backend) SynthesizeAttributes() *map[string]interface{}
 	return returns
 }
 
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -7624,8 +7835,6 @@ func (e *jsiiProxy_EtcdV3Backend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) ToString() *string {
 	var returns *string
 
@@ -7639,8 +7848,6 @@ func (e *jsiiProxy_EtcdV3Backend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (e *jsiiProxy_EtcdV3Backend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -9599,19 +9806,39 @@ func Fn_Zipmap(keyslist interface{}, valueslist interface{}) interface{} {
 // Experimental.
 type GcsBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -9726,7 +9953,7 @@ func GcsBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func GcsBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -9742,7 +9969,6 @@ func GcsBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		g,
@@ -9751,8 +9977,6 @@ func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -9766,8 +9990,6 @@ func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(scope constructs.Constru
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (g *jsiiProxy_GcsBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		g,
@@ -9776,8 +9998,6 @@ func (g *jsiiProxy_GcsBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (g *jsiiProxy_GcsBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		g,
@@ -9786,7 +10006,6 @@ func (g *jsiiProxy_GcsBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (g *jsiiProxy_GcsBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -9800,7 +10019,6 @@ func (g *jsiiProxy_GcsBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (g *jsiiProxy_GcsBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -9814,8 +10032,6 @@ func (g *jsiiProxy_GcsBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (g *jsiiProxy_GcsBackend) ToString() *string {
 	var returns *string
 
@@ -9829,8 +10045,6 @@ func (g *jsiiProxy_GcsBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (g *jsiiProxy_GcsBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -9865,19 +10079,39 @@ type GcsBackendProps struct {
 // Experimental.
 type HttpBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -9992,7 +10226,7 @@ func HttpBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func HttpBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -10008,7 +10242,6 @@ func HttpBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		h,
@@ -10017,8 +10250,6 @@ func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (h *jsiiProxy_HttpBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -10032,8 +10263,6 @@ func (h *jsiiProxy_HttpBackend) GetRemoteStateDataSource(scope constructs.Constr
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (h *jsiiProxy_HttpBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		h,
@@ -10042,8 +10271,6 @@ func (h *jsiiProxy_HttpBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (h *jsiiProxy_HttpBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		h,
@@ -10052,7 +10279,6 @@ func (h *jsiiProxy_HttpBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (h *jsiiProxy_HttpBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -10066,7 +10292,6 @@ func (h *jsiiProxy_HttpBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (h *jsiiProxy_HttpBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -10080,8 +10305,6 @@ func (h *jsiiProxy_HttpBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (h *jsiiProxy_HttpBackend) ToString() *string {
 	var returns *string
 
@@ -10095,8 +10318,6 @@ func (h *jsiiProxy_HttpBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (h *jsiiProxy_HttpBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -10840,7 +11061,7 @@ type ITokenResolver interface {
 	ResolveNumberList(l *[]*float64, context IResolveContext) interface{}
 	// Resolve a string with at least one stringified token in it.
 	//
-	// (May use concatenation)
+	// (May use concatenation).
 	// Experimental.
 	ResolveString(s TokenizedStringFragments, context IResolveContext) interface{}
 	// Resolve a single token.
@@ -11039,11 +11260,27 @@ type LazyAnyValueOptions struct {
 // Experimental.
 type LazyBase interface {
 	IResolvable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
 	CreationStack() *[]*string
+	// Experimental.
 	AddPostProcessor(postProcessor IPostProcessor)
+	// Produce the Token's value at resolution time.
+	// Experimental.
 	Resolve(context IResolveContext) interface{}
+	// Experimental.
 	ResolveLazy(context IResolveContext) interface{}
+	// Turn this Token into JSON.
+	//
+	// Called automatically when JSON.stringify() is called on a Token.
+	// Experimental.
 	ToJSON() interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
 	ToString() *string
 }
 
@@ -11074,7 +11311,6 @@ func NewLazyBase_Override(l LazyBase) {
 	)
 }
 
-// Experimental.
 func (l *jsiiProxy_LazyBase) AddPostProcessor(postProcessor IPostProcessor) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11083,8 +11319,6 @@ func (l *jsiiProxy_LazyBase) AddPostProcessor(postProcessor IPostProcessor) {
 	)
 }
 
-// Produce the Token's value at resolution time.
-// Experimental.
 func (l *jsiiProxy_LazyBase) Resolve(context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -11098,7 +11332,6 @@ func (l *jsiiProxy_LazyBase) Resolve(context IResolveContext) interface{} {
 	return returns
 }
 
-// Experimental.
 func (l *jsiiProxy_LazyBase) ResolveLazy(context IResolveContext) interface{} {
 	var returns interface{}
 
@@ -11112,10 +11345,6 @@ func (l *jsiiProxy_LazyBase) ResolveLazy(context IResolveContext) interface{} {
 	return returns
 }
 
-// Turn this Token into JSON.
-//
-// Called automatically when JSON.stringify() is called on a Token.
-// Experimental.
 func (l *jsiiProxy_LazyBase) ToJSON() interface{} {
 	var returns interface{}
 
@@ -11129,10 +11358,6 @@ func (l *jsiiProxy_LazyBase) ToJSON() interface{} {
 	return returns
 }
 
-// Return a string representation of this resolvable object.
-//
-// Returns a reversible string representation.
-// Experimental.
 func (l *jsiiProxy_LazyBase) ToString() *string {
 	var returns *string
 
@@ -11168,19 +11393,39 @@ type LazyStringValueOptions struct {
 // Experimental.
 type LocalBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -11295,7 +11540,7 @@ func LocalBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func LocalBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -11311,7 +11556,6 @@ func LocalBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11320,8 +11564,6 @@ func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (l *jsiiProxy_LocalBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -11335,8 +11577,6 @@ func (l *jsiiProxy_LocalBackend) GetRemoteStateDataSource(scope constructs.Const
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (l *jsiiProxy_LocalBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11345,8 +11585,6 @@ func (l *jsiiProxy_LocalBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (l *jsiiProxy_LocalBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		l,
@@ -11355,7 +11593,6 @@ func (l *jsiiProxy_LocalBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (l *jsiiProxy_LocalBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -11369,7 +11606,6 @@ func (l *jsiiProxy_LocalBackend) SynthesizeAttributes() *map[string]interface{} 
 	return returns
 }
 
-// Experimental.
 func (l *jsiiProxy_LocalBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -11383,8 +11619,6 @@ func (l *jsiiProxy_LocalBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (l *jsiiProxy_LocalBackend) ToString() *string {
 	var returns *string
 
@@ -11398,8 +11632,6 @@ func (l *jsiiProxy_LocalBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (l *jsiiProxy_LocalBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -11425,11 +11657,17 @@ type LocalBackendProps struct {
 // Experimental.
 type Manifest interface {
 	IManifest
+	// Experimental.
 	Outdir() *string
+	// Experimental.
 	Stacks() *map[string]*StackManifest
+	// Experimental.
 	Version() *string
+	// Experimental.
 	BuildManifest() IManifest
+	// Experimental.
 	ForStack(stack TerraformStack) *StackManifest
+	// Experimental.
 	WriteToFile()
 }
 
@@ -11528,7 +11766,6 @@ func Manifest_StacksFolder() *string {
 	return returns
 }
 
-// Experimental.
 func (m *jsiiProxy_Manifest) BuildManifest() IManifest {
 	var returns IManifest
 
@@ -11542,7 +11779,6 @@ func (m *jsiiProxy_Manifest) BuildManifest() IManifest {
 	return returns
 }
 
-// Experimental.
 func (m *jsiiProxy_Manifest) ForStack(stack TerraformStack) *StackManifest {
 	var returns *StackManifest
 
@@ -11556,7 +11792,6 @@ func (m *jsiiProxy_Manifest) ForStack(stack TerraformStack) *StackManifest {
 	return returns
 }
 
-// Experimental.
 func (m *jsiiProxy_Manifest) WriteToFile() {
 	_jsii_.InvokeVoid(
 		m,
@@ -11568,19 +11803,39 @@ func (m *jsiiProxy_Manifest) WriteToFile() {
 // Experimental.
 type MantaBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -11695,7 +11950,7 @@ func MantaBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func MantaBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -11711,7 +11966,6 @@ func MantaBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11720,8 +11974,6 @@ func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -11735,8 +11987,6 @@ func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(scope constructs.Const
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (m *jsiiProxy_MantaBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11745,8 +11995,6 @@ func (m *jsiiProxy_MantaBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (m *jsiiProxy_MantaBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		m,
@@ -11755,7 +12003,6 @@ func (m *jsiiProxy_MantaBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_MantaBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -11769,7 +12016,6 @@ func (m *jsiiProxy_MantaBackend) SynthesizeAttributes() *map[string]interface{} 
 	return returns
 }
 
-// Experimental.
 func (m *jsiiProxy_MantaBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -11783,8 +12029,6 @@ func (m *jsiiProxy_MantaBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_MantaBackend) ToString() *string {
 	var returns *string
 
@@ -11798,8 +12042,6 @@ func (m *jsiiProxy_MantaBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (m *jsiiProxy_MantaBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -11836,7 +12078,9 @@ type MantaBackendProps struct {
 // Experimental.
 type NamedRemoteWorkspace interface {
 	IRemoteWorkspace
+	// Experimental.
 	Name() *string
+	// Experimental.
 	SetName(val *string)
 }
 
@@ -11892,10 +12136,15 @@ func (j *jsiiProxy_NamedRemoteWorkspace) SetName(val *string) {
 
 // Experimental.
 type NumberMap interface {
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	Lookup(key *string) *float64
 }
 
@@ -11967,7 +12216,6 @@ func (j *jsiiProxy_NumberMap) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
-// Experimental.
 func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
 	var returns *float64
 
@@ -11996,19 +12244,39 @@ type OssAssumeRole struct {
 // Experimental.
 type OssBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -12123,7 +12391,7 @@ func OssBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func OssBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12139,7 +12407,6 @@ func OssBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		o,
@@ -12148,8 +12415,6 @@ func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (o *jsiiProxy_OssBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -12163,8 +12428,6 @@ func (o *jsiiProxy_OssBackend) GetRemoteStateDataSource(scope constructs.Constru
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (o *jsiiProxy_OssBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		o,
@@ -12173,8 +12436,6 @@ func (o *jsiiProxy_OssBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (o *jsiiProxy_OssBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		o,
@@ -12183,7 +12444,6 @@ func (o *jsiiProxy_OssBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (o *jsiiProxy_OssBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -12197,7 +12457,6 @@ func (o *jsiiProxy_OssBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (o *jsiiProxy_OssBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -12211,8 +12470,6 @@ func (o *jsiiProxy_OssBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (o *jsiiProxy_OssBackend) ToString() *string {
 	var returns *string
 
@@ -12226,8 +12483,6 @@ func (o *jsiiProxy_OssBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (o *jsiiProxy_OssBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -12280,19 +12535,39 @@ type OssBackendProps struct {
 // Experimental.
 type PgBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -12407,7 +12682,7 @@ func PgBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func PgBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12423,7 +12698,6 @@ func PgBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12432,8 +12706,6 @@ func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (p *jsiiProxy_PgBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -12447,8 +12719,6 @@ func (p *jsiiProxy_PgBackend) GetRemoteStateDataSource(scope constructs.Construc
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (p *jsiiProxy_PgBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12457,8 +12727,6 @@ func (p *jsiiProxy_PgBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (p *jsiiProxy_PgBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		p,
@@ -12467,7 +12735,6 @@ func (p *jsiiProxy_PgBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_PgBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -12481,7 +12748,6 @@ func (p *jsiiProxy_PgBackend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (p *jsiiProxy_PgBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -12495,8 +12761,6 @@ func (p *jsiiProxy_PgBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_PgBackend) ToString() *string {
 	var returns *string
 
@@ -12510,8 +12774,6 @@ func (p *jsiiProxy_PgBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (p *jsiiProxy_PgBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -12538,7 +12800,9 @@ type PgBackendProps struct {
 // Experimental.
 type PrefixedRemoteWorkspaces interface {
 	IRemoteWorkspace
+	// Experimental.
 	Prefix() *string
+	// Experimental.
 	SetPrefix(val *string)
 }
 
@@ -12595,19 +12859,39 @@ func (j *jsiiProxy_PrefixedRemoteWorkspaces) SetPrefix(val *string) {
 // Experimental.
 type RemoteBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -12722,7 +13006,7 @@ func RemoteBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func RemoteBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12738,7 +13022,6 @@ func RemoteBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		r,
@@ -12747,8 +13030,6 @@ func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -12762,8 +13043,6 @@ func (r *jsiiProxy_RemoteBackend) GetRemoteStateDataSource(scope constructs.Cons
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		r,
@@ -12772,8 +13051,6 @@ func (r *jsiiProxy_RemoteBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		r,
@@ -12782,7 +13059,6 @@ func (r *jsiiProxy_RemoteBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -12796,7 +13072,6 @@ func (r *jsiiProxy_RemoteBackend) SynthesizeAttributes() *map[string]interface{}
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -12810,8 +13085,6 @@ func (r *jsiiProxy_RemoteBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) ToString() *string {
 	var returns *string
 
@@ -12825,8 +13098,6 @@ func (r *jsiiProxy_RemoteBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (r *jsiiProxy_RemoteBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -12876,8 +13147,14 @@ type ResolveOptions struct {
 type Resource interface {
 	constructs.Construct
 	IResource
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() TerraformStack
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
 }
 
@@ -12922,7 +13199,7 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func Resource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12938,8 +13215,6 @@ func Resource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_Resource) ToString() *string {
 	var returns *string
 
@@ -12956,19 +13231,39 @@ func (r *jsiiProxy_Resource) ToString() *string {
 // Experimental.
 type S3Backend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -13083,7 +13378,7 @@ func S3Backend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func S3Backend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -13099,7 +13394,6 @@ func S3Backend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		s,
@@ -13108,8 +13402,6 @@ func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (s *jsiiProxy_S3Backend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -13123,8 +13415,6 @@ func (s *jsiiProxy_S3Backend) GetRemoteStateDataSource(scope constructs.Construc
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (s *jsiiProxy_S3Backend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		s,
@@ -13133,8 +13423,6 @@ func (s *jsiiProxy_S3Backend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (s *jsiiProxy_S3Backend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		s,
@@ -13143,7 +13431,6 @@ func (s *jsiiProxy_S3Backend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_S3Backend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -13157,7 +13444,6 @@ func (s *jsiiProxy_S3Backend) SynthesizeAttributes() *map[string]interface{} {
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_S3Backend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -13171,8 +13457,6 @@ func (s *jsiiProxy_S3Backend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_S3Backend) ToString() *string {
 	var returns *string
 
@@ -13186,8 +13470,6 @@ func (s *jsiiProxy_S3Backend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (s *jsiiProxy_S3Backend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -13291,6 +13573,8 @@ type StackManifest struct {
 // Experimental.
 type StringConcat interface {
 	IFragmentConcatenator
+	// Join the fragment on the left and on the right.
+	// Experimental.
 	Join(left interface{}, right interface{}) interface{}
 }
 
@@ -13325,8 +13609,6 @@ func NewStringConcat_Override(s StringConcat) {
 	)
 }
 
-// Join the fragment on the left and on the right.
-// Experimental.
 func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) interface{} {
 	var returns interface{}
 
@@ -13342,10 +13624,15 @@ func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) inter
 
 // Experimental.
 type StringMap interface {
+	// Experimental.
 	TerraformAttribute() *string
+	// Experimental.
 	SetTerraformAttribute(val *string)
+	// Experimental.
 	TerraformResource() IInterpolatingParent
+	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
 	Lookup(key *string) *string
 }
 
@@ -13417,7 +13704,6 @@ func (j *jsiiProxy_StringMap) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 	var returns *string
 
@@ -13434,19 +13720,39 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 // Experimental.
 type SwiftBackend interface {
 	TerraformBackend
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -13561,7 +13867,7 @@ func SwiftBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func SwiftBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -13577,7 +13883,6 @@ func SwiftBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		s,
@@ -13586,8 +13891,6 @@ func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -13601,8 +13904,6 @@ func (s *jsiiProxy_SwiftBackend) GetRemoteStateDataSource(scope constructs.Const
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		s,
@@ -13611,8 +13912,6 @@ func (s *jsiiProxy_SwiftBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		s,
@@ -13621,7 +13920,6 @@ func (s *jsiiProxy_SwiftBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -13635,7 +13933,6 @@ func (s *jsiiProxy_SwiftBackend) SynthesizeAttributes() *map[string]interface{} 
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -13649,8 +13946,6 @@ func (s *jsiiProxy_SwiftBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) ToString() *string {
 	var returns *string
 
@@ -13664,8 +13959,6 @@ func (s *jsiiProxy_SwiftBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (s *jsiiProxy_SwiftBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -13740,14 +14033,28 @@ type SwiftBackendProps struct {
 // Experimental.
 type TerraformAsset interface {
 	Resource
+	// Experimental.
 	AssetHash() *string
+	// Experimental.
 	SetAssetHash(val *string)
+	// Name of the asset.
+	// Experimental.
 	FileName() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// The path relative to the root of the terraform directory in posix format Use this property to reference the asset.
+	// Experimental.
 	Path() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() TerraformStack
+	// Experimental.
 	Type() AssetType
+	// Experimental.
 	SetType(val AssetType)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
 }
 
@@ -13868,7 +14175,7 @@ func (j *jsiiProxy_TerraformAsset) SetType(val AssetType) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -13884,8 +14191,6 @@ func TerraformAsset_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformAsset) ToString() *string {
 	var returns *string
 
@@ -13912,19 +14217,39 @@ type TerraformAssetConfig struct {
 // Experimental.
 type TerraformBackend interface {
 	TerraformElement
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Name() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Creates a TerraformRemoteState resource that accesses this backend.
+	// Experimental.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -14024,7 +14349,7 @@ func TerraformBackend_IsBackend(x interface{}) *bool {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -14040,7 +14365,6 @@ func TerraformBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14049,8 +14373,6 @@ func (t *jsiiProxy_TerraformBackend) AddOverride(path *string, value interface{}
 	)
 }
 
-// Creates a TerraformRemoteState resource that accesses this backend.
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, fromStack *string) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -14064,8 +14386,6 @@ func (t *jsiiProxy_TerraformBackend) GetRemoteStateDataSource(scope constructs.C
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14074,8 +14394,6 @@ func (t *jsiiProxy_TerraformBackend) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -14084,7 +14402,6 @@ func (t *jsiiProxy_TerraformBackend) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -14098,7 +14415,6 @@ func (t *jsiiProxy_TerraformBackend) SynthesizeAttributes() *map[string]interfac
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -14112,8 +14428,6 @@ func (t *jsiiProxy_TerraformBackend) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) ToString() *string {
 	var returns *string
 
@@ -14127,8 +14441,6 @@ func (t *jsiiProxy_TerraformBackend) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (t *jsiiProxy_TerraformBackend) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -14148,39 +14460,78 @@ type TerraformDataSource interface {
 	IInterpolatingParent
 	ITerraformDependable
 	ITerraformResource
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Count() *float64
+	// Experimental.
 	SetCount(val *float64)
+	// Experimental.
 	DependsOn() *[]*string
+	// Experimental.
 	SetDependsOn(val *[]*string)
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Lifecycle() *TerraformResourceLifecycle
+	// Experimental.
 	SetLifecycle(val *TerraformResourceLifecycle)
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Provider() TerraformProvider
+	// Experimental.
 	SetProvider(val TerraformProvider)
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
+	// Experimental.
 	TerraformMetaArguments() *map[string]interface{}
+	// Experimental.
 	TerraformResourceType() *string
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
+	// Experimental.
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	// Experimental.
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
+	// Experimental.
 	GetListAttribute(terraformAttribute *string) *[]*string
+	// Experimental.
 	GetNumberAttribute(terraformAttribute *string) *float64
+	// Experimental.
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	// Experimental.
 	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
+	// Experimental.
 	GetStringAttribute(terraformAttribute *string) *string
+	// Experimental.
 	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
+	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -14384,7 +14735,7 @@ func (j *jsiiProxy_TerraformDataSource) SetProvider(val TerraformProvider) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -14400,7 +14751,6 @@ func TerraformDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14409,7 +14759,6 @@ func (t *jsiiProxy_TerraformDataSource) AddOverride(path *string, value interfac
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -14423,7 +14772,6 @@ func (t *jsiiProxy_TerraformDataSource) GetAnyMapAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -14437,7 +14785,6 @@ func (t *jsiiProxy_TerraformDataSource) GetBooleanAttribute(terraformAttribute *
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
 	var returns *map[string]*bool
 
@@ -14451,7 +14798,6 @@ func (t *jsiiProxy_TerraformDataSource) GetBooleanMapAttribute(terraformAttribut
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetListAttribute(terraformAttribute *string) *[]*string {
 	var returns *[]*string
 
@@ -14465,7 +14811,6 @@ func (t *jsiiProxy_TerraformDataSource) GetListAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetNumberAttribute(terraformAttribute *string) *float64 {
 	var returns *float64
 
@@ -14479,7 +14824,6 @@ func (t *jsiiProxy_TerraformDataSource) GetNumberAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
 	var returns *[]*float64
 
@@ -14493,7 +14837,6 @@ func (t *jsiiProxy_TerraformDataSource) GetNumberListAttribute(terraformAttribut
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
 	var returns *map[string]*float64
 
@@ -14507,7 +14850,6 @@ func (t *jsiiProxy_TerraformDataSource) GetNumberMapAttribute(terraformAttribute
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -14521,7 +14863,6 @@ func (t *jsiiProxy_TerraformDataSource) GetStringAttribute(terraformAttribute *s
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
 	var returns *map[string]*string
 
@@ -14535,7 +14876,6 @@ func (t *jsiiProxy_TerraformDataSource) GetStringMapAttribute(terraformAttribute
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) InterpolationForAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -14549,8 +14889,6 @@ func (t *jsiiProxy_TerraformDataSource) InterpolationForAttribute(terraformAttri
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14559,8 +14897,6 @@ func (t *jsiiProxy_TerraformDataSource) OverrideLogicalId(newLogicalId *string) 
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -14569,7 +14905,6 @@ func (t *jsiiProxy_TerraformDataSource) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -14583,7 +14918,6 @@ func (t *jsiiProxy_TerraformDataSource) SynthesizeAttributes() *map[string]inter
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -14597,8 +14931,6 @@ func (t *jsiiProxy_TerraformDataSource) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) ToString() *string {
 	var returns *string
 
@@ -14612,8 +14944,6 @@ func (t *jsiiProxy_TerraformDataSource) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (t *jsiiProxy_TerraformDataSource) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -14630,16 +14960,31 @@ func (t *jsiiProxy_TerraformDataSource) ToTerraform() interface{} {
 // Experimental.
 type TerraformElement interface {
 	constructs.Construct
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -14728,7 +15073,7 @@ func NewTerraformElement_Override(t TerraformElement, scope constructs.Construct
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformElement_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -14744,7 +15089,6 @@ func TerraformElement_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformElement) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14753,8 +15097,6 @@ func (t *jsiiProxy_TerraformElement) AddOverride(path *string, value interface{}
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformElement) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -14763,8 +15105,6 @@ func (t *jsiiProxy_TerraformElement) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformElement) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -14773,7 +15113,6 @@ func (t *jsiiProxy_TerraformElement) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformElement) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -14787,8 +15126,6 @@ func (t *jsiiProxy_TerraformElement) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformElement) ToString() *string {
 	var returns *string
 
@@ -14802,7 +15139,6 @@ func (t *jsiiProxy_TerraformElement) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformElement) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -14829,32 +15165,63 @@ type TerraformElementMetadata struct {
 // Experimental.
 type TerraformHclModule interface {
 	TerraformModule
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	DependsOn() *[]*string
+	// Experimental.
 	SetDependsOn(val *[]*string)
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Providers() *[]interface{}
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	Source() *string
+	// Experimental.
 	Variables() *map[string]interface{}
+	// Experimental.
 	Version() *string
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	AddProvider(provider interface{})
+	// Experimental.
 	Get(output *string) interface{}
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Experimental.
 	InterpolationForOutput(moduleOutput *string) IResolvable
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	Set(variable *string, value interface{})
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -15011,7 +15378,7 @@ func (j *jsiiProxy_TerraformHclModule) SetDependsOn(val *[]*string) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformHclModule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -15027,7 +15394,6 @@ func TerraformHclModule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15036,7 +15402,6 @@ func (t *jsiiProxy_TerraformHclModule) AddOverride(path *string, value interface
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) AddProvider(provider interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15045,7 +15410,6 @@ func (t *jsiiProxy_TerraformHclModule) AddProvider(provider interface{}) {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) Get(output *string) interface{} {
 	var returns interface{}
 
@@ -15059,7 +15423,6 @@ func (t *jsiiProxy_TerraformHclModule) Get(output *string) interface{} {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -15073,7 +15436,6 @@ func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) IResolvable {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -15087,7 +15449,6 @@ func (t *jsiiProxy_TerraformHclModule) GetList(output *string) *[]*string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -15101,7 +15462,6 @@ func (t *jsiiProxy_TerraformHclModule) GetNumber(output *string) *float64 {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) GetString(output *string) *string {
 	var returns *string
 
@@ -15115,7 +15475,6 @@ func (t *jsiiProxy_TerraformHclModule) GetString(output *string) *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *string) IResolvable {
 	var returns IResolvable
 
@@ -15129,8 +15488,6 @@ func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *stri
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15139,8 +15496,6 @@ func (t *jsiiProxy_TerraformHclModule) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -15149,7 +15504,6 @@ func (t *jsiiProxy_TerraformHclModule) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) Set(variable *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15158,7 +15512,6 @@ func (t *jsiiProxy_TerraformHclModule) Set(variable *string, value interface{}) 
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -15172,7 +15525,6 @@ func (t *jsiiProxy_TerraformHclModule) SynthesizeAttributes() *map[string]interf
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -15186,8 +15538,6 @@ func (t *jsiiProxy_TerraformHclModule) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) ToString() *string {
 	var returns *string
 
@@ -15201,7 +15551,6 @@ func (t *jsiiProxy_TerraformHclModule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformHclModule) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -15233,23 +15582,45 @@ type TerraformHclModuleOptions struct {
 type TerraformLocal interface {
 	TerraformElement
 	ITerraformAddressable
+	// Experimental.
 	AsBoolean() IResolvable
+	// Experimental.
 	AsList() *[]*string
+	// Experimental.
 	AsNumber() *float64
+	// Experimental.
 	AsString() *string
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Expression() interface{}
+	// Experimental.
 	SetExpression(val interface{})
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -15407,7 +15778,7 @@ func (j *jsiiProxy_TerraformLocal) SetExpression(val interface{}) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformLocal_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -15423,7 +15794,6 @@ func TerraformLocal_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15432,8 +15802,6 @@ func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15442,8 +15810,6 @@ func (t *jsiiProxy_TerraformLocal) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -15452,7 +15818,6 @@ func (t *jsiiProxy_TerraformLocal) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -15466,8 +15831,6 @@ func (t *jsiiProxy_TerraformLocal) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) ToString() *string {
 	var returns *string
 
@@ -15481,7 +15844,6 @@ func (t *jsiiProxy_TerraformLocal) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformLocal) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -15511,26 +15873,51 @@ type TerraformMetaArguments struct {
 type TerraformModule interface {
 	TerraformElement
 	ITerraformDependable
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	DependsOn() *[]*string
+	// Experimental.
 	SetDependsOn(val *[]*string)
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Providers() *[]interface{}
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	Source() *string
+	// Experimental.
 	Version() *string
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	AddProvider(provider interface{})
+	// Experimental.
 	GetString(output *string) *string
+	// Experimental.
 	InterpolationForOutput(moduleOutput *string) IResolvable
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -15663,7 +16050,7 @@ func (j *jsiiProxy_TerraformModule) SetDependsOn(val *[]*string) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformModule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -15679,7 +16066,6 @@ func TerraformModule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15688,7 +16074,6 @@ func (t *jsiiProxy_TerraformModule) AddOverride(path *string, value interface{})
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) AddProvider(provider interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15697,7 +16082,6 @@ func (t *jsiiProxy_TerraformModule) AddProvider(provider interface{}) {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) GetString(output *string) *string {
 	var returns *string
 
@@ -15711,7 +16095,6 @@ func (t *jsiiProxy_TerraformModule) GetString(output *string) *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string) IResolvable {
 	var returns IResolvable
 
@@ -15725,8 +16108,6 @@ func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string)
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformModule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -15735,8 +16116,6 @@ func (t *jsiiProxy_TerraformModule) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformModule) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -15745,7 +16124,6 @@ func (t *jsiiProxy_TerraformModule) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -15759,7 +16137,6 @@ func (t *jsiiProxy_TerraformModule) SynthesizeAttributes() *map[string]interface
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -15773,8 +16150,6 @@ func (t *jsiiProxy_TerraformModule) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformModule) ToString() *string {
 	var returns *string
 
@@ -15788,7 +16163,6 @@ func (t *jsiiProxy_TerraformModule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformModule) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -15825,27 +16199,53 @@ type TerraformModuleProvider struct {
 // Experimental.
 type TerraformOutput interface {
 	TerraformElement
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	DependsOn() *[]ITerraformDependable
+	// Experimental.
 	SetDependsOn(val *[]ITerraformDependable)
+	// Experimental.
 	Description() *string
+	// Experimental.
 	SetDescription(val *string)
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	Sensitive() *bool
+	// Experimental.
 	SetSensitive(val *bool)
+	// Experimental.
 	StaticId() *bool
+	// Experimental.
 	SetStaticId(val *bool)
+	// Experimental.
 	Value() interface{}
+	// Experimental.
 	SetValue(val interface{})
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -16024,7 +16424,7 @@ func (j *jsiiProxy_TerraformOutput) SetValue(val interface{}) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformOutput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -16056,7 +16456,6 @@ func TerraformOutput_IsTerrafromOutput(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16065,8 +16464,6 @@ func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{})
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16075,8 +16472,6 @@ func (t *jsiiProxy_TerraformOutput) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -16085,7 +16480,6 @@ func (t *jsiiProxy_TerraformOutput) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -16099,7 +16493,6 @@ func (t *jsiiProxy_TerraformOutput) SynthesizeAttributes() *map[string]interface
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -16113,8 +16506,6 @@ func (t *jsiiProxy_TerraformOutput) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) ToString() *string {
 	var returns *string
 
@@ -16128,7 +16519,6 @@ func (t *jsiiProxy_TerraformOutput) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformOutput) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -16160,24 +16550,48 @@ type TerraformOutputConfig struct {
 // Experimental.
 type TerraformProvider interface {
 	TerraformElement
+	// Experimental.
 	Alias() *string
+	// Experimental.
 	SetAlias(val *string)
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	MetaAttributes() *map[string]interface{}
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
+	// Experimental.
 	TerraformProviderSource() *string
+	// Experimental.
 	TerraformResourceType() *string
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -16319,7 +16733,7 @@ func (j *jsiiProxy_TerraformProvider) SetAlias(val *string) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -16335,7 +16749,6 @@ func TerraformProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16344,8 +16757,6 @@ func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16354,8 +16765,6 @@ func (t *jsiiProxy_TerraformProvider) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -16364,7 +16773,6 @@ func (t *jsiiProxy_TerraformProvider) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -16378,7 +16786,6 @@ func (t *jsiiProxy_TerraformProvider) SynthesizeAttributes() *map[string]interfa
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -16392,8 +16799,6 @@ func (t *jsiiProxy_TerraformProvider) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) ToString() *string {
 	var returns *string
 
@@ -16407,8 +16812,6 @@ func (t *jsiiProxy_TerraformProvider) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (t *jsiiProxy_TerraformProvider) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -16444,22 +16847,44 @@ type TerraformProviderGeneratorMetadata struct {
 type TerraformRemoteState interface {
 	TerraformElement
 	ITerraformAddressable
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	Get(output *string) IResolvable
+	// Experimental.
 	GetBoolean(output *string) IResolvable
+	// Experimental.
 	GetList(output *string) *[]*string
+	// Experimental.
 	GetNumber(output *string) *float64
+	// Experimental.
 	GetString(output *string) *string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -16544,7 +16969,7 @@ func NewTerraformRemoteState_Override(t TerraformRemoteState, scope constructs.C
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformRemoteState_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -16571,7 +16996,6 @@ func TerraformRemoteState_TfResourceType() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16580,7 +17004,6 @@ func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interfa
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
 	var returns IResolvable
 
@@ -16594,7 +17017,6 @@ func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) IResolvable {
 	var returns IResolvable
 
@@ -16608,7 +17030,6 @@ func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) IResolvable 
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) GetList(output *string) *[]*string {
 	var returns *[]*string
 
@@ -16622,7 +17043,6 @@ func (t *jsiiProxy_TerraformRemoteState) GetList(output *string) *[]*string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) GetNumber(output *string) *float64 {
 	var returns *float64
 
@@ -16636,7 +17056,6 @@ func (t *jsiiProxy_TerraformRemoteState) GetNumber(output *string) *float64 {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) GetString(output *string) *string {
 	var returns *string
 
@@ -16650,8 +17069,6 @@ func (t *jsiiProxy_TerraformRemoteState) GetString(output *string) *string {
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16660,8 +17077,6 @@ func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string)
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -16670,7 +17085,6 @@ func (t *jsiiProxy_TerraformRemoteState) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -16684,8 +17098,6 @@ func (t *jsiiProxy_TerraformRemoteState) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ToString() *string {
 	var returns *string
 
@@ -16699,8 +17111,6 @@ func (t *jsiiProxy_TerraformRemoteState) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (t *jsiiProxy_TerraformRemoteState) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -16720,39 +17130,78 @@ type TerraformResource interface {
 	IInterpolatingParent
 	ITerraformDependable
 	ITerraformResource
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Count() *float64
+	// Experimental.
 	SetCount(val *float64)
+	// Experimental.
 	DependsOn() *[]*string
+	// Experimental.
 	SetDependsOn(val *[]*string)
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	Lifecycle() *TerraformResourceLifecycle
+	// Experimental.
 	SetLifecycle(val *TerraformResourceLifecycle)
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Provider() TerraformProvider
+	// Experimental.
 	SetProvider(val TerraformProvider)
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	TerraformGeneratorMetadata() *TerraformProviderGeneratorMetadata
+	// Experimental.
 	TerraformMetaArguments() *map[string]interface{}
+	// Experimental.
 	TerraformResourceType() *string
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
+	// Experimental.
 	GetBooleanAttribute(terraformAttribute *string) IResolvable
+	// Experimental.
 	GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool
+	// Experimental.
 	GetListAttribute(terraformAttribute *string) *[]*string
+	// Experimental.
 	GetNumberAttribute(terraformAttribute *string) *float64
+	// Experimental.
 	GetNumberListAttribute(terraformAttribute *string) *[]*float64
+	// Experimental.
 	GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64
+	// Experimental.
 	GetStringAttribute(terraformAttribute *string) *string
+	// Experimental.
 	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
+	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -16956,7 +17405,7 @@ func (j *jsiiProxy_TerraformResource) SetProvider(val TerraformProvider) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformResource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -16972,7 +17421,6 @@ func TerraformResource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -16981,7 +17429,6 @@ func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -16995,7 +17442,6 @@ func (t *jsiiProxy_TerraformResource) GetAnyMapAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetBooleanAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -17009,7 +17455,6 @@ func (t *jsiiProxy_TerraformResource) GetBooleanAttribute(terraformAttribute *st
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
 	var returns *map[string]*bool
 
@@ -17023,7 +17468,6 @@ func (t *jsiiProxy_TerraformResource) GetBooleanMapAttribute(terraformAttribute 
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetListAttribute(terraformAttribute *string) *[]*string {
 	var returns *[]*string
 
@@ -17037,7 +17481,6 @@ func (t *jsiiProxy_TerraformResource) GetListAttribute(terraformAttribute *strin
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetNumberAttribute(terraformAttribute *string) *float64 {
 	var returns *float64
 
@@ -17051,7 +17494,6 @@ func (t *jsiiProxy_TerraformResource) GetNumberAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
 	var returns *[]*float64
 
@@ -17065,7 +17507,6 @@ func (t *jsiiProxy_TerraformResource) GetNumberListAttribute(terraformAttribute 
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
 	var returns *map[string]*float64
 
@@ -17079,7 +17520,6 @@ func (t *jsiiProxy_TerraformResource) GetNumberMapAttribute(terraformAttribute *
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetStringAttribute(terraformAttribute *string) *string {
 	var returns *string
 
@@ -17093,7 +17533,6 @@ func (t *jsiiProxy_TerraformResource) GetStringAttribute(terraformAttribute *str
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
 	var returns *map[string]*string
 
@@ -17107,7 +17546,6 @@ func (t *jsiiProxy_TerraformResource) GetStringMapAttribute(terraformAttribute *
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) InterpolationForAttribute(terraformAttribute *string) IResolvable {
 	var returns IResolvable
 
@@ -17121,8 +17559,6 @@ func (t *jsiiProxy_TerraformResource) InterpolationForAttribute(terraformAttribu
 	return returns
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformResource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -17131,8 +17567,6 @@ func (t *jsiiProxy_TerraformResource) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformResource) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -17141,7 +17575,6 @@ func (t *jsiiProxy_TerraformResource) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -17155,7 +17588,6 @@ func (t *jsiiProxy_TerraformResource) SynthesizeAttributes() *map[string]interfa
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformResource) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -17169,8 +17601,6 @@ func (t *jsiiProxy_TerraformResource) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformResource) ToString() *string {
 	var returns *string
 
@@ -17184,8 +17614,6 @@ func (t *jsiiProxy_TerraformResource) ToString() *string {
 	return returns
 }
 
-// Adds this resource to the terraform JSON output.
-// Experimental.
 func (t *jsiiProxy_TerraformResource) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -17228,22 +17656,46 @@ type TerraformResourceLifecycle struct {
 // Experimental.
 type TerraformStack interface {
 	constructs.Construct
+	// Experimental.
 	Dependencies() *[]TerraformStack
+	// Experimental.
 	SetDependencies(val *[]TerraformStack)
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Synthesizer() IStackSynthesizer
+	// Experimental.
 	SetSynthesizer(val IStackSynthesizer)
+	// Experimental.
 	AddDependency(dependency TerraformStack)
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Returns the naming scheme used to allocate logical IDs.
+	//
+	// By default, uses
+	// the `HashedAddressingScheme` but this method can be overridden to customize
+	// this behavior.
+	// Experimental.
 	AllocateLogicalId(tfElement interface{}) *string
+	// Experimental.
 	AllProviders() *[]TerraformProvider
+	// Experimental.
 	DependsOn(stack TerraformStack) *bool
+	// Experimental.
 	EnsureBackendExists() TerraformBackend
+	// Experimental.
 	GetLogicalId(tfElement interface{}) *string
+	// Experimental.
 	PrepareStack()
+	// Experimental.
 	RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState
+	// Experimental.
 	RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -17328,7 +17780,7 @@ func (j *jsiiProxy_TerraformStack) SetSynthesizer(val IStackSynthesizer) {
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformStack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -17376,7 +17828,6 @@ func TerraformStack_Of(construct constructs.IConstruct) TerraformStack {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) AddDependency(dependency TerraformStack) {
 	_jsii_.InvokeVoid(
 		t,
@@ -17385,7 +17836,6 @@ func (t *jsiiProxy_TerraformStack) AddDependency(dependency TerraformStack) {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -17394,12 +17844,6 @@ func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Returns the naming scheme used to allocate logical IDs.
-//
-// By default, uses
-// the `HashedAddressingScheme` but this method can be overridden to customize
-// this behavior.
-// Experimental.
 func (t *jsiiProxy_TerraformStack) AllocateLogicalId(tfElement interface{}) *string {
 	var returns *string
 
@@ -17413,7 +17857,6 @@ func (t *jsiiProxy_TerraformStack) AllocateLogicalId(tfElement interface{}) *str
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) AllProviders() *[]TerraformProvider {
 	var returns *[]TerraformProvider
 
@@ -17427,7 +17870,6 @@ func (t *jsiiProxy_TerraformStack) AllProviders() *[]TerraformProvider {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) DependsOn(stack TerraformStack) *bool {
 	var returns *bool
 
@@ -17441,7 +17883,6 @@ func (t *jsiiProxy_TerraformStack) DependsOn(stack TerraformStack) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) EnsureBackendExists() TerraformBackend {
 	var returns TerraformBackend
 
@@ -17455,7 +17896,6 @@ func (t *jsiiProxy_TerraformStack) EnsureBackendExists() TerraformBackend {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 	var returns *string
 
@@ -17469,7 +17909,6 @@ func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) PrepareStack() {
 	_jsii_.InvokeVoid(
 		t,
@@ -17478,7 +17917,6 @@ func (t *jsiiProxy_TerraformStack) PrepareStack() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState {
 	var returns TerraformRemoteState
 
@@ -17492,7 +17930,6 @@ func (t *jsiiProxy_TerraformStack) RegisterIncomingCrossStackReference(fromStack
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput {
 	var returns TerraformOutput
 
@@ -17506,8 +17943,6 @@ func (t *jsiiProxy_TerraformStack) RegisterOutgoingCrossStackReference(identifie
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformStack) ToString() *string {
 	var returns *string
 
@@ -17521,7 +17956,6 @@ func (t *jsiiProxy_TerraformStack) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformStack) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -17549,28 +17983,55 @@ type TerraformStackMetadata struct {
 type TerraformVariable interface {
 	TerraformElement
 	ITerraformAddressable
+	// Experimental.
 	BooleanValue() IResolvable
+	// Experimental.
 	CdktfStack() TerraformStack
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
 	Default() interface{}
+	// Experimental.
 	Description() *string
+	// Experimental.
 	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
+	// Experimental.
 	ListValue() *[]*string
+	// The tree node.
+	// Experimental.
 	Node() constructs.Node
+	// Experimental.
 	Nullable() *bool
+	// Experimental.
 	NumberValue() *float64
+	// Experimental.
 	RawOverrides() interface{}
+	// Experimental.
 	Sensitive() *bool
+	// Experimental.
 	StringValue() *string
+	// Experimental.
 	Type() *string
+	// Experimental.
 	Value() interface{}
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Resets a previously passed logical Id to use the auto-generated logical id again.
+	// Experimental.
 	ResetOverrideLogicalId()
+	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
+	// Experimental.
 	ToMetadata() interface{}
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -17770,7 +18231,7 @@ func NewTerraformVariable_Override(t TerraformVariable, scope constructs.Constru
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Deprecated: use `x instanceof Construct` instead.
 func TerraformVariable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -17786,7 +18247,6 @@ func TerraformVariable_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -17795,8 +18255,6 @@ func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -17805,8 +18263,6 @@ func (t *jsiiProxy_TerraformVariable) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-// Resets a previously passed logical Id to use the auto-generated logical id again.
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) ResetOverrideLogicalId() {
 	_jsii_.InvokeVoid(
 		t,
@@ -17815,7 +18271,6 @@ func (t *jsiiProxy_TerraformVariable) ResetOverrideLogicalId() {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) SynthesizeAttributes() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -17829,7 +18284,6 @@ func (t *jsiiProxy_TerraformVariable) SynthesizeAttributes() *map[string]interfa
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) ToMetadata() interface{} {
 	var returns interface{}
 
@@ -17843,8 +18297,6 @@ func (t *jsiiProxy_TerraformVariable) ToMetadata() interface{} {
 	return returns
 }
 
-// Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) ToString() *string {
 	var returns *string
 
@@ -17858,7 +18310,6 @@ func (t *jsiiProxy_TerraformVariable) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_TerraformVariable) ToTerraform() interface{} {
 	var returns interface{}
 
@@ -18554,16 +19005,40 @@ func Tokenization_StringifyNumber(x *float64) *string {
 // Fragments of a concatenated string containing stringified Tokens.
 // Experimental.
 type TokenizedStringFragments interface {
+	// Returns the first token.
+	// Experimental.
 	FirstToken() IResolvable
+	// Returns the first value.
+	// Experimental.
 	FirstValue() interface{}
+	// Return all intrinsic fragments from this string.
+	// Experimental.
 	Intrinsic() *[]IResolvable
+	// Returns the number of fragments.
+	// Experimental.
 	Length() *float64
+	// Return all literals from this string.
+	// Experimental.
 	Literals() *[]IResolvable
+	// Return all Tokens from this string.
+	// Experimental.
 	Tokens() *[]IResolvable
+	// Adds an intrinsic fragment.
+	// Experimental.
 	AddIntrinsic(value interface{})
+	// Adds a literal fragment.
+	// Experimental.
 	AddLiteral(lit interface{})
+	// Adds a token fragment.
+	// Experimental.
 	AddToken(token IResolvable)
+	// Combine the string fragments using the given joiner.
+	//
+	// If there are any.
+	// Experimental.
 	Join(concat IFragmentConcatenator) interface{}
+	// Apply a transformation function to all tokens in the string.
+	// Experimental.
 	MapTokens(mapper ITokenMapper) TokenizedStringFragments
 }
 
@@ -18659,8 +19134,6 @@ func NewTokenizedStringFragments_Override(t TokenizedStringFragments) {
 	)
 }
 
-// Adds an intrinsic fragment.
-// Experimental.
 func (t *jsiiProxy_TokenizedStringFragments) AddIntrinsic(value interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18669,8 +19142,6 @@ func (t *jsiiProxy_TokenizedStringFragments) AddIntrinsic(value interface{}) {
 	)
 }
 
-// Adds a literal fragment.
-// Experimental.
 func (t *jsiiProxy_TokenizedStringFragments) AddLiteral(lit interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18679,8 +19150,6 @@ func (t *jsiiProxy_TokenizedStringFragments) AddLiteral(lit interface{}) {
 	)
 }
 
-// Adds a token fragment.
-// Experimental.
 func (t *jsiiProxy_TokenizedStringFragments) AddToken(token IResolvable) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18689,10 +19158,6 @@ func (t *jsiiProxy_TokenizedStringFragments) AddToken(token IResolvable) {
 	)
 }
 
-// Combine the string fragments using the given joiner.
-//
-// If there are any
-// Experimental.
 func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) interface{} {
 	var returns interface{}
 
@@ -18706,8 +19171,6 @@ func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) 
 	return returns
 }
 
-// Apply a transformation function to all tokens in the string.
-// Experimental.
 func (t *jsiiProxy_TokenizedStringFragments) MapTokens(mapper ITokenMapper) TokenizedStringFragments {
 	var returns TokenizedStringFragments
 
