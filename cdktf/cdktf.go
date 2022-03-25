@@ -16840,6 +16840,8 @@ type TerraformProviderGeneratorMetadata struct {
 	// Experimental.
 	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// Experimental.
+	ProviderVersion *string `json:"providerVersion" yaml:"providerVersion"`
+	// Experimental.
 	ProviderVersionConstraint *string `json:"providerVersionConstraint" yaml:"providerVersionConstraint"`
 }
 
