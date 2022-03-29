@@ -194,6 +194,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.ComplexMap",
+		reflect.TypeOf((*ComplexMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ComplexMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.ComplexObject",
 		reflect.TypeOf((*ComplexObject)(nil)).Elem(),
 		[]_jsii_.Member{

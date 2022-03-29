@@ -1557,13 +1557,91 @@ func (j *jsiiProxy_ComplexList) SetWrapsSet(val *bool) {
 }
 
 // Experimental.
+type ComplexMap interface {
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	TerraformAttribute() *string
+	// Experimental.
+	SetTerraformAttribute(val *string)
+	// Experimental.
+	TerraformResource() IInterpolatingParent
+	// Experimental.
+	SetTerraformResource(val IInterpolatingParent)
+}
+
+// The jsii proxy struct for ComplexMap
+type jsiiProxy_ComplexMap struct {
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_ComplexMap) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexMap) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexMap) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewComplexMap_Override(c ComplexMap, terraformResource IInterpolatingParent, terraformAttribute *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.ComplexMap",
+		[]interface{}{terraformResource, terraformAttribute},
+		c,
+	)
+}
+
+func (j *jsiiProxy_ComplexMap) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexMap) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+// Experimental.
 type ComplexObject interface {
 	IInterpolatingParent
 	// the index of the complex object in a list.
 	// Experimental.
-	ComplexObjectIndex() *float64
+	ComplexObjectIndex() interface{}
 	// Experimental.
-	SetComplexObjectIndex(val *float64)
+	SetComplexObjectIndex(val interface{})
 	// set to true if this item is from inside a set and needs tolist() for accessing it set to "0" for single list items.
 	// Experimental.
 	ComplexObjectIsFromSet() *bool
@@ -1606,8 +1684,8 @@ type jsiiProxy_ComplexObject struct {
 	jsiiProxy_IInterpolatingParent
 }
 
-func (j *jsiiProxy_ComplexObject) ComplexObjectIndex() *float64 {
-	var returns *float64
+func (j *jsiiProxy_ComplexObject) ComplexObjectIndex() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"complexObjectIndex",
@@ -1648,14 +1726,14 @@ func (j *jsiiProxy_ComplexObject) TerraformResource() IInterpolatingParent {
 
 
 // Experimental.
-func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIndex *float64, complexObjectIsFromSet *bool) ComplexObject {
+func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIsFromSet *bool, complexObjectIndex interface{}) ComplexObject {
 	_init_.Initialize()
 
 	j := jsiiProxy_ComplexObject{}
 
 	_jsii_.Create(
 		"cdktf.ComplexObject",
-		[]interface{}{terraformResource, terraformAttribute, complexObjectIndex, complexObjectIsFromSet},
+		[]interface{}{terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex},
 		&j,
 	)
 
@@ -1663,17 +1741,17 @@ func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute
 }
 
 // Experimental.
-func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIndex *float64, complexObjectIsFromSet *bool) {
+func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIsFromSet *bool, complexObjectIndex interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.ComplexObject",
-		[]interface{}{terraformResource, terraformAttribute, complexObjectIndex, complexObjectIsFromSet},
+		[]interface{}{terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex},
 		c,
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetComplexObjectIndex(val *float64) {
+func (j *jsiiProxy_ComplexObject) SetComplexObjectIndex(val interface{}) {
 	_jsii_.Set(
 		j,
 		"complexObjectIndex",
