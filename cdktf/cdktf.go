@@ -91,6 +91,9 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 
 // Experimental.
 type AnyMap interface {
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -105,7 +108,17 @@ type AnyMap interface {
 
 // The jsii proxy struct for AnyMap
 type jsiiProxy_AnyMap struct {
-	_ byte // padding
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_AnyMap) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AnyMap) TerraformAttribute() *string {
@@ -178,6 +191,153 @@ func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
 		a,
 		"lookup",
 		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+type AnyMapList interface {
+	IInterpolatingParent
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	TerraformAttribute() *string
+	// Experimental.
+	SetTerraformAttribute(val *string)
+	// Experimental.
+	TerraformResource() IInterpolatingParent
+	// Experimental.
+	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	WrapsSet() *bool
+	// Experimental.
+	SetWrapsSet(val *bool)
+	// Experimental.
+	Get(index *float64) AnyMap
+	// Experimental.
+	InterpolationForAttribute(property *string) IResolvable
+}
+
+// The jsii proxy struct for AnyMapList
+type jsiiProxy_AnyMapList struct {
+	jsiiProxy_IInterpolatingParent
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_AnyMapList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMapList) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMapList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMapList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewAnyMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) AnyMapList {
+	_init_.Initialize()
+
+	j := jsiiProxy_AnyMapList{}
+
+	_jsii_.Create(
+		"cdktf.AnyMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAnyMapList_Override(a AnyMapList, terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.AnyMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		a,
+	)
+}
+
+func (j *jsiiProxy_AnyMapList) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AnyMapList) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AnyMapList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
+		val,
+	)
+}
+
+func (a *jsiiProxy_AnyMapList) Get(index *float64) AnyMap {
+	var returns AnyMap
+
+	_jsii_.Invoke(
+		a,
+		"get",
+		[]interface{}{index},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AnyMapList) InterpolationForAttribute(property *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		a,
+		"interpolationForAttribute",
+		[]interface{}{property},
 		&returns,
 	)
 
@@ -1067,6 +1227,9 @@ type AzurermBackendProps struct {
 
 // Experimental.
 type BooleanMap interface {
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1081,7 +1244,17 @@ type BooleanMap interface {
 
 // The jsii proxy struct for BooleanMap
 type jsiiProxy_BooleanMap struct {
-	_ byte // padding
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_BooleanMap) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BooleanMap) TerraformAttribute() *string {
@@ -1154,6 +1327,153 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 		b,
 		"lookup",
 		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+type BooleanMapList interface {
+	IInterpolatingParent
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	TerraformAttribute() *string
+	// Experimental.
+	SetTerraformAttribute(val *string)
+	// Experimental.
+	TerraformResource() IInterpolatingParent
+	// Experimental.
+	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	WrapsSet() *bool
+	// Experimental.
+	SetWrapsSet(val *bool)
+	// Experimental.
+	Get(index *float64) BooleanMap
+	// Experimental.
+	InterpolationForAttribute(property *string) IResolvable
+}
+
+// The jsii proxy struct for BooleanMapList
+type jsiiProxy_BooleanMapList struct {
+	jsiiProxy_IInterpolatingParent
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_BooleanMapList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BooleanMapList) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BooleanMapList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BooleanMapList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewBooleanMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) BooleanMapList {
+	_init_.Initialize()
+
+	j := jsiiProxy_BooleanMapList{}
+
+	_jsii_.Create(
+		"cdktf.BooleanMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewBooleanMapList_Override(b BooleanMapList, terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.BooleanMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		b,
+	)
+}
+
+func (j *jsiiProxy_BooleanMapList) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_BooleanMapList) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_BooleanMapList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
+		val,
+	)
+}
+
+func (b *jsiiProxy_BooleanMapList) Get(index *float64) BooleanMap {
+	var returns BooleanMap
+
+	_jsii_.Invoke(
+		b,
+		"get",
+		[]interface{}{index},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BooleanMapList) InterpolationForAttribute(property *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		b,
+		"interpolationForAttribute",
+		[]interface{}{property},
 		&returns,
 	)
 
@@ -12578,6 +12898,9 @@ func (j *jsiiProxy_NamedRemoteWorkspace) SetName(val *string) {
 
 // Experimental.
 type NumberMap interface {
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -12592,7 +12915,17 @@ type NumberMap interface {
 
 // The jsii proxy struct for NumberMap
 type jsiiProxy_NumberMap struct {
-	_ byte // padding
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_NumberMap) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_NumberMap) TerraformAttribute() *string {
@@ -12665,6 +12998,153 @@ func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
 		n,
 		"lookup",
 		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+type NumberMapList interface {
+	IInterpolatingParent
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	TerraformAttribute() *string
+	// Experimental.
+	SetTerraformAttribute(val *string)
+	// Experimental.
+	TerraformResource() IInterpolatingParent
+	// Experimental.
+	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	WrapsSet() *bool
+	// Experimental.
+	SetWrapsSet(val *bool)
+	// Experimental.
+	Get(index *float64) NumberMap
+	// Experimental.
+	InterpolationForAttribute(property *string) IResolvable
+}
+
+// The jsii proxy struct for NumberMapList
+type jsiiProxy_NumberMapList struct {
+	jsiiProxy_IInterpolatingParent
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_NumberMapList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NumberMapList) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NumberMapList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NumberMapList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewNumberMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) NumberMapList {
+	_init_.Initialize()
+
+	j := jsiiProxy_NumberMapList{}
+
+	_jsii_.Create(
+		"cdktf.NumberMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewNumberMapList_Override(n NumberMapList, terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.NumberMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		n,
+	)
+}
+
+func (j *jsiiProxy_NumberMapList) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_NumberMapList) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_NumberMapList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
+		val,
+	)
+}
+
+func (n *jsiiProxy_NumberMapList) Get(index *float64) NumberMap {
+	var returns NumberMap
+
+	_jsii_.Invoke(
+		n,
+		"get",
+		[]interface{}{index},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NumberMapList) InterpolationForAttribute(property *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		n,
+		"interpolationForAttribute",
+		[]interface{}{property},
 		&returns,
 	)
 
@@ -14136,6 +14616,9 @@ func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) inter
 
 // Experimental.
 type StringMap interface {
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -14150,7 +14633,17 @@ type StringMap interface {
 
 // The jsii proxy struct for StringMap
 type jsiiProxy_StringMap struct {
-	_ byte // padding
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_StringMap) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_StringMap) TerraformAttribute() *string {
@@ -14223,6 +14716,153 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 		s,
 		"lookup",
 		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+type StringMapList interface {
+	IInterpolatingParent
+	ITerraformAddressable
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	TerraformAttribute() *string
+	// Experimental.
+	SetTerraformAttribute(val *string)
+	// Experimental.
+	TerraformResource() IInterpolatingParent
+	// Experimental.
+	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	WrapsSet() *bool
+	// Experimental.
+	SetWrapsSet(val *bool)
+	// Experimental.
+	Get(index *float64) StringMap
+	// Experimental.
+	InterpolationForAttribute(property *string) IResolvable
+}
+
+// The jsii proxy struct for StringMapList
+type jsiiProxy_StringMapList struct {
+	jsiiProxy_IInterpolatingParent
+	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_StringMapList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringMapList) TerraformAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"terraformAttribute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringMapList) TerraformResource() IInterpolatingParent {
+	var returns IInterpolatingParent
+	_jsii_.Get(
+		j,
+		"terraformResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringMapList) WrapsSet() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"wrapsSet",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewStringMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) StringMapList {
+	_init_.Initialize()
+
+	j := jsiiProxy_StringMapList{}
+
+	_jsii_.Create(
+		"cdktf.StringMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewStringMapList_Override(s StringMapList, terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.StringMapList",
+		[]interface{}{terraformResource, terraformAttribute, wrapsSet},
+		s,
+	)
+}
+
+func (j *jsiiProxy_StringMapList) SetTerraformAttribute(val *string) {
+	_jsii_.Set(
+		j,
+		"terraformAttribute",
+		val,
+	)
+}
+
+func (j *jsiiProxy_StringMapList) SetTerraformResource(val IInterpolatingParent) {
+	_jsii_.Set(
+		j,
+		"terraformResource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_StringMapList) SetWrapsSet(val *bool) {
+	_jsii_.Set(
+		j,
+		"wrapsSet",
+		val,
+	)
+}
+
+func (s *jsiiProxy_StringMapList) Get(index *float64) StringMap {
+	var returns StringMap
+
+	_jsii_.Invoke(
+		s,
+		"get",
+		[]interface{}{index},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StringMapList) InterpolationForAttribute(property *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		s,
+		"interpolationForAttribute",
+		[]interface{}{property},
 		&returns,
 	)
 
