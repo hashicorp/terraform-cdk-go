@@ -32,12 +32,33 @@ func init() {
 		"cdktf.AnyMap",
 		reflect.TypeOf((*AnyMap)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberMethod{JsiiMethod: "lookup", GoMethod: "Lookup"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_AnyMap{}
+			j := jsiiProxy_AnyMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.AnyMapList",
+		reflect.TypeOf((*AnyMapList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AnyMapList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -145,12 +166,33 @@ func init() {
 		"cdktf.BooleanMap",
 		reflect.TypeOf((*BooleanMap)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberMethod{JsiiMethod: "lookup", GoMethod: "Lookup"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_BooleanMap{}
+			j := jsiiProxy_BooleanMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.BooleanMapList",
+		reflect.TypeOf((*BooleanMapList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BooleanMapList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1285,12 +1327,33 @@ func init() {
 		"cdktf.NumberMap",
 		reflect.TypeOf((*NumberMap)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberMethod{JsiiMethod: "lookup", GoMethod: "Lookup"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_NumberMap{}
+			j := jsiiProxy_NumberMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.NumberMapList",
+		reflect.TypeOf((*NumberMapList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NumberMapList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1468,12 +1531,33 @@ func init() {
 		"cdktf.StringMap",
 		reflect.TypeOf((*StringMap)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberMethod{JsiiMethod: "lookup", GoMethod: "Lookup"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
 		},
 		func() interface{} {
-			return &jsiiProxy_StringMap{}
+			j := jsiiProxy_StringMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.StringMapList",
+		reflect.TypeOf((*StringMapList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StringMapList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
