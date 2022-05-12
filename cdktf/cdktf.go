@@ -91,9 +91,19 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 
 // Experimental.
 type AnyMap interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -104,11 +114,30 @@ type AnyMap interface {
 	SetTerraformResource(val IInterpolatingParent)
 	// Experimental.
 	Lookup(key *string) interface{}
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for AnyMap
 type jsiiProxy_AnyMap struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_AnyMap) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AnyMap) Fqn() *string {
@@ -116,6 +145,16 @@ func (j *jsiiProxy_AnyMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMap) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -168,6 +207,14 @@ func NewAnyMap_Override(a AnyMap, terraformResource IInterpolatingParent, terraf
 	)
 }
 
+func (j *jsiiProxy_AnyMap) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_AnyMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -197,12 +244,48 @@ func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
 	return returns
 }
 
+func (a *jsiiProxy_AnyMap) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AnyMap) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type AnyMapList interface {
 	IInterpolatingParent
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -219,12 +302,31 @@ type AnyMapList interface {
 	Get(index *float64) AnyMap
 	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for AnyMapList
 type jsiiProxy_AnyMapList struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_AnyMapList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AnyMapList) Fqn() *string {
@@ -232,6 +334,16 @@ func (j *jsiiProxy_AnyMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AnyMapList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -294,6 +406,14 @@ func NewAnyMapList_Override(a AnyMapList, terraformResource IInterpolatingParent
 	)
 }
 
+func (j *jsiiProxy_AnyMapList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_AnyMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -338,6 +458,32 @@ func (a *jsiiProxy_AnyMapList) InterpolationForAttribute(property *string) IReso
 		a,
 		"interpolationForAttribute",
 		[]interface{}{property},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AnyMapList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AnyMapList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -585,6 +731,8 @@ type ArtifactoryBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -636,6 +784,16 @@ func (j *jsiiProxy_ArtifactoryBackend) ConstructNodeMetadata() *map[string]inter
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ArtifactoryBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -846,16 +1004,35 @@ func (a *jsiiProxy_ArtifactoryBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state as an artifact in a given repository in Artifactory.
+//
+// Generic HTTP repositories are supported, and state from different configurations
+// may be kept at different subpaths within the repository.
+//
+// Note: The URL must include the path to the Artifactory installation.
+// It will likely end in /artifactory.
+//
+// This backend does not support state locking.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/artifactory
 // Experimental.
 type ArtifactoryBackendProps struct {
+	// (Required) - The password.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Required) - The repository name.
 	// Experimental.
 	Repo *string `json:"repo" yaml:"repo"`
+	// (Required) - Path within the repository.
 	// Experimental.
 	Subpath *string `json:"subpath" yaml:"subpath"`
+	// (Required) - The URL.
+	//
+	// Note that this is the base url to artifactory not the full repo and subpath.
 	// Experimental.
 	Url *string `json:"url" yaml:"url"`
+	// (Required) - The username.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -932,6 +1109,8 @@ type AzurermBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -983,6 +1162,16 @@ func (j *jsiiProxy_AzurermBackend) ConstructNodeMetadata() *map[string]interface
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AzurermBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -1193,43 +1382,100 @@ func (a *jsiiProxy_AzurermBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state as a Blob with the given Key within the Blob Container within the Blob Storage Account.
+//
+// This backend supports state locking and consistency checking
+// with Azure Blob Storage native capabilities.
+//
+// Note: By default the Azure Backend uses ADAL for authentication which is deprecated
+// in favour of MSAL - MSAL can be used by setting use_microsoft_graph to true.
+// The default for this will change in Terraform 1.2,
+// so that MSAL authentication is used by default.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/azurerm
 // Experimental.
 type AzurermBackendProps struct {
+	// (Required) The Name of the Storage Container within the Storage Account.
 	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
+	// (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
 	// Experimental.
 	Key *string `json:"key" yaml:"key"`
+	// (Required) The Name of the Storage Account.
 	// Experimental.
 	StorageAccountName *string `json:"storageAccountName" yaml:"storageAccountName"`
+	// access_key - (Optional) The Access Key used to access the Blob Storage Account.
+	//
+	// This can also be sourced from the ARM_ACCESS_KEY environment variable.
 	// Experimental.
 	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	// (Optional) The Client ID of the Service Principal.
+	//
+	// This can also be sourced from the ARM_CLIENT_ID environment variable.
 	// Experimental.
 	ClientId *string `json:"clientId" yaml:"clientId"`
+	// (Optional) The Client Secret of the Service Principal.
+	//
+	// This can also be sourced from the ARM_CLIENT_SECRET environment variable.
 	// Experimental.
 	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	// (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the ARM_ENDPOINT environment variable.
+	//
+	// NOTE: An endpoint should only be configured when using Azure Stack.
 	// Experimental.
 	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	// (Optional) The Azure Environment which should be used.
+	//
+	// This can also be sourced from the ARM_ENVIRONMENT environment variable.
+	//   Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
 	Environment *string `json:"environment" yaml:"environment"`
+	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.
+	//
+	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
 	// Experimental.
 	MsiEndpoint *string `json:"msiEndpoint" yaml:"msiEndpoint"`
+	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
 	ResourceGroupName *string `json:"resourceGroupName" yaml:"resourceGroupName"`
+	// (Optional) The SAS Token used to access the Blob Storage Account.
+	//
+	// This can also be sourced from the ARM_SAS_TOKEN environment variable.
 	// Experimental.
 	SasToken *string `json:"sasToken" yaml:"sasToken"`
+	// (Optional) The Subscription ID in which the Storage Account exists.
+	//
+	// This can also be sourced from the ARM_SUBSCRIPTION_ID environment variable.
 	// Experimental.
 	SubscriptionId *string `json:"subscriptionId" yaml:"subscriptionId"`
+	// (Optional) The Tenant ID in which the Subscription exists.
+	//
+	// This can also be sourced from the ARM_TENANT_ID environment variable.
 	// Experimental.
 	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	// (Optional) Should Managed Service Identity authentication be used?
+	//
+	// This can also be sourced from the ARM_USE_MSI environment variable.
 	// Experimental.
 	UseMsi *bool `json:"useMsi" yaml:"useMsi"`
 }
 
 // Experimental.
 type BooleanMap interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1240,11 +1486,30 @@ type BooleanMap interface {
 	SetTerraformResource(val IInterpolatingParent)
 	// Experimental.
 	Lookup(key *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for BooleanMap
 type jsiiProxy_BooleanMap struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_BooleanMap) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BooleanMap) Fqn() *string {
@@ -1252,6 +1517,16 @@ func (j *jsiiProxy_BooleanMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BooleanMap) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1304,6 +1579,14 @@ func NewBooleanMap_Override(b BooleanMap, terraformResource IInterpolatingParent
 	)
 }
 
+func (j *jsiiProxy_BooleanMap) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_BooleanMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1333,12 +1616,48 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 	return returns
 }
 
+func (b *jsiiProxy_BooleanMap) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BooleanMap) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type BooleanMapList interface {
 	IInterpolatingParent
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1355,12 +1674,31 @@ type BooleanMapList interface {
 	Get(index *float64) BooleanMap
 	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for BooleanMapList
 type jsiiProxy_BooleanMapList struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_BooleanMapList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BooleanMapList) Fqn() *string {
@@ -1368,6 +1706,16 @@ func (j *jsiiProxy_BooleanMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BooleanMapList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1430,6 +1778,14 @@ func NewBooleanMapList_Override(b BooleanMapList, terraformResource IInterpolati
 	)
 }
 
+func (j *jsiiProxy_BooleanMapList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_BooleanMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1480,16 +1836,59 @@ func (b *jsiiProxy_BooleanMapList) InterpolationForAttribute(property *string) I
 	return returns
 }
 
+func (b *jsiiProxy_BooleanMapList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BooleanMapList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Deprecated: Going to be replaced by Array of ComplexListItem
 // and will be removed in the future.
 type ComplexComputedList interface {
 	IInterpolatingParent
+	IResolvable
+	ITerraformAddressable
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	ComplexComputedListIndex() *string
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	SetComplexComputedListIndex(val *string)
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	CreationStack() *[]*string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	Fqn() *string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	SavedFqn() *string
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	SetSavedFqn(val *string)
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	TerraformAttribute() *string
@@ -1538,11 +1937,23 @@ type ComplexComputedList interface {
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	ToString() *string
 }
 
 // The jsii proxy struct for ComplexComputedList
 type jsiiProxy_ComplexComputedList struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
+	jsiiProxy_ITerraformAddressable
 }
 
 func (j *jsiiProxy_ComplexComputedList) ComplexComputedListIndex() *string {
@@ -1550,6 +1961,36 @@ func (j *jsiiProxy_ComplexComputedList) ComplexComputedListIndex() *string {
 	_jsii_.Get(
 		j,
 		"complexComputedListIndex",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexComputedList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexComputedList) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexComputedList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1618,6 +2059,14 @@ func (j *jsiiProxy_ComplexComputedList) SetComplexComputedListIndex(val *string)
 	_jsii_.Set(
 		j,
 		"complexComputedListIndex",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexComputedList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
 		val,
 	)
 }
@@ -1776,11 +2225,47 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 	return returns
 }
 
+func (c *jsiiProxy_ComplexComputedList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComplexComputedList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type ComplexList interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1793,11 +2278,30 @@ type ComplexList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for ComplexList
 type jsiiProxy_ComplexList struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_ComplexList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ComplexList) Fqn() *string {
@@ -1805,6 +2309,16 @@ func (j *jsiiProxy_ComplexList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1852,6 +2366,14 @@ func NewComplexList_Override(c ComplexList, terraformResource IInterpolatingPare
 	)
 }
 
+func (j *jsiiProxy_ComplexList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_ComplexList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1876,11 +2398,47 @@ func (j *jsiiProxy_ComplexList) SetWrapsSet(val *bool) {
 	)
 }
 
+func (c *jsiiProxy_ComplexList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComplexList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type ComplexMap interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1889,11 +2447,30 @@ type ComplexMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for ComplexMap
 type jsiiProxy_ComplexMap struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_ComplexMap) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ComplexMap) Fqn() *string {
@@ -1901,6 +2478,16 @@ func (j *jsiiProxy_ComplexMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexMap) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1938,6 +2525,14 @@ func NewComplexMap_Override(c ComplexMap, terraformResource IInterpolatingParent
 	)
 }
 
+func (j *jsiiProxy_ComplexMap) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_ComplexMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1954,9 +2549,37 @@ func (j *jsiiProxy_ComplexMap) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
+func (c *jsiiProxy_ComplexMap) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComplexMap) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type ComplexObject interface {
 	IInterpolatingParent
+	IResolvable
+	ITerraformAddressable
 	// the index of the complex object in a list.
 	// Experimental.
 	ComplexObjectIndex() interface{}
@@ -1967,6 +2590,17 @@ type ComplexObject interface {
 	ComplexObjectIsFromSet() *bool
 	// Experimental.
 	SetComplexObjectIsFromSet(val *bool)
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
+	// Experimental.
+	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -1997,11 +2631,21 @@ type ComplexObject interface {
 	InterpolationAsList() IResolvable
 	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for ComplexObject
 type jsiiProxy_ComplexObject struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
+	jsiiProxy_ITerraformAddressable
 }
 
 func (j *jsiiProxy_ComplexObject) ComplexObjectIndex() interface{} {
@@ -2019,6 +2663,36 @@ func (j *jsiiProxy_ComplexObject) ComplexObjectIsFromSet() *bool {
 	_jsii_.Get(
 		j,
 		"complexObjectIsFromSet",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComplexObject) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -2083,6 +2757,14 @@ func (j *jsiiProxy_ComplexObject) SetComplexObjectIsFromSet(val *bool) {
 	_jsii_.Set(
 		j,
 		"complexObjectIsFromSet",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ComplexObject) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
 		val,
 	)
 }
@@ -2246,6 +2928,32 @@ func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IR
 	return returns
 }
 
+func (c *jsiiProxy_ComplexObject) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComplexObject) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type ConsulBackend interface {
 	TerraformBackend
@@ -2253,6 +2961,8 @@ type ConsulBackend interface {
 	CdktfStack() TerraformStack
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
@@ -2305,6 +3015,16 @@ func (j *jsiiProxy_ConsulBackend) ConstructNodeMetadata() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConsulBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -2515,28 +3235,54 @@ func (c *jsiiProxy_ConsulBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state in the Consul KV store at a given path. This backend supports state locking.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/consul
 // Experimental.
 type ConsulBackendProps struct {
+	// (Required) Access token.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	// (Required) Path in the Consul KV store.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) DNS name and port of your Consul endpoint specified in the format dnsname:port.
+	//
+	// Defaults to the local agent HTTP listener.
 	// Experimental.
 	Address *string `json:"address" yaml:"address"`
+	// (Optional) A path to a PEM-encoded certificate authority used to verify the remote agent's certificate.
 	// Experimental.
 	CaFile *string `json:"caFile" yaml:"caFile"`
+	// (Optional) A path to a PEM-encoded certificate provided to the remote agent;
+	//
+	// requires use of key_file.
 	// Experimental.
 	CertFile *string `json:"certFile" yaml:"certFile"`
+	// (Optional) The datacenter to use.
+	//
+	// Defaults to that of the agent.
 	// Experimental.
 	Datacenter *string `json:"datacenter" yaml:"datacenter"`
+	// (Optional) true to compress the state data using gzip, or false (the default) to leave it uncompressed.
 	// Experimental.
 	Gzip *bool `json:"gzip" yaml:"gzip"`
+	// (Optional) HTTP Basic Authentication credentials to be used when communicating with Consul, in the format of either user or user:pass.
 	// Experimental.
 	HttpAuth *string `json:"httpAuth" yaml:"httpAuth"`
+	// (Optional) A path to a PEM-encoded private key, required if cert_file is specified.
 	// Experimental.
 	KeyFile *string `json:"keyFile" yaml:"keyFile"`
+	// (Optional) false to disable locking.
+	//
+	// This defaults to true, but will require session permissions with Consul and
+	// at least kv write permissions on $path/.lock to perform locking.
 	// Experimental.
 	Lock *bool `json:"lock" yaml:"lock"`
+	// (Optional) Specifies what protocol to use when talking to the given address,either http or https.
+	//
+	// SSL support can also be triggered by setting then environment variable CONSUL_HTTP_SSL to true.
 	// Experimental.
 	Scheme *string `json:"scheme" yaml:"scheme"`
 }
@@ -2548,6 +3294,8 @@ type CosBackend interface {
 	CdktfStack() TerraformStack
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
@@ -2600,6 +3348,16 @@ func (j *jsiiProxy_CosBackend) ConstructNodeMetadata() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CosBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -2810,22 +3568,54 @@ func (c *jsiiProxy_CosBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state as an object in a configurable prefix in  a given bucket on Tencent Cloud Object Storage (COS).
+//
+// This backend supports state locking.
+//
+// Warning! It is highly recommended that you enable Object Versioning on the COS bucket to allow for state recovery in the case of accidental deletions and human error.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/cos
 // Experimental.
 type CosBackendProps struct {
+	// (Required) The name of the COS bucket.
+	//
+	// You shall manually create it first.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
+	// (Optional) Object ACL to be applied to the state file, allows private and public-read.
+	//
+	// Defaults to private.
 	// Experimental.
 	Acl *string `json:"acl" yaml:"acl"`
+	// (Optional) Whether to enable server side encryption of the state file.
+	//
+	// If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
 	// Experimental.
 	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	// (Optional) The path for saving the state file in bucket.
+	//
+	// Defaults to terraform.tfstate.
 	// Experimental.
 	Key *string `json:"key" yaml:"key"`
+	// (Optional) The directory for saving the state file in bucket.
+	//
+	// Default to "env:".
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
+	// (Optional) The region of the COS bucket.
+	//
+	// It supports environment variables TENCENTCLOUD_REGION.
 	// Experimental.
 	Region *string `json:"region" yaml:"region"`
+	// (Optional) Secret id of Tencent Cloud.
+	//
+	// It supports environment variables TENCENTCLOUD_SECRET_ID.
 	// Experimental.
 	SecretId *string `json:"secretId" yaml:"secretId"`
+	// (Optional) Secret key of Tencent Cloud.
+	//
+	// It supports environment variables TENCENTCLOUD_SECRET_KEY.
 	// Experimental.
 	SecretKey *string `json:"secretKey" yaml:"secretKey"`
 }
@@ -3452,14 +4242,21 @@ type DataTerraformRemoteStateArtifactoryConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) - The password.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Required) - The repository name.
 	// Experimental.
 	Repo *string `json:"repo" yaml:"repo"`
+	// (Required) - Path within the repository.
 	// Experimental.
 	Subpath *string `json:"subpath" yaml:"subpath"`
+	// (Required) - The URL.
+	//
+	// Note that this is the base url to artifactory not the full repo and subpath.
 	// Experimental.
 	Url *string `json:"url" yaml:"url"`
+	// (Required) - The username.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -3778,32 +4575,67 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) The Name of the Storage Container within the Storage Account.
 	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
+	// (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
 	// Experimental.
 	Key *string `json:"key" yaml:"key"`
+	// (Required) The Name of the Storage Account.
 	// Experimental.
 	StorageAccountName *string `json:"storageAccountName" yaml:"storageAccountName"`
+	// access_key - (Optional) The Access Key used to access the Blob Storage Account.
+	//
+	// This can also be sourced from the ARM_ACCESS_KEY environment variable.
 	// Experimental.
 	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	// (Optional) The Client ID of the Service Principal.
+	//
+	// This can also be sourced from the ARM_CLIENT_ID environment variable.
 	// Experimental.
 	ClientId *string `json:"clientId" yaml:"clientId"`
+	// (Optional) The Client Secret of the Service Principal.
+	//
+	// This can also be sourced from the ARM_CLIENT_SECRET environment variable.
 	// Experimental.
 	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	// (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the ARM_ENDPOINT environment variable.
+	//
+	// NOTE: An endpoint should only be configured when using Azure Stack.
 	// Experimental.
 	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	// (Optional) The Azure Environment which should be used.
+	//
+	// This can also be sourced from the ARM_ENVIRONMENT environment variable.
+	//   Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
 	Environment *string `json:"environment" yaml:"environment"`
+	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.
+	//
+	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
 	// Experimental.
 	MsiEndpoint *string `json:"msiEndpoint" yaml:"msiEndpoint"`
+	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
 	ResourceGroupName *string `json:"resourceGroupName" yaml:"resourceGroupName"`
+	// (Optional) The SAS Token used to access the Blob Storage Account.
+	//
+	// This can also be sourced from the ARM_SAS_TOKEN environment variable.
 	// Experimental.
 	SasToken *string `json:"sasToken" yaml:"sasToken"`
+	// (Optional) The Subscription ID in which the Storage Account exists.
+	//
+	// This can also be sourced from the ARM_SUBSCRIPTION_ID environment variable.
 	// Experimental.
 	SubscriptionId *string `json:"subscriptionId" yaml:"subscriptionId"`
+	// (Optional) The Tenant ID in which the Subscription exists.
+	//
+	// This can also be sourced from the ARM_TENANT_ID environment variable.
 	// Experimental.
 	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	// (Optional) Should Managed Service Identity authentication be used?
+	//
+	// This can also be sourced from the ARM_USE_MSI environment variable.
 	// Experimental.
 	UseMsi *bool `json:"useMsi" yaml:"useMsi"`
 }
@@ -4130,26 +4962,48 @@ type DataTerraformRemoteStateConsulConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) Access token.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	// (Required) Path in the Consul KV store.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) DNS name and port of your Consul endpoint specified in the format dnsname:port.
+	//
+	// Defaults to the local agent HTTP listener.
 	// Experimental.
 	Address *string `json:"address" yaml:"address"`
+	// (Optional) A path to a PEM-encoded certificate authority used to verify the remote agent's certificate.
 	// Experimental.
 	CaFile *string `json:"caFile" yaml:"caFile"`
+	// (Optional) A path to a PEM-encoded certificate provided to the remote agent;
+	//
+	// requires use of key_file.
 	// Experimental.
 	CertFile *string `json:"certFile" yaml:"certFile"`
+	// (Optional) The datacenter to use.
+	//
+	// Defaults to that of the agent.
 	// Experimental.
 	Datacenter *string `json:"datacenter" yaml:"datacenter"`
+	// (Optional) true to compress the state data using gzip, or false (the default) to leave it uncompressed.
 	// Experimental.
 	Gzip *bool `json:"gzip" yaml:"gzip"`
+	// (Optional) HTTP Basic Authentication credentials to be used when communicating with Consul, in the format of either user or user:pass.
 	// Experimental.
 	HttpAuth *string `json:"httpAuth" yaml:"httpAuth"`
+	// (Optional) A path to a PEM-encoded private key, required if cert_file is specified.
 	// Experimental.
 	KeyFile *string `json:"keyFile" yaml:"keyFile"`
+	// (Optional) false to disable locking.
+	//
+	// This defaults to true, but will require session permissions with Consul and
+	// at least kv write permissions on $path/.lock to perform locking.
 	// Experimental.
 	Lock *bool `json:"lock" yaml:"lock"`
+	// (Optional) Specifies what protocol to use when talking to the given address,either http or https.
+	//
+	// SSL support can also be triggered by setting then environment variable CONSUL_HTTP_SSL to true.
 	// Experimental.
 	Scheme *string `json:"scheme" yaml:"scheme"`
 }
@@ -4468,20 +5322,44 @@ type DataTerraformRemoteStateCosConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) The name of the COS bucket.
+	//
+	// You shall manually create it first.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
+	// (Optional) Object ACL to be applied to the state file, allows private and public-read.
+	//
+	// Defaults to private.
 	// Experimental.
 	Acl *string `json:"acl" yaml:"acl"`
+	// (Optional) Whether to enable server side encryption of the state file.
+	//
+	// If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
 	// Experimental.
 	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	// (Optional) The path for saving the state file in bucket.
+	//
+	// Defaults to terraform.tfstate.
 	// Experimental.
 	Key *string `json:"key" yaml:"key"`
+	// (Optional) The directory for saving the state file in bucket.
+	//
+	// Default to "env:".
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
+	// (Optional) The region of the COS bucket.
+	//
+	// It supports environment variables TENCENTCLOUD_REGION.
 	// Experimental.
 	Region *string `json:"region" yaml:"region"`
+	// (Optional) Secret id of Tencent Cloud.
+	//
+	// It supports environment variables TENCENTCLOUD_SECRET_ID.
 	// Experimental.
 	SecretId *string `json:"secretId" yaml:"secretId"`
+	// (Optional) Secret key of Tencent Cloud.
+	//
+	// It supports environment variables TENCENTCLOUD_SECRET_KEY.
 	// Experimental.
 	SecretKey *string `json:"secretKey" yaml:"secretKey"`
 }
@@ -4800,12 +5678,16 @@ type DataTerraformRemoteStateEtcdConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) A space-separated list of the etcd endpoints.
 	// Experimental.
 	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	// (Required) The path where to store the state.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) The password.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) The username.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -5124,20 +6006,32 @@ type DataTerraformRemoteStateEtcdV3Config struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
 	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
+	// (Optional) The path to a PEM-encoded CA bundle  with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
 	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
+	// (Optional) The path to a PEM-encoded certificate to provide to etcd  for secure client identification.
 	// Experimental.
 	CertPath *string `json:"certPath" yaml:"certPath"`
+	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
 	// Experimental.
 	KeyPath *string `json:"keyPath" yaml:"keyPath"`
+	// (Optional) Whether to lock state access.
+	//
+	// Defaults to true.
 	// Experimental.
 	Lock *bool `json:"lock" yaml:"lock"`
+	// (Optional) Password used to connect to the etcd cluster.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) An optional prefix to be added to keys when to storing state in etcd.
+	//
+	// Defaults to "".
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
+	// (Optional) Username used to connect to the etcd cluster.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -8096,6 +8990,8 @@ type EtcdBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -8147,6 +9043,16 @@ func (j *jsiiProxy_EtcdBackend) ConstructNodeMetadata() *map[string]interface{} 
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EtcdBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -8357,14 +9263,24 @@ func (e *jsiiProxy_EtcdBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state in etcd 2.x at a given path.
+//
+// This backend does not support state locking.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/etcd
 // Experimental.
 type EtcdBackendProps struct {
+	// (Required) A space-separated list of the etcd endpoints.
 	// Experimental.
 	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	// (Required) The path where to store the state.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) The password.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) The username.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -8376,6 +9292,8 @@ type EtcdV3Backend interface {
 	CdktfStack() TerraformStack
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
@@ -8428,6 +9346,16 @@ func (j *jsiiProxy_EtcdV3Backend) ConstructNodeMetadata() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EtcdV3Backend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -8638,22 +9566,40 @@ func (e *jsiiProxy_EtcdV3Backend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state in the etcd KV store with a given prefix.
+//
+// This backend supports state locking.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/etcdv3
 // Experimental.
 type EtcdV3BackendProps struct {
+	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
 	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
+	// (Optional) The path to a PEM-encoded CA bundle  with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
 	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
+	// (Optional) The path to a PEM-encoded certificate to provide to etcd  for secure client identification.
 	// Experimental.
 	CertPath *string `json:"certPath" yaml:"certPath"`
+	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
 	// Experimental.
 	KeyPath *string `json:"keyPath" yaml:"keyPath"`
+	// (Optional) Whether to lock state access.
+	//
+	// Defaults to true.
 	// Experimental.
 	Lock *bool `json:"lock" yaml:"lock"`
+	// (Optional) Password used to connect to the etcd cluster.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) An optional prefix to be added to keys when to storing state in etcd.
+	//
+	// Defaults to "".
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
+	// (Optional) Username used to connect to the etcd cluster.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -10588,6 +11534,8 @@ type GcsBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -10639,6 +11587,16 @@ func (j *jsiiProxy_GcsBackend) ConstructNodeMetadata() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GcsBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -10875,6 +11833,8 @@ type HttpBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -10926,6 +11886,16 @@ func (j *jsiiProxy_HttpBackend) ConstructNodeMetadata() *map[string]interface{} 
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -11459,6 +12429,11 @@ type IResolveContext interface {
 	// The scope from which resolution has been initiated.
 	// Experimental.
 	Scope() constructs.IConstruct
+	// True when ${} should be ommitted (because already inside them), false otherwise.
+	// Experimental.
+	SuppressBraces() *bool
+	// Experimental.
+	SetSuppressBraces(s *bool)
 }
 
 // The jsii proxy for IResolveContext
@@ -11505,6 +12480,24 @@ func (j *jsiiProxy_IResolveContext) Scope() constructs.IConstruct {
 		&returns,
 	)
 	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) SuppressBraces() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"suppressBraces",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) SetSuppressBraces(val *bool) {
+	_jsii_.Set(
+		j,
+		"suppressBraces",
+		val,
+	)
 }
 
 // Experimental.
@@ -12203,6 +13196,8 @@ type LocalBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -12254,6 +13249,16 @@ func (j *jsiiProxy_LocalBackend) ConstructNodeMetadata() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LocalBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -12627,6 +13632,8 @@ type MantaBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -12678,6 +13685,16 @@ func (j *jsiiProxy_MantaBackend) ConstructNodeMetadata() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MantaBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -12969,9 +13986,19 @@ func (j *jsiiProxy_NamedRemoteWorkspace) SetName(val *string) {
 
 // Experimental.
 type NumberMap interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -12982,11 +14009,30 @@ type NumberMap interface {
 	SetTerraformResource(val IInterpolatingParent)
 	// Experimental.
 	Lookup(key *string) *float64
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for NumberMap
 type jsiiProxy_NumberMap struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_NumberMap) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_NumberMap) Fqn() *string {
@@ -12994,6 +14040,16 @@ func (j *jsiiProxy_NumberMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NumberMap) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -13046,6 +14102,14 @@ func NewNumberMap_Override(n NumberMap, terraformResource IInterpolatingParent, 
 	)
 }
 
+func (j *jsiiProxy_NumberMap) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_NumberMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -13075,12 +14139,48 @@ func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
 	return returns
 }
 
+func (n *jsiiProxy_NumberMap) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		n,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NumberMap) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		n,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type NumberMapList interface {
 	IInterpolatingParent
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -13097,12 +14197,31 @@ type NumberMapList interface {
 	Get(index *float64) NumberMap
 	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for NumberMapList
 type jsiiProxy_NumberMapList struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_NumberMapList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_NumberMapList) Fqn() *string {
@@ -13110,6 +14229,16 @@ func (j *jsiiProxy_NumberMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NumberMapList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -13172,6 +14301,14 @@ func NewNumberMapList_Override(n NumberMapList, terraformResource IInterpolating
 	)
 }
 
+func (j *jsiiProxy_NumberMapList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_NumberMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -13222,6 +14359,32 @@ func (n *jsiiProxy_NumberMapList) InterpolationForAttribute(property *string) IR
 	return returns
 }
 
+func (n *jsiiProxy_NumberMapList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		n,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NumberMapList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		n,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type OssAssumeRole struct {
 	// Experimental.
@@ -13241,6 +14404,8 @@ type OssBackend interface {
 	CdktfStack() TerraformStack
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
@@ -13293,6 +14458,16 @@ func (j *jsiiProxy_OssBackend) ConstructNodeMetadata() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OssBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -13547,6 +14722,8 @@ type PgBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -13598,6 +14775,16 @@ func (j *jsiiProxy_PgBackend) ConstructNodeMetadata() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PgBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -13885,6 +15072,8 @@ type RemoteBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -13936,6 +15125,16 @@ func (j *jsiiProxy_RemoteBackend) ConstructNodeMetadata() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RemoteBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -14285,6 +15484,8 @@ type S3Backend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -14336,6 +15537,16 @@ func (j *jsiiProxy_S3Backend) ConstructNodeMetadata() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3Backend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -14773,9 +15984,19 @@ func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) inter
 
 // Experimental.
 type StringMap interface {
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -14786,11 +16007,30 @@ type StringMap interface {
 	SetTerraformResource(val IInterpolatingParent)
 	// Experimental.
 	Lookup(key *string) *string
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for StringMap
 type jsiiProxy_StringMap struct {
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_StringMap) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_StringMap) Fqn() *string {
@@ -14798,6 +16038,16 @@ func (j *jsiiProxy_StringMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringMap) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -14850,6 +16100,14 @@ func NewStringMap_Override(s StringMap, terraformResource IInterpolatingParent, 
 	)
 }
 
+func (j *jsiiProxy_StringMap) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_StringMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -14879,12 +16137,48 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 	return returns
 }
 
+func (s *jsiiProxy_StringMap) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StringMap) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type StringMapList interface {
 	IInterpolatingParent
+	IResolvable
 	ITerraformAddressable
+	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
+	//
+	// If this returns an empty array the stack will not be attached.
+	// Experimental.
+	CreationStack() *[]*string
 	// Experimental.
 	Fqn() *string
+	// Experimental.
+	SavedFqn() *string
+	// Experimental.
+	SetSavedFqn(val *string)
 	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
@@ -14901,12 +16195,31 @@ type StringMapList interface {
 	Get(index *float64) StringMap
 	// Experimental.
 	InterpolationForAttribute(property *string) IResolvable
+	// Produce the Token's value at resolution time.
+	// Experimental.
+	Resolve(_context IResolveContext) interface{}
+	// Return a string representation of this resolvable object.
+	//
+	// Returns a reversible string representation.
+	// Experimental.
+	ToString() *string
 }
 
 // The jsii proxy struct for StringMapList
 type jsiiProxy_StringMapList struct {
 	jsiiProxy_IInterpolatingParent
+	jsiiProxy_IResolvable
 	jsiiProxy_ITerraformAddressable
+}
+
+func (j *jsiiProxy_StringMapList) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_StringMapList) Fqn() *string {
@@ -14914,6 +16227,16 @@ func (j *jsiiProxy_StringMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringMapList) SavedFqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -14976,6 +16299,14 @@ func NewStringMapList_Override(s StringMapList, terraformResource IInterpolating
 	)
 }
 
+func (j *jsiiProxy_StringMapList) SetSavedFqn(val *string) {
+	_jsii_.Set(
+		j,
+		"savedFqn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_StringMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -15026,6 +16357,32 @@ func (s *jsiiProxy_StringMapList) InterpolationForAttribute(property *string) IR
 	return returns
 }
 
+func (s *jsiiProxy_StringMapList) Resolve(_context IResolveContext) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"resolve",
+		[]interface{}{_context},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StringMapList) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 type SwiftBackend interface {
 	TerraformBackend
@@ -15033,6 +16390,8 @@ type SwiftBackend interface {
 	CdktfStack() TerraformStack
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
+	// Experimental.
+	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
@@ -15085,6 +16444,16 @@ func (j *jsiiProxy_SwiftBackend) ConstructNodeMetadata() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SwiftBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -15559,6 +16928,8 @@ type TerraformBackend interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// Experimental.
 	Name() *string
@@ -15610,6 +16981,16 @@ func (j *jsiiProxy_TerraformBackend) ConstructNodeMetadata() *map[string]interfa
 	_jsii_.Get(
 		j,
 		"constructNodeMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformBackend) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
@@ -16330,6 +17711,8 @@ type TerraformElement interface {
 	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// The tree node.
 	// Experimental.
@@ -16378,6 +17761,16 @@ func (j *jsiiProxy_TerraformElement) ConstructNodeMetadata() *map[string]interfa
 	return returns
 }
 
+func (j *jsiiProxy_TerraformElement) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformElement) FriendlyUniqueId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -16410,14 +17803,14 @@ func (j *jsiiProxy_TerraformElement) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewTerraformElement(scope constructs.Construct, id *string) TerraformElement {
+func NewTerraformElement(scope constructs.Construct, id *string, elementType *string) TerraformElement {
 	_init_.Initialize()
 
 	j := jsiiProxy_TerraformElement{}
 
 	_jsii_.Create(
 		"cdktf.TerraformElement",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, elementType},
 		&j,
 	)
 
@@ -16425,12 +17818,12 @@ func NewTerraformElement(scope constructs.Construct, id *string) TerraformElemen
 }
 
 // Experimental.
-func NewTerraformElement_Override(t TerraformElement, scope constructs.Construct, id *string) {
+func NewTerraformElement_Override(t TerraformElement, scope constructs.Construct, id *string, elementType *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.TerraformElement",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, elementType},
 		t,
 	)
 }
@@ -17633,6 +19026,8 @@ type TerraformOutput interface {
 	// Experimental.
 	SetDescription(val *string)
 	// Experimental.
+	Fqn() *string
+	// Experimental.
 	FriendlyUniqueId() *string
 	// The tree node.
 	// Experimental.
@@ -17710,6 +19105,16 @@ func (j *jsiiProxy_TerraformOutput) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformOutput) Fqn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fqn",
 		&returns,
 	)
 	return returns
