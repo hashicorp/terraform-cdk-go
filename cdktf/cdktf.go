@@ -3568,7 +3568,7 @@ func (c *jsiiProxy_CosBackend) ToTerraform() interface{} {
 	return returns
 }
 
-// Stores the state as an object in a configurable prefix in  a given bucket on Tencent Cloud Object Storage (COS).
+// Stores the state as an object in a configurable prefix in a given bucket on Tencent Cloud Object Storage (COS).
 //
 // This backend supports state locking.
 //
@@ -6009,10 +6009,10 @@ type DataTerraformRemoteStateEtcdV3Config struct {
 	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
 	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
-	// (Optional) The path to a PEM-encoded CA bundle  with which to verify certificates of TLS-enabled etcd servers.
+	// (Optional) The path to a PEM-encoded CA bundle with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
 	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
-	// (Optional) The path to a PEM-encoded certificate to provide to etcd  for secure client identification.
+	// (Optional) The path to a PEM-encoded certificate to provide to etcd for secure client identification.
 	// Experimental.
 	CertPath *string `json:"certPath" yaml:"certPath"`
 	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
@@ -6350,18 +6350,39 @@ type DataTerraformRemoteStateGcsConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) The name of the GCS bucket.
+	//
+	// This name must be globally unique.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
+	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server,  i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs.  This is an alternative to credentials.  If both are specified, access_token will be used over the credentials field.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
+	//
+	// If unset, Google Application Default Credentials are used.
+	// The provided credentials must have Storage Object Admin role on the bucket.
+	//
+	// Warning: if using the Google Cloud Platform provider as well,
+	// it will also pick up the GOOGLE_CREDENTIALS environment variable.
 	// Experimental.
 	Credentials *string `json:"credentials" yaml:"credentials"`
+	// (Optional) A 32 byte base64 encoded 'customer supplied encryption key' used to encrypt all state.
 	// Experimental.
 	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	// (Optional) The service account to impersonate for accessing the State Bucket.
+	//
+	// You must have roles/iam.serviceAccountTokenCreator role on that account for the impersonation to succeed.
+	// If you are using a delegation chain, you can specify that using the impersonate_service_account_delegates field.
+	// Alternatively, this can be specified using the GOOGLE_IMPERSONATE_SERVICE_ACCOUNT environment variable.
 	// Experimental.
 	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	// (Optional) The delegation chain for an impersonating a service account.
 	// Experimental.
 	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	// (Optional) GCS prefix inside the bucket.
+	//
+	// Named states for workspaces are stored in an object called <prefix>/<name>.tfstate.
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
 }
@@ -6680,28 +6701,58 @@ type DataTerraformRemoteStateHttpConfig struct {
 	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
 	// Experimental.
 	Workspace *string `json:"workspace" yaml:"workspace"`
+	// (Required) The address of the REST endpoint.
 	// Experimental.
 	Address *string `json:"address" yaml:"address"`
+	// (Optional) The address of the lock REST endpoint.
+	//
+	// Defaults to disabled.
 	// Experimental.
 	LockAddress *string `json:"lockAddress" yaml:"lockAddress"`
+	// (Optional) The HTTP method to use when locking.
+	//
+	// Defaults to LOCK.
 	// Experimental.
 	LockMethod *string `json:"lockMethod" yaml:"lockMethod"`
+	// (Optional) The password for HTTP basic authentication.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) The number of HTTP request retries.
+	//
+	// Defaults to 2.
 	// Experimental.
 	RetryMax *float64 `json:"retryMax" yaml:"retryMax"`
+	// (Optional) The maximum time in seconds to wait between HTTP request attempts.
+	//
+	// Defaults to 30.
 	// Experimental.
 	RetryWaitMax *float64 `json:"retryWaitMax" yaml:"retryWaitMax"`
+	// (Optional) The minimum time in seconds to wait between HTTP request attempts.
+	//
+	// Defaults to 1.
 	// Experimental.
 	RetryWaitMin *float64 `json:"retryWaitMin" yaml:"retryWaitMin"`
+	// (Optional) Whether to skip TLS verification.
+	//
+	// Defaults to false.
 	// Experimental.
 	SkipCertVerification *bool `json:"skipCertVerification" yaml:"skipCertVerification"`
+	// (Optional) The address of the unlock REST endpoint.
+	//
+	// Defaults to disabled.
 	// Experimental.
 	UnlockAddress *string `json:"unlockAddress" yaml:"unlockAddress"`
+	// (Optional) The HTTP method to use when unlocking.
+	//
+	// Defaults to UNLOCK.
 	// Experimental.
 	UnlockMethod *string `json:"unlockMethod" yaml:"unlockMethod"`
+	// (Optional) HTTP method to use when updating state.
+	//
+	// Defaults to POST.
 	// Experimental.
 	UpdateMethod *string `json:"updateMethod" yaml:"updateMethod"`
+	// (Optional) The username for HTTP basic authentication.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -7023,6 +7074,7 @@ type DataTerraformRemoteStateLocalConfig struct {
 	// Path where the state file is stored.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) The path to non-default workspaces.
 	// Experimental.
 	WorkspaceDir *string `json:"workspaceDir" yaml:"workspaceDir"`
 }
@@ -8404,7 +8456,7 @@ type DataTerraformRemoteStateS3Config struct {
 	// (Optional) External identifier to use when assuming the role.
 	// Experimental.
 	ExternalId *string `json:"externalId" yaml:"externalId"`
-	// (Optional) Enable path-style S3 URLs  (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
+	// (Optional) Enable path-style S3 URLs (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
 	// Experimental.
 	ForcePathStyle *bool `json:"forcePathStyle" yaml:"forcePathStyle"`
 	// (Optional) Custom endpoint for the AWS Identity and Access Management (IAM) API.
@@ -8412,7 +8464,7 @@ type DataTerraformRemoteStateS3Config struct {
 	// This can also be sourced from the AWS_IAM_ENDPOINT environment variable.
 	// Experimental.
 	IamEndpoint *string `json:"iamEndpoint" yaml:"iamEndpoint"`
-	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key  to use for encrypting the state.
+	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state.
 	//
 	// Note that if this value is specified,
 	// Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.
@@ -8423,7 +8475,7 @@ type DataTerraformRemoteStateS3Config struct {
 	// Defaults to 5.
 	// Experimental.
 	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
-	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials)  or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials  and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
+	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials) or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
 	// Experimental.
 	Profile *string `json:"profile" yaml:"profile"`
 	// AWS Region of the S3 Bucket and DynamoDB Table (if used).
@@ -9577,10 +9629,10 @@ type EtcdV3BackendProps struct {
 	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
 	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
-	// (Optional) The path to a PEM-encoded CA bundle  with which to verify certificates of TLS-enabled etcd servers.
+	// (Optional) The path to a PEM-encoded CA bundle with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
 	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
-	// (Optional) The path to a PEM-encoded certificate to provide to etcd  for secure client identification.
+	// (Optional) The path to a PEM-encoded certificate to provide to etcd for secure client identification.
 	// Experimental.
 	CertPath *string `json:"certPath" yaml:"certPath"`
 	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
@@ -11807,20 +11859,52 @@ func (g *jsiiProxy_GcsBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state as an object in a configurable prefix in a pre-existing bucket  on Google Cloud Storage (GCS).
+//
+// The bucket must exist prior to configuring the backend.
+//
+// This backend supports state locking.
+//
+// Warning! It is highly recommended that you enable Object Versioning on the GCS bucket
+// to allow for state recovery in the case of accidental deletions and human error.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/gcs
 // Experimental.
 type GcsBackendProps struct {
+	// (Required) The name of the GCS bucket.
+	//
+	// This name must be globally unique.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
+	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server,  i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs.  This is an alternative to credentials.  If both are specified, access_token will be used over the credentials field.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
+	//
+	// If unset, Google Application Default Credentials are used.
+	// The provided credentials must have Storage Object Admin role on the bucket.
+	//
+	// Warning: if using the Google Cloud Platform provider as well,
+	// it will also pick up the GOOGLE_CREDENTIALS environment variable.
 	// Experimental.
 	Credentials *string `json:"credentials" yaml:"credentials"`
+	// (Optional) A 32 byte base64 encoded 'customer supplied encryption key' used to encrypt all state.
 	// Experimental.
 	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	// (Optional) The service account to impersonate for accessing the State Bucket.
+	//
+	// You must have roles/iam.serviceAccountTokenCreator role on that account for the impersonation to succeed.
+	// If you are using a delegation chain, you can specify that using the impersonate_service_account_delegates field.
+	// Alternatively, this can be specified using the GOOGLE_IMPERSONATE_SERVICE_ACCOUNT environment variable.
 	// Experimental.
 	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	// (Optional) The delegation chain for an impersonating a service account.
 	// Experimental.
 	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	// (Optional) GCS prefix inside the bucket.
+	//
+	// Named states for workspaces are stored in an object called <prefix>/<name>.tfstate.
 	// Experimental.
 	Prefix *string `json:"prefix" yaml:"prefix"`
 }
@@ -12106,30 +12190,73 @@ func (h *jsiiProxy_HttpBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// Stores the state using a simple REST client.
+//
+// State will be fetched via GET, updated via POST, and purged with DELETE.
+// The method used for updating is configurable.
+//
+// This backend optionally supports state locking.
+// When locking support is enabled it will use LOCK and UNLOCK requests providing the lock info in the body.
+// The endpoint should return a 423: Locked or 409: Conflict with the holding lock info when
+// it's already taken, 200: OK for success. Any other status will be considered an error.
+// The ID of the holding lock info will be added as a query parameter to state updates requests.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/http
 // Experimental.
 type HttpBackendProps struct {
+	// (Required) The address of the REST endpoint.
 	// Experimental.
 	Address *string `json:"address" yaml:"address"`
+	// (Optional) The address of the lock REST endpoint.
+	//
+	// Defaults to disabled.
 	// Experimental.
 	LockAddress *string `json:"lockAddress" yaml:"lockAddress"`
+	// (Optional) The HTTP method to use when locking.
+	//
+	// Defaults to LOCK.
 	// Experimental.
 	LockMethod *string `json:"lockMethod" yaml:"lockMethod"`
+	// (Optional) The password for HTTP basic authentication.
 	// Experimental.
 	Password *string `json:"password" yaml:"password"`
+	// (Optional) The number of HTTP request retries.
+	//
+	// Defaults to 2.
 	// Experimental.
 	RetryMax *float64 `json:"retryMax" yaml:"retryMax"`
+	// (Optional) The maximum time in seconds to wait between HTTP request attempts.
+	//
+	// Defaults to 30.
 	// Experimental.
 	RetryWaitMax *float64 `json:"retryWaitMax" yaml:"retryWaitMax"`
+	// (Optional) The minimum time in seconds to wait between HTTP request attempts.
+	//
+	// Defaults to 1.
 	// Experimental.
 	RetryWaitMin *float64 `json:"retryWaitMin" yaml:"retryWaitMin"`
+	// (Optional) Whether to skip TLS verification.
+	//
+	// Defaults to false.
 	// Experimental.
 	SkipCertVerification *bool `json:"skipCertVerification" yaml:"skipCertVerification"`
+	// (Optional) The address of the unlock REST endpoint.
+	//
+	// Defaults to disabled.
 	// Experimental.
 	UnlockAddress *string `json:"unlockAddress" yaml:"unlockAddress"`
+	// (Optional) The HTTP method to use when unlocking.
+	//
+	// Defaults to UNLOCK.
 	// Experimental.
 	UnlockMethod *string `json:"unlockMethod" yaml:"unlockMethod"`
+	// (Optional) HTTP method to use when updating state.
+	//
+	// Defaults to POST.
 	// Experimental.
 	UpdateMethod *string `json:"updateMethod" yaml:"updateMethod"`
+	// (Optional) The username for HTTP basic authentication.
 	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 }
@@ -13469,11 +13596,16 @@ func (l *jsiiProxy_LocalBackend) ToTerraform() interface{} {
 	return returns
 }
 
+// The local backend stores state on the local filesystem,  locks that state using system APIs, and performs operations locally.
+//
+// Read more about this backend in the Terraform docs:
+// https://www.terraform.io/language/settings/backends/local
 // Experimental.
 type LocalBackendProps struct {
 	// Path where the state file is stored.
 	// Experimental.
 	Path *string `json:"path" yaml:"path"`
+	// (Optional) The path to non-default workspaces.
 	// Experimental.
 	WorkspaceDir *string `json:"workspaceDir" yaml:"workspaceDir"`
 }
@@ -15819,7 +15951,7 @@ type S3BackendProps struct {
 	// (Optional) External identifier to use when assuming the role.
 	// Experimental.
 	ExternalId *string `json:"externalId" yaml:"externalId"`
-	// (Optional) Enable path-style S3 URLs  (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
+	// (Optional) Enable path-style S3 URLs (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
 	// Experimental.
 	ForcePathStyle *bool `json:"forcePathStyle" yaml:"forcePathStyle"`
 	// (Optional) Custom endpoint for the AWS Identity and Access Management (IAM) API.
@@ -15827,7 +15959,7 @@ type S3BackendProps struct {
 	// This can also be sourced from the AWS_IAM_ENDPOINT environment variable.
 	// Experimental.
 	IamEndpoint *string `json:"iamEndpoint" yaml:"iamEndpoint"`
-	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key  to use for encrypting the state.
+	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state.
 	//
 	// Note that if this value is specified,
 	// Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.
@@ -15838,7 +15970,7 @@ type S3BackendProps struct {
 	// Defaults to 5.
 	// Experimental.
 	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
-	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials)  or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials  and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
+	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials) or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
 	// Experimental.
 	Profile *string `json:"profile" yaml:"profile"`
 	// AWS Region of the S3 Bucket and DynamoDB Table (if used).
