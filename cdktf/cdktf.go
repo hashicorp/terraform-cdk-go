@@ -101,10 +101,6 @@ type AnyMap interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -112,6 +108,8 @@ type AnyMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Lookup(key *string) interface{}
 	// Produce the Token's value at resolution time.
@@ -145,16 +143,6 @@ func (j *jsiiProxy_AnyMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AnyMap) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -207,14 +195,6 @@ func NewAnyMap_Override(a AnyMap, terraformResource IInterpolatingParent, terraf
 	)
 }
 
-func (j *jsiiProxy_AnyMap) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_AnyMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -229,6 +209,19 @@ func (j *jsiiProxy_AnyMap) SetTerraformResource(val IInterpolatingParent) {
 		"terraformResource",
 		val,
 	)
+}
+
+func (a *jsiiProxy_AnyMap) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (a *jsiiProxy_AnyMap) Lookup(key *string) interface{} {
@@ -283,10 +276,6 @@ type AnyMapList interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -298,6 +287,8 @@ type AnyMapList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Get(index *float64) AnyMap
 	// Experimental.
@@ -334,16 +325,6 @@ func (j *jsiiProxy_AnyMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AnyMapList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -406,14 +387,6 @@ func NewAnyMapList_Override(a AnyMapList, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_AnyMapList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_AnyMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -436,6 +409,19 @@ func (j *jsiiProxy_AnyMapList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (a *jsiiProxy_AnyMapList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (a *jsiiProxy_AnyMapList) Get(index *float64) AnyMap {
@@ -1473,10 +1459,6 @@ type BooleanMap interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -1484,6 +1466,8 @@ type BooleanMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Lookup(key *string) IResolvable
 	// Produce the Token's value at resolution time.
@@ -1517,16 +1501,6 @@ func (j *jsiiProxy_BooleanMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BooleanMap) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1579,14 +1553,6 @@ func NewBooleanMap_Override(b BooleanMap, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_BooleanMap) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_BooleanMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1601,6 +1567,19 @@ func (j *jsiiProxy_BooleanMap) SetTerraformResource(val IInterpolatingParent) {
 		"terraformResource",
 		val,
 	)
+}
+
+func (b *jsiiProxy_BooleanMap) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
@@ -1655,10 +1634,6 @@ type BooleanMapList interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -1670,6 +1645,8 @@ type BooleanMapList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Get(index *float64) BooleanMap
 	// Experimental.
@@ -1706,16 +1683,6 @@ func (j *jsiiProxy_BooleanMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BooleanMapList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -1778,14 +1745,6 @@ func NewBooleanMapList_Override(b BooleanMapList, terraformResource IInterpolati
 	)
 }
 
-func (j *jsiiProxy_BooleanMapList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_BooleanMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -1808,6 +1767,19 @@ func (j *jsiiProxy_BooleanMapList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (b *jsiiProxy_BooleanMapList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (b *jsiiProxy_BooleanMapList) Get(index *float64) BooleanMap {
@@ -1885,12 +1857,6 @@ type ComplexComputedList interface {
 	Fqn() *string
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
-	SavedFqn() *string
-	// Deprecated: Going to be replaced by Array of ComplexListItem
-	// and will be removed in the future.
-	SetSavedFqn(val *string)
-	// Deprecated: Going to be replaced by Array of ComplexListItem
-	// and will be removed in the future.
 	TerraformAttribute() *string
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
@@ -1907,6 +1873,9 @@ type ComplexComputedList interface {
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	SetWrapsSet(val *bool)
+	// Deprecated: Going to be replaced by Array of ComplexListItem
+	// and will be removed in the future.
+	ComputeFqn() *string
 	// Deprecated: Going to be replaced by Array of ComplexListItem
 	// and will be removed in the future.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
@@ -1986,16 +1955,6 @@ func (j *jsiiProxy_ComplexComputedList) Fqn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ComplexComputedList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ComplexComputedList) TerraformAttribute() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2063,14 +2022,6 @@ func (j *jsiiProxy_ComplexComputedList) SetComplexComputedListIndex(val *string)
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ComplexComputedList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -2093,6 +2044,19 @@ func (j *jsiiProxy_ComplexComputedList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (c *jsiiProxy_ComplexComputedList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
@@ -2263,10 +2227,6 @@ type ComplexList interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -2278,6 +2238,8 @@ type ComplexList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Experimental.
+	ComputeFqn() *string
 	// Produce the Token's value at resolution time.
 	// Experimental.
 	Resolve(_context IResolveContext) interface{}
@@ -2309,16 +2271,6 @@ func (j *jsiiProxy_ComplexList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ComplexList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -2366,14 +2318,6 @@ func NewComplexList_Override(c ComplexList, terraformResource IInterpolatingPare
 	)
 }
 
-func (j *jsiiProxy_ComplexList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ComplexList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -2396,6 +2340,19 @@ func (j *jsiiProxy_ComplexList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (c *jsiiProxy_ComplexList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_ComplexList) Resolve(_context IResolveContext) interface{} {
@@ -2436,10 +2393,6 @@ type ComplexMap interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -2447,6 +2400,8 @@ type ComplexMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Produce the Token's value at resolution time.
 	// Experimental.
 	Resolve(_context IResolveContext) interface{}
@@ -2478,16 +2433,6 @@ func (j *jsiiProxy_ComplexMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ComplexMap) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -2525,14 +2470,6 @@ func NewComplexMap_Override(c ComplexMap, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_ComplexMap) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ComplexMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -2547,6 +2484,19 @@ func (j *jsiiProxy_ComplexMap) SetTerraformResource(val IInterpolatingParent) {
 		"terraformResource",
 		val,
 	)
+}
+
+func (c *jsiiProxy_ComplexMap) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_ComplexMap) Resolve(_context IResolveContext) interface{} {
@@ -2598,10 +2548,6 @@ type ComplexObject interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -2609,6 +2555,8 @@ type ComplexObject interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{}
 	// Experimental.
@@ -2688,16 +2636,6 @@ func (j *jsiiProxy_ComplexObject) Fqn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ComplexObject) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ComplexObject) TerraformAttribute() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2761,14 +2699,6 @@ func (j *jsiiProxy_ComplexObject) SetComplexObjectIsFromSet(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ComplexObject) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -2783,6 +2713,19 @@ func (j *jsiiProxy_ComplexObject) SetTerraformResource(val IInterpolatingParent)
 		"terraformResource",
 		val,
 	)
+}
+
+func (c *jsiiProxy_ComplexObject) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
@@ -14128,10 +14071,6 @@ type NumberMap interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -14139,6 +14078,8 @@ type NumberMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Lookup(key *string) *float64
 	// Produce the Token's value at resolution time.
@@ -14172,16 +14113,6 @@ func (j *jsiiProxy_NumberMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NumberMap) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -14234,14 +14165,6 @@ func NewNumberMap_Override(n NumberMap, terraformResource IInterpolatingParent, 
 	)
 }
 
-func (j *jsiiProxy_NumberMap) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_NumberMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -14256,6 +14179,19 @@ func (j *jsiiProxy_NumberMap) SetTerraformResource(val IInterpolatingParent) {
 		"terraformResource",
 		val,
 	)
+}
+
+func (n *jsiiProxy_NumberMap) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		n,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
@@ -14310,10 +14246,6 @@ type NumberMapList interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -14325,6 +14257,8 @@ type NumberMapList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Get(index *float64) NumberMap
 	// Experimental.
@@ -14361,16 +14295,6 @@ func (j *jsiiProxy_NumberMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NumberMapList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -14433,14 +14357,6 @@ func NewNumberMapList_Override(n NumberMapList, terraformResource IInterpolating
 	)
 }
 
-func (j *jsiiProxy_NumberMapList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_NumberMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -14463,6 +14379,19 @@ func (j *jsiiProxy_NumberMapList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (n *jsiiProxy_NumberMapList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		n,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (n *jsiiProxy_NumberMapList) Get(index *float64) NumberMap {
@@ -16126,10 +16055,6 @@ type StringMap interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -16137,6 +16062,8 @@ type StringMap interface {
 	TerraformResource() IInterpolatingParent
 	// Experimental.
 	SetTerraformResource(val IInterpolatingParent)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Lookup(key *string) *string
 	// Produce the Token's value at resolution time.
@@ -16170,16 +16097,6 @@ func (j *jsiiProxy_StringMap) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_StringMap) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -16232,14 +16149,6 @@ func NewStringMap_Override(s StringMap, terraformResource IInterpolatingParent, 
 	)
 }
 
-func (j *jsiiProxy_StringMap) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_StringMap) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -16254,6 +16163,19 @@ func (j *jsiiProxy_StringMap) SetTerraformResource(val IInterpolatingParent) {
 		"terraformResource",
 		val,
 	)
+}
+
+func (s *jsiiProxy_StringMap) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
@@ -16308,10 +16230,6 @@ type StringMapList interface {
 	// Experimental.
 	Fqn() *string
 	// Experimental.
-	SavedFqn() *string
-	// Experimental.
-	SetSavedFqn(val *string)
-	// Experimental.
 	TerraformAttribute() *string
 	// Experimental.
 	SetTerraformAttribute(val *string)
@@ -16323,6 +16241,8 @@ type StringMapList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Experimental.
+	ComputeFqn() *string
 	// Experimental.
 	Get(index *float64) StringMap
 	// Experimental.
@@ -16359,16 +16279,6 @@ func (j *jsiiProxy_StringMapList) Fqn() *string {
 	_jsii_.Get(
 		j,
 		"fqn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_StringMapList) SavedFqn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"savedFqn",
 		&returns,
 	)
 	return returns
@@ -16431,14 +16341,6 @@ func NewStringMapList_Override(s StringMapList, terraformResource IInterpolating
 	)
 }
 
-func (j *jsiiProxy_StringMapList) SetSavedFqn(val *string) {
-	_jsii_.Set(
-		j,
-		"savedFqn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_StringMapList) SetTerraformAttribute(val *string) {
 	_jsii_.Set(
 		j,
@@ -16461,6 +16363,19 @@ func (j *jsiiProxy_StringMapList) SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (s *jsiiProxy_StringMapList) ComputeFqn() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"computeFqn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (s *jsiiProxy_StringMapList) Get(index *float64) StringMap {
