@@ -6298,7 +6298,7 @@ type DataTerraformRemoteStateGcsConfig struct {
 	// This name must be globally unique.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
-	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server,  i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs.  This is an alternative to credentials.  If both are specified, access_token will be used over the credentials field.
+	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server, i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs. This is an alternative to credentials. If both are specified, access_token will be used over the credentials field.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
@@ -11802,7 +11802,7 @@ func (g *jsiiProxy_GcsBackend) ToTerraform() interface{} {
 	return returns
 }
 
-// Stores the state as an object in a configurable prefix in a pre-existing bucket  on Google Cloud Storage (GCS).
+// Stores the state as an object in a configurable prefix in a pre-existing bucket on Google Cloud Storage (GCS).
 //
 // The bucket must exist prior to configuring the backend.
 //
@@ -11820,7 +11820,7 @@ type GcsBackendProps struct {
 	// This name must be globally unique.
 	// Experimental.
 	Bucket *string `json:"bucket" yaml:"bucket"`
-	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server,  i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs.  This is an alternative to credentials.  If both are specified, access_token will be used over the credentials field.
+	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server, i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs. This is an alternative to credentials. If both are specified, access_token will be used over the credentials field.
 	// Experimental.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
@@ -13539,7 +13539,7 @@ func (l *jsiiProxy_LocalBackend) ToTerraform() interface{} {
 	return returns
 }
 
-// The local backend stores state on the local filesystem,  locks that state using system APIs, and performs operations locally.
+// The local backend stores state on the local filesystem, locks that state using system APIs, and performs operations locally.
 //
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/local
