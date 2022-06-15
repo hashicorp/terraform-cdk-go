@@ -20579,7 +20579,7 @@ type TerraformResourceLifecycle struct {
 	// Experimental.
 	CreateBeforeDestroy *bool `json:"createBeforeDestroy" yaml:"createBeforeDestroy"`
 	// Experimental.
-	IgnoreChanges *[]*string `json:"ignoreChanges" yaml:"ignoreChanges"`
+	IgnoreChanges interface{} `json:"ignoreChanges" yaml:"ignoreChanges"`
 	// Experimental.
 	PreventDestroy *bool `json:"preventDestroy" yaml:"preventDestroy"`
 }
