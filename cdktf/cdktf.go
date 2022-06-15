@@ -12740,6 +12740,15 @@ type jsiiProxy_ITerraformDependable struct {
 }
 
 // Experimental.
+type ITerraformIterator interface {
+}
+
+// The jsii proxy for ITerraformIterator
+type jsiiProxy_ITerraformIterator struct {
+	_ byte // padding
+}
+
+// Experimental.
 type ITerraformResource interface {
 	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
@@ -12751,6 +12760,10 @@ type ITerraformResource interface {
 	DependsOn() *[]*string
 	// Experimental.
 	SetDependsOn(d *[]*string)
+	// Experimental.
+	ForEach() ITerraformIterator
+	// Experimental.
+	SetForEach(f ITerraformIterator)
 	// Experimental.
 	Fqn() *string
 	// Experimental.
@@ -12817,6 +12830,24 @@ func (j *jsiiProxy_ITerraformResource) SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ITerraformResource) ForEach() ITerraformIterator {
+	var returns ITerraformIterator
+	_jsii_.Get(
+		j,
+		"forEach",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITerraformResource) SetForEach(val ITerraformIterator) {
+	_jsii_.Set(
+		j,
+		"forEach",
 		val,
 	)
 }
@@ -13256,6 +13287,283 @@ type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
 	// Experimental.
 	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
+}
+
+// Experimental.
+type ListTerraformIterator interface {
+	TerraformIterator
+	// Returns the currenty entry in the list or set that is being iterated over.
+	//
+	// For lists this is the same as `iterator.value`. If you need the index,
+	// use count using the escape hatch:
+	// https://www.terraform.io/cdktf/concepts/providers-and-resources#escape-hatch
+	// Experimental.
+	Key() interface{}
+	// Returns the value of the current item iterated over.
+	// Experimental.
+	Value() interface{}
+	// Returns: the given attribute of the current item iterated over as any.
+	// Experimental.
+	GetAny(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of any.
+	// Experimental.
+	GetAnyMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a boolean.
+	// Experimental.
+	GetBoolean(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of booleans.
+	// Experimental.
+	GetBooleanMap(attribute *string) *map[string]*bool
+	// Returns: the given attribute of the current item iterated over as a (string) list.
+	// Experimental.
+	GetList(attribute *string) *[]*string
+	// Returns: the given attribute of the current item iterated over as a map.
+	// Experimental.
+	GetMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a number.
+	// Experimental.
+	GetNumber(attribute *string) *float64
+	// Returns: the given attribute of the current item iterated over as a number list.
+	// Experimental.
+	GetNumberList(attribute *string) *[]*float64
+	// Returns: the given attribute of the current item iterated over as a map of numbers.
+	// Experimental.
+	GetNumberMap(attribute *string) *map[string]*float64
+	// Returns: the given attribute of the current item iterated over as a string.
+	// Experimental.
+	GetString(attribute *string) *string
+	// Returns: the given attribute of the current item iterated over as a map of strings.
+	// Experimental.
+	GetStringMap(attribute *string) *map[string]*string
+}
+
+// The jsii proxy struct for ListTerraformIterator
+type jsiiProxy_ListTerraformIterator struct {
+	jsiiProxy_TerraformIterator
+}
+
+func (j *jsiiProxy_ListTerraformIterator) Key() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"key",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ListTerraformIterator) Value() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"value",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewListTerraformIterator(list interface{}) ListTerraformIterator {
+	_init_.Initialize()
+
+	j := jsiiProxy_ListTerraformIterator{}
+
+	_jsii_.Create(
+		"cdktf.ListTerraformIterator",
+		[]interface{}{list},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewListTerraformIterator_Override(l ListTerraformIterator, list interface{}) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.ListTerraformIterator",
+		[]interface{}{list},
+		l,
+	)
+}
+
+// Creates a new iterator from a list.
+// Experimental.
+func ListTerraformIterator_FromList(list interface{}) ListTerraformIterator {
+	_init_.Initialize()
+
+	var returns ListTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.ListTerraformIterator",
+		"fromList",
+		[]interface{}{list},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new iterator from a map.
+// Experimental.
+func ListTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
+	_init_.Initialize()
+
+	var returns MapTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.ListTerraformIterator",
+		"fromMap",
+		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetAny(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"getAny",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		l,
+		"getAnyMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetBoolean(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"getBoolean",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		l,
+		"getBooleanMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetList(attribute *string) *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"getList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		l,
+		"getMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetNumber(attribute *string) *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		l,
+		"getNumber",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetNumberList(attribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		l,
+		"getNumberList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		l,
+		"getNumberMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetString(attribute *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		l,
+		"getString",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) GetStringMap(attribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		l,
+		"getStringMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -13998,6 +14306,279 @@ type MantaBackendProps struct {
 	Url *string `json:"url" yaml:"url"`
 	// Experimental.
 	User *string `json:"user" yaml:"user"`
+}
+
+// Experimental.
+type MapTerraformIterator interface {
+	TerraformIterator
+	// Returns the key of the current entry in the map that is being iterated over.
+	// Experimental.
+	Key() *string
+	// Returns the value of the current item iterated over.
+	// Experimental.
+	Value() interface{}
+	// Returns: the given attribute of the current item iterated over as any.
+	// Experimental.
+	GetAny(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of any.
+	// Experimental.
+	GetAnyMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a boolean.
+	// Experimental.
+	GetBoolean(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of booleans.
+	// Experimental.
+	GetBooleanMap(attribute *string) *map[string]*bool
+	// Returns: the given attribute of the current item iterated over as a (string) list.
+	// Experimental.
+	GetList(attribute *string) *[]*string
+	// Returns: the given attribute of the current item iterated over as a map.
+	// Experimental.
+	GetMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a number.
+	// Experimental.
+	GetNumber(attribute *string) *float64
+	// Returns: the given attribute of the current item iterated over as a number list.
+	// Experimental.
+	GetNumberList(attribute *string) *[]*float64
+	// Returns: the given attribute of the current item iterated over as a map of numbers.
+	// Experimental.
+	GetNumberMap(attribute *string) *map[string]*float64
+	// Returns: the given attribute of the current item iterated over as a string.
+	// Experimental.
+	GetString(attribute *string) *string
+	// Returns: the given attribute of the current item iterated over as a map of strings.
+	// Experimental.
+	GetStringMap(attribute *string) *map[string]*string
+}
+
+// The jsii proxy struct for MapTerraformIterator
+type jsiiProxy_MapTerraformIterator struct {
+	jsiiProxy_TerraformIterator
+}
+
+func (j *jsiiProxy_MapTerraformIterator) Key() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"key",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MapTerraformIterator) Value() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"value",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewMapTerraformIterator(map_ interface{}) MapTerraformIterator {
+	_init_.Initialize()
+
+	j := jsiiProxy_MapTerraformIterator{}
+
+	_jsii_.Create(
+		"cdktf.MapTerraformIterator",
+		[]interface{}{map_},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewMapTerraformIterator_Override(m MapTerraformIterator, map_ interface{}) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.MapTerraformIterator",
+		[]interface{}{map_},
+		m,
+	)
+}
+
+// Creates a new iterator from a list.
+// Experimental.
+func MapTerraformIterator_FromList(list interface{}) ListTerraformIterator {
+	_init_.Initialize()
+
+	var returns ListTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.MapTerraformIterator",
+		"fromList",
+		[]interface{}{list},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new iterator from a map.
+// Experimental.
+func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
+	_init_.Initialize()
+
+	var returns MapTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.MapTerraformIterator",
+		"fromMap",
+		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetAny(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		m,
+		"getAny",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		m,
+		"getAnyMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetBoolean(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		m,
+		"getBoolean",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		m,
+		"getBooleanMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetList(attribute *string) *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"getList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		m,
+		"getMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetNumber(attribute *string) *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		m,
+		"getNumber",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetNumberList(attribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		m,
+		"getNumberList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		m,
+		"getNumberMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetString(attribute *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		m,
+		"getString",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) GetStringMap(attribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		m,
+		"getStringMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -17252,6 +17833,10 @@ type TerraformDataSource interface {
 	// Experimental.
 	SetDependsOn(val *[]*string)
 	// Experimental.
+	ForEach() ITerraformIterator
+	// Experimental.
+	SetForEach(val ITerraformIterator)
+	// Experimental.
 	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
@@ -17357,6 +17942,16 @@ func (j *jsiiProxy_TerraformDataSource) DependsOn() *[]*string {
 	_jsii_.Get(
 		j,
 		"dependsOn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformDataSource) ForEach() ITerraformIterator {
+	var returns ITerraformIterator
+	_jsii_.Get(
+		j,
+		"forEach",
 		&returns,
 	)
 	return returns
@@ -17491,6 +18086,14 @@ func (j *jsiiProxy_TerraformDataSource) SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformDataSource) SetForEach(val ITerraformIterator) {
+	_jsii_.Set(
+		j,
+		"forEach",
 		val,
 	)
 }
@@ -17993,6 +18596,10 @@ type TerraformHclModule interface {
 	// Experimental.
 	SetDependsOn(val *[]*string)
 	// Experimental.
+	ForEach() ITerraformIterator
+	// Experimental.
+	SetForEach(val ITerraformIterator)
+	// Experimental.
 	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
@@ -18074,6 +18681,16 @@ func (j *jsiiProxy_TerraformHclModule) DependsOn() *[]*string {
 	_jsii_.Get(
 		j,
 		"dependsOn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformHclModule) ForEach() ITerraformIterator {
+	var returns ITerraformIterator
+	_jsii_.Get(
+		j,
+		"forEach",
 		&returns,
 	)
 	return returns
@@ -18190,6 +18807,14 @@ func (j *jsiiProxy_TerraformHclModule) SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformHclModule) SetForEach(val ITerraformIterator) {
+	_jsii_.Set(
+		j,
+		"forEach",
 		val,
 	)
 }
@@ -18404,11 +19029,244 @@ type TerraformHclModuleOptions struct {
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
+	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	// Experimental.
 	Providers *[]interface{} `json:"providers" yaml:"providers"`
 	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 	// Experimental.
 	Variables *map[string]interface{} `json:"variables" yaml:"variables"`
+}
+
+// Experimental.
+type TerraformIterator interface {
+	ITerraformIterator
+	// Returns: the given attribute of the current item iterated over as any.
+	// Experimental.
+	GetAny(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of any.
+	// Experimental.
+	GetAnyMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a boolean.
+	// Experimental.
+	GetBoolean(attribute *string) IResolvable
+	// Returns: the given attribute of the current item iterated over as a map of booleans.
+	// Experimental.
+	GetBooleanMap(attribute *string) *map[string]*bool
+	// Returns: the given attribute of the current item iterated over as a (string) list.
+	// Experimental.
+	GetList(attribute *string) *[]*string
+	// Returns: the given attribute of the current item iterated over as a map.
+	// Experimental.
+	GetMap(attribute *string) *map[string]interface{}
+	// Returns: the given attribute of the current item iterated over as a number.
+	// Experimental.
+	GetNumber(attribute *string) *float64
+	// Returns: the given attribute of the current item iterated over as a number list.
+	// Experimental.
+	GetNumberList(attribute *string) *[]*float64
+	// Returns: the given attribute of the current item iterated over as a map of numbers.
+	// Experimental.
+	GetNumberMap(attribute *string) *map[string]*float64
+	// Returns: the given attribute of the current item iterated over as a string.
+	// Experimental.
+	GetString(attribute *string) *string
+	// Returns: the given attribute of the current item iterated over as a map of strings.
+	// Experimental.
+	GetStringMap(attribute *string) *map[string]*string
+}
+
+// The jsii proxy struct for TerraformIterator
+type jsiiProxy_TerraformIterator struct {
+	jsiiProxy_ITerraformIterator
+}
+
+// Experimental.
+func NewTerraformIterator_Override(t TerraformIterator) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.TerraformIterator",
+		nil, // no parameters
+		t,
+	)
+}
+
+// Creates a new iterator from a list.
+// Experimental.
+func TerraformIterator_FromList(list interface{}) ListTerraformIterator {
+	_init_.Initialize()
+
+	var returns ListTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformIterator",
+		"fromList",
+		[]interface{}{list},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new iterator from a map.
+// Experimental.
+func TerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
+	_init_.Initialize()
+
+	var returns MapTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformIterator",
+		"fromMap",
+		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetAny(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		t,
+		"getAny",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"getAnyMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetBoolean(attribute *string) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		t,
+		"getBoolean",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
+	var returns *map[string]*bool
+
+	_jsii_.Invoke(
+		t,
+		"getBooleanMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetList(attribute *string) *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"getList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetMap(attribute *string) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"getMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetNumber(attribute *string) *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumber",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetNumberList(attribute *string) *[]*float64 {
+	var returns *[]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberList",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
+	var returns *map[string]*float64
+
+	_jsii_.Invoke(
+		t,
+		"getNumberMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetString(attribute *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		t,
+		"getString",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) GetStringMap(attribute *string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		t,
+		"getStringMap",
+		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -18711,6 +19569,8 @@ type TerraformMetaArguments struct {
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
+	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	// Experimental.
 	Lifecycle *TerraformResourceLifecycle `json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.
 	Provider TerraformProvider `json:"provider" yaml:"provider"`
@@ -18728,6 +19588,10 @@ type TerraformModule interface {
 	DependsOn() *[]*string
 	// Experimental.
 	SetDependsOn(val *[]*string)
+	// Experimental.
+	ForEach() ITerraformIterator
+	// Experimental.
+	SetForEach(val ITerraformIterator)
 	// Experimental.
 	Fqn() *string
 	// Experimental.
@@ -18799,6 +19663,16 @@ func (j *jsiiProxy_TerraformModule) DependsOn() *[]*string {
 	_jsii_.Get(
 		j,
 		"dependsOn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformModule) ForEach() ITerraformIterator {
+	var returns ITerraformIterator
+	_jsii_.Get(
+		j,
+		"forEach",
 		&returns,
 	)
 	return returns
@@ -18890,6 +19764,14 @@ func (j *jsiiProxy_TerraformModule) SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformModule) SetForEach(val ITerraformIterator) {
+	_jsii_.Set(
+		j,
+		"forEach",
 		val,
 	)
 }
@@ -19043,6 +19925,8 @@ type TerraformModuleOptions struct {
 	Source *string `json:"source" yaml:"source"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	// Experimental.
+	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Providers *[]interface{} `json:"providers" yaml:"providers"`
 	// Experimental.
@@ -20060,6 +20944,10 @@ type TerraformResource interface {
 	// Experimental.
 	SetDependsOn(val *[]*string)
 	// Experimental.
+	ForEach() ITerraformIterator
+	// Experimental.
+	SetForEach(val ITerraformIterator)
+	// Experimental.
 	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
@@ -20165,6 +21053,16 @@ func (j *jsiiProxy_TerraformResource) DependsOn() *[]*string {
 	_jsii_.Get(
 		j,
 		"dependsOn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformResource) ForEach() ITerraformIterator {
+	var returns ITerraformIterator
+	_jsii_.Get(
+		j,
+		"forEach",
 		&returns,
 	)
 	return returns
@@ -20299,6 +21197,14 @@ func (j *jsiiProxy_TerraformResource) SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformResource) SetForEach(val ITerraformIterator) {
+	_jsii_.Set(
+		j,
+		"forEach",
 		val,
 	)
 }
@@ -20564,6 +21470,8 @@ type TerraformResourceConfig struct {
 	Count *float64 `json:"count" yaml:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	// Experimental.
+	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Lifecycle *TerraformResourceLifecycle `json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.

@@ -1212,11 +1212,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.ITerraformIterator",
+		reflect.TypeOf((*ITerraformIterator)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ITerraformIterator{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.ITerraformResource",
 		reflect.TypeOf((*ITerraformResource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "count", GoGetter: "Count"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "forEach", GoGetter: "ForEach"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
@@ -1288,6 +1297,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.LazyStringValueOptions",
 		reflect.TypeOf((*LazyStringValueOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.ListTerraformIterator",
+		reflect.TypeOf((*ListTerraformIterator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
+			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "getBooleanMap", GoMethod: "GetBooleanMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getList", GoMethod: "GetList"},
+			_jsii_.MemberMethod{JsiiMethod: "getMap", GoMethod: "GetMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumber", GoMethod: "GetNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberList", GoMethod: "GetNumberList"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
+			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ListTerraformIterator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformIterator)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktf.LocalBackend",
@@ -1365,6 +1398,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.MantaBackendProps",
 		reflect.TypeOf((*MantaBackendProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.MapTerraformIterator",
+		reflect.TypeOf((*MapTerraformIterator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
+			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "getBooleanMap", GoMethod: "GetBooleanMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getList", GoMethod: "GetList"},
+			_jsii_.MemberMethod{JsiiMethod: "getMap", GoMethod: "GetMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumber", GoMethod: "GetNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberList", GoMethod: "GetNumberList"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
+			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MapTerraformIterator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformIterator)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktf.NamedRemoteWorkspace",
@@ -1726,6 +1783,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "count", GoGetter: "Count"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "forEach", GoGetter: "ForEach"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMapAttribute", GoMethod: "GetAnyMapAttribute"},
@@ -1797,6 +1855,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
 			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "forEach", GoGetter: "ForEach"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
@@ -1828,6 +1887,28 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.TerraformHclModuleOptions",
 		reflect.TypeOf((*TerraformHclModuleOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.TerraformIterator",
+		reflect.TypeOf((*TerraformIterator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
+			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "getBooleanMap", GoMethod: "GetBooleanMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getList", GoMethod: "GetList"},
+			_jsii_.MemberMethod{JsiiMethod: "getMap", GoMethod: "GetMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumber", GoMethod: "GetNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberList", GoMethod: "GetNumberList"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
+			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TerraformIterator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformIterator)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformLocal",
@@ -1871,6 +1952,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
 			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "forEach", GoGetter: "ForEach"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
@@ -2010,6 +2092,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "count", GoGetter: "Count"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "forEach", GoGetter: "ForEach"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMapAttribute", GoMethod: "GetAnyMapAttribute"},
