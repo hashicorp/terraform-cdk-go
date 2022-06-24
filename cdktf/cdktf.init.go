@@ -1984,6 +1984,10 @@ func init() {
 		"cdktf.TerraformModuleProvider",
 		reflect.TypeOf((*TerraformModuleProvider)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"cdktf.TerraformModuleUserOptions",
+		reflect.TypeOf((*TerraformModuleUserOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformOutput",
 		reflect.TypeOf((*TerraformOutput)(nil)).Elem(),

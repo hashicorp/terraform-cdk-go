@@ -19025,13 +19025,13 @@ func (t *jsiiProxy_TerraformHclModule) ToTerraform() interface{} {
 // Experimental.
 type TerraformHclModuleOptions struct {
 	// Experimental.
-	Source *string `json:"source" yaml:"source"`
-	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
 	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Providers *[]interface{} `json:"providers" yaml:"providers"`
+	// Experimental.
+	Source *string `json:"source" yaml:"source"`
 	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 	// Experimental.
@@ -19922,13 +19922,13 @@ func (t *jsiiProxy_TerraformModule) ToTerraform() interface{} {
 // Experimental.
 type TerraformModuleOptions struct {
 	// Experimental.
-	Source *string `json:"source" yaml:"source"`
-	// Experimental.
 	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
 	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Providers *[]interface{} `json:"providers" yaml:"providers"`
+	// Experimental.
+	Source *string `json:"source" yaml:"source"`
 	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
@@ -19939,6 +19939,16 @@ type TerraformModuleProvider struct {
 	ModuleAlias *string `json:"moduleAlias" yaml:"moduleAlias"`
 	// Experimental.
 	Provider TerraformProvider `json:"provider" yaml:"provider"`
+}
+
+// Experimental.
+type TerraformModuleUserOptions struct {
+	// Experimental.
+	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	// Experimental.
+	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	// Experimental.
+	Providers *[]interface{} `json:"providers" yaml:"providers"`
 }
 
 // Experimental.
