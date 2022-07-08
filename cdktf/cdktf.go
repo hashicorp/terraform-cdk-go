@@ -698,15 +698,15 @@ type AppOptions struct {
 	//
 	// Context can be read from any construct using `node.getContext(key)`.
 	// Experimental.
-	Context *map[string]interface{} `json:"context" yaml:"context"`
+	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
 	// The directory to output Terraform resources.
 	// Experimental.
-	Outdir *string `json:"outdir" yaml:"outdir"`
+	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 	// Whether to skip the validation during synthesis of the app.
 	// Experimental.
-	SkipValidation *bool `json:"skipValidation" yaml:"skipValidation"`
+	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 	// Experimental.
-	StackTraces *bool `json:"stackTraces" yaml:"stackTraces"`
+	StackTraces *bool `field:"optional" json:"stackTraces" yaml:"stackTraces"`
 }
 
 // Experimental.
@@ -1006,21 +1006,21 @@ func (a *jsiiProxy_ArtifactoryBackend) ToTerraform() interface{} {
 type ArtifactoryBackendProps struct {
 	// (Required) - The password.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// (Required) - The repository name.
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// (Required) - Path within the repository.
 	// Experimental.
-	Subpath *string `json:"subpath" yaml:"subpath"`
+	Subpath *string `field:"required" json:"subpath" yaml:"subpath"`
 	// (Required) - The URL.
 	//
 	// Note that this is the base url to artifactory not the full repo and subpath.
 	// Experimental.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// (Required) - The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // Aspects can be applied to CDK tree scopes and can operate on the tree before synthesis.
@@ -1384,67 +1384,67 @@ func (a *jsiiProxy_AzurermBackend) ToTerraform() interface{} {
 type AzurermBackendProps struct {
 	// (Required) The Name of the Storage Container within the Storage Account.
 	// Experimental.
-	ContainerName *string `json:"containerName" yaml:"containerName"`
+	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// (Required) The Name of the Storage Account.
 	// Experimental.
-	StorageAccountName *string `json:"storageAccountName" yaml:"storageAccountName"`
+	StorageAccountName *string `field:"required" json:"storageAccountName" yaml:"storageAccountName"`
 	// access_key - (Optional) The Access Key used to access the Blob Storage Account.
 	//
 	// This can also be sourced from the ARM_ACCESS_KEY environment variable.
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// (Optional) The Client ID of the Service Principal.
 	//
 	// This can also be sourced from the ARM_CLIENT_ID environment variable.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// (Optional) The Client Secret of the Service Principal.
 	//
 	// This can also be sourced from the ARM_CLIENT_SECRET environment variable.
 	// Experimental.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the ARM_ENDPOINT environment variable.
 	//
 	// NOTE: An endpoint should only be configured when using Azure Stack.
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// (Optional) The Azure Environment which should be used.
 	//
 	// This can also be sourced from the ARM_ENVIRONMENT environment variable.
 	//   Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
-	Environment *string `json:"environment" yaml:"environment"`
+	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.
 	//
 	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
 	// Experimental.
-	MsiEndpoint *string `json:"msiEndpoint" yaml:"msiEndpoint"`
+	MsiEndpoint *string `field:"optional" json:"msiEndpoint" yaml:"msiEndpoint"`
 	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
-	ResourceGroupName *string `json:"resourceGroupName" yaml:"resourceGroupName"`
+	ResourceGroupName *string `field:"optional" json:"resourceGroupName" yaml:"resourceGroupName"`
 	// (Optional) The SAS Token used to access the Blob Storage Account.
 	//
 	// This can also be sourced from the ARM_SAS_TOKEN environment variable.
 	// Experimental.
-	SasToken *string `json:"sasToken" yaml:"sasToken"`
+	SasToken *string `field:"optional" json:"sasToken" yaml:"sasToken"`
 	// (Optional) The Subscription ID in which the Storage Account exists.
 	//
 	// This can also be sourced from the ARM_SUBSCRIPTION_ID environment variable.
 	// Experimental.
-	SubscriptionId *string `json:"subscriptionId" yaml:"subscriptionId"`
+	SubscriptionId *string `field:"optional" json:"subscriptionId" yaml:"subscriptionId"`
 	// (Optional) The Tenant ID in which the Subscription exists.
 	//
 	// This can also be sourced from the ARM_TENANT_ID environment variable.
 	// Experimental.
-	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
 	// (Optional) Should Managed Service Identity authentication be used?
 	//
 	// This can also be sourced from the ARM_USE_MSI environment variable.
 	// Experimental.
-	UseMsi *bool `json:"useMsi" yaml:"useMsi"`
+	UseMsi *bool `field:"optional" json:"useMsi" yaml:"useMsi"`
 }
 
 // Experimental.
@@ -3186,48 +3186,48 @@ func (c *jsiiProxy_ConsulBackend) ToTerraform() interface{} {
 type ConsulBackendProps struct {
 	// (Required) Access token.
 	// Experimental.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"required" json:"accessToken" yaml:"accessToken"`
 	// (Required) Path in the Consul KV store.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// (Optional) DNS name and port of your Consul endpoint specified in the format dnsname:port.
 	//
 	// Defaults to the local agent HTTP listener.
 	// Experimental.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// (Optional) A path to a PEM-encoded certificate authority used to verify the remote agent's certificate.
 	// Experimental.
-	CaFile *string `json:"caFile" yaml:"caFile"`
+	CaFile *string `field:"optional" json:"caFile" yaml:"caFile"`
 	// (Optional) A path to a PEM-encoded certificate provided to the remote agent;
 	//
 	// requires use of key_file.
 	// Experimental.
-	CertFile *string `json:"certFile" yaml:"certFile"`
+	CertFile *string `field:"optional" json:"certFile" yaml:"certFile"`
 	// (Optional) The datacenter to use.
 	//
 	// Defaults to that of the agent.
 	// Experimental.
-	Datacenter *string `json:"datacenter" yaml:"datacenter"`
+	Datacenter *string `field:"optional" json:"datacenter" yaml:"datacenter"`
 	// (Optional) true to compress the state data using gzip, or false (the default) to leave it uncompressed.
 	// Experimental.
-	Gzip *bool `json:"gzip" yaml:"gzip"`
+	Gzip *bool `field:"optional" json:"gzip" yaml:"gzip"`
 	// (Optional) HTTP Basic Authentication credentials to be used when communicating with Consul, in the format of either user or user:pass.
 	// Experimental.
-	HttpAuth *string `json:"httpAuth" yaml:"httpAuth"`
+	HttpAuth *string `field:"optional" json:"httpAuth" yaml:"httpAuth"`
 	// (Optional) A path to a PEM-encoded private key, required if cert_file is specified.
 	// Experimental.
-	KeyFile *string `json:"keyFile" yaml:"keyFile"`
+	KeyFile *string `field:"optional" json:"keyFile" yaml:"keyFile"`
 	// (Optional) false to disable locking.
 	//
 	// This defaults to true, but will require session permissions with Consul and
 	// at least kv write permissions on $path/.lock to perform locking.
 	// Experimental.
-	Lock *bool `json:"lock" yaml:"lock"`
+	Lock *bool `field:"optional" json:"lock" yaml:"lock"`
 	// (Optional) Specifies what protocol to use when talking to the given address,either http or https.
 	//
 	// SSL support can also be triggered by setting then environment variable CONSUL_HTTP_SSL to true.
 	// Experimental.
-	Scheme *string `json:"scheme" yaml:"scheme"`
+	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 // Experimental.
@@ -3525,42 +3525,42 @@ type CosBackendProps struct {
 	//
 	// You shall manually create it first.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// (Optional) Object ACL to be applied to the state file, allows private and public-read.
 	//
 	// Defaults to private.
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// (Optional) Whether to enable server side encryption of the state file.
 	//
 	// If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// (Optional) The path for saving the state file in bucket.
 	//
 	// Defaults to terraform.tfstate.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// (Optional) The directory for saving the state file in bucket.
 	//
 	// Default to "env:".
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// (Optional) The region of the COS bucket.
 	//
 	// It supports environment variables TENCENTCLOUD_REGION.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// (Optional) Secret id of Tencent Cloud.
 	//
 	// It supports environment variables TENCENTCLOUD_SECRET_ID.
 	// Experimental.
-	SecretId *string `json:"secretId" yaml:"secretId"`
+	SecretId *string `field:"optional" json:"secretId" yaml:"secretId"`
 	// (Optional) Secret key of Tencent Cloud.
 	//
 	// It supports environment variables TENCENTCLOUD_SECRET_KEY.
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 }
 
 // Experimental.
@@ -4182,26 +4182,26 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) ToTerraform() interface{
 // Experimental.
 type DataTerraformRemoteStateArtifactoryConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) - The password.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// (Required) - The repository name.
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// (Required) - Path within the repository.
 	// Experimental.
-	Subpath *string `json:"subpath" yaml:"subpath"`
+	Subpath *string `field:"required" json:"subpath" yaml:"subpath"`
 	// (Required) - The URL.
 	//
 	// Note that this is the base url to artifactory not the full repo and subpath.
 	// Experimental.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// (Required) - The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -4515,80 +4515,80 @@ func (d *jsiiProxy_DataTerraformRemoteStateAzurerm) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateAzurermConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) The Name of the Storage Container within the Storage Account.
 	// Experimental.
-	ContainerName *string `json:"containerName" yaml:"containerName"`
+	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// (Required) The Name of the Storage Account.
 	// Experimental.
-	StorageAccountName *string `json:"storageAccountName" yaml:"storageAccountName"`
+	StorageAccountName *string `field:"required" json:"storageAccountName" yaml:"storageAccountName"`
 	// access_key - (Optional) The Access Key used to access the Blob Storage Account.
 	//
 	// This can also be sourced from the ARM_ACCESS_KEY environment variable.
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// (Optional) The Client ID of the Service Principal.
 	//
 	// This can also be sourced from the ARM_CLIENT_ID environment variable.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// (Optional) The Client Secret of the Service Principal.
 	//
 	// This can also be sourced from the ARM_CLIENT_SECRET environment variable.
 	// Experimental.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the ARM_ENDPOINT environment variable.
 	//
 	// NOTE: An endpoint should only be configured when using Azure Stack.
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// (Optional) The Azure Environment which should be used.
 	//
 	// This can also be sourced from the ARM_ENVIRONMENT environment variable.
 	//   Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
-	Environment *string `json:"environment" yaml:"environment"`
+	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.
 	//
 	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
 	// Experimental.
-	MsiEndpoint *string `json:"msiEndpoint" yaml:"msiEndpoint"`
+	MsiEndpoint *string `field:"optional" json:"msiEndpoint" yaml:"msiEndpoint"`
 	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
-	ResourceGroupName *string `json:"resourceGroupName" yaml:"resourceGroupName"`
+	ResourceGroupName *string `field:"optional" json:"resourceGroupName" yaml:"resourceGroupName"`
 	// (Optional) The SAS Token used to access the Blob Storage Account.
 	//
 	// This can also be sourced from the ARM_SAS_TOKEN environment variable.
 	// Experimental.
-	SasToken *string `json:"sasToken" yaml:"sasToken"`
+	SasToken *string `field:"optional" json:"sasToken" yaml:"sasToken"`
 	// (Optional) The Subscription ID in which the Storage Account exists.
 	//
 	// This can also be sourced from the ARM_SUBSCRIPTION_ID environment variable.
 	// Experimental.
-	SubscriptionId *string `json:"subscriptionId" yaml:"subscriptionId"`
+	SubscriptionId *string `field:"optional" json:"subscriptionId" yaml:"subscriptionId"`
 	// (Optional) The Tenant ID in which the Subscription exists.
 	//
 	// This can also be sourced from the ARM_TENANT_ID environment variable.
 	// Experimental.
-	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
 	// (Optional) Should Managed Service Identity authentication be used?
 	//
 	// This can also be sourced from the ARM_USE_MSI environment variable.
 	// Experimental.
-	UseMsi *bool `json:"useMsi" yaml:"useMsi"`
+	UseMsi *bool `field:"optional" json:"useMsi" yaml:"useMsi"`
 }
 
 // Experimental.
 type DataTerraformRemoteStateConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 }
 
 // Experimental.
@@ -4902,53 +4902,53 @@ func (d *jsiiProxy_DataTerraformRemoteStateConsul) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateConsulConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) Access token.
 	// Experimental.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"required" json:"accessToken" yaml:"accessToken"`
 	// (Required) Path in the Consul KV store.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// (Optional) DNS name and port of your Consul endpoint specified in the format dnsname:port.
 	//
 	// Defaults to the local agent HTTP listener.
 	// Experimental.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// (Optional) A path to a PEM-encoded certificate authority used to verify the remote agent's certificate.
 	// Experimental.
-	CaFile *string `json:"caFile" yaml:"caFile"`
+	CaFile *string `field:"optional" json:"caFile" yaml:"caFile"`
 	// (Optional) A path to a PEM-encoded certificate provided to the remote agent;
 	//
 	// requires use of key_file.
 	// Experimental.
-	CertFile *string `json:"certFile" yaml:"certFile"`
+	CertFile *string `field:"optional" json:"certFile" yaml:"certFile"`
 	// (Optional) The datacenter to use.
 	//
 	// Defaults to that of the agent.
 	// Experimental.
-	Datacenter *string `json:"datacenter" yaml:"datacenter"`
+	Datacenter *string `field:"optional" json:"datacenter" yaml:"datacenter"`
 	// (Optional) true to compress the state data using gzip, or false (the default) to leave it uncompressed.
 	// Experimental.
-	Gzip *bool `json:"gzip" yaml:"gzip"`
+	Gzip *bool `field:"optional" json:"gzip" yaml:"gzip"`
 	// (Optional) HTTP Basic Authentication credentials to be used when communicating with Consul, in the format of either user or user:pass.
 	// Experimental.
-	HttpAuth *string `json:"httpAuth" yaml:"httpAuth"`
+	HttpAuth *string `field:"optional" json:"httpAuth" yaml:"httpAuth"`
 	// (Optional) A path to a PEM-encoded private key, required if cert_file is specified.
 	// Experimental.
-	KeyFile *string `json:"keyFile" yaml:"keyFile"`
+	KeyFile *string `field:"optional" json:"keyFile" yaml:"keyFile"`
 	// (Optional) false to disable locking.
 	//
 	// This defaults to true, but will require session permissions with Consul and
 	// at least kv write permissions on $path/.lock to perform locking.
 	// Experimental.
-	Lock *bool `json:"lock" yaml:"lock"`
+	Lock *bool `field:"optional" json:"lock" yaml:"lock"`
 	// (Optional) Specifies what protocol to use when talking to the given address,either http or https.
 	//
 	// SSL support can also be triggered by setting then environment variable CONSUL_HTTP_SSL to true.
 	// Experimental.
-	Scheme *string `json:"scheme" yaml:"scheme"`
+	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 // Experimental.
@@ -5262,49 +5262,49 @@ func (d *jsiiProxy_DataTerraformRemoteStateCos) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateCosConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) The name of the COS bucket.
 	//
 	// You shall manually create it first.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// (Optional) Object ACL to be applied to the state file, allows private and public-read.
 	//
 	// Defaults to private.
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// (Optional) Whether to enable server side encryption of the state file.
 	//
 	// If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// (Optional) The path for saving the state file in bucket.
 	//
 	// Defaults to terraform.tfstate.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// (Optional) The directory for saving the state file in bucket.
 	//
 	// Default to "env:".
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// (Optional) The region of the COS bucket.
 	//
 	// It supports environment variables TENCENTCLOUD_REGION.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// (Optional) Secret id of Tencent Cloud.
 	//
 	// It supports environment variables TENCENTCLOUD_SECRET_ID.
 	// Experimental.
-	SecretId *string `json:"secretId" yaml:"secretId"`
+	SecretId *string `field:"optional" json:"secretId" yaml:"secretId"`
 	// (Optional) Secret key of Tencent Cloud.
 	//
 	// It supports environment variables TENCENTCLOUD_SECRET_KEY.
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 }
 
 // Experimental.
@@ -5618,21 +5618,21 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcd) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateEtcdConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) A space-separated list of the etcd endpoints.
 	// Experimental.
-	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// (Required) The path where to store the state.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// (Optional) The password.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -5946,37 +5946,37 @@ func (d *jsiiProxy_DataTerraformRemoteStateEtcdV3) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateEtcdV3Config struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
-	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *[]*string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// (Optional) The path to a PEM-encoded CA bundle with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
-	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
+	CacertPath *string `field:"optional" json:"cacertPath" yaml:"cacertPath"`
 	// (Optional) The path to a PEM-encoded certificate to provide to etcd for secure client identification.
 	// Experimental.
-	CertPath *string `json:"certPath" yaml:"certPath"`
+	CertPath *string `field:"optional" json:"certPath" yaml:"certPath"`
 	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
 	// Experimental.
-	KeyPath *string `json:"keyPath" yaml:"keyPath"`
+	KeyPath *string `field:"optional" json:"keyPath" yaml:"keyPath"`
 	// (Optional) Whether to lock state access.
 	//
 	// Defaults to true.
 	// Experimental.
-	Lock *bool `json:"lock" yaml:"lock"`
+	Lock *bool `field:"optional" json:"lock" yaml:"lock"`
 	// (Optional) Password used to connect to the etcd cluster.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) An optional prefix to be added to keys when to storing state in etcd.
 	//
 	// Defaults to "".
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// (Optional) Username used to connect to the etcd cluster.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -6290,17 +6290,17 @@ func (d *jsiiProxy_DataTerraformRemoteStateGcs) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateGcsConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) The name of the GCS bucket.
 	//
 	// This name must be globally unique.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server, i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs. This is an alternative to credentials. If both are specified, access_token will be used over the credentials field.
 	// Experimental.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
 	//
 	// If unset, Google Application Default Credentials are used.
@@ -6309,25 +6309,25 @@ type DataTerraformRemoteStateGcsConfig struct {
 	// Warning: if using the Google Cloud Platform provider as well,
 	// it will also pick up the GOOGLE_CREDENTIALS environment variable.
 	// Experimental.
-	Credentials *string `json:"credentials" yaml:"credentials"`
+	Credentials *string `field:"optional" json:"credentials" yaml:"credentials"`
 	// (Optional) A 32 byte base64 encoded 'customer supplied encryption key' used to encrypt all state.
 	// Experimental.
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// (Optional) The service account to impersonate for accessing the State Bucket.
 	//
 	// You must have roles/iam.serviceAccountTokenCreator role on that account for the impersonation to succeed.
 	// If you are using a delegation chain, you can specify that using the impersonate_service_account_delegates field.
 	// Alternatively, this can be specified using the GOOGLE_IMPERSONATE_SERVICE_ACCOUNT environment variable.
 	// Experimental.
-	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	ImpersonateServiceAccount *string `field:"optional" json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
 	// (Optional) The delegation chain for an impersonating a service account.
 	// Experimental.
-	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	ImpersonateServiceAccountDelegates *[]*string `field:"optional" json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
 	// (Optional) GCS prefix inside the bucket.
 	//
 	// Named states for workspaces are stored in an object called <prefix>/<name>.tfstate.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Experimental.
@@ -6641,63 +6641,63 @@ func (d *jsiiProxy_DataTerraformRemoteStateHttp) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateHttpConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// (Required) The address of the REST endpoint.
 	// Experimental.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"required" json:"address" yaml:"address"`
 	// (Optional) The address of the lock REST endpoint.
 	//
 	// Defaults to disabled.
 	// Experimental.
-	LockAddress *string `json:"lockAddress" yaml:"lockAddress"`
+	LockAddress *string `field:"optional" json:"lockAddress" yaml:"lockAddress"`
 	// (Optional) The HTTP method to use when locking.
 	//
 	// Defaults to LOCK.
 	// Experimental.
-	LockMethod *string `json:"lockMethod" yaml:"lockMethod"`
+	LockMethod *string `field:"optional" json:"lockMethod" yaml:"lockMethod"`
 	// (Optional) The password for HTTP basic authentication.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) The number of HTTP request retries.
 	//
 	// Defaults to 2.
 	// Experimental.
-	RetryMax *float64 `json:"retryMax" yaml:"retryMax"`
+	RetryMax *float64 `field:"optional" json:"retryMax" yaml:"retryMax"`
 	// (Optional) The maximum time in seconds to wait between HTTP request attempts.
 	//
 	// Defaults to 30.
 	// Experimental.
-	RetryWaitMax *float64 `json:"retryWaitMax" yaml:"retryWaitMax"`
+	RetryWaitMax *float64 `field:"optional" json:"retryWaitMax" yaml:"retryWaitMax"`
 	// (Optional) The minimum time in seconds to wait between HTTP request attempts.
 	//
 	// Defaults to 1.
 	// Experimental.
-	RetryWaitMin *float64 `json:"retryWaitMin" yaml:"retryWaitMin"`
+	RetryWaitMin *float64 `field:"optional" json:"retryWaitMin" yaml:"retryWaitMin"`
 	// (Optional) Whether to skip TLS verification.
 	//
 	// Defaults to false.
 	// Experimental.
-	SkipCertVerification *bool `json:"skipCertVerification" yaml:"skipCertVerification"`
+	SkipCertVerification *bool `field:"optional" json:"skipCertVerification" yaml:"skipCertVerification"`
 	// (Optional) The address of the unlock REST endpoint.
 	//
 	// Defaults to disabled.
 	// Experimental.
-	UnlockAddress *string `json:"unlockAddress" yaml:"unlockAddress"`
+	UnlockAddress *string `field:"optional" json:"unlockAddress" yaml:"unlockAddress"`
 	// (Optional) The HTTP method to use when unlocking.
 	//
 	// Defaults to UNLOCK.
 	// Experimental.
-	UnlockMethod *string `json:"unlockMethod" yaml:"unlockMethod"`
+	UnlockMethod *string `field:"optional" json:"unlockMethod" yaml:"unlockMethod"`
 	// (Optional) HTTP method to use when updating state.
 	//
 	// Defaults to POST.
 	// Experimental.
-	UpdateMethod *string `json:"updateMethod" yaml:"updateMethod"`
+	UpdateMethod *string `field:"optional" json:"updateMethod" yaml:"updateMethod"`
 	// (Optional) The username for HTTP basic authentication.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -7011,15 +7011,15 @@ func (d *jsiiProxy_DataTerraformRemoteStateLocal) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateLocalConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Path where the state file is stored.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// (Optional) The path to non-default workspaces.
 	// Experimental.
-	WorkspaceDir *string `json:"workspaceDir" yaml:"workspaceDir"`
+	WorkspaceDir *string `field:"optional" json:"workspaceDir" yaml:"workspaceDir"`
 }
 
 // Experimental.
@@ -7333,25 +7333,25 @@ func (d *jsiiProxy_DataTerraformRemoteStateManta) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateMantaConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"required" json:"account" yaml:"account"`
 	// Experimental.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Experimental.
-	InsecureSkipTlsVerify *bool `json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
+	InsecureSkipTlsVerify *bool `field:"optional" json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
 	// Experimental.
-	KeyMaterial *string `json:"keyMaterial" yaml:"keyMaterial"`
+	KeyMaterial *string `field:"optional" json:"keyMaterial" yaml:"keyMaterial"`
 	// Experimental.
-	ObjectName *string `json:"objectName" yaml:"objectName"`
+	ObjectName *string `field:"optional" json:"objectName" yaml:"objectName"`
 	// Experimental.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 	// Experimental.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Experimental.
@@ -7665,41 +7665,41 @@ func (d *jsiiProxy_DataTerraformRemoteStateOss) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateOssConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// Experimental.
-	AssumeRole *OssAssumeRole `json:"assumeRole" yaml:"assumeRole"`
+	AssumeRole *OssAssumeRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// Experimental.
-	EcsRoleName *string `json:"ecsRoleName" yaml:"ecsRoleName"`
+	EcsRoleName *string `field:"optional" json:"ecsRoleName" yaml:"ecsRoleName"`
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Experimental.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// Experimental.
-	SecurityToken *string `json:"securityToken" yaml:"securityToken"`
+	SecurityToken *string `field:"optional" json:"securityToken" yaml:"securityToken"`
 	// Experimental.
-	SharedCredentialsFile *string `json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
+	SharedCredentialsFile *string `field:"optional" json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
 	// Experimental.
-	TablestoreEndpoint *string `json:"tablestoreEndpoint" yaml:"tablestoreEndpoint"`
+	TablestoreEndpoint *string `field:"optional" json:"tablestoreEndpoint" yaml:"tablestoreEndpoint"`
 	// Experimental.
-	TablestoreTable *string `json:"tablestoreTable" yaml:"tablestoreTable"`
+	TablestoreTable *string `field:"optional" json:"tablestoreTable" yaml:"tablestoreTable"`
 }
 
 // Experimental.
@@ -8013,31 +8013,31 @@ func (d *jsiiProxy_DataTerraformRemoteStatePg) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStatePgConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Experimental.
-	ConnStr *string `json:"connStr" yaml:"connStr"`
+	ConnStr *string `field:"required" json:"connStr" yaml:"connStr"`
 	// Experimental.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 	// Experimental.
-	SkipSchemaCreation *bool `json:"skipSchemaCreation" yaml:"skipSchemaCreation"`
+	SkipSchemaCreation *bool `field:"optional" json:"skipSchemaCreation" yaml:"skipSchemaCreation"`
 }
 
 // Experimental.
 type DataTerraformRemoteStateRemoteConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Experimental.
-	Organization *string `json:"organization" yaml:"organization"`
+	Organization *string `field:"required" json:"organization" yaml:"organization"`
 	// Experimental.
-	Workspaces IRemoteWorkspace `json:"workspaces" yaml:"workspaces"`
+	Workspaces IRemoteWorkspace `field:"required" json:"workspaces" yaml:"workspaces"`
 	// Experimental.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 }
 
 // Experimental.
@@ -8351,17 +8351,17 @@ func (d *jsiiProxy_DataTerraformRemoteStateS3) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateS3Config struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Name of the S3 Bucket.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Path to the state file inside the S3 Bucket.
 	//
 	// When using a non-default workspace, the state path will be /workspace_key_prefix/workspace_name/key.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// (Optional) AWS access key.
 	//
 	// If configured, must also configure secret_key.
@@ -8370,67 +8370,67 @@ type DataTerraformRemoteStateS3Config struct {
 	// AWS shared credentials file (e.g. ~/.aws/credentials),
 	// or AWS shared configuration file (e.g. ~/.aws/config).
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// (Optional) Canned ACL to be applied to the state file.
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// (Optional) IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 	// Experimental.
-	AssumeRolePolicy *string `json:"assumeRolePolicy" yaml:"assumeRolePolicy"`
+	AssumeRolePolicy *string `field:"optional" json:"assumeRolePolicy" yaml:"assumeRolePolicy"`
 	// (Optional) Custom endpoint for the AWS DynamoDB API.
 	//
 	// This can also be sourced from the AWS_DYNAMODB_ENDPOINT environment variable.
 	// Experimental.
-	DynamodbEndpoint *string `json:"dynamodbEndpoint" yaml:"dynamodbEndpoint"`
+	DynamodbEndpoint *string `field:"optional" json:"dynamodbEndpoint" yaml:"dynamodbEndpoint"`
 	// (Optional) Name of DynamoDB Table to use for state locking and consistency.
 	//
 	// The table must have a partition key named LockID with type of String.
 	// If not configured, state locking will be disabled.
 	// Experimental.
-	DynamodbTable *string `json:"dynamodbTable" yaml:"dynamodbTable"`
+	DynamodbTable *string `field:"optional" json:"dynamodbTable" yaml:"dynamodbTable"`
 	// (Optional) Enable server side encryption of the state file.
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// (Optional) Custom endpoint for the AWS S3 API.
 	//
 	// This can also be sourced from the AWS_S3_ENDPOINT environment variable.
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// (Optional) External identifier to use when assuming the role.
 	// Experimental.
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// (Optional) Enable path-style S3 URLs (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
 	// Experimental.
-	ForcePathStyle *bool `json:"forcePathStyle" yaml:"forcePathStyle"`
+	ForcePathStyle *bool `field:"optional" json:"forcePathStyle" yaml:"forcePathStyle"`
 	// (Optional) Custom endpoint for the AWS Identity and Access Management (IAM) API.
 	//
 	// This can also be sourced from the AWS_IAM_ENDPOINT environment variable.
 	// Experimental.
-	IamEndpoint *string `json:"iamEndpoint" yaml:"iamEndpoint"`
+	IamEndpoint *string `field:"optional" json:"iamEndpoint" yaml:"iamEndpoint"`
 	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state.
 	//
 	// Note that if this value is specified,
 	// Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.
 	// Experimental.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// (Optional) The maximum number of times an AWS API request is retried on retryable failure.
 	//
 	// Defaults to 5.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials) or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
 	// Experimental.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// AWS Region of the S3 Bucket and DynamoDB Table (if used).
 	//
 	// This can also
 	// be sourced from the AWS_DEFAULT_REGION and AWS_REGION environment
 	// variables.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// (Optional) Amazon Resource Name (ARN) of the IAM Role to assume.
 	// Experimental.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// (Optional) AWS secret access key.
 	//
 	// If configured, must also configure access_key.
@@ -8439,21 +8439,21 @@ type DataTerraformRemoteStateS3Config struct {
 	// AWS shared credentials file (e.g. ~/.aws/credentials),
 	// or AWS shared configuration file (e.g. ~/.aws/config)
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// (Optional) Session name to use when assuming the role.
 	// Experimental.
-	SessionName *string `json:"sessionName" yaml:"sessionName"`
+	SessionName *string `field:"optional" json:"sessionName" yaml:"sessionName"`
 	// (Optional) Path to the AWS shared credentials file.
 	//
 	// Defaults to ~/.aws/credentials.
 	// Experimental.
-	SharedCredentialsFile *string `json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
+	SharedCredentialsFile *string `field:"optional" json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
 	// (Optional) Skip credentials validation via the STS API.
 	// Experimental.
-	SkipCredentialsValidation *bool `json:"skipCredentialsValidation" yaml:"skipCredentialsValidation"`
+	SkipCredentialsValidation *bool `field:"optional" json:"skipCredentialsValidation" yaml:"skipCredentialsValidation"`
 	// (Optional) Skip usage of EC2 Metadata API.
 	// Experimental.
-	SkipMetadataApiCheck *bool `json:"skipMetadataApiCheck" yaml:"skipMetadataApiCheck"`
+	SkipMetadataApiCheck *bool `field:"optional" json:"skipMetadataApiCheck" yaml:"skipMetadataApiCheck"`
 	// (Optional) The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C).
 	//
 	// This is the base64-encoded value of the key, which must decode to 256 bits.
@@ -8461,22 +8461,22 @@ type DataTerraformRemoteStateS3Config struct {
 	// which is recommended due to the sensitivity of the value.
 	// Setting it inside a terraform file will cause it to be persisted to disk in terraform.tfstate.
 	// Experimental.
-	SseCustomerKey *string `json:"sseCustomerKey" yaml:"sseCustomerKey"`
+	SseCustomerKey *string `field:"optional" json:"sseCustomerKey" yaml:"sseCustomerKey"`
 	// (Optional) Custom endpoint for the AWS Security Token Service (STS) API.
 	//
 	// This can also be sourced from the AWS_STS_ENDPOINT environment variable.
 	// Experimental.
-	StsEndpoint *string `json:"stsEndpoint" yaml:"stsEndpoint"`
+	StsEndpoint *string `field:"optional" json:"stsEndpoint" yaml:"stsEndpoint"`
 	// (Optional) Multi-Factor Authentication (MFA) token.
 	//
 	// This can also be sourced from the AWS_SESSION_TOKEN environment variable.
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 	// (Optional) Prefix applied to the state path inside the bucket.
 	//
 	// This is only relevant when using a non-default workspace. Defaults to env:
 	// Experimental.
-	WorkspaceKeyPrefix *string `json:"workspaceKeyPrefix" yaml:"workspaceKeyPrefix"`
+	WorkspaceKeyPrefix *string `field:"optional" json:"workspaceKeyPrefix" yaml:"workspaceKeyPrefix"`
 }
 
 // Experimental.
@@ -8790,63 +8790,63 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToTerraform() interface{} {
 // Experimental.
 type DataTerraformRemoteStateSwiftConfig struct {
 	// Experimental.
-	Defaults *map[string]interface{} `json:"defaults" yaml:"defaults"`
+	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
 	// Experimental.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
 	// Experimental.
-	Container *string `json:"container" yaml:"container"`
+	Container *string `field:"required" json:"container" yaml:"container"`
 	// Experimental.
-	ApplicationCredentialId *string `json:"applicationCredentialId" yaml:"applicationCredentialId"`
+	ApplicationCredentialId *string `field:"optional" json:"applicationCredentialId" yaml:"applicationCredentialId"`
 	// Experimental.
-	ApplicationCredentialName *string `json:"applicationCredentialName" yaml:"applicationCredentialName"`
+	ApplicationCredentialName *string `field:"optional" json:"applicationCredentialName" yaml:"applicationCredentialName"`
 	// Experimental.
-	ApplicationCredentialSecret *string `json:"applicationCredentialSecret" yaml:"applicationCredentialSecret"`
+	ApplicationCredentialSecret *string `field:"optional" json:"applicationCredentialSecret" yaml:"applicationCredentialSecret"`
 	// Experimental.
-	ArchiveContainer *string `json:"archiveContainer" yaml:"archiveContainer"`
+	ArchiveContainer *string `field:"optional" json:"archiveContainer" yaml:"archiveContainer"`
 	// Experimental.
-	AuthUrl *string `json:"authUrl" yaml:"authUrl"`
+	AuthUrl *string `field:"optional" json:"authUrl" yaml:"authUrl"`
 	// Experimental.
-	CacertFile *string `json:"cacertFile" yaml:"cacertFile"`
+	CacertFile *string `field:"optional" json:"cacertFile" yaml:"cacertFile"`
 	// Experimental.
-	Cert *string `json:"cert" yaml:"cert"`
+	Cert *string `field:"optional" json:"cert" yaml:"cert"`
 	// Experimental.
-	Cloud *string `json:"cloud" yaml:"cloud"`
+	Cloud *string `field:"optional" json:"cloud" yaml:"cloud"`
 	// Experimental.
-	DefaultDomain *string `json:"defaultDomain" yaml:"defaultDomain"`
+	DefaultDomain *string `field:"optional" json:"defaultDomain" yaml:"defaultDomain"`
 	// Experimental.
-	DomainId *string `json:"domainId" yaml:"domainId"`
+	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Experimental.
-	ExpireAfter *string `json:"expireAfter" yaml:"expireAfter"`
+	ExpireAfter *string `field:"optional" json:"expireAfter" yaml:"expireAfter"`
 	// Experimental.
-	Insecure *bool `json:"insecure" yaml:"insecure"`
+	Insecure *bool `field:"optional" json:"insecure" yaml:"insecure"`
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// Experimental.
-	ProjectDomainId *string `json:"projectDomainId" yaml:"projectDomainId"`
+	ProjectDomainId *string `field:"optional" json:"projectDomainId" yaml:"projectDomainId"`
 	// Experimental.
-	ProjectDomainName *string `json:"projectDomainName" yaml:"projectDomainName"`
+	ProjectDomainName *string `field:"optional" json:"projectDomainName" yaml:"projectDomainName"`
 	// Experimental.
-	RegionName *string `json:"regionName" yaml:"regionName"`
+	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 	// Experimental.
-	StateName *string `json:"stateName" yaml:"stateName"`
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Experimental.
-	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
 	// Experimental.
-	TenantName *string `json:"tenantName" yaml:"tenantName"`
+	TenantName *string `field:"optional" json:"tenantName" yaml:"tenantName"`
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 	// Experimental.
-	UserDomainId *string `json:"userDomainId" yaml:"userDomainId"`
+	UserDomainId *string `field:"optional" json:"userDomainId" yaml:"userDomainId"`
 	// Experimental.
-	UserDomainName *string `json:"userDomainName" yaml:"userDomainName"`
+	UserDomainName *string `field:"optional" json:"userDomainName" yaml:"userDomainName"`
 	// Experimental.
-	UserId *string `json:"userId" yaml:"userId"`
+	UserId *string `field:"optional" json:"userId" yaml:"userId"`
 	// Experimental.
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 
 // Default resolver implementation.
@@ -8974,7 +8974,7 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveToken(t IResolvable, context IRe
 type EncodingOptions struct {
 	// A hint for the Token's purpose when stringifying it.
 	// Experimental.
-	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
+	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 }
 
 // Experimental.
@@ -9268,16 +9268,16 @@ func (e *jsiiProxy_EtcdBackend) ToTerraform() interface{} {
 type EtcdBackendProps struct {
 	// (Required) A space-separated list of the etcd endpoints.
 	// Experimental.
-	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// (Required) The path where to store the state.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// (Optional) The password.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -9571,32 +9571,32 @@ func (e *jsiiProxy_EtcdV3Backend) ToTerraform() interface{} {
 type EtcdV3BackendProps struct {
 	// (Required) The list of 'etcd' endpoints which to connect to.
 	// Experimental.
-	Endpoints *[]*string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *[]*string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// (Optional) The path to a PEM-encoded CA bundle with which to verify certificates of TLS-enabled etcd servers.
 	// Experimental.
-	CacertPath *string `json:"cacertPath" yaml:"cacertPath"`
+	CacertPath *string `field:"optional" json:"cacertPath" yaml:"cacertPath"`
 	// (Optional) The path to a PEM-encoded certificate to provide to etcd for secure client identification.
 	// Experimental.
-	CertPath *string `json:"certPath" yaml:"certPath"`
+	CertPath *string `field:"optional" json:"certPath" yaml:"certPath"`
 	// (Optional) The path to a PEM-encoded key to provide to etcd for secure client identification.
 	// Experimental.
-	KeyPath *string `json:"keyPath" yaml:"keyPath"`
+	KeyPath *string `field:"optional" json:"keyPath" yaml:"keyPath"`
 	// (Optional) Whether to lock state access.
 	//
 	// Defaults to true.
 	// Experimental.
-	Lock *bool `json:"lock" yaml:"lock"`
+	Lock *bool `field:"optional" json:"lock" yaml:"lock"`
 	// (Optional) Password used to connect to the etcd cluster.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) An optional prefix to be added to keys when to storing state in etcd.
 	//
 	// Defaults to "".
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// (Optional) Username used to connect to the etcd cluster.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Experimental.
@@ -11819,10 +11819,10 @@ type GcsBackendProps struct {
 	//
 	// This name must be globally unique.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// (Optional) A temporary [OAuth 2.0 access token] obtained from the Google Authorization server, i.e. the Authorization: Bearer token used to authenticate HTTP requests to GCP APIs. This is an alternative to credentials. If both are specified, access_token will be used over the credentials field.
 	// Experimental.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// (Optional) Local path to Google Cloud Platform account credentials in JSON format.
 	//
 	// If unset, Google Application Default Credentials are used.
@@ -11831,25 +11831,25 @@ type GcsBackendProps struct {
 	// Warning: if using the Google Cloud Platform provider as well,
 	// it will also pick up the GOOGLE_CREDENTIALS environment variable.
 	// Experimental.
-	Credentials *string `json:"credentials" yaml:"credentials"`
+	Credentials *string `field:"optional" json:"credentials" yaml:"credentials"`
 	// (Optional) A 32 byte base64 encoded 'customer supplied encryption key' used to encrypt all state.
 	// Experimental.
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// (Optional) The service account to impersonate for accessing the State Bucket.
 	//
 	// You must have roles/iam.serviceAccountTokenCreator role on that account for the impersonation to succeed.
 	// If you are using a delegation chain, you can specify that using the impersonate_service_account_delegates field.
 	// Alternatively, this can be specified using the GOOGLE_IMPERSONATE_SERVICE_ACCOUNT environment variable.
 	// Experimental.
-	ImpersonateServiceAccount *string `json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
+	ImpersonateServiceAccount *string `field:"optional" json:"impersonateServiceAccount" yaml:"impersonateServiceAccount"`
 	// (Optional) The delegation chain for an impersonating a service account.
 	// Experimental.
-	ImpersonateServiceAccountDelegates *[]*string `json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	ImpersonateServiceAccountDelegates *[]*string `field:"optional" json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
 	// (Optional) GCS prefix inside the bucket.
 	//
 	// Named states for workspaces are stored in an object called <prefix>/<name>.tfstate.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Experimental.
@@ -12150,58 +12150,58 @@ func (h *jsiiProxy_HttpBackend) ToTerraform() interface{} {
 type HttpBackendProps struct {
 	// (Required) The address of the REST endpoint.
 	// Experimental.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"required" json:"address" yaml:"address"`
 	// (Optional) The address of the lock REST endpoint.
 	//
 	// Defaults to disabled.
 	// Experimental.
-	LockAddress *string `json:"lockAddress" yaml:"lockAddress"`
+	LockAddress *string `field:"optional" json:"lockAddress" yaml:"lockAddress"`
 	// (Optional) The HTTP method to use when locking.
 	//
 	// Defaults to LOCK.
 	// Experimental.
-	LockMethod *string `json:"lockMethod" yaml:"lockMethod"`
+	LockMethod *string `field:"optional" json:"lockMethod" yaml:"lockMethod"`
 	// (Optional) The password for HTTP basic authentication.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// (Optional) The number of HTTP request retries.
 	//
 	// Defaults to 2.
 	// Experimental.
-	RetryMax *float64 `json:"retryMax" yaml:"retryMax"`
+	RetryMax *float64 `field:"optional" json:"retryMax" yaml:"retryMax"`
 	// (Optional) The maximum time in seconds to wait between HTTP request attempts.
 	//
 	// Defaults to 30.
 	// Experimental.
-	RetryWaitMax *float64 `json:"retryWaitMax" yaml:"retryWaitMax"`
+	RetryWaitMax *float64 `field:"optional" json:"retryWaitMax" yaml:"retryWaitMax"`
 	// (Optional) The minimum time in seconds to wait between HTTP request attempts.
 	//
 	// Defaults to 1.
 	// Experimental.
-	RetryWaitMin *float64 `json:"retryWaitMin" yaml:"retryWaitMin"`
+	RetryWaitMin *float64 `field:"optional" json:"retryWaitMin" yaml:"retryWaitMin"`
 	// (Optional) Whether to skip TLS verification.
 	//
 	// Defaults to false.
 	// Experimental.
-	SkipCertVerification *bool `json:"skipCertVerification" yaml:"skipCertVerification"`
+	SkipCertVerification *bool `field:"optional" json:"skipCertVerification" yaml:"skipCertVerification"`
 	// (Optional) The address of the unlock REST endpoint.
 	//
 	// Defaults to disabled.
 	// Experimental.
-	UnlockAddress *string `json:"unlockAddress" yaml:"unlockAddress"`
+	UnlockAddress *string `field:"optional" json:"unlockAddress" yaml:"unlockAddress"`
 	// (Optional) The HTTP method to use when unlocking.
 	//
 	// Defaults to UNLOCK.
 	// Experimental.
-	UnlockMethod *string `json:"unlockMethod" yaml:"unlockMethod"`
+	UnlockMethod *string `field:"optional" json:"unlockMethod" yaml:"unlockMethod"`
 	// (Optional) HTTP method to use when updating state.
 	//
 	// Defaults to POST.
 	// Experimental.
-	UpdateMethod *string `json:"updateMethod" yaml:"updateMethod"`
+	UpdateMethod *string `field:"optional" json:"updateMethod" yaml:"updateMethod"`
 	// (Optional) The username for HTTP basic authentication.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Interface for lazy untyped value producers.
@@ -13150,10 +13150,10 @@ func Lazy_StringValue(producer IStringProducer, options *LazyStringValueOptions)
 type LazyAnyValueOptions struct {
 	// Use the given name as a display hint.
 	// Experimental.
-	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
+	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 	// If the produced value is an array and it is empty, return 'undefined' instead.
 	// Experimental.
-	OmitEmptyArray *bool `json:"omitEmptyArray" yaml:"omitEmptyArray"`
+	OmitEmptyArray *bool `field:"optional" json:"omitEmptyArray" yaml:"omitEmptyArray"`
 }
 
 // Experimental.
@@ -13275,10 +13275,10 @@ func (l *jsiiProxy_LazyBase) ToString() *string {
 type LazyListValueOptions struct {
 	// Use the given name as a display hint.
 	// Experimental.
-	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
+	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 	// If the produced list is empty, return 'undefined' instead.
 	// Experimental.
-	OmitEmpty *bool `json:"omitEmpty" yaml:"omitEmpty"`
+	OmitEmpty *bool `field:"optional" json:"omitEmpty" yaml:"omitEmpty"`
 }
 
 // Options for creating a lazy string token.
@@ -13286,7 +13286,7 @@ type LazyListValueOptions struct {
 type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
 	// Experimental.
-	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
+	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 }
 
 // Experimental.
@@ -13855,10 +13855,10 @@ func (l *jsiiProxy_LocalBackend) ToTerraform() interface{} {
 type LocalBackendProps struct {
 	// Path where the state file is stored.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// (Optional) The path to non-default workspaces.
 	// Experimental.
-	WorkspaceDir *string `json:"workspaceDir" yaml:"workspaceDir"`
+	WorkspaceDir *string `field:"optional" json:"workspaceDir" yaml:"workspaceDir"`
 }
 
 // Experimental.
@@ -14291,21 +14291,21 @@ func (m *jsiiProxy_MantaBackend) ToTerraform() interface{} {
 // Experimental.
 type MantaBackendProps struct {
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"required" json:"account" yaml:"account"`
 	// Experimental.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Experimental.
-	InsecureSkipTlsVerify *bool `json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
+	InsecureSkipTlsVerify *bool `field:"optional" json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
 	// Experimental.
-	KeyMaterial *string `json:"keyMaterial" yaml:"keyMaterial"`
+	KeyMaterial *string `field:"optional" json:"keyMaterial" yaml:"keyMaterial"`
 	// Experimental.
-	ObjectName *string `json:"objectName" yaml:"objectName"`
+	ObjectName *string `field:"optional" json:"objectName" yaml:"objectName"`
 	// Experimental.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 	// Experimental.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Experimental.
@@ -15030,13 +15030,13 @@ func (n *jsiiProxy_NumberMapList) ToString() *string {
 // Experimental.
 type OssAssumeRole struct {
 	// Experimental.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Experimental.
-	Policy *string `json:"policy" yaml:"policy"`
+	Policy *string `field:"optional" json:"policy" yaml:"policy"`
 	// Experimental.
-	SessionExpiration *float64 `json:"sessionExpiration" yaml:"sessionExpiration"`
+	SessionExpiration *float64 `field:"optional" json:"sessionExpiration" yaml:"sessionExpiration"`
 	// Experimental.
-	SessionName *string `json:"sessionName" yaml:"sessionName"`
+	SessionName *string `field:"optional" json:"sessionName" yaml:"sessionName"`
 }
 
 // Experimental.
@@ -15323,37 +15323,37 @@ func (o *jsiiProxy_OssBackend) ToTerraform() interface{} {
 // Experimental.
 type OssBackendProps struct {
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// Experimental.
-	AssumeRole *OssAssumeRole `json:"assumeRole" yaml:"assumeRole"`
+	AssumeRole *OssAssumeRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// Experimental.
-	EcsRoleName *string `json:"ecsRoleName" yaml:"ecsRoleName"`
+	EcsRoleName *string `field:"optional" json:"ecsRoleName" yaml:"ecsRoleName"`
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Experimental.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// Experimental.
-	SecurityToken *string `json:"securityToken" yaml:"securityToken"`
+	SecurityToken *string `field:"optional" json:"securityToken" yaml:"securityToken"`
 	// Experimental.
-	SharedCredentialsFile *string `json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
+	SharedCredentialsFile *string `field:"optional" json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
 	// Experimental.
-	TablestoreEndpoint *string `json:"tablestoreEndpoint" yaml:"tablestoreEndpoint"`
+	TablestoreEndpoint *string `field:"optional" json:"tablestoreEndpoint" yaml:"tablestoreEndpoint"`
 	// Experimental.
-	TablestoreTable *string `json:"tablestoreTable" yaml:"tablestoreTable"`
+	TablestoreTable *string `field:"optional" json:"tablestoreTable" yaml:"tablestoreTable"`
 }
 
 // Experimental.
@@ -15640,11 +15640,11 @@ func (p *jsiiProxy_PgBackend) ToTerraform() interface{} {
 // Experimental.
 type PgBackendProps struct {
 	// Experimental.
-	ConnStr *string `json:"connStr" yaml:"connStr"`
+	ConnStr *string `field:"required" json:"connStr" yaml:"connStr"`
 	// Experimental.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 	// Experimental.
-	SkipSchemaCreation *bool `json:"skipSchemaCreation" yaml:"skipSchemaCreation"`
+	SkipSchemaCreation *bool `field:"optional" json:"skipSchemaCreation" yaml:"skipSchemaCreation"`
 }
 
 // Experimental.
@@ -15990,13 +15990,13 @@ func (r *jsiiProxy_RemoteBackend) ToTerraform() interface{} {
 // Experimental.
 type RemoteBackendProps struct {
 	// Experimental.
-	Organization *string `json:"organization" yaml:"organization"`
+	Organization *string `field:"required" json:"organization" yaml:"organization"`
 	// Experimental.
-	Workspaces IRemoteWorkspace `json:"workspaces" yaml:"workspaces"`
+	Workspaces IRemoteWorkspace `field:"required" json:"workspaces" yaml:"workspaces"`
 	// Experimental.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 }
 
 // Options to the resolve() operation.
@@ -16009,13 +16009,13 @@ type RemoteBackendProps struct {
 type ResolveOptions struct {
 	// The resolver to apply to any resolvable tokens found.
 	// Experimental.
-	Resolver ITokenResolver `json:"resolver" yaml:"resolver"`
+	Resolver ITokenResolver `field:"required" json:"resolver" yaml:"resolver"`
 	// The scope from which resolution is performed.
 	// Experimental.
-	Scope constructs.IConstruct `json:"scope" yaml:"scope"`
+	Scope constructs.IConstruct `field:"required" json:"scope" yaml:"scope"`
 	// Whether the resolution is being executed during the prepare phase or not.
 	// Experimental.
-	Preparing *bool `json:"preparing" yaml:"preparing"`
+	Preparing *bool `field:"optional" json:"preparing" yaml:"preparing"`
 }
 
 // A construct which represents a resource.
@@ -16418,12 +16418,12 @@ func (s *jsiiProxy_S3Backend) ToTerraform() interface{} {
 type S3BackendProps struct {
 	// Name of the S3 Bucket.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Path to the state file inside the S3 Bucket.
 	//
 	// When using a non-default workspace, the state path will be /workspace_key_prefix/workspace_name/key.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// (Optional) AWS access key.
 	//
 	// If configured, must also configure secret_key.
@@ -16432,67 +16432,67 @@ type S3BackendProps struct {
 	// AWS shared credentials file (e.g. ~/.aws/credentials),
 	// or AWS shared configuration file (e.g. ~/.aws/config).
 	// Experimental.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// (Optional) Canned ACL to be applied to the state file.
 	// Experimental.
-	Acl *string `json:"acl" yaml:"acl"`
+	Acl *string `field:"optional" json:"acl" yaml:"acl"`
 	// (Optional) IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 	// Experimental.
-	AssumeRolePolicy *string `json:"assumeRolePolicy" yaml:"assumeRolePolicy"`
+	AssumeRolePolicy *string `field:"optional" json:"assumeRolePolicy" yaml:"assumeRolePolicy"`
 	// (Optional) Custom endpoint for the AWS DynamoDB API.
 	//
 	// This can also be sourced from the AWS_DYNAMODB_ENDPOINT environment variable.
 	// Experimental.
-	DynamodbEndpoint *string `json:"dynamodbEndpoint" yaml:"dynamodbEndpoint"`
+	DynamodbEndpoint *string `field:"optional" json:"dynamodbEndpoint" yaml:"dynamodbEndpoint"`
 	// (Optional) Name of DynamoDB Table to use for state locking and consistency.
 	//
 	// The table must have a partition key named LockID with type of String.
 	// If not configured, state locking will be disabled.
 	// Experimental.
-	DynamodbTable *string `json:"dynamodbTable" yaml:"dynamodbTable"`
+	DynamodbTable *string `field:"optional" json:"dynamodbTable" yaml:"dynamodbTable"`
 	// (Optional) Enable server side encryption of the state file.
 	// Experimental.
-	Encrypt *bool `json:"encrypt" yaml:"encrypt"`
+	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
 	// (Optional) Custom endpoint for the AWS S3 API.
 	//
 	// This can also be sourced from the AWS_S3_ENDPOINT environment variable.
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// (Optional) External identifier to use when assuming the role.
 	// Experimental.
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// (Optional) Enable path-style S3 URLs (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
 	// Experimental.
-	ForcePathStyle *bool `json:"forcePathStyle" yaml:"forcePathStyle"`
+	ForcePathStyle *bool `field:"optional" json:"forcePathStyle" yaml:"forcePathStyle"`
 	// (Optional) Custom endpoint for the AWS Identity and Access Management (IAM) API.
 	//
 	// This can also be sourced from the AWS_IAM_ENDPOINT environment variable.
 	// Experimental.
-	IamEndpoint *string `json:"iamEndpoint" yaml:"iamEndpoint"`
+	IamEndpoint *string `field:"optional" json:"iamEndpoint" yaml:"iamEndpoint"`
 	// (Optional) Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state.
 	//
 	// Note that if this value is specified,
 	// Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.
 	// Experimental.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// (Optional) The maximum number of times an AWS API request is retried on retryable failure.
 	//
 	// Defaults to 5.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// (Optional) Name of AWS profile in AWS shared credentials file (e.g. ~/.aws/credentials) or AWS shared configuration file (e.g. ~/.aws/config) to use for credentials and/or configuration. This can also be sourced from the AWS_PROFILE environment variable.
 	// Experimental.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// AWS Region of the S3 Bucket and DynamoDB Table (if used).
 	//
 	// This can also
 	// be sourced from the AWS_DEFAULT_REGION and AWS_REGION environment
 	// variables.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// (Optional) Amazon Resource Name (ARN) of the IAM Role to assume.
 	// Experimental.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// (Optional) AWS secret access key.
 	//
 	// If configured, must also configure access_key.
@@ -16501,21 +16501,21 @@ type S3BackendProps struct {
 	// AWS shared credentials file (e.g. ~/.aws/credentials),
 	// or AWS shared configuration file (e.g. ~/.aws/config)
 	// Experimental.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// (Optional) Session name to use when assuming the role.
 	// Experimental.
-	SessionName *string `json:"sessionName" yaml:"sessionName"`
+	SessionName *string `field:"optional" json:"sessionName" yaml:"sessionName"`
 	// (Optional) Path to the AWS shared credentials file.
 	//
 	// Defaults to ~/.aws/credentials.
 	// Experimental.
-	SharedCredentialsFile *string `json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
+	SharedCredentialsFile *string `field:"optional" json:"sharedCredentialsFile" yaml:"sharedCredentialsFile"`
 	// (Optional) Skip credentials validation via the STS API.
 	// Experimental.
-	SkipCredentialsValidation *bool `json:"skipCredentialsValidation" yaml:"skipCredentialsValidation"`
+	SkipCredentialsValidation *bool `field:"optional" json:"skipCredentialsValidation" yaml:"skipCredentialsValidation"`
 	// (Optional) Skip usage of EC2 Metadata API.
 	// Experimental.
-	SkipMetadataApiCheck *bool `json:"skipMetadataApiCheck" yaml:"skipMetadataApiCheck"`
+	SkipMetadataApiCheck *bool `field:"optional" json:"skipMetadataApiCheck" yaml:"skipMetadataApiCheck"`
 	// (Optional) The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C).
 	//
 	// This is the base64-encoded value of the key, which must decode to 256 bits.
@@ -16523,50 +16523,50 @@ type S3BackendProps struct {
 	// which is recommended due to the sensitivity of the value.
 	// Setting it inside a terraform file will cause it to be persisted to disk in terraform.tfstate.
 	// Experimental.
-	SseCustomerKey *string `json:"sseCustomerKey" yaml:"sseCustomerKey"`
+	SseCustomerKey *string `field:"optional" json:"sseCustomerKey" yaml:"sseCustomerKey"`
 	// (Optional) Custom endpoint for the AWS Security Token Service (STS) API.
 	//
 	// This can also be sourced from the AWS_STS_ENDPOINT environment variable.
 	// Experimental.
-	StsEndpoint *string `json:"stsEndpoint" yaml:"stsEndpoint"`
+	StsEndpoint *string `field:"optional" json:"stsEndpoint" yaml:"stsEndpoint"`
 	// (Optional) Multi-Factor Authentication (MFA) token.
 	//
 	// This can also be sourced from the AWS_SESSION_TOKEN environment variable.
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 	// (Optional) Prefix applied to the state path inside the bucket.
 	//
 	// This is only relevant when using a non-default workspace. Defaults to env:
 	// Experimental.
-	WorkspaceKeyPrefix *string `json:"workspaceKeyPrefix" yaml:"workspaceKeyPrefix"`
+	WorkspaceKeyPrefix *string `field:"optional" json:"workspaceKeyPrefix" yaml:"workspaceKeyPrefix"`
 }
 
 // Experimental.
 type StackAnnotation struct {
 	// Experimental.
-	ConstructPath *string `json:"constructPath" yaml:"constructPath"`
+	ConstructPath *string `field:"required" json:"constructPath" yaml:"constructPath"`
 	// Experimental.
-	Level AnnotationMetadataEntryType `json:"level" yaml:"level"`
+	Level AnnotationMetadataEntryType `field:"required" json:"level" yaml:"level"`
 	// Experimental.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"required" json:"message" yaml:"message"`
 	// Experimental.
-	Stacktrace *[]*string `json:"stacktrace" yaml:"stacktrace"`
+	Stacktrace *[]*string `field:"optional" json:"stacktrace" yaml:"stacktrace"`
 }
 
 // Experimental.
 type StackManifest struct {
 	// Experimental.
-	Annotations *[]*StackAnnotation `json:"annotations" yaml:"annotations"`
+	Annotations *[]*StackAnnotation `field:"required" json:"annotations" yaml:"annotations"`
 	// Experimental.
-	ConstructPath *string `json:"constructPath" yaml:"constructPath"`
+	ConstructPath *string `field:"required" json:"constructPath" yaml:"constructPath"`
 	// Experimental.
-	Dependencies *[]*string `json:"dependencies" yaml:"dependencies"`
+	Dependencies *[]*string `field:"required" json:"dependencies" yaml:"dependencies"`
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Experimental.
-	SynthesizedStackPath *string `json:"synthesizedStackPath" yaml:"synthesizedStackPath"`
+	SynthesizedStackPath *string `field:"required" json:"synthesizedStackPath" yaml:"synthesizedStackPath"`
 	// Experimental.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"required" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Converts all fragments to strings and concats those.
@@ -17295,59 +17295,59 @@ func (s *jsiiProxy_SwiftBackend) ToTerraform() interface{} {
 // Experimental.
 type SwiftBackendProps struct {
 	// Experimental.
-	Container *string `json:"container" yaml:"container"`
+	Container *string `field:"required" json:"container" yaml:"container"`
 	// Experimental.
-	ApplicationCredentialId *string `json:"applicationCredentialId" yaml:"applicationCredentialId"`
+	ApplicationCredentialId *string `field:"optional" json:"applicationCredentialId" yaml:"applicationCredentialId"`
 	// Experimental.
-	ApplicationCredentialName *string `json:"applicationCredentialName" yaml:"applicationCredentialName"`
+	ApplicationCredentialName *string `field:"optional" json:"applicationCredentialName" yaml:"applicationCredentialName"`
 	// Experimental.
-	ApplicationCredentialSecret *string `json:"applicationCredentialSecret" yaml:"applicationCredentialSecret"`
+	ApplicationCredentialSecret *string `field:"optional" json:"applicationCredentialSecret" yaml:"applicationCredentialSecret"`
 	// Experimental.
-	ArchiveContainer *string `json:"archiveContainer" yaml:"archiveContainer"`
+	ArchiveContainer *string `field:"optional" json:"archiveContainer" yaml:"archiveContainer"`
 	// Experimental.
-	AuthUrl *string `json:"authUrl" yaml:"authUrl"`
+	AuthUrl *string `field:"optional" json:"authUrl" yaml:"authUrl"`
 	// Experimental.
-	CacertFile *string `json:"cacertFile" yaml:"cacertFile"`
+	CacertFile *string `field:"optional" json:"cacertFile" yaml:"cacertFile"`
 	// Experimental.
-	Cert *string `json:"cert" yaml:"cert"`
+	Cert *string `field:"optional" json:"cert" yaml:"cert"`
 	// Experimental.
-	Cloud *string `json:"cloud" yaml:"cloud"`
+	Cloud *string `field:"optional" json:"cloud" yaml:"cloud"`
 	// Experimental.
-	DefaultDomain *string `json:"defaultDomain" yaml:"defaultDomain"`
+	DefaultDomain *string `field:"optional" json:"defaultDomain" yaml:"defaultDomain"`
 	// Experimental.
-	DomainId *string `json:"domainId" yaml:"domainId"`
+	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Experimental.
-	ExpireAfter *string `json:"expireAfter" yaml:"expireAfter"`
+	ExpireAfter *string `field:"optional" json:"expireAfter" yaml:"expireAfter"`
 	// Experimental.
-	Insecure *bool `json:"insecure" yaml:"insecure"`
+	Insecure *bool `field:"optional" json:"insecure" yaml:"insecure"`
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// Experimental.
-	ProjectDomainId *string `json:"projectDomainId" yaml:"projectDomainId"`
+	ProjectDomainId *string `field:"optional" json:"projectDomainId" yaml:"projectDomainId"`
 	// Experimental.
-	ProjectDomainName *string `json:"projectDomainName" yaml:"projectDomainName"`
+	ProjectDomainName *string `field:"optional" json:"projectDomainName" yaml:"projectDomainName"`
 	// Experimental.
-	RegionName *string `json:"regionName" yaml:"regionName"`
+	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 	// Experimental.
-	StateName *string `json:"stateName" yaml:"stateName"`
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// Experimental.
-	TenantId *string `json:"tenantId" yaml:"tenantId"`
+	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
 	// Experimental.
-	TenantName *string `json:"tenantName" yaml:"tenantName"`
+	TenantName *string `field:"optional" json:"tenantName" yaml:"tenantName"`
 	// Experimental.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 	// Experimental.
-	UserDomainId *string `json:"userDomainId" yaml:"userDomainId"`
+	UserDomainId *string `field:"optional" json:"userDomainId" yaml:"userDomainId"`
 	// Experimental.
-	UserDomainName *string `json:"userDomainName" yaml:"userDomainName"`
+	UserDomainName *string `field:"optional" json:"userDomainName" yaml:"userDomainName"`
 	// Experimental.
-	UserId *string `json:"userId" yaml:"userId"`
+	UserId *string `field:"optional" json:"userId" yaml:"userId"`
 	// Experimental.
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 
 // Experimental.
@@ -17541,11 +17541,11 @@ func (t *jsiiProxy_TerraformAsset) ToString() *string {
 // Experimental.
 type TerraformAssetConfig struct {
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Experimental.
-	Type AssetType `json:"type" yaml:"type"`
+	Type AssetType `field:"optional" json:"type" yaml:"type"`
 }
 
 // Experimental.
@@ -18577,11 +18577,11 @@ func (t *jsiiProxy_TerraformElement) ToTerraform() interface{} {
 // Experimental.
 type TerraformElementMetadata struct {
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Experimental.
-	StackTrace *[]*string `json:"stackTrace" yaml:"stackTrace"`
+	StackTrace *[]*string `field:"required" json:"stackTrace" yaml:"stackTrace"`
 	// Experimental.
-	UniqueId *string `json:"uniqueId" yaml:"uniqueId"`
+	UniqueId *string `field:"required" json:"uniqueId" yaml:"uniqueId"`
 }
 
 // Experimental.
@@ -19025,17 +19025,17 @@ func (t *jsiiProxy_TerraformHclModule) ToTerraform() interface{} {
 // Experimental.
 type TerraformHclModuleOptions struct {
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
-	Providers *[]interface{} `json:"providers" yaml:"providers"`
+	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
 	// Experimental.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 	// Experimental.
-	Variables *map[string]interface{} `json:"variables" yaml:"variables"`
+	Variables *map[string]interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Experimental.
@@ -19565,15 +19565,15 @@ func (t *jsiiProxy_TerraformLocal) ToTerraform() interface{} {
 // Experimental.
 type TerraformMetaArguments struct {
 	// Experimental.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
-	Lifecycle *TerraformResourceLifecycle `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle *TerraformResourceLifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.
-	Provider TerraformProvider `json:"provider" yaml:"provider"`
+	Provider TerraformProvider `field:"optional" json:"provider" yaml:"provider"`
 }
 
 // Experimental.
@@ -19922,33 +19922,33 @@ func (t *jsiiProxy_TerraformModule) ToTerraform() interface{} {
 // Experimental.
 type TerraformModuleOptions struct {
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
-	Providers *[]interface{} `json:"providers" yaml:"providers"`
+	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
 	// Experimental.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Experimental.
 type TerraformModuleProvider struct {
 	// Experimental.
-	ModuleAlias *string `json:"moduleAlias" yaml:"moduleAlias"`
+	ModuleAlias *string `field:"required" json:"moduleAlias" yaml:"moduleAlias"`
 	// Experimental.
-	Provider TerraformProvider `json:"provider" yaml:"provider"`
+	Provider TerraformProvider `field:"required" json:"provider" yaml:"provider"`
 }
 
 // Experimental.
 type TerraformModuleUserOptions struct {
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
-	Providers *[]interface{} `json:"providers" yaml:"providers"`
+	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
 }
 
 // Experimental.
@@ -20316,16 +20316,16 @@ func (t *jsiiProxy_TerraformOutput) ToTerraform() interface{} {
 // Experimental.
 type TerraformOutputConfig struct {
 	// Experimental.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Experimental.
-	Sensitive *bool `json:"sensitive" yaml:"sensitive"`
+	Sensitive *bool `field:"optional" json:"sensitive" yaml:"sensitive"`
 	// If set to true the synthesized Terraform Output will be named after the `id` passed to the constructor instead of the default (TerraformOutput.friendlyUniqueId).
 	// Experimental.
-	StaticId *bool `json:"staticId" yaml:"staticId"`
+	StaticId *bool `field:"optional" json:"staticId" yaml:"staticId"`
 }
 
 // Experimental.
@@ -20623,21 +20623,21 @@ func (t *jsiiProxy_TerraformProvider) ToTerraform() interface{} {
 // Experimental.
 type TerraformProviderConfig struct {
 	// Experimental.
-	TerraformResourceType *string `json:"terraformResourceType" yaml:"terraformResourceType"`
+	TerraformResourceType *string `field:"required" json:"terraformResourceType" yaml:"terraformResourceType"`
 	// Experimental.
-	TerraformGeneratorMetadata *TerraformProviderGeneratorMetadata `json:"terraformGeneratorMetadata" yaml:"terraformGeneratorMetadata"`
+	TerraformGeneratorMetadata *TerraformProviderGeneratorMetadata `field:"optional" json:"terraformGeneratorMetadata" yaml:"terraformGeneratorMetadata"`
 	// Experimental.
-	TerraformProviderSource *string `json:"terraformProviderSource" yaml:"terraformProviderSource"`
+	TerraformProviderSource *string `field:"optional" json:"terraformProviderSource" yaml:"terraformProviderSource"`
 }
 
 // Experimental.
 type TerraformProviderGeneratorMetadata struct {
 	// Experimental.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// Experimental.
-	ProviderVersion *string `json:"providerVersion" yaml:"providerVersion"`
+	ProviderVersion *string `field:"optional" json:"providerVersion" yaml:"providerVersion"`
 	// Experimental.
-	ProviderVersionConstraint *string `json:"providerVersionConstraint" yaml:"providerVersionConstraint"`
+	ProviderVersionConstraint *string `field:"optional" json:"providerVersionConstraint" yaml:"providerVersionConstraint"`
 }
 
 // Experimental.
@@ -21477,29 +21477,29 @@ func (t *jsiiProxy_TerraformResource) ToTerraform() interface{} {
 // Experimental.
 type TerraformResourceConfig struct {
 	// Experimental.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Experimental.
-	DependsOn *[]ITerraformDependable `json:"dependsOn" yaml:"dependsOn"`
+	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
-	ForEach ITerraformIterator `json:"forEach" yaml:"forEach"`
+	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
-	Lifecycle *TerraformResourceLifecycle `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle *TerraformResourceLifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.
-	Provider TerraformProvider `json:"provider" yaml:"provider"`
+	Provider TerraformProvider `field:"optional" json:"provider" yaml:"provider"`
 	// Experimental.
-	TerraformResourceType *string `json:"terraformResourceType" yaml:"terraformResourceType"`
+	TerraformResourceType *string `field:"required" json:"terraformResourceType" yaml:"terraformResourceType"`
 	// Experimental.
-	TerraformGeneratorMetadata *TerraformProviderGeneratorMetadata `json:"terraformGeneratorMetadata" yaml:"terraformGeneratorMetadata"`
+	TerraformGeneratorMetadata *TerraformProviderGeneratorMetadata `field:"optional" json:"terraformGeneratorMetadata" yaml:"terraformGeneratorMetadata"`
 }
 
 // Experimental.
 type TerraformResourceLifecycle struct {
 	// Experimental.
-	CreateBeforeDestroy *bool `json:"createBeforeDestroy" yaml:"createBeforeDestroy"`
+	CreateBeforeDestroy *bool `field:"optional" json:"createBeforeDestroy" yaml:"createBeforeDestroy"`
 	// Experimental.
-	IgnoreChanges interface{} `json:"ignoreChanges" yaml:"ignoreChanges"`
+	IgnoreChanges interface{} `field:"optional" json:"ignoreChanges" yaml:"ignoreChanges"`
 	// Experimental.
-	PreventDestroy *bool `json:"preventDestroy" yaml:"preventDestroy"`
+	PreventDestroy *bool `field:"optional" json:"preventDestroy" yaml:"preventDestroy"`
 }
 
 // Experimental.
@@ -21835,11 +21835,11 @@ func (t *jsiiProxy_TerraformStack) ToTerraform() interface{} {
 // Experimental.
 type TerraformStackMetadata struct {
 	// Experimental.
-	Backend *string `json:"backend" yaml:"backend"`
+	Backend *string `field:"required" json:"backend" yaml:"backend"`
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Experimental.
@@ -22203,13 +22203,13 @@ func (t *jsiiProxy_TerraformVariable) ToTerraform() interface{} {
 // Experimental.
 type TerraformVariableConfig struct {
 	// Experimental.
-	Default interface{} `json:"default" yaml:"default"`
+	Default interface{} `field:"optional" json:"default" yaml:"default"`
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Experimental.
-	Nullable *bool `json:"nullable" yaml:"nullable"`
+	Nullable *bool `field:"optional" json:"nullable" yaml:"nullable"`
 	// Experimental.
-	Sensitive *bool `json:"sensitive" yaml:"sensitive"`
+	Sensitive *bool `field:"optional" json:"sensitive" yaml:"sensitive"`
 	// The type argument in a variable block allows you to restrict the type of value that will be accepted as the value for a variable.
 	//
 	// If no type constraint is set then a value of any type is accepted.
@@ -22234,7 +22234,7 @@ type TerraformVariableConfig struct {
 	//
 	// If both the type and default arguments are specified, the given default value must be convertible to the specified type.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Testing utilities for cdktf applications.
@@ -22391,15 +22391,15 @@ func Testing_SynthScope(fn IScopeCallback) *string {
 // Experimental.
 type TestingAppOptions struct {
 	// Experimental.
-	EnableFutureFlags *bool `json:"enableFutureFlags" yaml:"enableFutureFlags"`
+	EnableFutureFlags *bool `field:"optional" json:"enableFutureFlags" yaml:"enableFutureFlags"`
 	// Experimental.
-	FakeCdktfJsonPath *bool `json:"fakeCdktfJsonPath" yaml:"fakeCdktfJsonPath"`
+	FakeCdktfJsonPath *bool `field:"optional" json:"fakeCdktfJsonPath" yaml:"fakeCdktfJsonPath"`
 	// Experimental.
-	Outdir *string `json:"outdir" yaml:"outdir"`
+	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 	// Experimental.
-	StackTraces *bool `json:"stackTraces" yaml:"stackTraces"`
+	StackTraces *bool `field:"optional" json:"stackTraces" yaml:"stackTraces"`
 	// Experimental.
-	StubVersion *bool `json:"stubVersion" yaml:"stubVersion"`
+	StubVersion *bool `field:"optional" json:"stubVersion" yaml:"stubVersion"`
 }
 
 // Represents a special or lazily-evaluated value.

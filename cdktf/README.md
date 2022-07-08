@@ -16,4 +16,3 @@ Build the package
 ```bash
 yarn build
 ```
-

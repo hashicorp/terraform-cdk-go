@@ -4,6 +4,6 @@ package testingmatchers
 // Experimental.
 type TerraformConstructor struct {
 	// Experimental.
-	TfResourceType *string `json:"tfResourceType" yaml:"tfResourceType"`
+	TfResourceType *string `field:"required" json:"tfResourceType" yaml:"tfResourceType"`
 }
 
