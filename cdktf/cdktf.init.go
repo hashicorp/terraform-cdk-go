@@ -1034,6 +1034,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.IFileProvisioner",
+		reflect.TypeOf((*IFileProvisioner)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
+			_jsii_.MemberProperty{JsiiProperty: "content", GoGetter: "Content"},
+			_jsii_.MemberProperty{JsiiProperty: "destination", GoGetter: "Destination"},
+			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IFileProvisioner{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.IFragmentConcatenator",
 		reflect.TypeOf((*IFragmentConcatenator)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1061,6 +1075,21 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IListProducer{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktf.ILocalExecProvisioner",
+		reflect.TypeOf((*ILocalExecProvisioner)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
+			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
+			_jsii_.MemberProperty{JsiiProperty: "interpreter", GoGetter: "Interpreter"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "when", GoGetter: "When"},
+			_jsii_.MemberProperty{JsiiProperty: "workingDir", GoGetter: "WorkingDir"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ILocalExecProvisioner{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1092,6 +1121,20 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IPostProcessor{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktf.IRemoteExecProvisioner",
+		reflect.TypeOf((*IRemoteExecProvisioner)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
+			_jsii_.MemberProperty{JsiiProperty: "inline", GoGetter: "Inline"},
+			_jsii_.MemberProperty{JsiiProperty: "script", GoGetter: "Script"},
+			_jsii_.MemberProperty{JsiiProperty: "scripts", GoGetter: "Scripts"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IRemoteExecProvisioner{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1147,6 +1190,40 @@ func init() {
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_IResourceConstructor{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktf.ISSHProvisionerConnection",
+		reflect.TypeOf((*ISSHProvisionerConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "agent", GoGetter: "Agent"},
+			_jsii_.MemberProperty{JsiiProperty: "agentIdentity", GoGetter: "AgentIdentity"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionCertificate", GoGetter: "BastionCertificate"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionHost", GoGetter: "BastionHost"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionHostKey", GoGetter: "BastionHostKey"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionPassword", GoGetter: "BastionPassword"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionPort", GoGetter: "BastionPort"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionPrivateKey", GoGetter: "BastionPrivateKey"},
+			_jsii_.MemberProperty{JsiiProperty: "bastionUser", GoGetter: "BastionUser"},
+			_jsii_.MemberProperty{JsiiProperty: "certificate", GoGetter: "Certificate"},
+			_jsii_.MemberProperty{JsiiProperty: "host", GoGetter: "Host"},
+			_jsii_.MemberProperty{JsiiProperty: "hostKey", GoGetter: "HostKey"},
+			_jsii_.MemberProperty{JsiiProperty: "password", GoGetter: "Password"},
+			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
+			_jsii_.MemberProperty{JsiiProperty: "privateKey", GoGetter: "PrivateKey"},
+			_jsii_.MemberProperty{JsiiProperty: "proxyHost", GoGetter: "ProxyHost"},
+			_jsii_.MemberProperty{JsiiProperty: "proxyPort", GoGetter: "ProxyPort"},
+			_jsii_.MemberProperty{JsiiProperty: "proxyScheme", GoGetter: "ProxyScheme"},
+			_jsii_.MemberProperty{JsiiProperty: "proxyUserName", GoGetter: "ProxyUserName"},
+			_jsii_.MemberProperty{JsiiProperty: "proxyUserPassword", GoGetter: "ProxyUserPassword"},
+			_jsii_.MemberProperty{JsiiProperty: "scriptPath", GoGetter: "ScriptPath"},
+			_jsii_.MemberProperty{JsiiProperty: "targetPlatform", GoGetter: "TargetPlatform"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "user", GoGetter: "User"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ISSHProvisionerConnection{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1259,6 +1336,26 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ITokenResolver{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktf.IWinrmProvisionerConnection",
+		reflect.TypeOf((*IWinrmProvisionerConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cacert", GoGetter: "Cacert"},
+			_jsii_.MemberProperty{JsiiProperty: "host", GoGetter: "Host"},
+			_jsii_.MemberProperty{JsiiProperty: "https", GoGetter: "Https"},
+			_jsii_.MemberProperty{JsiiProperty: "insecure", GoGetter: "Insecure"},
+			_jsii_.MemberProperty{JsiiProperty: "password", GoGetter: "Password"},
+			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
+			_jsii_.MemberProperty{JsiiProperty: "scriptPath", GoGetter: "ScriptPath"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "useNtlm", GoGetter: "UseNtlm"},
+			_jsii_.MemberProperty{JsiiProperty: "user", GoGetter: "User"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IWinrmProvisionerConnection{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2093,6 +2190,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
+			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
 			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "count", GoGetter: "Count"},
 			_jsii_.MemberProperty{JsiiProperty: "dependsOn", GoGetter: "DependsOn"},
@@ -2113,6 +2211,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "provisioners", GoGetter: "Provisioners"},
 			_jsii_.MemberProperty{JsiiProperty: "rawOverrides", GoGetter: "RawOverrides"},
 			_jsii_.MemberMethod{JsiiMethod: "resetOverrideLogicalId", GoMethod: "ResetOverrideLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeAttributes", GoMethod: "SynthesizeAttributes"},
@@ -2139,6 +2238,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.TerraformResourceLifecycle",
 		reflect.TypeOf((*TerraformResourceLifecycle)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.TerraformSelf",
+		reflect.TypeOf((*TerraformSelf)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_TerraformSelf{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformStack",

@@ -12251,6 +12251,94 @@ func (i *jsiiProxy_IAspect) Visit(node constructs.IConstruct) {
 	)
 }
 
+// The file provisioner copies files or directories from the machine running Terraform to the newly created resource.
+//
+// The file provisioner supports both ssh and winrm type connections.
+//
+// See {@link https://www.terraform.io/language/resources/provisioners/file file}
+// Experimental.
+type IFileProvisioner interface {
+	// Most provisioners require access to the remote resource via SSH or WinRM and expect a nested connection block with details about how to connect.
+	// Experimental.
+	Connection() interface{}
+	// The destination path to write to on the remote system.
+	//
+	// See Destination Paths below for more information.
+	// Experimental.
+	Content() *string
+	// The source file or directory.
+	//
+	// Specify it either relative to the current working directory or as an absolute path.
+	// This argument cannot be combined with content.
+	// Experimental.
+	Destination() *string
+	// The direct content to copy on the destination.
+	//
+	// If destination is a file, the content will be written on that file.
+	// In case of a directory, a file named tf-file-content is created inside that directory.
+	// We recommend using a file as the destination when using content.
+	// This argument cannot be combined with source.
+	// Experimental.
+	Source() *string
+	// Experimental.
+	Type() *string
+}
+
+// The jsii proxy for IFileProvisioner
+type jsiiProxy_IFileProvisioner struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IFileProvisioner) Connection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"connection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFileProvisioner) Content() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"content",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFileProvisioner) Destination() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"destination",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFileProvisioner) Source() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"source",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFileProvisioner) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
 // Function used to concatenate symbols in the target document language.
 //
 // Interface so it could potentially be exposed over jsii.
@@ -12326,6 +12414,113 @@ func (i *jsiiProxy_IListProducer) Produce(context IResolveContext) *[]*string {
 		&returns,
 	)
 
+	return returns
+}
+
+// The local-exec provisioner invokes a local executable after a resource is created.
+//
+// This invokes a process on the machine running Terraform, not on the resource.
+//
+// See {@link https://www.terraform.io/language/resources/provisioners/local-exec local-exec}
+// Experimental.
+type ILocalExecProvisioner interface {
+	// This is the command to execute.
+	//
+	// It can be provided as a relative path to the current working directory or as an absolute path.
+	// It is evaluated in a shell, and can use environment variables or Terraform variables.
+	// Experimental.
+	Command() *string
+	// A record of key value pairs representing the environment of the executed command.
+	//
+	// It inherits the current process environment.
+	// Experimental.
+	Environment() *map[string]*string
+	// If provided, this is a list of interpreter arguments used to execute the command.
+	//
+	// The first argument is the interpreter itself.
+	// It can be provided as a relative path to the current working directory or as an absolute path
+	// The remaining arguments are appended prior to the command.
+	// This allows building command lines of the form "/bin/bash", "-c", "echo foo".
+	// If interpreter is unspecified, sensible defaults will be chosen based on the system OS.
+	// Experimental.
+	Interpreter() *[]*string
+	// Experimental.
+	Type() *string
+	// If provided, specifies when Terraform will execute the command.
+	//
+	// For example, when = destroy specifies that the provisioner will run when the associated resource is destroyed.
+	// Experimental.
+	When() *string
+	// If provided, specifies the working directory where command will be executed.
+	//
+	// It can be provided as a relative path to the current working directory or as an absolute path.
+	// The directory must exist.
+	// Experimental.
+	WorkingDir() *string
+}
+
+// The jsii proxy for ILocalExecProvisioner
+type jsiiProxy_ILocalExecProvisioner struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) Command() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"command",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) Environment() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"environment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) Interpreter() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"interpreter",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) When() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"when",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocalExecProvisioner) WorkingDir() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"workingDir",
+		&returns,
+	)
 	return returns
 }
 
@@ -12411,6 +12606,95 @@ func (i *jsiiProxy_IPostProcessor) PostProcess(input interface{}, context IResol
 		&returns,
 	)
 
+	return returns
+}
+
+// The remote-exec provisioner invokes a script on a remote resource after it is created.
+//
+// This can be used to run a configuration management tool, bootstrap into a cluster, etc
+// The remote-exec provisioner requires a connection and supports both ssh and winrm.
+//
+// See {@link https://www.terraform.io/language/resources/provisioners/remote-exec remote-exec}
+// Experimental.
+type IRemoteExecProvisioner interface {
+	// Most provisioners require access to the remote resource via SSH or WinRM and expect a nested connection block with details about how to connect.
+	//
+	// A connection must be provided here or in the parent resource.
+	// Experimental.
+	Connection() interface{}
+	// This is a list of command strings.
+	//
+	// They are executed in the order they are provided.
+	// This cannot be provided with script or scripts.
+	// Experimental.
+	Inline() *[]*string
+	// This is a path (relative or absolute) to a local script that will be copied to the remote resource and then executed.
+	//
+	// This cannot be provided with inline or scripts.
+	// Experimental.
+	Script() *string
+	// This is a list of paths (relative or absolute) to local scripts that will be copied to the remote resource and then executed.
+	//
+	// They are executed in the order they are provided.
+	// This cannot be provided with inline or script.
+	// Experimental.
+	Scripts() *[]*string
+	// Experimental.
+	Type() *string
+}
+
+// The jsii proxy for IRemoteExecProvisioner
+type jsiiProxy_IRemoteExecProvisioner struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IRemoteExecProvisioner) Connection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"connection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRemoteExecProvisioner) Inline() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"inline",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRemoteExecProvisioner) Script() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"script",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRemoteExecProvisioner) Scripts() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"scripts",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRemoteExecProvisioner) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
 	return returns
 }
 
@@ -12600,6 +12884,376 @@ type IResourceConstructor interface {
 // The jsii proxy for IResourceConstructor
 type jsiiProxy_IResourceConstructor struct {
 	_ byte // padding
+}
+
+// Most provisioners require access to the remote resource via SSH or WinRM and expect a nested connection block with details about how to connect.
+//
+// See {@link https://www.terraform.io/language/resources/provisioners/connection connection}
+// Experimental.
+type ISSHProvisionerConnection interface {
+	// Set to false to disable using ssh-agent to authenticate.
+	//
+	// On Windows the only supported SSH authentication agent is Pageant.
+	// Experimental.
+	Agent() *string
+	// The preferred identity from the ssh agent for authentication.
+	// Experimental.
+	AgentIdentity() *string
+	// The contents of a signed CA Certificate.
+	//
+	// The certificate argument must be used in conjunction with a bastion_private_key.
+	// These can be loaded from a file on disk using the the file function.
+	// Experimental.
+	BastionCertificate() *string
+	// Setting this enables the bastion Host connection.
+	//
+	// The provisioner will connect to bastion_host first, and then connect from there to host.
+	// Experimental.
+	BastionHost() *string
+	// The public key from the remote host or the signing CA, used to verify the host connection.
+	// Experimental.
+	BastionHostKey() *string
+	// The password to use for the bastion host.
+	// Experimental.
+	BastionPassword() *string
+	// The port to use connect to the bastion host.
+	// Experimental.
+	BastionPort() *float64
+	// The contents of an SSH key file to use for the bastion host.
+	//
+	// These can be loaded from a file on disk using the file function.
+	// Experimental.
+	BastionPrivateKey() *string
+	// The user for the connection to the bastion host.
+	// Experimental.
+	BastionUser() *string
+	// The contents of a signed CA Certificate.
+	//
+	// The certificate argument must be used in conjunction with a private_key.
+	// These can be loaded from a file on disk using the the file function.
+	// Experimental.
+	Certificate() *string
+	// The address of the resource to connect to.
+	// Experimental.
+	Host() *string
+	// The public key from the remote host or the signing CA, used to verify the connection.
+	// Experimental.
+	HostKey() *string
+	// The password to use for the connection.
+	// Experimental.
+	Password() *string
+	// The port to connect to.
+	// Experimental.
+	Port() *float64
+	// The contents of an SSH key to use for the connection.
+	//
+	// These can be loaded from a file on disk using the file function.
+	// This takes preference over password if provided.
+	// Experimental.
+	PrivateKey() *string
+	// Setting this enables the SSH over HTTP connection.
+	//
+	// This host will be connected to first, and then the host or bastion_host connection will be made from there.
+	// Experimental.
+	ProxyHost() *string
+	// The port to use connect to the proxy host.
+	// Experimental.
+	ProxyPort() *float64
+	// The ssh connection also supports the following fields to facilitate connections by SSH over HTTP proxy.
+	// Experimental.
+	ProxyScheme() *string
+	// The username to use connect to the private proxy host.
+	//
+	// This argument should be specified only if authentication is required for the HTTP Proxy server.
+	// Experimental.
+	ProxyUserName() *string
+	// The password to use connect to the private proxy host.
+	//
+	// This argument should be specified only if authentication is required for the HTTP Proxy server.
+	// Experimental.
+	ProxyUserPassword() *string
+	// The path used to copy scripts meant for remote execution.
+	//
+	// Refer to {@link https://www.terraform.io/language/resources/provisioners/connection#how-provisioners-execute-remote-scripts How Provisioners Execute Remote Scripts below for more details}
+	// Experimental.
+	ScriptPath() *string
+	// The target platform to connect to.
+	//
+	// Valid values are "windows" and "unix".
+	// If the platform is set to windows, the default script_path is c:\windows\temp\terraform_%RAND%.cmd, assuming the SSH default shell is cmd.exe.
+	// If the SSH default shell is PowerShell, set script_path to "c:/windows/temp/terraform_%RAND%.ps1"
+	// Experimental.
+	TargetPlatform() *string
+	// The timeout to wait for the connection to become available.
+	//
+	// Should be provided as a string (e.g., "30s" or "5m".)
+	// Experimental.
+	Timeout() *string
+	// The connection type.
+	//
+	// Valid values are "ssh" and "winrm".
+	// Provisioners typically assume that the remote system runs Microsoft Windows when using WinRM.
+	// Behaviors based on the SSH target_platform will force Windows-specific behavior for WinRM, unless otherwise specified.
+	// Experimental.
+	Type() *string
+	// The user to use for the connection.
+	// Experimental.
+	User() *string
+}
+
+// The jsii proxy for ISSHProvisionerConnection
+type jsiiProxy_ISSHProvisionerConnection struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Agent() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"agent",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) AgentIdentity() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"agentIdentity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionCertificate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionCertificate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionHost() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionHost",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionHostKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionHostKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionPassword() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"bastionPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionPrivateKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionPrivateKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) BastionUser() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bastionUser",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Certificate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"certificate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Host() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"host",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) HostKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"hostKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Password() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"password",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Port() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"port",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) PrivateKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"privateKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ProxyHost() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"proxyHost",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ProxyPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"proxyPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ProxyScheme() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"proxyScheme",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ProxyUserName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"proxyUserName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ProxyUserPassword() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"proxyUserPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) ScriptPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scriptPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) TargetPlatform() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetPlatform",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Timeout() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"timeout",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISSHProvisionerConnection) User() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"user",
+		&returns,
+	)
+	return returns
 }
 
 // Experimental.
@@ -13035,6 +13689,171 @@ func (i *jsiiProxy_ITokenResolver) ResolveToken(t IResolvable, context IResolveC
 		&returns,
 	)
 
+	return returns
+}
+
+// Most provisioners require access to the remote resource via SSH or WinRM and expect a nested connection block with details about how to connect.
+//
+// See {@link https://www.terraform.io/language/resources/provisioners/connection connection}
+// Experimental.
+type IWinrmProvisionerConnection interface {
+	// The CA certificate to validate against.
+	// Experimental.
+	Cacert() *string
+	// The address of the resource to connect to.
+	// Experimental.
+	Host() *string
+	// Set to true to connect using HTTPS instead of HTTP.
+	// Experimental.
+	Https() *bool
+	// Set to true to skip validating the HTTPS certificate chain.
+	// Experimental.
+	Insecure() *bool
+	// The password to use for the connection.
+	// Experimental.
+	Password() *string
+	// The port to connect to.
+	// Experimental.
+	Port() *float64
+	// The path used to copy scripts meant for remote execution.
+	//
+	// Refer to {@link https://www.terraform.io/language/resources/provisioners/connection#how-provisioners-execute-remote-scripts How Provisioners Execute Remote Scripts below for more details}
+	// Experimental.
+	ScriptPath() *string
+	// The timeout to wait for the connection to become available.
+	//
+	// Should be provided as a string (e.g., "30s" or "5m".)
+	// Experimental.
+	Timeout() *string
+	// The connection type.
+	//
+	// Valid values are "ssh" and "winrm".
+	// Provisioners typically assume that the remote system runs Microsoft Windows when using WinRM.
+	// Behaviors based on the SSH target_platform will force Windows-specific behavior for WinRM, unless otherwise specified.
+	// Experimental.
+	Type() *string
+	// Set to true to use NTLM authentication rather than default (basic authentication), removing the requirement for basic authentication to be enabled within the target guest.
+	//
+	// Refer to Authentication for Remote Connections in the Windows App Development documentation for more details.
+	// Experimental.
+	UseNtlm() *bool
+	// The user to use for the connection.
+	// Experimental.
+	User() *string
+}
+
+// The jsii proxy for IWinrmProvisionerConnection
+type jsiiProxy_IWinrmProvisionerConnection struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Cacert() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cacert",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Host() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"host",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Https() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"https",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Insecure() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"insecure",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Password() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"password",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Port() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"port",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) ScriptPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scriptPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Timeout() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"timeout",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) UseNtlm() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"useNtlm",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWinrmProvisionerConnection) User() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"user",
+		&returns,
+	)
 	return returns
 }
 
@@ -19565,6 +20384,8 @@ func (t *jsiiProxy_TerraformLocal) ToTerraform() interface{} {
 // Experimental.
 type TerraformMetaArguments struct {
 	// Experimental.
+	Connection interface{} `field:"optional" json:"connection" yaml:"connection"`
+	// Experimental.
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
@@ -19574,6 +20395,8 @@ type TerraformMetaArguments struct {
 	Lifecycle *TerraformResourceLifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.
 	Provider TerraformProvider `field:"optional" json:"provider" yaml:"provider"`
+	// Experimental.
+	Provisioners *[]interface{} `field:"optional" json:"provisioners" yaml:"provisioners"`
 }
 
 // Experimental.
@@ -20944,6 +21767,10 @@ type TerraformResource interface {
 	// Experimental.
 	CdktfStack() TerraformStack
 	// Experimental.
+	Connection() interface{}
+	// Experimental.
+	SetConnection(val interface{})
+	// Experimental.
 	ConstructNodeMetadata() *map[string]interface{}
 	// Experimental.
 	Count() *float64
@@ -20972,6 +21799,10 @@ type TerraformResource interface {
 	Provider() TerraformProvider
 	// Experimental.
 	SetProvider(val TerraformProvider)
+	// Experimental.
+	Provisioners() *[]interface{}
+	// Experimental.
+	SetProvisioners(val *[]interface{})
 	// Experimental.
 	RawOverrides() interface{}
 	// Experimental.
@@ -21033,6 +21864,16 @@ func (j *jsiiProxy_TerraformResource) CdktfStack() TerraformStack {
 	_jsii_.Get(
 		j,
 		"cdktfStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformResource) Connection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"connection",
 		&returns,
 	)
 	return returns
@@ -21128,6 +21969,16 @@ func (j *jsiiProxy_TerraformResource) Provider() TerraformProvider {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformResource) Provisioners() *[]interface{} {
+	var returns *[]interface{}
+	_jsii_.Get(
+		j,
+		"provisioners",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformResource) RawOverrides() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -21195,6 +22046,14 @@ func NewTerraformResource_Override(t TerraformResource, scope constructs.Constru
 	)
 }
 
+func (j *jsiiProxy_TerraformResource) SetConnection(val interface{}) {
+	_jsii_.Set(
+		j,
+		"connection",
+		val,
+	)
+}
+
 func (j *jsiiProxy_TerraformResource) SetCount(val *float64) {
 	_jsii_.Set(
 		j,
@@ -21231,6 +22090,14 @@ func (j *jsiiProxy_TerraformResource) SetProvider(val TerraformProvider) {
 	_jsii_.Set(
 		j,
 		"provider",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformResource) SetProvisioners(val *[]interface{}) {
+	_jsii_.Set(
+		j,
+		"provisioners",
 		val,
 	)
 }
@@ -21477,6 +22344,8 @@ func (t *jsiiProxy_TerraformResource) ToTerraform() interface{} {
 // Experimental.
 type TerraformResourceConfig struct {
 	// Experimental.
+	Connection interface{} `field:"optional" json:"connection" yaml:"connection"`
+	// Experimental.
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Experimental.
 	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
@@ -21486,6 +22355,8 @@ type TerraformResourceConfig struct {
 	Lifecycle *TerraformResourceLifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Experimental.
 	Provider TerraformProvider `field:"optional" json:"provider" yaml:"provider"`
+	// Experimental.
+	Provisioners *[]interface{} `field:"optional" json:"provisioners" yaml:"provisioners"`
 	// Experimental.
 	TerraformResourceType *string `field:"required" json:"terraformResourceType" yaml:"terraformResourceType"`
 	// Experimental.
@@ -21500,6 +22371,103 @@ type TerraformResourceLifecycle struct {
 	IgnoreChanges interface{} `field:"optional" json:"ignoreChanges" yaml:"ignoreChanges"`
 	// Experimental.
 	PreventDestroy *bool `field:"optional" json:"preventDestroy" yaml:"preventDestroy"`
+}
+
+// Expressions in connection blocks cannot refer to their parent resource by name.
+//
+// References create dependencies, and referring to a resource by name within its own block would create a dependency cycle.
+// Instead, expressions can use the self object, which represents the connection's parent resource and has all of that resource's attributes.
+// For example, use self.public_ip to reference an aws_instance's public_ip attribute.
+// Experimental.
+type TerraformSelf interface {
+}
+
+// The jsii proxy struct for TerraformSelf
+type jsiiProxy_TerraformSelf struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewTerraformSelf() TerraformSelf {
+	_init_.Initialize()
+
+	j := jsiiProxy_TerraformSelf{}
+
+	_jsii_.Create(
+		"cdktf.TerraformSelf",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewTerraformSelf_Override(t TerraformSelf) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.TerraformSelf",
+		nil, // no parameters
+		t,
+	)
+}
+
+// Only usable within a connection block to reference the connections parent resource.
+//
+// Access a property on the resource like this: `getAny("hostPort")`.
+// Experimental.
+func TerraformSelf_GetAny(key *string) interface{} {
+	_init_.Initialize()
+
+	var returns interface{}
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformSelf",
+		"getAny",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Only usable within a connection block to reference the connections parent resource.
+//
+// Access a property on the resource like this: `getNumber("hostPort")`.
+// Experimental.
+func TerraformSelf_GetNumber(key *string) *float64 {
+	_init_.Initialize()
+
+	var returns *float64
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformSelf",
+		"getNumber",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Only usable within a connection block to reference the connections parent resource.
+//
+// Access a property on the resource like this: `getString("publicIp")`.
+// Experimental.
+func TerraformSelf_GetString(key *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformSelf",
+		"getString",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
