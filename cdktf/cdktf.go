@@ -10588,14 +10588,31 @@ func Fn_Md5(value *string) *string {
 
 // {@link https://www.terraform.io/docs/language/functions/merge.html merge} takes an arbitrary number of maps or objects, and returns a single map or object that contains a merged set of elements from all arguments.
 // Experimental.
-func Fn_Merge(values *[]interface{}) *[]*string {
+func Fn_MergeLists(values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
 		"cdktf.Fn",
-		"merge",
+		"mergeLists",
+		[]interface{}{values},
+		&returns,
+	)
+
+	return returns
+}
+
+// {@link https://www.terraform.io/docs/language/functions/merge.html merge} takes an arbitrary number of maps or objects, and returns a single map or object that contains a merged set of elements from all arguments.
+// Experimental.
+func Fn_MergeMaps(values *[]interface{}) *map[string]*string {
+	_init_.Initialize()
+
+	var returns *map[string]*string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"mergeMaps",
 		[]interface{}{values},
 		&returns,
 	)
