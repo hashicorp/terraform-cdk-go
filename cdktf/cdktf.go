@@ -12794,6 +12794,11 @@ type IResolveContext interface {
 	// Resolve an inner object.
 	// Experimental.
 	Resolve(x interface{}) interface{}
+	// TerraformIterators can be passed for block attributes and normal list attributes both require different handling when the iterable variable is accessed e.g. a dynamic block needs each.key while a for expression just needs key.
+	// Experimental.
+	IteratorContext() *string
+	// Experimental.
+	SetIteratorContext(i *string)
 	// True when we are still preparing, false if we're rendering the final output.
 	// Experimental.
 	Preparing() *bool
@@ -12831,6 +12836,24 @@ func (i *jsiiProxy_IResolveContext) Resolve(x interface{}) interface{} {
 	)
 
 	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) IteratorContext() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"iteratorContext",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) SetIteratorContext(val *string) {
+	_jsii_.Set(
+		j,
+		"iteratorContext",
+		val,
+	)
 }
 
 func (j *jsiiProxy_IResolveContext) Preparing() *bool {
@@ -14138,6 +14161,8 @@ type ListTerraformIterator interface {
 	// Returns the value of the current item iterated over.
 	// Experimental.
 	Value() interface{}
+	// Experimental.
+	Dynamic(attributes *map[string]interface{}) IResolvable
 	// Returns: the given attribute of the current item iterated over as any.
 	// Experimental.
 	GetAny(attribute *string) IResolvable
@@ -14253,6 +14278,19 @@ func ListTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 		"cdktf.ListTerraformIterator",
 		"fromMap",
 		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"dynamic",
+		[]interface{}{attributes},
 		&returns,
 	)
 
@@ -15153,6 +15191,8 @@ type MapTerraformIterator interface {
 	// Returns the value of the current item iterated over.
 	// Experimental.
 	Value() interface{}
+	// Experimental.
+	Dynamic(attributes *map[string]interface{}) IResolvable
 	// Returns: the given attribute of the current item iterated over as any.
 	// Experimental.
 	GetAny(attribute *string) IResolvable
@@ -15268,6 +15308,19 @@ func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 		"cdktf.MapTerraformIterator",
 		"fromMap",
 		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_MapTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		m,
+		"dynamic",
+		[]interface{}{attributes},
 		&returns,
 	)
 
@@ -19877,6 +19930,8 @@ type TerraformHclModuleOptions struct {
 // Experimental.
 type TerraformIterator interface {
 	ITerraformIterator
+	// Experimental.
+	Dynamic(attributes *map[string]interface{}) IResolvable
 	// Returns: the given attribute of the current item iterated over as any.
 	// Experimental.
 	GetAny(attribute *string) IResolvable
@@ -19956,6 +20011,19 @@ func TerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 		"cdktf.TerraformIterator",
 		"fromMap",
 		[]interface{}{map_},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		t,
+		"dynamic",
+		[]interface{}{attributes},
 		&returns,
 	)
 

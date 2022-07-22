@@ -1161,6 +1161,7 @@ func init() {
 		"cdktf.IResolveContext",
 		reflect.TypeOf((*IResolveContext)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "iteratorContext", GoGetter: "IteratorContext"},
 			_jsii_.MemberProperty{JsiiProperty: "preparing", GoGetter: "Preparing"},
 			_jsii_.MemberMethod{JsiiMethod: "registerPostProcessor", GoMethod: "RegisterPostProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
@@ -1399,6 +1400,7 @@ func init() {
 		"cdktf.ListTerraformIterator",
 		reflect.TypeOf((*ListTerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
@@ -1500,6 +1502,7 @@ func init() {
 		"cdktf.MapTerraformIterator",
 		reflect.TypeOf((*MapTerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
@@ -1989,6 +1992,7 @@ func init() {
 		"cdktf.TerraformIterator",
 		reflect.TypeOf((*TerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
