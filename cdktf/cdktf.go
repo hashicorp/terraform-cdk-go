@@ -19500,6 +19500,8 @@ type TerraformHclModule interface {
 	// Experimental.
 	RawOverrides() interface{}
 	// Experimental.
+	SkipAssetCreationFromLocalModules() *bool
+	// Experimental.
 	Source() *string
 	// Experimental.
 	Variables() *map[string]interface{}
@@ -19630,6 +19632,16 @@ func (j *jsiiProxy_TerraformHclModule) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformHclModule) SkipAssetCreationFromLocalModules() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipAssetCreationFromLocalModules",
 		&returns,
 	)
 	return returns
@@ -19919,6 +19931,8 @@ type TerraformHclModuleOptions struct {
 	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
+	// Experimental.
+	SkipAssetCreationFromLocalModules *bool `field:"optional" json:"skipAssetCreationFromLocalModules" yaml:"skipAssetCreationFromLocalModules"`
 	// Experimental.
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// Experimental.
@@ -20512,6 +20526,8 @@ type TerraformModule interface {
 	// Experimental.
 	RawOverrides() interface{}
 	// Experimental.
+	SkipAssetCreationFromLocalModules() *bool
+	// Experimental.
 	Source() *string
 	// Experimental.
 	Version() *string
@@ -20631,6 +20647,16 @@ func (j *jsiiProxy_TerraformModule) RawOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"rawOverrides",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformModule) SkipAssetCreationFromLocalModules() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipAssetCreationFromLocalModules",
 		&returns,
 	)
 	return returns
@@ -20836,6 +20862,8 @@ type TerraformModuleOptions struct {
 	// Experimental.
 	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
 	// Experimental.
+	SkipAssetCreationFromLocalModules *bool `field:"optional" json:"skipAssetCreationFromLocalModules" yaml:"skipAssetCreationFromLocalModules"`
+	// Experimental.
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
@@ -20857,6 +20885,8 @@ type TerraformModuleUserOptions struct {
 	ForEach ITerraformIterator `field:"optional" json:"forEach" yaml:"forEach"`
 	// Experimental.
 	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
+	// Experimental.
+	SkipAssetCreationFromLocalModules *bool `field:"optional" json:"skipAssetCreationFromLocalModules" yaml:"skipAssetCreationFromLocalModules"`
 }
 
 // Experimental.
@@ -22931,9 +22961,13 @@ type TerraformVariable interface {
 	// Experimental.
 	Type() *string
 	// Experimental.
+	Validation() *[]*TerraformVariableValidationConfig
+	// Experimental.
 	Value() interface{}
 	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Experimental.
+	AddValidation(validation *TerraformVariableValidationConfig)
 	// Overrides the auto-generated logical ID with a specific ID.
 	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
@@ -23107,6 +23141,16 @@ func (j *jsiiProxy_TerraformVariable) Type() *string {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformVariable) Validation() *[]*TerraformVariableValidationConfig {
+	var returns *[]*TerraformVariableValidationConfig
+	_jsii_.Get(
+		j,
+		"validation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformVariable) Value() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -23182,6 +23226,14 @@ func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{
 		t,
 		"addOverride",
 		[]interface{}{path, value},
+	)
+}
+
+func (t *jsiiProxy_TerraformVariable) AddValidation(validation *TerraformVariableValidationConfig) {
+	_jsii_.InvokeVoid(
+		t,
+		"addValidation",
+		[]interface{}{validation},
 	)
 }
 
@@ -23288,6 +23340,17 @@ type TerraformVariableConfig struct {
 	// If both the type and default arguments are specified, the given default value must be convertible to the specified type.
 	// Experimental.
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// Specify arbitrary custom validation rules for a particular variable using a validation block nested within the corresponding variable block.
+	// Experimental.
+	Validation *[]*TerraformVariableValidationConfig `field:"optional" json:"validation" yaml:"validation"`
+}
+
+// Experimental.
+type TerraformVariableValidationConfig struct {
+	// Experimental.
+	Condition interface{} `field:"required" json:"condition" yaml:"condition"`
+	// Experimental.
+	ErrorMessage *string `field:"required" json:"errorMessage" yaml:"errorMessage"`
 }
 
 // Testing utilities for cdktf applications.
