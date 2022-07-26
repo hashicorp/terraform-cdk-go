@@ -23363,6 +23363,32 @@ type jsiiProxy_Testing struct {
 	_ byte // padding
 }
 
+// Experimental.
+func NewTesting() Testing {
+	_init_.Initialize()
+
+	j := jsiiProxy_Testing{}
+
+	_jsii_.Create(
+		"cdktf.Testing",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewTesting_Override(t Testing) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktf.Testing",
+		nil, // no parameters
+		t,
+	)
+}
+
 // Returns an app for testing with the following properties: - Output directory is a temp dir.
 // Experimental.
 func Testing_App(options *TestingAppOptions) App {
@@ -23498,6 +23524,86 @@ func Testing_SynthScope(fn IScopeCallback) *string {
 		"cdktf.Testing",
 		"synthScope",
 		[]interface{}{fn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToBeValidTerraform(received *string) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toBeValidTerraform",
+		[]interface{}{received},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToHaveDataSource(received *string, resourceType *string) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveDataSource",
+		[]interface{}{received, resourceType},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToHaveDataSourceWithProperties(received *string, resourceType *string, properties *map[string]interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveDataSourceWithProperties",
+		[]interface{}{received, resourceType, properties},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToHaveResource(received *string, resourceType *string) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveResource",
+		[]interface{}{received, resourceType},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToHaveResourceWithProperties(received *string, resourceType *string, properties *map[string]interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveResourceWithProperties",
+		[]interface{}{received, resourceType, properties},
 		&returns,
 	)
 
