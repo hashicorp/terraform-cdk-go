@@ -8853,13 +8853,13 @@ type DataTerraformRemoteStateSwiftConfig struct {
 // Experimental.
 type DefaultTokenResolver interface {
 	ITokenResolver
-	// Resolve a tokenized list.
+	// Resolves a list of string.
 	// Experimental.
 	ResolveList(xs *[]*string, context IResolveContext) interface{}
-	// Resolve a tokenized map.
+	// Resolves a map token.
 	// Experimental.
 	ResolveMap(xs *map[string]interface{}, context IResolveContext) interface{}
-	// Resolve a tokenized number list.
+	// Resolves a list of numbers.
 	// Experimental.
 	ResolveNumberList(xs *[]*float64, context IResolveContext) interface{}
 	// Resolve string fragments to Tokens.
@@ -8878,6 +8878,7 @@ type jsiiProxy_DefaultTokenResolver struct {
 	jsiiProxy_ITokenResolver
 }
 
+// Resolves tokens.
 // Experimental.
 func NewDefaultTokenResolver(concat IFragmentConcatenator) DefaultTokenResolver {
 	_init_.Initialize()
@@ -8893,6 +8894,7 @@ func NewDefaultTokenResolver(concat IFragmentConcatenator) DefaultTokenResolver 
 	return &j
 }
 
+// Resolves tokens.
 // Experimental.
 func NewDefaultTokenResolver_Override(d DefaultTokenResolver, concat IFragmentConcatenator) {
 	_init_.Initialize()
@@ -17464,7 +17466,7 @@ type StackManifest struct {
 // Experimental.
 type StringConcat interface {
 	IFragmentConcatenator
-	// Join the fragment on the left and on the right.
+	// Concatenates string fragments.
 	// Experimental.
 	Join(left interface{}, right interface{}) interface{}
 }
