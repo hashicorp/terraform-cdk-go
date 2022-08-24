@@ -48,6 +48,9 @@ type TerraformStack interface {
 	RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState
 	// Experimental.
 	RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput
+	// Run all validations on the stack.
+	// Experimental.
+	RunAllValidations()
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -311,6 +314,14 @@ func (t *jsiiProxy_TerraformStack) RegisterOutgoingCrossStackReference(identifie
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TerraformStack) RunAllValidations() {
+	_jsii_.InvokeVoid(
+		t,
+		"runAllValidations",
+		nil, // no parameters
+	)
 }
 
 func (t *jsiiProxy_TerraformStack) ToString() *string {

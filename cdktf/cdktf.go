@@ -218,6 +218,46 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.CloudBackend",
+		reflect.TypeOf((*CloudBackend)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
+			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
+			_jsii_.MemberMethod{JsiiMethod: "getRemoteStateDataSource", GoMethod: "GetRemoteStateDataSource"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "rawOverrides", GoGetter: "RawOverrides"},
+			_jsii_.MemberMethod{JsiiMethod: "resetOverrideLogicalId", GoMethod: "ResetOverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesizeAttributes", GoMethod: "SynthesizeAttributes"},
+			_jsii_.MemberMethod{JsiiMethod: "toMetadata", GoMethod: "ToMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudBackend{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformBackend)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.CloudBackendProps",
+		reflect.TypeOf((*CloudBackendProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.CloudWorkspace",
+		reflect.TypeOf((*CloudWorkspace)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CloudWorkspace{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.ComplexComputedList",
 		reflect.TypeOf((*ComplexComputedList)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1435,6 +1475,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.NamedCloudWorkspace",
+		reflect.TypeOf((*NamedCloudWorkspace)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NamedCloudWorkspace{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CloudWorkspace)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.NamedRemoteWorkspace",
 		reflect.TypeOf((*NamedRemoteWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1744,6 +1797,19 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.SwiftBackendProps",
 		reflect.TypeOf((*SwiftBackendProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.TaggedCloudWorkspaces",
+		reflect.TypeOf((*TaggedCloudWorkspaces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TaggedCloudWorkspaces{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CloudWorkspace)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformAsset",
@@ -2188,6 +2254,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "prepareStack", GoMethod: "PrepareStack"},
 			_jsii_.MemberMethod{JsiiMethod: "registerIncomingCrossStackReference", GoMethod: "RegisterIncomingCrossStackReference"},
 			_jsii_.MemberMethod{JsiiMethod: "registerOutgoingCrossStackReference", GoMethod: "RegisterOutgoingCrossStackReference"},
+			_jsii_.MemberMethod{JsiiMethod: "runAllValidations", GoMethod: "RunAllValidations"},
 			_jsii_.MemberProperty{JsiiProperty: "synthesizer", GoGetter: "Synthesizer"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},

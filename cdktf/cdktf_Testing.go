@@ -154,7 +154,7 @@ func Testing_StubVersion(app App) App {
 
 // Returns the Terraform synthesized JSON.
 // Experimental.
-func Testing_Synth(stack TerraformStack) *string {
+func Testing_Synth(stack TerraformStack, runValidations *bool) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -162,7 +162,7 @@ func Testing_Synth(stack TerraformStack) *string {
 	_jsii_.StaticInvoke(
 		"cdktf.Testing",
 		"synth",
-		[]interface{}{stack},
+		[]interface{}{stack, runValidations},
 		&returns,
 	)
 
