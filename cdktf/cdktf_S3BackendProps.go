@@ -42,6 +42,15 @@ type S3BackendProps struct {
 	// (Optional) IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 	// Experimental.
 	AssumeRolePolicy *string `field:"optional" json:"assumeRolePolicy" yaml:"assumeRolePolicy"`
+	// (Optional) Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	// Experimental.
+	AssumeRolePolicyArns *[]*string `field:"optional" json:"assumeRolePolicyArns" yaml:"assumeRolePolicyArns"`
+	// (Optional) Map of assume role session tags.
+	// Experimental.
+	AssumeRoleTags *map[string]*string `field:"optional" json:"assumeRoleTags" yaml:"assumeRoleTags"`
+	// (Optional) Set of assume role session tag keys to pass to any subsequent sessions.
+	// Experimental.
+	AssumeRoleTransitiveTagKeys *[]*string `field:"optional" json:"assumeRoleTransitiveTagKeys" yaml:"assumeRoleTransitiveTagKeys"`
 	// (Optional) Custom endpoint for the AWS DynamoDB API.
 	//
 	// This can also be sourced from the AWS_DYNAMODB_ENDPOINT environment variable.
@@ -119,6 +128,9 @@ type S3BackendProps struct {
 	// (Optional) Skip usage of EC2 Metadata API.
 	// Experimental.
 	SkipMetadataApiCheck *bool `field:"optional" json:"skipMetadataApiCheck" yaml:"skipMetadataApiCheck"`
+	// (Optional) Skip validation of provided region name.
+	// Experimental.
+	SkipRegionValidation *bool `field:"optional" json:"skipRegionValidation" yaml:"skipRegionValidation"`
 	// (Optional) The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C).
 	//
 	// This is the base64-encoded value of the key, which must decode to 256 bits.
