@@ -10,18 +10,18 @@ import (
 )
 
 // A construct which represents a resource.
-// Experimental.
+// Deprecated: - Please use Construct from the constructs package instead.
 type Resource interface {
 	constructs.Construct
 	IResource
 	// The tree node.
-	// Experimental.
+	// Deprecated: - Please use Construct from the constructs package instead.
 	Node() constructs.Node
 	// The stack in which this resource is defined.
-	// Experimental.
+	// Deprecated: - Please use Construct from the constructs package instead.
 	Stack() TerraformStack
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated: - Please use Construct from the constructs package instead.
 	ToString() *string
 }
 
@@ -52,7 +52,7 @@ func (j *jsiiProxy_Resource) Stack() TerraformStack {
 }
 
 
-// Experimental.
+// Deprecated: - Please use Construct from the constructs package instead.
 func NewResource_Override(r Resource, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
@@ -80,7 +80,7 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string) {
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated: - Please use Construct from the constructs package instead.
 func Resource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

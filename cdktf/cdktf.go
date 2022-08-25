@@ -1819,13 +1819,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "fileName", GoGetter: "FileName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TerraformAsset{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
 	)

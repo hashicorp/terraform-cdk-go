@@ -6,11 +6,12 @@ import (
 	_init_ "github.com/hashicorp/terraform-cdk-go/cdktf/jsii"
 
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/hashicorp/terraform-cdk-go/cdktf/internal"
 )
 
 // Experimental.
 type TerraformAsset interface {
-	Resource
+	constructs.Construct
 	// Experimental.
 	AssetHash() *string
 	// Experimental.
@@ -24,9 +25,6 @@ type TerraformAsset interface {
 	// The path relative to the root of the terraform directory in posix format Use this property to reference the asset.
 	// Experimental.
 	Path() *string
-	// The stack in which this resource is defined.
-	// Experimental.
-	Stack() TerraformStack
 	// Experimental.
 	Type() AssetType
 	// Experimental.
@@ -38,7 +36,7 @@ type TerraformAsset interface {
 
 // The jsii proxy struct for TerraformAsset
 type jsiiProxy_TerraformAsset struct {
-	jsiiProxy_Resource
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_TerraformAsset) AssetHash() *string {
@@ -76,16 +74,6 @@ func (j *jsiiProxy_TerraformAsset) Path() *string {
 	_jsii_.Get(
 		j,
 		"path",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TerraformAsset) Stack() TerraformStack {
-	var returns TerraformStack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
