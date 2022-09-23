@@ -22,6 +22,18 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	// This can also be sourced from the ARM_ACCESS_KEY environment variable.
 	// Experimental.
 	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
+	// (Optional) The password associated with the Client Certificate specified in client_certificate_path.
+	//
+	// This can also be sourced from the
+	// ARM_CLIENT_CERTIFICATE_PASSWORD environment variable.
+	// Experimental.
+	ClientCertificatePassword *string `field:"optional" json:"clientCertificatePassword" yaml:"clientCertificatePassword"`
+	// (Optional) The path to the PFX file used as the Client Certificate when authenticating as a Service Principal.
+	//
+	// This can also be sourced from the
+	// ARM_CLIENT_CERTIFICATE_PATH environment variable.
+	// Experimental.
+	ClientCertificatePath *string `field:"optional" json:"clientCertificatePath" yaml:"clientCertificatePath"`
 	// (Optional) The Client ID of the Service Principal.
 	//
 	// This can also be sourced from the ARM_CLIENT_ID environment variable.
@@ -48,6 +60,19 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
 	// Experimental.
 	MsiEndpoint *string `field:"optional" json:"msiEndpoint" yaml:"msiEndpoint"`
+	// (Optional) The bearer token for the request to the OIDC provider.
+	//
+	// This can
+	// also be sourced from the ARM_OIDC_REQUEST_TOKEN or
+	// ACTIONS_ID_TOKEN_REQUEST_TOKEN environment variables.
+	// Experimental.
+	OidcRequestToken *string `field:"optional" json:"oidcRequestToken" yaml:"oidcRequestToken"`
+	// (Optional) The URL for the OIDC provider from which to request an ID token.
+	//
+	// This can also be sourced from the ARM_OIDC_REQUEST_URL or
+	// ACTIONS_ID_TOKEN_REQUEST_URL environment variables.
+	// Experimental.
+	OidcRequestUrl *string `field:"optional" json:"oidcRequestUrl" yaml:"oidcRequestUrl"`
 	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
 	ResourceGroupName *string `field:"optional" json:"resourceGroupName" yaml:"resourceGroupName"`
@@ -56,6 +81,12 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	// This can also be sourced from the ARM_SAS_TOKEN environment variable.
 	// Experimental.
 	SasToken *string `field:"optional" json:"sasToken" yaml:"sasToken"`
+	// (Optional) Should the Blob used to store the Terraform Statefile be snapshotted before use?
+	//
+	// Defaults to false. This value can also be sourced
+	// from the ARM_SNAPSHOT environment variable.
+	// Experimental.
+	Snapshot *bool `field:"optional" json:"snapshot" yaml:"snapshot"`
 	// (Optional) The Subscription ID in which the Storage Account exists.
 	//
 	// This can also be sourced from the ARM_SUBSCRIPTION_ID environment variable.
@@ -66,10 +97,36 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	// This can also be sourced from the ARM_TENANT_ID environment variable.
 	// Experimental.
 	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
+	// (Optional) Should AzureAD Authentication be used to access the Blob Storage Account.
+	//
+	// This can also be sourced from the ARM_USE_AZUREAD environment
+	// variable.
+	//
+	// Note: When using AzureAD for Authentication to Storage you also need to
+	// ensure the Storage Blob Data Owner role is assigned.
+	// Experimental.
+	UseAzureadAuth *bool `field:"optional" json:"useAzureadAuth" yaml:"useAzureadAuth"`
+	// (Optional) Should MSAL be used for authentication instead of ADAL, and should Microsoft Graph be used instead of Azure Active Directory Graph?
+	//
+	// Defaults to true.
+	//
+	// Note: In Terraform 1.2 the Azure Backend uses MSAL (and Microsoft Graph)
+	// rather than ADAL (and Azure Active Directory Graph) for authentication by
+	// default - you can disable this by setting use_microsoft_graph to false.
+	// This setting will be removed in Terraform 1.3, due to Microsoft's
+	// deprecation of ADAL.
+	// Experimental.
+	UseMicrosoftGraph *bool `field:"optional" json:"useMicrosoftGraph" yaml:"useMicrosoftGraph"`
 	// (Optional) Should Managed Service Identity authentication be used?
 	//
 	// This can also be sourced from the ARM_USE_MSI environment variable.
 	// Experimental.
 	UseMsi *bool `field:"optional" json:"useMsi" yaml:"useMsi"`
+	// (Optional) Should OIDC authentication be used? This can also be sourced from the ARM_USE_OIDC environment variable.
+	//
+	// Note: When using OIDC for authentication, use_microsoft_graph
+	// must be set to true (which is the default).
+	// Experimental.
+	UseOidc *bool `field:"optional" json:"useOidc" yaml:"useOidc"`
 }
 
