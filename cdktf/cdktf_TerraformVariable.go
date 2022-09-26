@@ -249,6 +249,9 @@ func (j *jsiiProxy_TerraformVariable) Value() interface{} {
 func NewTerraformVariable(scope constructs.Construct, id *string, config *TerraformVariableConfig) TerraformVariable {
 	_init_.Initialize()
 
+	if err := validateNewTerraformVariableParameters(scope, id, config); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformVariable{}
 
 	_jsii_.Create(
@@ -292,6 +295,9 @@ func NewTerraformVariable_Override(t TerraformVariable, scope constructs.Constru
 func TerraformVariable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformVariable_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -305,6 +311,9 @@ func TerraformVariable_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -313,6 +322,9 @@ func (t *jsiiProxy_TerraformVariable) AddOverride(path *string, value interface{
 }
 
 func (t *jsiiProxy_TerraformVariable) AddValidation(validation *TerraformVariableValidationConfig) {
+	if err := t.validateAddValidationParameters(validation); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addValidation",
@@ -321,6 +333,9 @@ func (t *jsiiProxy_TerraformVariable) AddValidation(validation *TerraformVariabl
 }
 
 func (t *jsiiProxy_TerraformVariable) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

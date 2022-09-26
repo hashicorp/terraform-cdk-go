@@ -97,6 +97,9 @@ func (j *jsiiProxy_TerraformAsset) Type() AssetType {
 func NewTerraformAsset(scope constructs.Construct, id *string, config *TerraformAssetConfig) TerraformAsset {
 	_init_.Initialize()
 
+	if err := validateNewTerraformAssetParameters(scope, id, config); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformAsset{}
 
 	_jsii_.Create(
@@ -122,7 +125,10 @@ func NewTerraformAsset_Override(t TerraformAsset, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_TerraformAsset) SetAssetHash(val *string) {
+func (j *jsiiProxy_TerraformAsset)SetAssetHash(val *string) {
+	if err := j.validateSetAssetHashParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assetHash",
@@ -130,7 +136,10 @@ func (j *jsiiProxy_TerraformAsset) SetAssetHash(val *string) {
 	)
 }
 
-func (j *jsiiProxy_TerraformAsset) SetType(val AssetType) {
+func (j *jsiiProxy_TerraformAsset)SetType(val AssetType) {
+	if err := j.validateSetTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"type",
@@ -159,6 +168,9 @@ func (j *jsiiProxy_TerraformAsset) SetType(val AssetType) {
 func TerraformAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformAsset_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

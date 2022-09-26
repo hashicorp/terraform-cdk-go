@@ -175,6 +175,9 @@ func (j *jsiiProxy_TerraformLocal) RawOverrides() interface{} {
 func NewTerraformLocal(scope constructs.Construct, id *string, expression interface{}) TerraformLocal {
 	_init_.Initialize()
 
+	if err := validateNewTerraformLocalParameters(scope, id, expression); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformLocal{}
 
 	_jsii_.Create(
@@ -197,7 +200,10 @@ func NewTerraformLocal_Override(t TerraformLocal, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_TerraformLocal) SetExpression(val interface{}) {
+func (j *jsiiProxy_TerraformLocal)SetExpression(val interface{}) {
+	if err := j.validateSetExpressionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"expression",
@@ -226,6 +232,9 @@ func (j *jsiiProxy_TerraformLocal) SetExpression(val interface{}) {
 func TerraformLocal_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformLocal_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -239,6 +248,9 @@ func TerraformLocal_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -247,6 +259,9 @@ func (t *jsiiProxy_TerraformLocal) AddOverride(path *string, value interface{}) 
 }
 
 func (t *jsiiProxy_TerraformLocal) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

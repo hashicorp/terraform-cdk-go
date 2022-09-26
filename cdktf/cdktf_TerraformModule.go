@@ -204,7 +204,7 @@ func NewTerraformModule_Override(t TerraformModule, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_TerraformModule) SetDependsOn(val *[]*string) {
+func (j *jsiiProxy_TerraformModule)SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
@@ -212,7 +212,7 @@ func (j *jsiiProxy_TerraformModule) SetDependsOn(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_TerraformModule) SetForEach(val ITerraformIterator) {
+func (j *jsiiProxy_TerraformModule)SetForEach(val ITerraformIterator) {
 	_jsii_.Set(
 		j,
 		"forEach",
@@ -241,6 +241,9 @@ func (j *jsiiProxy_TerraformModule) SetForEach(val ITerraformIterator) {
 func TerraformModule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformModule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -254,6 +257,9 @@ func TerraformModule_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformModule) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -262,6 +268,9 @@ func (t *jsiiProxy_TerraformModule) AddOverride(path *string, value interface{})
 }
 
 func (t *jsiiProxy_TerraformModule) AddProvider(provider interface{}) {
+	if err := t.validateAddProviderParameters(provider); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addProvider",
@@ -270,6 +279,9 @@ func (t *jsiiProxy_TerraformModule) AddProvider(provider interface{}) {
 }
 
 func (t *jsiiProxy_TerraformModule) GetString(output *string) *string {
+	if err := t.validateGetStringParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -283,6 +295,9 @@ func (t *jsiiProxy_TerraformModule) GetString(output *string) *string {
 }
 
 func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string) IResolvable {
+	if err := t.validateInterpolationForOutputParameters(moduleOutput); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -296,6 +311,9 @@ func (t *jsiiProxy_TerraformModule) InterpolationForOutput(moduleOutput *string)
 }
 
 func (t *jsiiProxy_TerraformModule) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

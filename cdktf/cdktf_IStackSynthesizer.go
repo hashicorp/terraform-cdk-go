@@ -19,6 +19,9 @@ type jsiiProxy_IStackSynthesizer struct {
 }
 
 func (i *jsiiProxy_IStackSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

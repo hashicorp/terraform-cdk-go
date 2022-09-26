@@ -54,6 +54,9 @@ func NewToken_Override(t Token) {
 func Token_AsAny(value interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateToken_AsAnyParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func Token_AsAny(value interface{}) IResolvable {
 func Token_AsAnyMap(value interface{}, options *EncodingOptions) *map[string]interface{} {
 	_init_.Initialize()
 
+	if err := validateToken_AsAnyMapParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.StaticInvoke(
@@ -88,6 +94,9 @@ func Token_AsAnyMap(value interface{}, options *EncodingOptions) *map[string]int
 func Token_AsBooleanMap(value interface{}, options *EncodingOptions) *map[string]*bool {
 	_init_.Initialize()
 
+	if err := validateToken_AsBooleanMapParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*bool
 
 	_jsii_.StaticInvoke(
@@ -105,6 +114,9 @@ func Token_AsBooleanMap(value interface{}, options *EncodingOptions) *map[string
 func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateToken_AsListParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -122,6 +134,9 @@ func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 func Token_AsMap(value interface{}, mapValue interface{}, options *EncodingOptions) *map[string]interface{} {
 	_init_.Initialize()
 
+	if err := validateToken_AsMapParameters(value, mapValue, options); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.StaticInvoke(
@@ -139,6 +154,9 @@ func Token_AsMap(value interface{}, mapValue interface{}, options *EncodingOptio
 func Token_AsNumber(value interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateToken_AsNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -156,6 +174,9 @@ func Token_AsNumber(value interface{}) *float64 {
 func Token_AsNumberList(value interface{}) *[]*float64 {
 	_init_.Initialize()
 
+	if err := validateToken_AsNumberListParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*float64
 
 	_jsii_.StaticInvoke(
@@ -173,6 +194,9 @@ func Token_AsNumberList(value interface{}) *[]*float64 {
 func Token_AsNumberMap(value interface{}, options *EncodingOptions) *map[string]*float64 {
 	_init_.Initialize()
 
+	if err := validateToken_AsNumberMapParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*float64
 
 	_jsii_.StaticInvoke(
@@ -198,6 +222,9 @@ func Token_AsNumberMap(value interface{}, options *EncodingOptions) *map[string]
 func Token_AsString(value interface{}, options *EncodingOptions) *string {
 	_init_.Initialize()
 
+	if err := validateToken_AsStringParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -215,6 +242,9 @@ func Token_AsString(value interface{}, options *EncodingOptions) *string {
 func Token_AsStringMap(value interface{}, options *EncodingOptions) *map[string]*string {
 	_init_.Initialize()
 
+	if err := validateToken_AsStringMapParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(
@@ -241,6 +271,9 @@ func Token_AsStringMap(value interface{}, options *EncodingOptions) *map[string]
 func Token_IsUnresolved(obj interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateToken_IsUnresolvedParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

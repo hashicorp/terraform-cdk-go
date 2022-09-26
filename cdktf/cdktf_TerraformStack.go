@@ -98,6 +98,9 @@ func (j *jsiiProxy_TerraformStack) Synthesizer() IStackSynthesizer {
 func NewTerraformStack(scope constructs.Construct, id *string) TerraformStack {
 	_init_.Initialize()
 
+	if err := validateNewTerraformStackParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformStack{}
 
 	_jsii_.Create(
@@ -120,7 +123,10 @@ func NewTerraformStack_Override(t TerraformStack, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_TerraformStack) SetDependencies(val *[]TerraformStack) {
+func (j *jsiiProxy_TerraformStack)SetDependencies(val *[]TerraformStack) {
+	if err := j.validateSetDependenciesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dependencies",
@@ -128,7 +134,10 @@ func (j *jsiiProxy_TerraformStack) SetDependencies(val *[]TerraformStack) {
 	)
 }
 
-func (j *jsiiProxy_TerraformStack) SetSynthesizer(val IStackSynthesizer) {
+func (j *jsiiProxy_TerraformStack)SetSynthesizer(val IStackSynthesizer) {
+	if err := j.validateSetSynthesizerParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"synthesizer",
@@ -157,6 +166,9 @@ func (j *jsiiProxy_TerraformStack) SetSynthesizer(val IStackSynthesizer) {
 func TerraformStack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformStack_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -173,6 +185,9 @@ func TerraformStack_IsConstruct(x interface{}) *bool {
 func TerraformStack_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformStack_IsStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -189,6 +204,9 @@ func TerraformStack_IsStack(x interface{}) *bool {
 func TerraformStack_Of(construct constructs.IConstruct) TerraformStack {
 	_init_.Initialize()
 
+	if err := validateTerraformStack_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns TerraformStack
 
 	_jsii_.StaticInvoke(
@@ -202,6 +220,9 @@ func TerraformStack_Of(construct constructs.IConstruct) TerraformStack {
 }
 
 func (t *jsiiProxy_TerraformStack) AddDependency(dependency TerraformStack) {
+	if err := t.validateAddDependencyParameters(dependency); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addDependency",
@@ -210,6 +231,9 @@ func (t *jsiiProxy_TerraformStack) AddDependency(dependency TerraformStack) {
 }
 
 func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -218,6 +242,9 @@ func (t *jsiiProxy_TerraformStack) AddOverride(path *string, value interface{}) 
 }
 
 func (t *jsiiProxy_TerraformStack) AllocateLogicalId(tfElement interface{}) *string {
+	if err := t.validateAllocateLogicalIdParameters(tfElement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -244,6 +271,9 @@ func (t *jsiiProxy_TerraformStack) AllProviders() *[]TerraformProvider {
 }
 
 func (t *jsiiProxy_TerraformStack) DependsOn(stack TerraformStack) *bool {
+	if err := t.validateDependsOnParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -270,6 +300,9 @@ func (t *jsiiProxy_TerraformStack) EnsureBackendExists() TerraformBackend {
 }
 
 func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
+	if err := t.validateGetLogicalIdParameters(tfElement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -291,6 +324,9 @@ func (t *jsiiProxy_TerraformStack) PrepareStack() {
 }
 
 func (t *jsiiProxy_TerraformStack) RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState {
+	if err := t.validateRegisterIncomingCrossStackReferenceParameters(fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -304,6 +340,9 @@ func (t *jsiiProxy_TerraformStack) RegisterIncomingCrossStackReference(fromStack
 }
 
 func (t *jsiiProxy_TerraformStack) RegisterOutgoingCrossStackReference(identifier *string) TerraformOutput {
+	if err := t.validateRegisterOutgoingCrossStackReferenceParameters(identifier); err != nil {
+		panic(err)
+	}
 	var returns TerraformOutput
 
 	_jsii_.Invoke(

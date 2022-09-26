@@ -49,6 +49,9 @@ func NewTesting_Override(t Testing) {
 func Testing_App(options *TestingAppOptions) App {
 	_init_.Initialize()
 
+	if err := validateTesting_AppParameters(options); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.StaticInvoke(
@@ -65,6 +68,9 @@ func Testing_App(options *TestingAppOptions) App {
 func Testing_EnableFutureFlags(app App) App {
 	_init_.Initialize()
 
+	if err := validateTesting_EnableFutureFlagsParameters(app); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.StaticInvoke(
@@ -81,6 +87,9 @@ func Testing_EnableFutureFlags(app App) App {
 func Testing_FakeCdktfJsonPath(app App) App {
 	_init_.Initialize()
 
+	if err := validateTesting_FakeCdktfJsonPathParameters(app); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.StaticInvoke(
@@ -97,6 +106,9 @@ func Testing_FakeCdktfJsonPath(app App) App {
 func Testing_FullSynth(stack TerraformStack) *string {
 	_init_.Initialize()
 
+	if err := validateTesting_FullSynthParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -113,6 +125,9 @@ func Testing_FullSynth(stack TerraformStack) *string {
 func Testing_RenderConstructTree(construct constructs.IConstruct) *string {
 	_init_.Initialize()
 
+	if err := validateTesting_RenderConstructTreeParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -140,6 +155,9 @@ func Testing_SetupJest() {
 func Testing_StubVersion(app App) App {
 	_init_.Initialize()
 
+	if err := validateTesting_StubVersionParameters(app); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.StaticInvoke(
@@ -157,6 +175,9 @@ func Testing_StubVersion(app App) App {
 func Testing_Synth(stack TerraformStack, runValidations *bool) *string {
 	_init_.Initialize()
 
+	if err := validateTesting_SynthParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -173,6 +194,9 @@ func Testing_Synth(stack TerraformStack, runValidations *bool) *string {
 func Testing_SynthScope(fn IScopeCallback) *string {
 	_init_.Initialize()
 
+	if err := validateTesting_SynthScopeParameters(fn); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -189,6 +213,9 @@ func Testing_SynthScope(fn IScopeCallback) *string {
 func Testing_ToBeValidTerraform(received *string) *bool {
 	_init_.Initialize()
 
+	if err := validateTesting_ToBeValidTerraformParameters(received); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -205,6 +232,9 @@ func Testing_ToBeValidTerraform(received *string) *bool {
 func Testing_ToHaveDataSource(received *string, resourceType *string) *bool {
 	_init_.Initialize()
 
+	if err := validateTesting_ToHaveDataSourceParameters(received, resourceType); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -221,6 +251,9 @@ func Testing_ToHaveDataSource(received *string, resourceType *string) *bool {
 func Testing_ToHaveDataSourceWithProperties(received *string, resourceType *string, properties *map[string]interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTesting_ToHaveDataSourceWithPropertiesParameters(received, resourceType); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -237,6 +270,9 @@ func Testing_ToHaveDataSourceWithProperties(received *string, resourceType *stri
 func Testing_ToHaveResource(received *string, resourceType *string) *bool {
 	_init_.Initialize()
 
+	if err := validateTesting_ToHaveResourceParameters(received, resourceType); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -253,6 +289,9 @@ func Testing_ToHaveResource(received *string, resourceType *string) *bool {
 func Testing_ToHaveResourceWithProperties(received *string, resourceType *string, properties *map[string]interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTesting_ToHaveResourceWithPropertiesParameters(received, resourceType); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

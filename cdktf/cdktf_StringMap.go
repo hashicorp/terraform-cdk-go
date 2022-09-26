@@ -90,6 +90,9 @@ func (j *jsiiProxy_StringMap) TerraformResource() IInterpolatingParent {
 func NewStringMap(terraformResource IInterpolatingParent, terraformAttribute *string) StringMap {
 	_init_.Initialize()
 
+	if err := validateNewStringMapParameters(terraformResource, terraformAttribute); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StringMap{}
 
 	_jsii_.Create(
@@ -112,7 +115,10 @@ func NewStringMap_Override(s StringMap, terraformResource IInterpolatingParent, 
 	)
 }
 
-func (j *jsiiProxy_StringMap) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_StringMap)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -120,7 +126,10 @@ func (j *jsiiProxy_StringMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_StringMap) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_StringMap)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -142,6 +151,9 @@ func (s *jsiiProxy_StringMap) ComputeFqn() *string {
 }
 
 func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
+	if err := s.validateLookupParameters(key); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -155,6 +167,9 @@ func (s *jsiiProxy_StringMap) Lookup(key *string) *string {
 }
 
 func (s *jsiiProxy_StringMap) Resolve(_context IResolveContext) interface{} {
+	if err := s.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

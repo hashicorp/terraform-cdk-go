@@ -90,6 +90,9 @@ func (j *jsiiProxy_NumberMap) TerraformResource() IInterpolatingParent {
 func NewNumberMap(terraformResource IInterpolatingParent, terraformAttribute *string) NumberMap {
 	_init_.Initialize()
 
+	if err := validateNewNumberMapParameters(terraformResource, terraformAttribute); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NumberMap{}
 
 	_jsii_.Create(
@@ -112,7 +115,10 @@ func NewNumberMap_Override(n NumberMap, terraformResource IInterpolatingParent, 
 	)
 }
 
-func (j *jsiiProxy_NumberMap) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_NumberMap)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -120,7 +126,10 @@ func (j *jsiiProxy_NumberMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_NumberMap) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_NumberMap)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -142,6 +151,9 @@ func (n *jsiiProxy_NumberMap) ComputeFqn() *string {
 }
 
 func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
+	if err := n.validateLookupParameters(key); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -155,6 +167,9 @@ func (n *jsiiProxy_NumberMap) Lookup(key *string) *float64 {
 }
 
 func (n *jsiiProxy_NumberMap) Resolve(_context IResolveContext) interface{} {
+	if err := n.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

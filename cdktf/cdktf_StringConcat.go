@@ -49,6 +49,9 @@ func NewStringConcat_Override(s StringConcat) {
 }
 
 func (s *jsiiProxy_StringConcat) Join(left interface{}, right interface{}) interface{} {
+	if err := s.validateJoinParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

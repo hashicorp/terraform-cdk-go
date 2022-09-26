@@ -129,6 +129,9 @@ func (j *jsiiProxy_CosBackend) RawOverrides() interface{} {
 func NewCosBackend(scope constructs.Construct, props *CosBackendProps) CosBackend {
 	_init_.Initialize()
 
+	if err := validateNewCosBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CosBackend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewCosBackend_Override(c CosBackend, scope constructs.Construct, props *Cos
 func CosBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCosBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func CosBackend_IsBackend(x interface{}) *bool {
 func CosBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCosBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func CosBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -209,6 +221,9 @@ func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := c.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (c *jsiiProxy_CosBackend) GetRemoteStateDataSource(scope constructs.Constru
 }
 
 func (c *jsiiProxy_CosBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",

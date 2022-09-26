@@ -129,6 +129,9 @@ func (j *jsiiProxy_AzurermBackend) RawOverrides() interface{} {
 func NewAzurermBackend(scope constructs.Construct, props *AzurermBackendProps) AzurermBackend {
 	_init_.Initialize()
 
+	if err := validateNewAzurermBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AzurermBackend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewAzurermBackend_Override(a AzurermBackend, scope constructs.Construct, pr
 func AzurermBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAzurermBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func AzurermBackend_IsBackend(x interface{}) *bool {
 func AzurermBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAzurermBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func AzurermBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) {
+	if err := a.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addOverride",
@@ -209,6 +221,9 @@ func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) 
 }
 
 func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := a.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (a *jsiiProxy_AzurermBackend) GetRemoteStateDataSource(scope constructs.Con
 }
 
 func (a *jsiiProxy_AzurermBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := a.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"overrideLogicalId",

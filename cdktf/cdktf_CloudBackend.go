@@ -130,6 +130,9 @@ func (j *jsiiProxy_CloudBackend) RawOverrides() interface{} {
 func NewCloudBackend(scope constructs.Construct, props *CloudBackendProps) CloudBackend {
 	_init_.Initialize()
 
+	if err := validateNewCloudBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudBackend{}
 
 	_jsii_.Create(
@@ -156,6 +159,9 @@ func NewCloudBackend_Override(c CloudBackend, scope constructs.Construct, props 
 func CloudBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -189,6 +195,9 @@ func CloudBackend_IsBackend(x interface{}) *bool {
 func CloudBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -202,6 +211,9 @@ func CloudBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CloudBackend) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -210,6 +222,9 @@ func (c *jsiiProxy_CloudBackend) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CloudBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := c.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -223,6 +238,9 @@ func (c *jsiiProxy_CloudBackend) GetRemoteStateDataSource(scope constructs.Const
 }
 
 func (c *jsiiProxy_CloudBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",

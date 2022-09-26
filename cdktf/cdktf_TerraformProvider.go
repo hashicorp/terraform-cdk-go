@@ -183,7 +183,7 @@ func NewTerraformProvider_Override(t TerraformProvider, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_TerraformProvider) SetAlias(val *string) {
+func (j *jsiiProxy_TerraformProvider)SetAlias(val *string) {
 	_jsii_.Set(
 		j,
 		"alias",
@@ -212,6 +212,9 @@ func (j *jsiiProxy_TerraformProvider) SetAlias(val *string) {
 func TerraformProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -225,6 +228,9 @@ func TerraformProvider_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -233,6 +239,9 @@ func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{
 }
 
 func (t *jsiiProxy_TerraformProvider) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

@@ -40,6 +40,9 @@ func (j *jsiiProxy_NamedCloudWorkspace) Name() *string {
 func NewNamedCloudWorkspace(name *string) NamedCloudWorkspace {
 	_init_.Initialize()
 
+	if err := validateNewNamedCloudWorkspaceParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NamedCloudWorkspace{}
 
 	_jsii_.Create(
@@ -62,7 +65,10 @@ func NewNamedCloudWorkspace_Override(n NamedCloudWorkspace, name *string) {
 	)
 }
 
-func (j *jsiiProxy_NamedCloudWorkspace) SetName(val *string) {
+func (j *jsiiProxy_NamedCloudWorkspace)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

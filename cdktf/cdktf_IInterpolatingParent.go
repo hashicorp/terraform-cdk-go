@@ -17,6 +17,9 @@ type jsiiProxy_IInterpolatingParent struct {
 }
 
 func (i *jsiiProxy_IInterpolatingParent) InterpolationForAttribute(terraformAttribute *string) IResolvable {
+	if err := i.validateInterpolationForAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(

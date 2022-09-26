@@ -101,6 +101,9 @@ func (j *jsiiProxy_App) TargetStackId() *string {
 func NewApp(options *AppOptions) App {
 	_init_.Initialize()
 
+	if err := validateNewAppParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_App{}
 
 	_jsii_.Create(
@@ -128,6 +131,9 @@ func NewApp_Override(a App, options *AppOptions) {
 func App_IsApp(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsAppParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -161,6 +167,9 @@ func App_IsApp(x interface{}) *bool {
 func App_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -177,6 +186,9 @@ func App_IsConstruct(x interface{}) *bool {
 func App_Of(construct constructs.IConstruct) App {
 	_init_.Initialize()
 
+	if err := validateApp_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.StaticInvoke(
@@ -190,6 +202,9 @@ func App_Of(construct constructs.IConstruct) App {
 }
 
 func (a *jsiiProxy_App) CrossStackReference(fromStack TerraformStack, toStack TerraformStack, identifier *string) *string {
+	if err := a.validateCrossStackReferenceParameters(fromStack, toStack, identifier); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

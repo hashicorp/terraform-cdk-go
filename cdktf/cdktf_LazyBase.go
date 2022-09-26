@@ -61,6 +61,9 @@ func NewLazyBase_Override(l LazyBase) {
 }
 
 func (l *jsiiProxy_LazyBase) AddPostProcessor(postProcessor IPostProcessor) {
+	if err := l.validateAddPostProcessorParameters(postProcessor); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addPostProcessor",
@@ -69,6 +72,9 @@ func (l *jsiiProxy_LazyBase) AddPostProcessor(postProcessor IPostProcessor) {
 }
 
 func (l *jsiiProxy_LazyBase) Resolve(context IResolveContext) interface{} {
+	if err := l.validateResolveParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -82,6 +88,9 @@ func (l *jsiiProxy_LazyBase) Resolve(context IResolveContext) interface{} {
 }
 
 func (l *jsiiProxy_LazyBase) ResolveLazy(context IResolveContext) interface{} {
+	if err := l.validateResolveLazyParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

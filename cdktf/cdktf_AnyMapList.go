@@ -108,6 +108,9 @@ func (j *jsiiProxy_AnyMapList) WrapsSet() *bool {
 func NewAnyMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) AnyMapList {
 	_init_.Initialize()
 
+	if err := validateNewAnyMapListParameters(terraformResource, terraformAttribute, wrapsSet); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AnyMapList{}
 
 	_jsii_.Create(
@@ -130,7 +133,10 @@ func NewAnyMapList_Override(a AnyMapList, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_AnyMapList) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_AnyMapList)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -138,7 +144,10 @@ func (j *jsiiProxy_AnyMapList) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_AnyMapList) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_AnyMapList)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -146,7 +155,10 @@ func (j *jsiiProxy_AnyMapList) SetTerraformResource(val IInterpolatingParent) {
 	)
 }
 
-func (j *jsiiProxy_AnyMapList) SetWrapsSet(val *bool) {
+func (j *jsiiProxy_AnyMapList)SetWrapsSet(val *bool) {
+	if err := j.validateSetWrapsSetParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"wrapsSet",
@@ -168,6 +180,9 @@ func (a *jsiiProxy_AnyMapList) ComputeFqn() *string {
 }
 
 func (a *jsiiProxy_AnyMapList) Get(index *float64) AnyMap {
+	if err := a.validateGetParameters(index); err != nil {
+		panic(err)
+	}
 	var returns AnyMap
 
 	_jsii_.Invoke(
@@ -181,6 +196,9 @@ func (a *jsiiProxy_AnyMapList) Get(index *float64) AnyMap {
 }
 
 func (a *jsiiProxy_AnyMapList) InterpolationForAttribute(property *string) IResolvable {
+	if err := a.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -194,6 +212,9 @@ func (a *jsiiProxy_AnyMapList) InterpolationForAttribute(property *string) IReso
 }
 
 func (a *jsiiProxy_AnyMapList) Resolve(_context IResolveContext) interface{} {
+	if err := a.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

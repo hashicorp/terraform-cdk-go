@@ -43,6 +43,9 @@ func (j *jsiiProxy_AssertionReturn) Pass() *bool {
 func NewAssertionReturn(message *string, pass *bool) AssertionReturn {
 	_init_.Initialize()
 
+	if err := validateNewAssertionReturnParameters(message, pass); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AssertionReturn{}
 
 	_jsii_.Create(

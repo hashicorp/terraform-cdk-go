@@ -163,6 +163,9 @@ func (j *jsiiProxy_ComplexComputedList) WrapsSet() *bool {
 func NewComplexComputedList(terraformResource IInterpolatingParent, terraformAttribute *string, complexComputedListIndex *string, wrapsSet *bool) ComplexComputedList {
 	_init_.Initialize()
 
+	if err := validateNewComplexComputedListParameters(terraformResource, terraformAttribute, complexComputedListIndex); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ComplexComputedList{}
 
 	_jsii_.Create(
@@ -186,7 +189,10 @@ func NewComplexComputedList_Override(c ComplexComputedList, terraformResource II
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetComplexComputedListIndex(val *string) {
+func (j *jsiiProxy_ComplexComputedList)SetComplexComputedListIndex(val *string) {
+	if err := j.validateSetComplexComputedListIndexParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"complexComputedListIndex",
@@ -194,7 +200,10 @@ func (j *jsiiProxy_ComplexComputedList) SetComplexComputedListIndex(val *string)
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_ComplexComputedList)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -202,7 +211,10 @@ func (j *jsiiProxy_ComplexComputedList) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_ComplexComputedList)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -210,7 +222,7 @@ func (j *jsiiProxy_ComplexComputedList) SetTerraformResource(val IInterpolatingP
 	)
 }
 
-func (j *jsiiProxy_ComplexComputedList) SetWrapsSet(val *bool) {
+func (j *jsiiProxy_ComplexComputedList)SetWrapsSet(val *bool) {
 	_jsii_.Set(
 		j,
 		"wrapsSet",
@@ -232,6 +244,9 @@ func (c *jsiiProxy_ComplexComputedList) ComputeFqn() *string {
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	if err := c.validateGetAnyMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -245,6 +260,9 @@ func (c *jsiiProxy_ComplexComputedList) GetAnyMapAttribute(terraformAttribute *s
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *string) IResolvable {
+	if err := c.validateGetBooleanAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -258,6 +276,9 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanAttribute(terraformAttribute *
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	if err := c.validateGetBooleanMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*bool
 
 	_jsii_.Invoke(
@@ -271,6 +292,9 @@ func (c *jsiiProxy_ComplexComputedList) GetBooleanMapAttribute(terraformAttribut
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *string) *[]*string {
+	if err := c.validateGetListAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -284,6 +308,9 @@ func (c *jsiiProxy_ComplexComputedList) GetListAttribute(terraformAttribute *str
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *string) *float64 {
+	if err := c.validateGetNumberAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -297,6 +324,9 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberAttribute(terraformAttribute *s
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	if err := c.validateGetNumberListAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*float64
 
 	_jsii_.Invoke(
@@ -310,6 +340,9 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberListAttribute(terraformAttribut
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	if err := c.validateGetNumberMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*float64
 
 	_jsii_.Invoke(
@@ -323,6 +356,9 @@ func (c *jsiiProxy_ComplexComputedList) GetNumberMapAttribute(terraformAttribute
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *string) *string {
+	if err := c.validateGetStringAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -336,6 +372,9 @@ func (c *jsiiProxy_ComplexComputedList) GetStringAttribute(terraformAttribute *s
 }
 
 func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	if err := c.validateGetStringMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.Invoke(
@@ -349,6 +388,9 @@ func (c *jsiiProxy_ComplexComputedList) GetStringMapAttribute(terraformAttribute
 }
 
 func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *string) IResolvable {
+	if err := c.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -362,6 +404,9 @@ func (c *jsiiProxy_ComplexComputedList) InterpolationForAttribute(property *stri
 }
 
 func (c *jsiiProxy_ComplexComputedList) Resolve(_context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

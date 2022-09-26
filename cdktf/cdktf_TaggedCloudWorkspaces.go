@@ -40,6 +40,9 @@ func (j *jsiiProxy_TaggedCloudWorkspaces) Tags() *[]*string {
 func NewTaggedCloudWorkspaces(tags *[]*string) TaggedCloudWorkspaces {
 	_init_.Initialize()
 
+	if err := validateNewTaggedCloudWorkspacesParameters(tags); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TaggedCloudWorkspaces{}
 
 	_jsii_.Create(
@@ -62,7 +65,10 @@ func NewTaggedCloudWorkspaces_Override(t TaggedCloudWorkspaces, tags *[]*string)
 	)
 }
 
-func (j *jsiiProxy_TaggedCloudWorkspaces) SetTags(val *[]*string) {
+func (j *jsiiProxy_TaggedCloudWorkspaces)SetTags(val *[]*string) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tags",

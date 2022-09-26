@@ -43,6 +43,9 @@ type jsiiProxy_ITerraformResource struct {
 }
 
 func (i *jsiiProxy_ITerraformResource) InterpolationForAttribute(terraformAttribute *string) IResolvable {
+	if err := i.validateInterpolationForAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -65,7 +68,7 @@ func (j *jsiiProxy_ITerraformResource) Count() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetCount(val *float64) {
+func (j *jsiiProxy_ITerraformResource)SetCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"count",
@@ -83,7 +86,7 @@ func (j *jsiiProxy_ITerraformResource) DependsOn() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetDependsOn(val *[]*string) {
+func (j *jsiiProxy_ITerraformResource)SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
@@ -101,7 +104,7 @@ func (j *jsiiProxy_ITerraformResource) ForEach() ITerraformIterator {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetForEach(val ITerraformIterator) {
+func (j *jsiiProxy_ITerraformResource)SetForEach(val ITerraformIterator) {
 	_jsii_.Set(
 		j,
 		"forEach",
@@ -139,7 +142,10 @@ func (j *jsiiProxy_ITerraformResource) Lifecycle() *TerraformResourceLifecycle {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetLifecycle(val *TerraformResourceLifecycle) {
+func (j *jsiiProxy_ITerraformResource)SetLifecycle(val *TerraformResourceLifecycle) {
+	if err := j.validateSetLifecycleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lifecycle",
@@ -157,7 +163,7 @@ func (j *jsiiProxy_ITerraformResource) Provider() TerraformProvider {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) SetProvider(val TerraformProvider) {
+func (j *jsiiProxy_ITerraformResource)SetProvider(val TerraformProvider) {
 	_jsii_.Set(
 		j,
 		"provider",

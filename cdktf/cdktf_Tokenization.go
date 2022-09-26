@@ -51,6 +51,9 @@ func NewTokenization_Override(t Tokenization) {
 func Tokenization_IsResolvable(obj interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTokenization_IsResolvableParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -70,6 +73,9 @@ func Tokenization_IsResolvable(obj interface{}) *bool {
 func Tokenization_Resolve(obj interface{}, options *ResolveOptions) interface{} {
 	_init_.Initialize()
 
+	if err := validateTokenization_ResolveParameters(obj, options); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func Tokenization_Resolve(obj interface{}, options *ResolveOptions) interface{} 
 func Tokenization_Reverse(x interface{}) *[]IResolvable {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *[]IResolvable
 
 	_jsii_.StaticInvoke(
@@ -104,6 +113,9 @@ func Tokenization_Reverse(x interface{}) *[]IResolvable {
 func Tokenization_ReverseList(l *[]*string) IResolvable {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseListParameters(l); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -121,6 +133,9 @@ func Tokenization_ReverseList(l *[]*string) IResolvable {
 func Tokenization_ReverseMap(m *map[string]interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseMapParameters(m); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -138,6 +153,9 @@ func Tokenization_ReverseMap(m *map[string]interface{}) IResolvable {
 func Tokenization_ReverseNumber(n *float64) IResolvable {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseNumberParameters(n); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -155,6 +173,9 @@ func Tokenization_ReverseNumber(n *float64) IResolvable {
 func Tokenization_ReverseNumberList(l *[]*float64) IResolvable {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseNumberListParameters(l); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -172,6 +193,9 @@ func Tokenization_ReverseNumberList(l *[]*float64) IResolvable {
 func Tokenization_ReverseString(s *string) TokenizedStringFragments {
 	_init_.Initialize()
 
+	if err := validateTokenization_ReverseStringParameters(s); err != nil {
+		panic(err)
+	}
 	var returns TokenizedStringFragments
 
 	_jsii_.StaticInvoke(
@@ -191,6 +215,9 @@ func Tokenization_ReverseString(s *string) TokenizedStringFragments {
 func Tokenization_StringifyNumber(x *float64) *string {
 	_init_.Initialize()
 
+	if err := validateTokenization_StringifyNumberParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

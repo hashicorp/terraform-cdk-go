@@ -1,0 +1,24 @@
+//go:build no_runtime_type_checking
+// +build no_runtime_type_checking
+
+// Cloud Development Kit for Terraform
+package cdktf
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_ComplexMap) validateResolveParameters(_context IResolveContext) error {
+	return nil
+}
+
+func (j *jsiiProxy_ComplexMap) validateSetTerraformAttributeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_ComplexMap) validateSetTerraformResourceParameters(val IInterpolatingParent) error {
+	return nil
+}
+
+func validateNewComplexMapParameters(terraformResource IInterpolatingParent, terraformAttribute *string) error {
+	return nil
+}
+

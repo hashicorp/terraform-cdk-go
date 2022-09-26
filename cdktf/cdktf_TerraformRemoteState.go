@@ -152,6 +152,9 @@ func NewTerraformRemoteState_Override(t TerraformRemoteState, scope constructs.C
 func TerraformRemoteState_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformRemoteState_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -176,6 +179,9 @@ func TerraformRemoteState_TfResourceType() *string {
 }
 
 func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -184,6 +190,9 @@ func (t *jsiiProxy_TerraformRemoteState) AddOverride(path *string, value interfa
 }
 
 func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
+	if err := t.validateGetParameters(output); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -197,6 +206,9 @@ func (t *jsiiProxy_TerraformRemoteState) Get(output *string) IResolvable {
 }
 
 func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) IResolvable {
+	if err := t.validateGetBooleanParameters(output); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -210,6 +222,9 @@ func (t *jsiiProxy_TerraformRemoteState) GetBoolean(output *string) IResolvable 
 }
 
 func (t *jsiiProxy_TerraformRemoteState) GetList(output *string) *[]*string {
+	if err := t.validateGetListParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -223,6 +238,9 @@ func (t *jsiiProxy_TerraformRemoteState) GetList(output *string) *[]*string {
 }
 
 func (t *jsiiProxy_TerraformRemoteState) GetNumber(output *string) *float64 {
+	if err := t.validateGetNumberParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -236,6 +254,9 @@ func (t *jsiiProxy_TerraformRemoteState) GetNumber(output *string) *float64 {
 }
 
 func (t *jsiiProxy_TerraformRemoteState) GetString(output *string) *string {
+	if err := t.validateGetStringParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -249,6 +270,9 @@ func (t *jsiiProxy_TerraformRemoteState) GetString(output *string) *string {
 }
 
 func (t *jsiiProxy_TerraformRemoteState) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

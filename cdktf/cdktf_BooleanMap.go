@@ -90,6 +90,9 @@ func (j *jsiiProxy_BooleanMap) TerraformResource() IInterpolatingParent {
 func NewBooleanMap(terraformResource IInterpolatingParent, terraformAttribute *string) BooleanMap {
 	_init_.Initialize()
 
+	if err := validateNewBooleanMapParameters(terraformResource, terraformAttribute); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BooleanMap{}
 
 	_jsii_.Create(
@@ -112,7 +115,10 @@ func NewBooleanMap_Override(b BooleanMap, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_BooleanMap) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_BooleanMap)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -120,7 +126,10 @@ func (j *jsiiProxy_BooleanMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_BooleanMap) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_BooleanMap)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -142,6 +151,9 @@ func (b *jsiiProxy_BooleanMap) ComputeFqn() *string {
 }
 
 func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
+	if err := b.validateLookupParameters(key); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -155,6 +167,9 @@ func (b *jsiiProxy_BooleanMap) Lookup(key *string) IResolvable {
 }
 
 func (b *jsiiProxy_BooleanMap) Resolve(_context IResolveContext) interface{} {
+	if err := b.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

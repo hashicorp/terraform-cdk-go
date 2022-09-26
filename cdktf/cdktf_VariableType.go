@@ -30,6 +30,9 @@ func NewVariableType_Override(v VariableType) {
 func VariableType_List(type_ *string) *string {
 	_init_.Initialize()
 
+	if err := validateVariableType_ListParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -46,6 +49,9 @@ func VariableType_List(type_ *string) *string {
 func VariableType_Map(type_ *string) *string {
 	_init_.Initialize()
 
+	if err := validateVariableType_MapParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -62,6 +68,9 @@ func VariableType_Map(type_ *string) *string {
 func VariableType_Object(attributes *map[string]*string) *string {
 	_init_.Initialize()
 
+	if err := validateVariableType_ObjectParameters(attributes); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -78,6 +87,9 @@ func VariableType_Object(attributes *map[string]*string) *string {
 func VariableType_Set(type_ *string) *string {
 	_init_.Initialize()
 
+	if err := validateVariableType_SetParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

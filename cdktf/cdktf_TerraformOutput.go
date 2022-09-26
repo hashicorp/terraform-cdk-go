@@ -183,6 +183,9 @@ func (j *jsiiProxy_TerraformOutput) Value() interface{} {
 func NewTerraformOutput(scope constructs.Construct, id *string, config *TerraformOutputConfig) TerraformOutput {
 	_init_.Initialize()
 
+	if err := validateNewTerraformOutputParameters(scope, id, config); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformOutput{}
 
 	_jsii_.Create(
@@ -205,7 +208,7 @@ func NewTerraformOutput_Override(t TerraformOutput, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_TerraformOutput) SetDependsOn(val *[]ITerraformDependable) {
+func (j *jsiiProxy_TerraformOutput)SetDependsOn(val *[]ITerraformDependable) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
@@ -213,7 +216,7 @@ func (j *jsiiProxy_TerraformOutput) SetDependsOn(val *[]ITerraformDependable) {
 	)
 }
 
-func (j *jsiiProxy_TerraformOutput) SetDescription(val *string) {
+func (j *jsiiProxy_TerraformOutput)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -221,7 +224,7 @@ func (j *jsiiProxy_TerraformOutput) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_TerraformOutput) SetSensitive(val *bool) {
+func (j *jsiiProxy_TerraformOutput)SetSensitive(val *bool) {
 	_jsii_.Set(
 		j,
 		"sensitive",
@@ -229,7 +232,10 @@ func (j *jsiiProxy_TerraformOutput) SetSensitive(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_TerraformOutput) SetStaticId(val *bool) {
+func (j *jsiiProxy_TerraformOutput)SetStaticId(val *bool) {
+	if err := j.validateSetStaticIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"staticId",
@@ -237,7 +243,10 @@ func (j *jsiiProxy_TerraformOutput) SetStaticId(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_TerraformOutput) SetValue(val interface{}) {
+func (j *jsiiProxy_TerraformOutput)SetValue(val interface{}) {
+	if err := j.validateSetValueParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"value",
@@ -266,6 +275,9 @@ func (j *jsiiProxy_TerraformOutput) SetValue(val interface{}) {
 func TerraformOutput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformOutput_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -282,6 +294,9 @@ func TerraformOutput_IsConstruct(x interface{}) *bool {
 func TerraformOutput_IsTerrafromOutput(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformOutput_IsTerrafromOutputParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -295,6 +310,9 @@ func TerraformOutput_IsTerrafromOutput(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -303,6 +321,9 @@ func (t *jsiiProxy_TerraformOutput) AddOverride(path *string, value interface{})
 }
 
 func (t *jsiiProxy_TerraformOutput) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",

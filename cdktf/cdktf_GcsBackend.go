@@ -129,6 +129,9 @@ func (j *jsiiProxy_GcsBackend) RawOverrides() interface{} {
 func NewGcsBackend(scope constructs.Construct, props *GcsBackendProps) GcsBackend {
 	_init_.Initialize()
 
+	if err := validateNewGcsBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GcsBackend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewGcsBackend_Override(g GcsBackend, scope constructs.Construct, props *Gcs
 func GcsBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGcsBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func GcsBackend_IsBackend(x interface{}) *bool {
 func GcsBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGcsBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func GcsBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
+	if err := g.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addOverride",
@@ -209,6 +221,9 @@ func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 }
 
 func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := g.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (g *jsiiProxy_GcsBackend) GetRemoteStateDataSource(scope constructs.Constru
 }
 
 func (g *jsiiProxy_GcsBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := g.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"overrideLogicalId",

@@ -108,6 +108,9 @@ func (j *jsiiProxy_NumberMapList) WrapsSet() *bool {
 func NewNumberMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) NumberMapList {
 	_init_.Initialize()
 
+	if err := validateNewNumberMapListParameters(terraformResource, terraformAttribute, wrapsSet); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NumberMapList{}
 
 	_jsii_.Create(
@@ -130,7 +133,10 @@ func NewNumberMapList_Override(n NumberMapList, terraformResource IInterpolating
 	)
 }
 
-func (j *jsiiProxy_NumberMapList) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_NumberMapList)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -138,7 +144,10 @@ func (j *jsiiProxy_NumberMapList) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_NumberMapList) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_NumberMapList)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -146,7 +155,10 @@ func (j *jsiiProxy_NumberMapList) SetTerraformResource(val IInterpolatingParent)
 	)
 }
 
-func (j *jsiiProxy_NumberMapList) SetWrapsSet(val *bool) {
+func (j *jsiiProxy_NumberMapList)SetWrapsSet(val *bool) {
+	if err := j.validateSetWrapsSetParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"wrapsSet",
@@ -168,6 +180,9 @@ func (n *jsiiProxy_NumberMapList) ComputeFqn() *string {
 }
 
 func (n *jsiiProxy_NumberMapList) Get(index *float64) NumberMap {
+	if err := n.validateGetParameters(index); err != nil {
+		panic(err)
+	}
 	var returns NumberMap
 
 	_jsii_.Invoke(
@@ -181,6 +196,9 @@ func (n *jsiiProxy_NumberMapList) Get(index *float64) NumberMap {
 }
 
 func (n *jsiiProxy_NumberMapList) InterpolationForAttribute(property *string) IResolvable {
+	if err := n.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -194,6 +212,9 @@ func (n *jsiiProxy_NumberMapList) InterpolationForAttribute(property *string) IR
 }
 
 func (n *jsiiProxy_NumberMapList) Resolve(_context IResolveContext) interface{} {
+	if err := n.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

@@ -40,6 +40,9 @@ type jsiiProxy_IResolveContext struct {
 }
 
 func (i *jsiiProxy_IResolveContext) RegisterPostProcessor(postProcessor IPostProcessor) {
+	if err := i.validateRegisterPostProcessorParameters(postProcessor); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerPostProcessor",
@@ -48,6 +51,9 @@ func (i *jsiiProxy_IResolveContext) RegisterPostProcessor(postProcessor IPostPro
 }
 
 func (i *jsiiProxy_IResolveContext) Resolve(x interface{}) interface{} {
+	if err := i.validateResolveParameters(x); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -70,7 +76,7 @@ func (j *jsiiProxy_IResolveContext) IteratorContext() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IResolveContext) SetIteratorContext(val *string) {
+func (j *jsiiProxy_IResolveContext)SetIteratorContext(val *string) {
 	_jsii_.Set(
 		j,
 		"iteratorContext",
@@ -108,7 +114,7 @@ func (j *jsiiProxy_IResolveContext) SuppressBraces() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_IResolveContext) SetSuppressBraces(val *bool) {
+func (j *jsiiProxy_IResolveContext)SetSuppressBraces(val *bool) {
 	_jsii_.Set(
 		j,
 		"suppressBraces",

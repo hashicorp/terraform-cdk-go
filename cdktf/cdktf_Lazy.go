@@ -50,6 +50,9 @@ func NewLazy_Override(l Lazy) {
 func Lazy_AnyValue(producer IAnyProducer, options *LazyAnyValueOptions) IResolvable {
 	_init_.Initialize()
 
+	if err := validateLazy_AnyValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -67,6 +70,9 @@ func Lazy_AnyValue(producer IAnyProducer, options *LazyAnyValueOptions) IResolva
 func Lazy_ListValue(producer IListProducer, options *LazyListValueOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateLazy_ListValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -84,6 +90,9 @@ func Lazy_ListValue(producer IListProducer, options *LazyListValueOptions) *[]*s
 func Lazy_NumberValue(producer INumberProducer) *float64 {
 	_init_.Initialize()
 
+	if err := validateLazy_NumberValueParameters(producer); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -101,6 +110,9 @@ func Lazy_NumberValue(producer INumberProducer) *float64 {
 func Lazy_StringValue(producer IStringProducer, options *LazyStringValueOptions) *string {
 	_init_.Initialize()
 
+	if err := validateLazy_StringValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

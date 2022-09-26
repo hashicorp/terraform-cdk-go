@@ -129,6 +129,9 @@ func (j *jsiiProxy_ArtifactoryBackend) RawOverrides() interface{} {
 func NewArtifactoryBackend(scope constructs.Construct, props *ArtifactoryBackendProps) ArtifactoryBackend {
 	_init_.Initialize()
 
+	if err := validateNewArtifactoryBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ArtifactoryBackend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewArtifactoryBackend_Override(a ArtifactoryBackend, scope constructs.Const
 func ArtifactoryBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateArtifactoryBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func ArtifactoryBackend_IsBackend(x interface{}) *bool {
 func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateArtifactoryBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface{}) {
+	if err := a.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addOverride",
@@ -209,6 +221,9 @@ func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface
 }
 
 func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := a.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (a *jsiiProxy_ArtifactoryBackend) GetRemoteStateDataSource(scope constructs
 }
 
 func (a *jsiiProxy_ArtifactoryBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := a.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"overrideLogicalId",

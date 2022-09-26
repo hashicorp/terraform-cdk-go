@@ -82,6 +82,9 @@ func (j *jsiiProxy_MapTerraformIterator) Value() interface{} {
 func NewMapTerraformIterator(map_ interface{}) MapTerraformIterator {
 	_init_.Initialize()
 
+	if err := validateNewMapTerraformIteratorParameters(map_); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MapTerraformIterator{}
 
 	_jsii_.Create(
@@ -109,6 +112,9 @@ func NewMapTerraformIterator_Override(m MapTerraformIterator, map_ interface{}) 
 func MapTerraformIterator_FromList(list interface{}) ListTerraformIterator {
 	_init_.Initialize()
 
+	if err := validateMapTerraformIterator_FromListParameters(list); err != nil {
+		panic(err)
+	}
 	var returns ListTerraformIterator
 
 	_jsii_.StaticInvoke(
@@ -126,6 +132,9 @@ func MapTerraformIterator_FromList(list interface{}) ListTerraformIterator {
 func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 	_init_.Initialize()
 
+	if err := validateMapTerraformIterator_FromMapParameters(map_); err != nil {
+		panic(err)
+	}
 	var returns MapTerraformIterator
 
 	_jsii_.StaticInvoke(
@@ -139,6 +148,9 @@ func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 }
 
 func (m *jsiiProxy_MapTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
+	if err := m.validateDynamicParameters(attributes); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -152,6 +164,9 @@ func (m *jsiiProxy_MapTerraformIterator) Dynamic(attributes *map[string]interfac
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetAny(attribute *string) IResolvable {
+	if err := m.validateGetAnyParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -165,6 +180,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetAny(attribute *string) IResolvable {
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
+	if err := m.validateGetAnyMapParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -178,6 +196,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetAnyMap(attribute *string) *map[strin
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetBoolean(attribute *string) IResolvable {
+	if err := m.validateGetBooleanParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -191,6 +212,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetBoolean(attribute *string) IResolvab
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
+	if err := m.validateGetBooleanMapParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*bool
 
 	_jsii_.Invoke(
@@ -204,6 +228,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetBooleanMap(attribute *string) *map[s
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetList(attribute *string) *[]*string {
+	if err := m.validateGetListParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -217,6 +244,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetList(attribute *string) *[]*string {
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetMap(attribute *string) *map[string]interface{} {
+	if err := m.validateGetMapParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -230,6 +260,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetMap(attribute *string) *map[string]i
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetNumber(attribute *string) *float64 {
+	if err := m.validateGetNumberParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -243,6 +276,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumber(attribute *string) *float64 {
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetNumberList(attribute *string) *[]*float64 {
+	if err := m.validateGetNumberListParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*float64
 
 	_jsii_.Invoke(
@@ -256,6 +292,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumberList(attribute *string) *[]*fl
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
+	if err := m.validateGetNumberMapParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*float64
 
 	_jsii_.Invoke(
@@ -269,6 +308,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumberMap(attribute *string) *map[st
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetString(attribute *string) *string {
+	if err := m.validateGetStringParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -282,6 +324,9 @@ func (m *jsiiProxy_MapTerraformIterator) GetString(attribute *string) *string {
 }
 
 func (m *jsiiProxy_MapTerraformIterator) GetStringMap(attribute *string) *map[string]*string {
+	if err := m.validateGetStringMapParameters(attribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.Invoke(

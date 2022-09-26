@@ -108,6 +108,9 @@ func (j *jsiiProxy_BooleanMapList) WrapsSet() *bool {
 func NewBooleanMapList(terraformResource IInterpolatingParent, terraformAttribute *string, wrapsSet *bool) BooleanMapList {
 	_init_.Initialize()
 
+	if err := validateNewBooleanMapListParameters(terraformResource, terraformAttribute, wrapsSet); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BooleanMapList{}
 
 	_jsii_.Create(
@@ -130,7 +133,10 @@ func NewBooleanMapList_Override(b BooleanMapList, terraformResource IInterpolati
 	)
 }
 
-func (j *jsiiProxy_BooleanMapList) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_BooleanMapList)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -138,7 +144,10 @@ func (j *jsiiProxy_BooleanMapList) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_BooleanMapList) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_BooleanMapList)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -146,7 +155,10 @@ func (j *jsiiProxy_BooleanMapList) SetTerraformResource(val IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_BooleanMapList) SetWrapsSet(val *bool) {
+func (j *jsiiProxy_BooleanMapList)SetWrapsSet(val *bool) {
+	if err := j.validateSetWrapsSetParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"wrapsSet",
@@ -168,6 +180,9 @@ func (b *jsiiProxy_BooleanMapList) ComputeFqn() *string {
 }
 
 func (b *jsiiProxy_BooleanMapList) Get(index *float64) BooleanMap {
+	if err := b.validateGetParameters(index); err != nil {
+		panic(err)
+	}
 	var returns BooleanMap
 
 	_jsii_.Invoke(
@@ -181,6 +196,9 @@ func (b *jsiiProxy_BooleanMapList) Get(index *float64) BooleanMap {
 }
 
 func (b *jsiiProxy_BooleanMapList) InterpolationForAttribute(property *string) IResolvable {
+	if err := b.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -194,6 +212,9 @@ func (b *jsiiProxy_BooleanMapList) InterpolationForAttribute(property *string) I
 }
 
 func (b *jsiiProxy_BooleanMapList) Resolve(_context IResolveContext) interface{} {
+	if err := b.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

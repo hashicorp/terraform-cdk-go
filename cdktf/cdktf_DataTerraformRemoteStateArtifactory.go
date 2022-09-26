@@ -122,6 +122,9 @@ func (j *jsiiProxy_DataTerraformRemoteStateArtifactory) RawOverrides() interface
 func NewDataTerraformRemoteStateArtifactory(scope constructs.Construct, id *string, config *DataTerraformRemoteStateArtifactoryConfig) DataTerraformRemoteStateArtifactory {
 	_init_.Initialize()
 
+	if err := validateNewDataTerraformRemoteStateArtifactoryParameters(scope, id, config); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DataTerraformRemoteStateArtifactory{}
 
 	_jsii_.Create(
@@ -165,6 +168,9 @@ func NewDataTerraformRemoteStateArtifactory_Override(d DataTerraformRemoteStateA
 func DataTerraformRemoteStateArtifactory_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDataTerraformRemoteStateArtifactory_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -189,6 +195,9 @@ func DataTerraformRemoteStateArtifactory_TfResourceType() *string {
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string, value interface{}) {
+	if err := d.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addOverride",
@@ -197,6 +206,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) AddOverride(path *string
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IResolvable {
+	if err := d.validateGetParameters(output); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -210,6 +222,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) Get(output *string) IRes
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *string) IResolvable {
+	if err := d.validateGetBooleanParameters(output); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -223,6 +238,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetBoolean(output *strin
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetList(output *string) *[]*string {
+	if err := d.validateGetListParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -236,6 +254,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetList(output *string) 
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetNumber(output *string) *float64 {
+	if err := d.validateGetNumberParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -249,6 +270,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetNumber(output *string
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetString(output *string) *string {
+	if err := d.validateGetStringParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -262,6 +286,9 @@ func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) GetString(output *string
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateArtifactory) OverrideLogicalId(newLogicalId *string) {
+	if err := d.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"overrideLogicalId",

@@ -217,6 +217,9 @@ func (j *jsiiProxy_TerraformHclModule) Version() *string {
 func NewTerraformHclModule(scope constructs.Construct, id *string, options *TerraformHclModuleOptions) TerraformHclModule {
 	_init_.Initialize()
 
+	if err := validateNewTerraformHclModuleParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TerraformHclModule{}
 
 	_jsii_.Create(
@@ -239,7 +242,7 @@ func NewTerraformHclModule_Override(t TerraformHclModule, scope constructs.Const
 	)
 }
 
-func (j *jsiiProxy_TerraformHclModule) SetDependsOn(val *[]*string) {
+func (j *jsiiProxy_TerraformHclModule)SetDependsOn(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dependsOn",
@@ -247,7 +250,7 @@ func (j *jsiiProxy_TerraformHclModule) SetDependsOn(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_TerraformHclModule) SetForEach(val ITerraformIterator) {
+func (j *jsiiProxy_TerraformHclModule)SetForEach(val ITerraformIterator) {
 	_jsii_.Set(
 		j,
 		"forEach",
@@ -276,6 +279,9 @@ func (j *jsiiProxy_TerraformHclModule) SetForEach(val ITerraformIterator) {
 func TerraformHclModule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTerraformHclModule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -289,6 +295,9 @@ func TerraformHclModule_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TerraformHclModule) AddOverride(path *string, value interface{}) {
+	if err := t.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addOverride",
@@ -297,6 +306,9 @@ func (t *jsiiProxy_TerraformHclModule) AddOverride(path *string, value interface
 }
 
 func (t *jsiiProxy_TerraformHclModule) AddProvider(provider interface{}) {
+	if err := t.validateAddProviderParameters(provider); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addProvider",
@@ -305,6 +317,9 @@ func (t *jsiiProxy_TerraformHclModule) AddProvider(provider interface{}) {
 }
 
 func (t *jsiiProxy_TerraformHclModule) Get(output *string) interface{} {
+	if err := t.validateGetParameters(output); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -318,6 +333,9 @@ func (t *jsiiProxy_TerraformHclModule) Get(output *string) interface{} {
 }
 
 func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) IResolvable {
+	if err := t.validateGetBooleanParameters(output); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -331,6 +349,9 @@ func (t *jsiiProxy_TerraformHclModule) GetBoolean(output *string) IResolvable {
 }
 
 func (t *jsiiProxy_TerraformHclModule) GetList(output *string) *[]*string {
+	if err := t.validateGetListParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -344,6 +365,9 @@ func (t *jsiiProxy_TerraformHclModule) GetList(output *string) *[]*string {
 }
 
 func (t *jsiiProxy_TerraformHclModule) GetNumber(output *string) *float64 {
+	if err := t.validateGetNumberParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -357,6 +381,9 @@ func (t *jsiiProxy_TerraformHclModule) GetNumber(output *string) *float64 {
 }
 
 func (t *jsiiProxy_TerraformHclModule) GetString(output *string) *string {
+	if err := t.validateGetStringParameters(output); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +397,9 @@ func (t *jsiiProxy_TerraformHclModule) GetString(output *string) *string {
 }
 
 func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *string) IResolvable {
+	if err := t.validateInterpolationForOutputParameters(moduleOutput); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -383,6 +413,9 @@ func (t *jsiiProxy_TerraformHclModule) InterpolationForOutput(moduleOutput *stri
 }
 
 func (t *jsiiProxy_TerraformHclModule) OverrideLogicalId(newLogicalId *string) {
+	if err := t.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"overrideLogicalId",
@@ -399,6 +432,9 @@ func (t *jsiiProxy_TerraformHclModule) ResetOverrideLogicalId() {
 }
 
 func (t *jsiiProxy_TerraformHclModule) Set(variable *string, value interface{}) {
+	if err := t.validateSetParameters(variable, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"set",

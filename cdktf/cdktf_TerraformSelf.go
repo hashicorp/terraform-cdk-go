@@ -53,6 +53,9 @@ func NewTerraformSelf_Override(t TerraformSelf) {
 func TerraformSelf_GetAny(key *string) interface{} {
 	_init_.Initialize()
 
+	if err := validateTerraformSelf_GetAnyParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -72,6 +75,9 @@ func TerraformSelf_GetAny(key *string) interface{} {
 func TerraformSelf_GetNumber(key *string) *float64 {
 	_init_.Initialize()
 
+	if err := validateTerraformSelf_GetNumberParameters(key); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func TerraformSelf_GetNumber(key *string) *float64 {
 func TerraformSelf_GetString(key *string) *string {
 	_init_.Initialize()
 
+	if err := validateTerraformSelf_GetStringParameters(key); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

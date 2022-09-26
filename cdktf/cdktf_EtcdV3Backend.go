@@ -129,6 +129,9 @@ func (j *jsiiProxy_EtcdV3Backend) RawOverrides() interface{} {
 func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendProps) EtcdV3Backend {
 	_init_.Initialize()
 
+	if err := validateNewEtcdV3BackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EtcdV3Backend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, prop
 func EtcdV3Backend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEtcdV3Backend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func EtcdV3Backend_IsBackend(x interface{}) *bool {
 func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEtcdV3Backend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 }
 
 func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
+	if err := e.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addOverride",
@@ -209,6 +221,9 @@ func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 }
 
 func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := e.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (e *jsiiProxy_EtcdV3Backend) GetRemoteStateDataSource(scope constructs.Cons
 }
 
 func (e *jsiiProxy_EtcdV3Backend) OverrideLogicalId(newLogicalId *string) {
+	if err := e.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"overrideLogicalId",

@@ -95,7 +95,10 @@ func NewComplexMap_Override(c ComplexMap, terraformResource IInterpolatingParent
 	)
 }
 
-func (j *jsiiProxy_ComplexMap) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_ComplexMap)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -103,7 +106,10 @@ func (j *jsiiProxy_ComplexMap) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ComplexMap) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_ComplexMap)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -125,6 +131,9 @@ func (c *jsiiProxy_ComplexMap) ComputeFqn() *string {
 }
 
 func (c *jsiiProxy_ComplexMap) Resolve(_context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

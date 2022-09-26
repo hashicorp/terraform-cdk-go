@@ -142,6 +142,9 @@ func (j *jsiiProxy_ComplexObject) TerraformResource() IInterpolatingParent {
 func NewComplexObject(terraformResource IInterpolatingParent, terraformAttribute *string, complexObjectIsFromSet *bool, complexObjectIndex interface{}) ComplexObject {
 	_init_.Initialize()
 
+	if err := validateNewComplexObjectParameters(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ComplexObject{}
 
 	_jsii_.Create(
@@ -164,7 +167,10 @@ func NewComplexObject_Override(c ComplexObject, terraformResource IInterpolating
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetComplexObjectIndex(val interface{}) {
+func (j *jsiiProxy_ComplexObject)SetComplexObjectIndex(val interface{}) {
+	if err := j.validateSetComplexObjectIndexParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"complexObjectIndex",
@@ -172,7 +178,10 @@ func (j *jsiiProxy_ComplexObject) SetComplexObjectIndex(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetComplexObjectIsFromSet(val *bool) {
+func (j *jsiiProxy_ComplexObject)SetComplexObjectIsFromSet(val *bool) {
+	if err := j.validateSetComplexObjectIsFromSetParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"complexObjectIsFromSet",
@@ -180,7 +189,10 @@ func (j *jsiiProxy_ComplexObject) SetComplexObjectIsFromSet(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetTerraformAttribute(val *string) {
+func (j *jsiiProxy_ComplexObject)SetTerraformAttribute(val *string) {
+	if err := j.validateSetTerraformAttributeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformAttribute",
@@ -188,7 +200,10 @@ func (j *jsiiProxy_ComplexObject) SetTerraformAttribute(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ComplexObject) SetTerraformResource(val IInterpolatingParent) {
+func (j *jsiiProxy_ComplexObject)SetTerraformResource(val IInterpolatingParent) {
+	if err := j.validateSetTerraformResourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"terraformResource",
@@ -210,6 +225,9 @@ func (c *jsiiProxy_ComplexObject) ComputeFqn() *string {
 }
 
 func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string) *map[string]interface{} {
+	if err := c.validateGetAnyMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -223,6 +241,9 @@ func (c *jsiiProxy_ComplexObject) GetAnyMapAttribute(terraformAttribute *string)
 }
 
 func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string) IResolvable {
+	if err := c.validateGetBooleanAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -236,6 +257,9 @@ func (c *jsiiProxy_ComplexObject) GetBooleanAttribute(terraformAttribute *string
 }
 
 func (c *jsiiProxy_ComplexObject) GetBooleanMapAttribute(terraformAttribute *string) *map[string]*bool {
+	if err := c.validateGetBooleanMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*bool
 
 	_jsii_.Invoke(
@@ -249,6 +273,9 @@ func (c *jsiiProxy_ComplexObject) GetBooleanMapAttribute(terraformAttribute *str
 }
 
 func (c *jsiiProxy_ComplexObject) GetListAttribute(terraformAttribute *string) *[]*string {
+	if err := c.validateGetListAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -262,6 +289,9 @@ func (c *jsiiProxy_ComplexObject) GetListAttribute(terraformAttribute *string) *
 }
 
 func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string) *float64 {
+	if err := c.validateGetNumberAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -275,6 +305,9 @@ func (c *jsiiProxy_ComplexObject) GetNumberAttribute(terraformAttribute *string)
 }
 
 func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *string) *[]*float64 {
+	if err := c.validateGetNumberListAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*float64
 
 	_jsii_.Invoke(
@@ -288,6 +321,9 @@ func (c *jsiiProxy_ComplexObject) GetNumberListAttribute(terraformAttribute *str
 }
 
 func (c *jsiiProxy_ComplexObject) GetNumberMapAttribute(terraformAttribute *string) *map[string]*float64 {
+	if err := c.validateGetNumberMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*float64
 
 	_jsii_.Invoke(
@@ -301,6 +337,9 @@ func (c *jsiiProxy_ComplexObject) GetNumberMapAttribute(terraformAttribute *stri
 }
 
 func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string) *string {
+	if err := c.validateGetStringAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -314,6 +353,9 @@ func (c *jsiiProxy_ComplexObject) GetStringAttribute(terraformAttribute *string)
 }
 
 func (c *jsiiProxy_ComplexObject) GetStringMapAttribute(terraformAttribute *string) *map[string]*string {
+	if err := c.validateGetStringMapAttributeParameters(terraformAttribute); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.Invoke(
@@ -340,6 +382,9 @@ func (c *jsiiProxy_ComplexObject) InterpolationAsList() IResolvable {
 }
 
 func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IResolvable {
+	if err := c.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -353,6 +398,9 @@ func (c *jsiiProxy_ComplexObject) InterpolationForAttribute(property *string) IR
 }
 
 func (c *jsiiProxy_ComplexObject) Resolve(_context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

@@ -84,6 +84,9 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string) {
 func Resource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

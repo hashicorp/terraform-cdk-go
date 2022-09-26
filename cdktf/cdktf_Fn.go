@@ -46,6 +46,9 @@ func NewFn_Override(f Fn) {
 func Fn_Abs(value *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_AbsParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -63,6 +66,9 @@ func Fn_Abs(value *float64) *float64 {
 func Fn_Abspath(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_AbspathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -80,6 +86,9 @@ func Fn_Abspath(value *string) *string {
 func Fn_Alltrue(values *[]interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_AlltrueParameters(values); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -97,6 +106,9 @@ func Fn_Alltrue(values *[]interface{}) IResolvable {
 func Fn_Anytrue(value *[]interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_AnytrueParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -114,6 +126,9 @@ func Fn_Anytrue(value *[]interface{}) IResolvable {
 func Fn_Base64decode(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64decodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -131,6 +146,9 @@ func Fn_Base64decode(value *string) *string {
 func Fn_Base64encode(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64encodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -148,6 +166,9 @@ func Fn_Base64encode(value *string) *string {
 func Fn_Base64gzip(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64gzipParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -165,6 +186,9 @@ func Fn_Base64gzip(value *string) *string {
 func Fn_Base64sha256(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64sha256Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -182,6 +206,9 @@ func Fn_Base64sha256(value *string) *string {
 func Fn_Base64sha512(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64sha512Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -199,6 +226,9 @@ func Fn_Base64sha512(value *string) *string {
 func Fn_Basename(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_BasenameParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -216,6 +246,9 @@ func Fn_Basename(value *string) *string {
 func Fn_Bcrypt(value *string, cost *float64) *string {
 	_init_.Initialize()
 
+	if err := validateFn_BcryptParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -233,6 +266,9 @@ func Fn_Bcrypt(value *string, cost *float64) *string {
 func Fn_Can(expression interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_CanParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -250,6 +286,9 @@ func Fn_Can(expression interface{}) IResolvable {
 func Fn_Ceil(value *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_CeilParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -267,6 +306,9 @@ func Fn_Ceil(value *float64) *float64 {
 func Fn_Chomp(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_ChompParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -284,6 +326,9 @@ func Fn_Chomp(value *string) *string {
 func Fn_Chunklist(value *[]interface{}, chunkSize *float64) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ChunklistParameters(value, chunkSize); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -301,6 +346,9 @@ func Fn_Chunklist(value *[]interface{}, chunkSize *float64) *[]*string {
 func Fn_Cidrhost(prefix *string, hostnum *float64) *string {
 	_init_.Initialize()
 
+	if err := validateFn_CidrhostParameters(prefix, hostnum); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -318,6 +366,9 @@ func Fn_Cidrhost(prefix *string, hostnum *float64) *string {
 func Fn_Cidrnetmask(prefix *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_CidrnetmaskParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -335,6 +386,9 @@ func Fn_Cidrnetmask(prefix *string) *string {
 func Fn_Cidrsubnet(prefix *string, newbits *float64, netnum *float64) *string {
 	_init_.Initialize()
 
+	if err := validateFn_CidrsubnetParameters(prefix, newbits, netnum); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -352,6 +406,9 @@ func Fn_Cidrsubnet(prefix *string, newbits *float64, netnum *float64) *string {
 func Fn_Cidrsubnets(prefix *string, newbits *[]*float64) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_CidrsubnetsParameters(prefix, newbits); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -369,6 +426,9 @@ func Fn_Cidrsubnets(prefix *string, newbits *[]*float64) *[]*string {
 func Fn_Coalesce(value *[]interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_CoalesceParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -386,6 +446,9 @@ func Fn_Coalesce(value *[]interface{}) IResolvable {
 func Fn_Coalescelist(value *[]*[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_CoalescelistParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -403,6 +466,9 @@ func Fn_Coalescelist(value *[]*[]interface{}) *[]*string {
 func Fn_Compact(value *[]*string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_CompactParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -420,6 +486,9 @@ func Fn_Compact(value *[]*string) *[]*string {
 func Fn_Concat(value *[]*[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ConcatParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -437,6 +506,9 @@ func Fn_Concat(value *[]*[]interface{}) *[]*string {
 func Fn_Contains(list interface{}, value interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_ContainsParameters(list, value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -454,6 +526,9 @@ func Fn_Contains(list interface{}, value interface{}) IResolvable {
 func Fn_Csvdecode(value *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_CsvdecodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -471,6 +546,9 @@ func Fn_Csvdecode(value *string) *[]*string {
 func Fn_Dirname(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_DirnameParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -488,6 +566,9 @@ func Fn_Dirname(value *string) *string {
 func Fn_Distinct(list interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_DistinctParameters(list); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -505,6 +586,9 @@ func Fn_Distinct(list interface{}) *[]*string {
 func Fn_Element(list interface{}, index *float64) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_ElementParameters(list, index); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -522,6 +606,9 @@ func Fn_Element(list interface{}, index *float64) interface{} {
 func Fn_File(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_FileParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -539,6 +626,9 @@ func Fn_File(value *string) *string {
 func Fn_Filebase64(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filebase64Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -556,6 +646,9 @@ func Fn_Filebase64(value *string) *string {
 func Fn_Filebase64sha256(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filebase64sha256Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -573,6 +666,9 @@ func Fn_Filebase64sha256(value *string) *string {
 func Fn_Filebase64sha512(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filebase64sha512Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -590,6 +686,9 @@ func Fn_Filebase64sha512(value *string) *string {
 func Fn_Fileexists(value *string) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_FileexistsParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -607,6 +706,9 @@ func Fn_Fileexists(value *string) IResolvable {
 func Fn_Filemd5(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filemd5Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -624,6 +726,9 @@ func Fn_Filemd5(value *string) *string {
 func Fn_Fileset(path *string, pattern *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_FilesetParameters(path, pattern); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -641,6 +746,9 @@ func Fn_Fileset(path *string, pattern *string) *[]*string {
 func Fn_Filesha1(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filesha1Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -658,6 +766,9 @@ func Fn_Filesha1(value *string) *string {
 func Fn_Filesha256(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filesha256Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -675,6 +786,9 @@ func Fn_Filesha256(value *string) *string {
 func Fn_Filesha512(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Filesha512Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -692,6 +806,9 @@ func Fn_Filesha512(value *string) *string {
 func Fn_Flatten(list interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_FlattenParameters(list); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -709,6 +826,9 @@ func Fn_Flatten(list interface{}) *[]*string {
 func Fn_Floor(value *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_FloorParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -726,6 +846,9 @@ func Fn_Floor(value *float64) *float64 {
 func Fn_Format(spec *string, values *[]interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateFn_FormatParameters(spec, values); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -743,6 +866,9 @@ func Fn_Format(spec *string, values *[]interface{}) *string {
 func Fn_Formatdate(spec *string, timestamp *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_FormatdateParameters(spec, timestamp); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -760,6 +886,9 @@ func Fn_Formatdate(spec *string, timestamp *string) *string {
 func Fn_Formatlist(spec *string, values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_FormatlistParameters(spec, values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -777,6 +906,9 @@ func Fn_Formatlist(spec *string, values *[]interface{}) *[]*string {
 func Fn_Indent(indentation *float64, value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_IndentParameters(indentation, value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -794,6 +926,9 @@ func Fn_Indent(indentation *float64, value *string) *string {
 func Fn_Index(list interface{}, value interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_IndexParameters(list, value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -811,6 +946,9 @@ func Fn_Index(list interface{}, value interface{}) *float64 {
 func Fn_Join(separator *string, value *[]*string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_JoinParameters(separator, value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -828,6 +966,9 @@ func Fn_Join(separator *string, value *[]*string) *string {
 func Fn_Jsondecode(value *string) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_JsondecodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -845,6 +986,9 @@ func Fn_Jsondecode(value *string) interface{} {
 func Fn_Jsonencode(value interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateFn_JsonencodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -862,6 +1006,9 @@ func Fn_Jsonencode(value interface{}) *string {
 func Fn_Keys(map_ interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_KeysParameters(map_); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -879,6 +1026,9 @@ func Fn_Keys(map_ interface{}) *[]*string {
 func Fn_LengthOf(value interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_LengthOfParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -896,6 +1046,9 @@ func Fn_LengthOf(value interface{}) *float64 {
 func Fn_Log(value *float64, base *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_LogParameters(value, base); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -913,6 +1066,9 @@ func Fn_Log(value *float64, base *float64) *float64 {
 func Fn_Lookup(value interface{}, key interface{}, defaultValue interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_LookupParameters(value, key, defaultValue); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -930,6 +1086,9 @@ func Fn_Lookup(value interface{}, key interface{}, defaultValue interface{}) int
 func Fn_Lower(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_LowerParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -947,6 +1106,9 @@ func Fn_Lower(value *string) *string {
 func Fn_Matchkeys(valuesList interface{}, keysList interface{}, searchSet interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_MatchkeysParameters(valuesList, keysList, searchSet); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -964,6 +1126,9 @@ func Fn_Matchkeys(valuesList interface{}, keysList interface{}, searchSet interf
 func Fn_Max(values *[]*float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_MaxParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -981,6 +1146,9 @@ func Fn_Max(values *[]*float64) *float64 {
 func Fn_Md5(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Md5Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -998,6 +1166,9 @@ func Fn_Md5(value *string) *string {
 func Fn_MergeLists(values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_MergeListsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1015,6 +1186,9 @@ func Fn_MergeLists(values *[]interface{}) *[]*string {
 func Fn_MergeMaps(values *[]interface{}) *map[string]*string {
 	_init_.Initialize()
 
+	if err := validateFn_MergeMapsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(
@@ -1032,6 +1206,9 @@ func Fn_MergeMaps(values *[]interface{}) *map[string]*string {
 func Fn_Min(values *[]*float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_MinParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1049,6 +1226,9 @@ func Fn_Min(values *[]*float64) *float64 {
 func Fn_Nonsensitive(expression interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_NonsensitiveParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1066,6 +1246,9 @@ func Fn_Nonsensitive(expression interface{}) interface{} {
 func Fn_One(list interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_OneParameters(list); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1083,6 +1266,9 @@ func Fn_One(list interface{}) interface{} {
 func Fn_ParseInt(value *string, base *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_ParseIntParameters(value, base); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1100,6 +1286,9 @@ func Fn_ParseInt(value *string, base *float64) *float64 {
 func Fn_Pathexpand(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_PathexpandParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1117,6 +1306,9 @@ func Fn_Pathexpand(value *string) *string {
 func Fn_Pow(value *float64, power *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_PowParameters(value, power); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1134,6 +1326,9 @@ func Fn_Pow(value *float64, power *float64) *float64 {
 func Fn_Range(start *float64, limit *float64, step *float64) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_RangeParameters(start, limit); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1151,6 +1346,9 @@ func Fn_Range(start *float64, limit *float64, step *float64) *[]*string {
 func Fn_RawString(str *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_RawStringParameters(str); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1168,6 +1366,9 @@ func Fn_RawString(str *string) *string {
 func Fn_Regex(pattern *string, value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_RegexParameters(pattern, value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1185,6 +1386,9 @@ func Fn_Regex(pattern *string, value *string) *string {
 func Fn_Regexall(pattern *string, value *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_RegexallParameters(pattern, value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1202,6 +1406,9 @@ func Fn_Regexall(pattern *string, value *string) *[]*string {
 func Fn_Replace(value *string, substring *string, replacement *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_ReplaceParameters(value, substring, replacement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1219,6 +1426,9 @@ func Fn_Replace(value *string, substring *string, replacement *string) *string {
 func Fn_Reverse(values interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ReverseParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1236,6 +1446,9 @@ func Fn_Reverse(values interface{}) *[]*string {
 func Fn_Rsadecrypt(ciphertext *string, privatekey *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_RsadecryptParameters(ciphertext, privatekey); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1253,6 +1466,9 @@ func Fn_Rsadecrypt(ciphertext *string, privatekey *string) *string {
 func Fn_Sensitive(expression interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_SensitiveParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1270,6 +1486,9 @@ func Fn_Sensitive(expression interface{}) interface{} {
 func Fn_Setintersection(values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SetintersectionParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1287,6 +1506,9 @@ func Fn_Setintersection(values *[]interface{}) *[]*string {
 func Fn_Setproduct(values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SetproductParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1304,6 +1526,9 @@ func Fn_Setproduct(values *[]interface{}) *[]*string {
 func Fn_Setsubtract(minuend interface{}, subtrahend interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SetsubtractParameters(minuend, subtrahend); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1321,6 +1546,9 @@ func Fn_Setsubtract(minuend interface{}, subtrahend interface{}) *[]*string {
 func Fn_Setunion(values *[]interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SetunionParameters(values); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1338,6 +1566,9 @@ func Fn_Setunion(values *[]interface{}) *[]*string {
 func Fn_Sha1(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Sha1Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1355,6 +1586,9 @@ func Fn_Sha1(value *string) *string {
 func Fn_Sha256(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Sha256Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1372,6 +1606,9 @@ func Fn_Sha256(value *string) *string {
 func Fn_Sha512(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Sha512Parameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1389,6 +1626,9 @@ func Fn_Sha512(value *string) *string {
 func Fn_Signum(value *float64) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_SignumParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1406,6 +1646,9 @@ func Fn_Signum(value *float64) *float64 {
 func Fn_Slice(list interface{}, startindex *float64, endindex *float64) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SliceParameters(list, startindex, endindex); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1423,6 +1666,9 @@ func Fn_Slice(list interface{}, startindex *float64, endindex *float64) *[]*stri
 func Fn_Sort(list interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SortParameters(list); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1440,6 +1686,9 @@ func Fn_Sort(list interface{}) *[]*string {
 func Fn_Split(seperator *string, value *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SplitParameters(seperator, value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1457,6 +1706,9 @@ func Fn_Split(seperator *string, value *string) *[]*string {
 func Fn_Strrev(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_StrrevParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1474,6 +1726,9 @@ func Fn_Strrev(value *string) *string {
 func Fn_Substr(value *string, offset *float64, length *float64) *string {
 	_init_.Initialize()
 
+	if err := validateFn_SubstrParameters(value, offset, length); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1491,6 +1746,9 @@ func Fn_Substr(value *string, offset *float64, length *float64) *string {
 func Fn_Sum(list interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_SumParameters(list); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1508,6 +1766,9 @@ func Fn_Sum(list interface{}) *float64 {
 func Fn_Templatefile(path *string, vars interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TemplatefileParameters(path, vars); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1525,6 +1786,9 @@ func Fn_Templatefile(path *string, vars interface{}) *string {
 func Fn_Textdecodebase64(value *string, encodingName *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Textdecodebase64Parameters(value, encodingName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1542,6 +1806,9 @@ func Fn_Textdecodebase64(value *string, encodingName *string) *string {
 func Fn_Textencodebase64(value *string, encodingName *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Textencodebase64Parameters(value, encodingName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1559,6 +1826,9 @@ func Fn_Textencodebase64(value *string, encodingName *string) *string {
 func Fn_Timeadd(timestamp *string, duration *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TimeaddParameters(timestamp, duration); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1593,6 +1863,9 @@ func Fn_Timestamp() *string {
 func Fn_Title(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TitleParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1610,6 +1883,9 @@ func Fn_Title(value *string) *string {
 func Fn_Tobool(expression interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_ToboolParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -1627,6 +1903,9 @@ func Fn_Tobool(expression interface{}) IResolvable {
 func Fn_Tolist(expression interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_TolistParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1644,6 +1923,9 @@ func Fn_Tolist(expression interface{}) *[]*string {
 func Fn_Tomap(expression interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_TomapParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1661,6 +1943,9 @@ func Fn_Tomap(expression interface{}) interface{} {
 func Fn_Tonumber(expression interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateFn_TonumberParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -1678,6 +1963,9 @@ func Fn_Tonumber(expression interface{}) *float64 {
 func Fn_Toset(expression interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_TosetParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1695,6 +1983,9 @@ func Fn_Toset(expression interface{}) interface{} {
 func Fn_Tostring(expression interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TostringParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1712,6 +2003,9 @@ func Fn_Tostring(expression interface{}) *string {
 func Fn_Transpose(value interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_TransposeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1729,6 +2023,9 @@ func Fn_Transpose(value interface{}) interface{} {
 func Fn_Trim(value *string, replacement *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TrimParameters(value, replacement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1746,6 +2043,9 @@ func Fn_Trim(value *string, replacement *string) *string {
 func Fn_Trimprefix(value *string, prefix *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TrimprefixParameters(value, prefix); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1763,6 +2063,9 @@ func Fn_Trimprefix(value *string, prefix *string) *string {
 func Fn_Trimspace(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TrimspaceParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1780,6 +2083,9 @@ func Fn_Trimspace(value *string) *string {
 func Fn_Trimsuffix(value *string, suffix *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_TrimsuffixParameters(value, suffix); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1797,6 +2103,9 @@ func Fn_Trimsuffix(value *string, suffix *string) *string {
 func Fn_Try(expression *[]interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_TryParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1814,6 +2123,9 @@ func Fn_Try(expression *[]interface{}) interface{} {
 func Fn_Upper(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_UpperParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1831,6 +2143,9 @@ func Fn_Upper(value *string) *string {
 func Fn_Urlencode(value *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_UrlencodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1865,6 +2180,9 @@ func Fn_Uuid() *string {
 func Fn_Uuidv5(namespace *string, name *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Uuidv5Parameters(namespace, name); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1882,6 +2200,9 @@ func Fn_Uuidv5(namespace *string, name *string) *string {
 func Fn_Values(value interface{}) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ValuesParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -1899,6 +2220,9 @@ func Fn_Values(value interface{}) *[]*string {
 func Fn_Yamldecode(value *string) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_YamldecodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -1916,6 +2240,9 @@ func Fn_Yamldecode(value *string) interface{} {
 func Fn_Yamlencode(value interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateFn_YamlencodeParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -1933,6 +2260,9 @@ func Fn_Yamlencode(value interface{}) *string {
 func Fn_Zipmap(keyslist interface{}, valueslist interface{}) interface{} {
 	_init_.Initialize()
 
+	if err := validateFn_ZipmapParameters(keyslist, valueslist); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(

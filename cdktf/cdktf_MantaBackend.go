@@ -129,6 +129,9 @@ func (j *jsiiProxy_MantaBackend) RawOverrides() interface{} {
 func NewMantaBackend(scope constructs.Construct, props *MantaBackendProps) MantaBackend {
 	_init_.Initialize()
 
+	if err := validateNewMantaBackendParameters(scope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MantaBackend{}
 
 	_jsii_.Create(
@@ -155,6 +158,9 @@ func NewMantaBackend_Override(m MantaBackend, scope constructs.Construct, props 
 func MantaBackend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMantaBackend_IsBackendParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func MantaBackend_IsBackend(x interface{}) *bool {
 func MantaBackend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMantaBackend_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func MantaBackend_IsConstruct(x interface{}) *bool {
 }
 
 func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
+	if err := m.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addOverride",
@@ -209,6 +221,9 @@ func (m *jsiiProxy_MantaBackend) AddOverride(path *string, value interface{}) {
 }
 
 func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState {
+	if err := m.validateGetRemoteStateDataSourceParameters(scope, name, _fromStack); err != nil {
+		panic(err)
+	}
 	var returns TerraformRemoteState
 
 	_jsii_.Invoke(
@@ -222,6 +237,9 @@ func (m *jsiiProxy_MantaBackend) GetRemoteStateDataSource(scope constructs.Const
 }
 
 func (m *jsiiProxy_MantaBackend) OverrideLogicalId(newLogicalId *string) {
+	if err := m.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"overrideLogicalId",

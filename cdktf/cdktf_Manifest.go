@@ -63,6 +63,9 @@ func (j *jsiiProxy_Manifest) Version() *string {
 func NewManifest(version *string, outdir *string) Manifest {
 	_init_.Initialize()
 
+	if err := validateNewManifestParameters(version, outdir); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Manifest{}
 
 	_jsii_.Create(
@@ -132,6 +135,9 @@ func (m *jsiiProxy_Manifest) BuildManifest() IManifest {
 }
 
 func (m *jsiiProxy_Manifest) ForStack(stack TerraformStack) *StackManifest {
+	if err := m.validateForStackParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *StackManifest
 
 	_jsii_.Invoke(

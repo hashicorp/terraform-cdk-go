@@ -35,6 +35,9 @@ func (j *jsiiProxy_PrefixedRemoteWorkspaces) Prefix() *string {
 func NewPrefixedRemoteWorkspaces(prefix *string) PrefixedRemoteWorkspaces {
 	_init_.Initialize()
 
+	if err := validateNewPrefixedRemoteWorkspacesParameters(prefix); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrefixedRemoteWorkspaces{}
 
 	_jsii_.Create(
@@ -57,7 +60,10 @@ func NewPrefixedRemoteWorkspaces_Override(p PrefixedRemoteWorkspaces, prefix *st
 	)
 }
 
-func (j *jsiiProxy_PrefixedRemoteWorkspaces) SetPrefix(val *string) {
+func (j *jsiiProxy_PrefixedRemoteWorkspaces)SetPrefix(val *string) {
+	if err := j.validateSetPrefixParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"prefix",
