@@ -183,6 +183,25 @@ func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func DataTerraformRemoteStateSwift_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateDataTerraformRemoteStateSwift_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateSwift",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func DataTerraformRemoteStateSwift_TfResourceType() *string {
 	_init_.Initialize()
 	var returns *string

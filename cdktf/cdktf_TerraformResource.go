@@ -400,6 +400,44 @@ func TerraformResource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func TerraformResource_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTerraformResource_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformResource",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func TerraformResource_IsTerraformResource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTerraformResource_IsTerraformResourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformResource",
+		"isTerraformResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{}) {
 	if err := t.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

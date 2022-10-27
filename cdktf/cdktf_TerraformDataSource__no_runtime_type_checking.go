@@ -58,6 +58,14 @@ func validateTerraformDataSource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateTerraformDataSource_IsTerraformDataSourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateTerraformDataSource_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_TerraformDataSource) validateSetLifecycleParameters(val *TerraformResourceLifecycle) error {
 	return nil
 }

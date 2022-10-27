@@ -209,6 +209,25 @@ func RemoteBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func RemoteBackend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateRemoteBackend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.RemoteBackend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (r *jsiiProxy_RemoteBackend) AddOverride(path *string, value interface{}) {
 	if err := r.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

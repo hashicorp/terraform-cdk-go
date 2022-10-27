@@ -18,6 +18,14 @@ func validateTerraformProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateTerraformProvider_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateTerraformProvider_IsTerraformProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewTerraformProviderParameters(scope constructs.Construct, id *string, config *TerraformProviderConfig) error {
 	return nil
 }

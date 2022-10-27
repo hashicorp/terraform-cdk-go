@@ -183,6 +183,25 @@ func DataTerraformRemoteStateEtcdV3_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func DataTerraformRemoteStateEtcdV3_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateDataTerraformRemoteStateEtcdV3_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateEtcdV3",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func DataTerraformRemoteStateEtcdV3_TfResourceType() *string {
 	_init_.Initialize()
 	var returns *string

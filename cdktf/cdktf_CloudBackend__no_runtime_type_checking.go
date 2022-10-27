@@ -26,6 +26,10 @@ func validateCloudBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateCloudBackend_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewCloudBackendParameters(scope constructs.Construct, props *CloudBackendProps) error {
 	return nil
 }

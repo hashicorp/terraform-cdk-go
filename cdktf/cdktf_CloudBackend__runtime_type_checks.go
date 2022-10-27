@@ -64,6 +64,14 @@ func validateCloudBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateCloudBackend_IsTerraformElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCloudBackendParameters(scope constructs.Construct, props *CloudBackendProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -26,6 +26,10 @@ func validateEtcdBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEtcdBackend_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewEtcdBackendParameters(scope constructs.Construct, props *EtcdBackendProps) error {
 	return nil
 }

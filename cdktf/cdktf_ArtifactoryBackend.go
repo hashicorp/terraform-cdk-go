@@ -209,6 +209,25 @@ func ArtifactoryBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func ArtifactoryBackend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateArtifactoryBackend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ArtifactoryBackend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_ArtifactoryBackend) AddOverride(path *string, value interface{}) {
 	if err := a.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

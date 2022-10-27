@@ -209,6 +209,25 @@ func LocalBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func LocalBackend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateLocalBackend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.LocalBackend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_LocalBackend) AddOverride(path *string, value interface{}) {
 	if err := l.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

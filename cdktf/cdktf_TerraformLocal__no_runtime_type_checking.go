@@ -18,6 +18,10 @@ func validateTerraformLocal_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateTerraformLocal_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_TerraformLocal) validateSetExpressionParameters(val interface{}) error {
 	return nil
 }

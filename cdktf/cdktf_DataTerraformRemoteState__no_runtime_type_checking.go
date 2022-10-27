@@ -38,6 +38,10 @@ func validateDataTerraformRemoteState_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func validateDataTerraformRemoteState_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewDataTerraformRemoteStateParameters(scope constructs.Construct, id *string, config *DataTerraformRemoteStateRemoteConfig) error {
 	return nil
 }

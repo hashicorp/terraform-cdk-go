@@ -209,6 +209,25 @@ func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func EtcdV3Backend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateEtcdV3Backend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdV3Backend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EtcdV3Backend) AddOverride(path *string, value interface{}) {
 	if err := e.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)
