@@ -209,25 +209,6 @@ func OssBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func OssBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateOssBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.OssBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (o *jsiiProxy_OssBackend) AddOverride(path *string, value interface{}) {
 	if err := o.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

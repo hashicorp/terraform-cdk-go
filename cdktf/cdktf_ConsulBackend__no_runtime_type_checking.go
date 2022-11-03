@@ -26,10 +26,6 @@ func validateConsulBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateConsulBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewConsulBackendParameters(scope constructs.Construct, props *ConsulBackendProps) error {
 	return nil
 }

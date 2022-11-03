@@ -209,25 +209,6 @@ func CosBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func CosBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateCosBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.CosBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CosBackend) AddOverride(path *string, value interface{}) {
 	if err := c.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

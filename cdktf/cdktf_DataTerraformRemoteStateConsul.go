@@ -183,25 +183,6 @@ func DataTerraformRemoteStateConsul_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func DataTerraformRemoteStateConsul_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateDataTerraformRemoteStateConsul_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.DataTerraformRemoteStateConsul",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func DataTerraformRemoteStateConsul_TfResourceType() *string {
 	_init_.Initialize()
 	var returns *string

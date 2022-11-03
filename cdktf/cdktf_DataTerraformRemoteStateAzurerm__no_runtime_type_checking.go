@@ -38,10 +38,6 @@ func validateDataTerraformRemoteStateAzurerm_IsConstructParameters(x interface{}
 	return nil
 }
 
-func validateDataTerraformRemoteStateAzurerm_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewDataTerraformRemoteStateAzurermParameters(scope constructs.Construct, id *string, config *DataTerraformRemoteStateAzurermConfig) error {
 	return nil
 }

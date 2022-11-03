@@ -227,44 +227,6 @@ func TerraformProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func TerraformProvider_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateTerraformProvider_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.TerraformProvider",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
-func TerraformProvider_IsTerraformProvider(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateTerraformProvider_IsTerraformProviderParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.TerraformProvider",
-		"isTerraformProvider",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (t *jsiiProxy_TerraformProvider) AddOverride(path *string, value interface{}) {
 	if err := t.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

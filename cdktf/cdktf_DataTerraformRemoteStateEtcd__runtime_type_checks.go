@@ -80,14 +80,6 @@ func validateDataTerraformRemoteStateEtcd_IsConstructParameters(x interface{}) e
 	return nil
 }
 
-func validateDataTerraformRemoteStateEtcd_IsTerraformElementParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewDataTerraformRemoteStateEtcdParameters(scope constructs.Construct, id *string, config *DataTerraformRemoteStateEtcdConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

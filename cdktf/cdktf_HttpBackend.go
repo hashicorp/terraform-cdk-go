@@ -209,25 +209,6 @@ func HttpBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func HttpBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateHttpBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.HttpBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (h *jsiiProxy_HttpBackend) AddOverride(path *string, value interface{}) {
 	if err := h.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

@@ -26,10 +26,6 @@ func validateSwiftBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSwiftBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewSwiftBackendParameters(scope constructs.Construct, props *SwiftBackendProps) error {
 	return nil
 }

@@ -26,10 +26,6 @@ func validateAzurermBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAzurermBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewAzurermBackendParameters(scope constructs.Construct, props *AzurermBackendProps) error {
 	return nil
 }

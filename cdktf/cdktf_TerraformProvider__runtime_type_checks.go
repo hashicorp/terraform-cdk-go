@@ -40,22 +40,6 @@ func validateTerraformProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformProvider_IsTerraformElementParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateTerraformProvider_IsTerraformProviderParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewTerraformProviderParameters(scope constructs.Construct, id *string, config *TerraformProviderConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

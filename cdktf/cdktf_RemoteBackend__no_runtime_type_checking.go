@@ -26,10 +26,6 @@ func validateRemoteBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRemoteBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewRemoteBackendParameters(scope constructs.Construct, props *RemoteBackendProps) error {
 	return nil
 }

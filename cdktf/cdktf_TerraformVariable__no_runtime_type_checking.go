@@ -22,10 +22,6 @@ func validateTerraformVariable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformVariable_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewTerraformVariableParameters(scope constructs.Construct, id *string, config *TerraformVariableConfig) error {
 	return nil
 }

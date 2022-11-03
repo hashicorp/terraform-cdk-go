@@ -26,10 +26,6 @@ func validateOssBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateOssBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewOssBackendParameters(scope constructs.Construct, props *OssBackendProps) error {
 	return nil
 }

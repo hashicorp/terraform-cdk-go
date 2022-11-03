@@ -294,25 +294,6 @@ func TerraformHclModule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func TerraformHclModule_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateTerraformHclModule_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.TerraformHclModule",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (t *jsiiProxy_TerraformHclModule) AddOverride(path *string, value interface{}) {
 	if err := t.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

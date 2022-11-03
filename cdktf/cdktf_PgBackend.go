@@ -209,25 +209,6 @@ func PgBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func PgBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validatePgBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.PgBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (p *jsiiProxy_PgBackend) AddOverride(path *string, value interface{}) {
 	if err := p.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

@@ -18,10 +18,6 @@ func validateTerraformOutput_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformOutput_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateTerraformOutput_IsTerrafromOutputParameters(x interface{}) error {
 	return nil
 }

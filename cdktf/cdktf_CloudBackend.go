@@ -210,25 +210,6 @@ func CloudBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func CloudBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateCloudBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.CloudBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CloudBackend) AddOverride(path *string, value interface{}) {
 	if err := c.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

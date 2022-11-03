@@ -50,10 +50,6 @@ func validateTerraformHclModule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformHclModule_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewTerraformHclModuleParameters(scope constructs.Construct, id *string, options *TerraformHclModuleOptions) error {
 	return nil
 }

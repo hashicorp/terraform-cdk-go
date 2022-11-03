@@ -209,25 +209,6 @@ func SwiftBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func SwiftBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateSwiftBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.SwiftBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (s *jsiiProxy_SwiftBackend) AddOverride(path *string, value interface{}) {
 	if err := s.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

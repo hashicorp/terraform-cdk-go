@@ -18,10 +18,6 @@ func validateTerraformElement_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformElement_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewTerraformElementParameters(scope constructs.Construct, id *string) error {
 	return nil
 }

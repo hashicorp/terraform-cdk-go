@@ -26,10 +26,6 @@ func validateTerraformBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewTerraformBackendParameters(scope constructs.Construct, id *string, name *string) error {
 	return nil
 }

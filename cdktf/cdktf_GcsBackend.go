@@ -209,25 +209,6 @@ func GcsBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func GcsBackend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateGcsBackend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.GcsBackend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (g *jsiiProxy_GcsBackend) AddOverride(path *string, value interface{}) {
 	if err := g.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

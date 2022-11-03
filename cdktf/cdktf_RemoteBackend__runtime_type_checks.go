@@ -64,14 +64,6 @@ func validateRemoteBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRemoteBackend_IsTerraformElementParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewRemoteBackendParameters(scope constructs.Construct, props *RemoteBackendProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

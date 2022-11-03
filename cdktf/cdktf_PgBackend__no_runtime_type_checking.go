@@ -26,10 +26,6 @@ func validatePgBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePgBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewPgBackendParameters(scope constructs.Construct, props *PgBackendProps) error {
 	return nil
 }

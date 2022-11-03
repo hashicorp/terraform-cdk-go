@@ -30,10 +30,6 @@ func validateTerraformModule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTerraformModule_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewTerraformModuleParameters(scope constructs.Construct, id *string, options *TerraformModuleOptions) error {
 	return nil
 }

@@ -209,25 +209,6 @@ func S3Backend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func S3Backend_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateS3Backend_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.S3Backend",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func (s *jsiiProxy_S3Backend) AddOverride(path *string, value interface{}) {
 	if err := s.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

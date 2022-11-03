@@ -183,25 +183,6 @@ func DataTerraformRemoteStateManta_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Experimental.
-func DataTerraformRemoteStateManta_IsTerraformElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateDataTerraformRemoteStateManta_IsTerraformElementParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktf.DataTerraformRemoteStateManta",
-		"isTerraformElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
 func DataTerraformRemoteStateManta_TfResourceType() *string {
 	_init_.Initialize()
 	var returns *string

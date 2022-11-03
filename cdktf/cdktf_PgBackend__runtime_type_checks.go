@@ -64,14 +64,6 @@ func validatePgBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePgBackend_IsTerraformElementParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewPgBackendParameters(scope constructs.Construct, props *PgBackendProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

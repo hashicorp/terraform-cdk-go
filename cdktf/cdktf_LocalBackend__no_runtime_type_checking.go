@@ -26,10 +26,6 @@ func validateLocalBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLocalBackend_IsTerraformElementParameters(x interface{}) error {
-	return nil
-}
-
 func validateNewLocalBackendParameters(scope constructs.Construct, props *LocalBackendProps) error {
 	return nil
 }

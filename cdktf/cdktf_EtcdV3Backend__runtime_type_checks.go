@@ -64,14 +64,6 @@ func validateEtcdV3Backend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEtcdV3Backend_IsTerraformElementParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewEtcdV3BackendParameters(scope constructs.Construct, props *EtcdV3BackendProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
