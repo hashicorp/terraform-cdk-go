@@ -267,6 +267,44 @@ func Testing_ToHaveDataSourceWithProperties(received *string, resourceType *stri
 }
 
 // Experimental.
+func Testing_ToHaveProvider(received *string, resourceType *string) *bool {
+	_init_.Initialize()
+
+	if err := validateTesting_ToHaveProviderParameters(received, resourceType); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveProvider",
+		[]interface{}{received, resourceType},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func Testing_ToHaveProviderWithProperties(received *string, resourceType *string, properties *map[string]interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTesting_ToHaveProviderWithPropertiesParameters(received, resourceType); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"toHaveProviderWithProperties",
+		[]interface{}{received, resourceType, properties},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func Testing_ToHaveResource(received *string, resourceType *string) *bool {
 	_init_.Initialize()
 

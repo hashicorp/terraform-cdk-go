@@ -14,24 +14,24 @@ package cdktf
 //
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/artifactory
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 type ArtifactoryBackendProps struct {
 	// (Required) - The password.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Password *string `field:"required" json:"password" yaml:"password"`
 	// (Required) - The repository name.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// (Required) - Path within the repository.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Subpath *string `field:"required" json:"subpath" yaml:"subpath"`
 	// (Required) - The URL.
 	//
 	// Note that this is the base url to artifactory not the full repo and subpath.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Url *string `field:"required" json:"url" yaml:"url"`
 	// (Required) - The username.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Username *string `field:"required" json:"username" yaml:"username"`
 }
 

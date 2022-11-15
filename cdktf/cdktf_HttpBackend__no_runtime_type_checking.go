@@ -26,6 +26,10 @@ func validateHttpBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateHttpBackend_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewHttpBackendParameters(scope constructs.Construct, props *HttpBackendProps) error {
 	return nil
 }

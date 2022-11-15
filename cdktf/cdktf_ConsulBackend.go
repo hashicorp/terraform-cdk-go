@@ -209,6 +209,25 @@ func ConsulBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func ConsulBackend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateConsulBackend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.ConsulBackend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_ConsulBackend) AddOverride(path *string, value interface{}) {
 	if err := c.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

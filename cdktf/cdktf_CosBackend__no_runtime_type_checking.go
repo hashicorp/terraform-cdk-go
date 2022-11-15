@@ -26,6 +26,10 @@ func validateCosBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateCosBackend_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewCosBackendParameters(scope constructs.Construct, props *CosBackendProps) error {
 	return nil
 }

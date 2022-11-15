@@ -350,6 +350,44 @@ func TerraformDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func TerraformDataSource_IsTerraformDataSource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTerraformDataSource_IsTerraformDataSourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformDataSource",
+		"isTerraformDataSource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func TerraformDataSource_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateTerraformDataSource_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.TerraformDataSource",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (t *jsiiProxy_TerraformDataSource) AddOverride(path *string, value interface{}) {
 	if err := t.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

@@ -8,44 +8,44 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 type EtcdV3Backend interface {
 	TerraformBackend
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	CdktfStack() TerraformStack
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	ConstructNodeMetadata() *map[string]interface{}
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	Fqn() *string
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	FriendlyUniqueId() *string
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	Name() *string
 	// The tree node.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	Node() constructs.Node
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	RawOverrides() interface{}
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	AddOverride(path *string, value interface{})
 	// Creates a TerraformRemoteState resource that accesses this backend.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	GetRemoteStateDataSource(scope constructs.Construct, name *string, _fromStack *string) TerraformRemoteState
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	OverrideLogicalId(newLogicalId *string)
 	// Resets a previously passed logical Id to use the auto-generated logical id again.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	ResetOverrideLogicalId()
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	SynthesizeAttributes() *map[string]interface{}
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	ToString() *string
 	// Adds this resource to the terraform JSON output.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 	ToTerraform() interface{}
 }
 
@@ -125,7 +125,7 @@ func (j *jsiiProxy_EtcdV3Backend) RawOverrides() interface{} {
 }
 
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendProps) EtcdV3Backend {
 	_init_.Initialize()
 
@@ -143,7 +143,7 @@ func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendProps) Etc
 	return &j
 }
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, props *EtcdV3BackendProps) {
 	_init_.Initialize()
 
@@ -154,7 +154,7 @@ func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, prop
 	)
 }
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 func EtcdV3Backend_IsBackend(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -190,7 +190,7 @@ func EtcdV3Backend_IsBackend(x interface{}) *bool {
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
 func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -202,6 +202,25 @@ func EtcdV3Backend_IsConstruct(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"cdktf.EtcdV3Backend",
 		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
+func EtcdV3Backend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateEtcdV3Backend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.EtcdV3Backend",
+		"isTerraformElement",
 		[]interface{}{x},
 		&returns,
 	)

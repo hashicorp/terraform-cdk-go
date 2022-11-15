@@ -64,6 +64,14 @@ func validateHttpBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateHttpBackend_IsTerraformElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewHttpBackendParameters(scope constructs.Construct, props *HttpBackendProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -108,6 +108,30 @@ func validateTesting_ToHaveDataSourceWithPropertiesParameters(received *string, 
 	return nil
 }
 
+func validateTesting_ToHaveProviderParameters(received *string, resourceType *string) error {
+	if received == nil {
+		return fmt.Errorf("parameter received is required, but nil was provided")
+	}
+
+	if resourceType == nil {
+		return fmt.Errorf("parameter resourceType is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateTesting_ToHaveProviderWithPropertiesParameters(received *string, resourceType *string) error {
+	if received == nil {
+		return fmt.Errorf("parameter received is required, but nil was provided")
+	}
+
+	if resourceType == nil {
+		return fmt.Errorf("parameter resourceType is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateTesting_ToHaveResourceParameters(received *string, resourceType *string) error {
 	if received == nil {
 		return fmt.Errorf("parameter received is required, but nil was provided")

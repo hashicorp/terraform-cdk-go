@@ -10,5 +10,7 @@ type TerraformStackMetadata struct {
 	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
+	// Experimental.
+	Cloud *string `field:"optional" json:"cloud" yaml:"cloud"`
 }
 

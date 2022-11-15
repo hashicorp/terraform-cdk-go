@@ -286,6 +286,29 @@ func Token_IsUnresolved(obj interface{}) *bool {
 	return returns
 }
 
+// Return a Token containing a `null` value.
+//
+// Note: This is different than `undefined`, `nil`, `None` or similar
+// as it will end up in the Terraform config and can be used to explicitly
+// not set an attribute (which is sometimes required by Terraform providers).
+//
+// Returns: a Token resolving to `null` as understood by Terraform.
+// Experimental.
+func Token_NullValue() IResolvable {
+	_init_.Initialize()
+
+	var returns IResolvable
+
+	_jsii_.StaticInvoke(
+		"cdktf.Token",
+		"nullValue",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func Token_ANY_MAP_TOKEN_VALUE() *string {
 	_init_.Initialize()
 	var returns *string

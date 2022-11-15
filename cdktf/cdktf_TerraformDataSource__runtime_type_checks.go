@@ -120,6 +120,22 @@ func validateTerraformDataSource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateTerraformDataSource_IsTerraformDataSourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateTerraformDataSource_IsTerraformElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_TerraformDataSource) validateSetLifecycleParameters(val *TerraformResourceLifecycle) error {
 	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
 		return err

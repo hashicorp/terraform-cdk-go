@@ -50,6 +50,14 @@ func validateTesting_ToHaveDataSourceWithPropertiesParameters(received *string, 
 	return nil
 }
 
+func validateTesting_ToHaveProviderParameters(received *string, resourceType *string) error {
+	return nil
+}
+
+func validateTesting_ToHaveProviderWithPropertiesParameters(received *string, resourceType *string) error {
+	return nil
+}
+
 func validateTesting_ToHaveResourceParameters(received *string, resourceType *string) error {
 	return nil
 }

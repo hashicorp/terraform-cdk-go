@@ -26,6 +26,10 @@ func validateArtifactoryBackend_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateArtifactoryBackend_IsTerraformElementParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewArtifactoryBackendParameters(scope constructs.Construct, props *ArtifactoryBackendProps) error {
 	return nil
 }

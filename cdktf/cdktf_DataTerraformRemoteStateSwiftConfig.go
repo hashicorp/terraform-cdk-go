@@ -2,65 +2,65 @@
 package cdktf
 
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 type DataTerraformRemoteStateSwiftConfig struct {
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Defaults *map[string]interface{} `field:"optional" json:"defaults" yaml:"defaults"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Workspace *string `field:"optional" json:"workspace" yaml:"workspace"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Container *string `field:"required" json:"container" yaml:"container"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ApplicationCredentialId *string `field:"optional" json:"applicationCredentialId" yaml:"applicationCredentialId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ApplicationCredentialName *string `field:"optional" json:"applicationCredentialName" yaml:"applicationCredentialName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ApplicationCredentialSecret *string `field:"optional" json:"applicationCredentialSecret" yaml:"applicationCredentialSecret"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ArchiveContainer *string `field:"optional" json:"archiveContainer" yaml:"archiveContainer"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	AuthUrl *string `field:"optional" json:"authUrl" yaml:"authUrl"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	CacertFile *string `field:"optional" json:"cacertFile" yaml:"cacertFile"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Cert *string `field:"optional" json:"cert" yaml:"cert"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Cloud *string `field:"optional" json:"cloud" yaml:"cloud"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	DefaultDomain *string `field:"optional" json:"defaultDomain" yaml:"defaultDomain"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ExpireAfter *string `field:"optional" json:"expireAfter" yaml:"expireAfter"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Insecure *bool `field:"optional" json:"insecure" yaml:"insecure"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Key *string `field:"optional" json:"key" yaml:"key"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Password *string `field:"optional" json:"password" yaml:"password"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ProjectDomainId *string `field:"optional" json:"projectDomainId" yaml:"projectDomainId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ProjectDomainName *string `field:"optional" json:"projectDomainName" yaml:"projectDomainName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	TenantName *string `field:"optional" json:"tenantName" yaml:"tenantName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Token *string `field:"optional" json:"token" yaml:"token"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	UserDomainId *string `field:"optional" json:"userDomainId" yaml:"userDomainId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	UserDomainName *string `field:"optional" json:"userDomainName" yaml:"userDomainName"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	UserId *string `field:"optional" json:"userId" yaml:"userId"`
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 

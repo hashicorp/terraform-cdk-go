@@ -209,6 +209,25 @@ func AzurermBackend_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Experimental.
+func AzurermBackend_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateAzurermBackend_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.AzurermBackend",
+		"isTerraformElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AzurermBackend) AddOverride(path *string, value interface{}) {
 	if err := a.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)

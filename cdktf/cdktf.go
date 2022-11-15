@@ -1542,6 +1542,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"cdktf.Op",
+		reflect.TypeOf((*Op)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Op{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"cdktf.OssAssumeRole",
 		reflect.TypeOf((*OssAssumeRole)(nil)).Elem(),

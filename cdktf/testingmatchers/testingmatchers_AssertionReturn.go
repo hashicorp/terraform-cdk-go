@@ -5,10 +5,13 @@ import (
 	_init_ "github.com/hashicorp/terraform-cdk-go/cdktf/jsii"
 )
 
+// Class representing the contents of a return by an assertion.
 // Experimental.
 type AssertionReturn interface {
+	// - String message containing information about the result of the assertion.
 	// Experimental.
 	Message() *string
+	// - Boolean pass denoting the success of the assertion.
 	// Experimental.
 	Pass() *bool
 }
@@ -39,6 +42,7 @@ func (j *jsiiProxy_AssertionReturn) Pass() *bool {
 }
 
 
+// Create an AssertionReturn.
 // Experimental.
 func NewAssertionReturn(message *string, pass *bool) AssertionReturn {
 	_init_.Initialize()
@@ -57,6 +61,7 @@ func NewAssertionReturn(message *string, pass *bool) AssertionReturn {
 	return &j
 }
 
+// Create an AssertionReturn.
 // Experimental.
 func NewAssertionReturn_Override(a AssertionReturn, message *string, pass *bool) {
 	_init_.Initialize()

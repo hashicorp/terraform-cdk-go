@@ -8,47 +8,47 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 type DataTerraformRemoteStateSwift interface {
 	TerraformRemoteState
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	CdktfStack() TerraformStack
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ConstructNodeMetadata() *map[string]interface{}
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Fqn() *string
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	FriendlyUniqueId() *string
 	// The tree node.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Node() constructs.Node
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	RawOverrides() interface{}
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	AddOverride(path *string, value interface{})
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Get(output *string) IResolvable
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	GetBoolean(output *string) IResolvable
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	GetList(output *string) *[]*string
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	GetNumber(output *string) *float64
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	GetString(output *string) *string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	OverrideLogicalId(newLogicalId *string)
 	// Resets a previously passed logical Id to use the auto-generated logical id again.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ResetOverrideLogicalId()
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ToString() *string
 	// Adds this resource to the terraform JSON output.
-	// Experimental.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ToTerraform() interface{}
 }
 
@@ -118,7 +118,7 @@ func (j *jsiiProxy_DataTerraformRemoteStateSwift) RawOverrides() interface{} {
 }
 
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 func NewDataTerraformRemoteStateSwift(scope constructs.Construct, id *string, config *DataTerraformRemoteStateSwiftConfig) DataTerraformRemoteStateSwift {
 	_init_.Initialize()
 
@@ -136,7 +136,7 @@ func NewDataTerraformRemoteStateSwift(scope constructs.Construct, id *string, co
 	return &j
 }
 
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 func NewDataTerraformRemoteStateSwift_Override(d DataTerraformRemoteStateSwift, scope constructs.Construct, id *string, config *DataTerraformRemoteStateSwiftConfig) {
 	_init_.Initialize()
 
@@ -164,7 +164,7 @@ func NewDataTerraformRemoteStateSwift_Override(d DataTerraformRemoteStateSwift, 
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -176,6 +176,25 @@ func DataTerraformRemoteStateSwift_IsConstruct(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"cdktf.DataTerraformRemoteStateSwift",
 		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
+func DataTerraformRemoteStateSwift_IsTerraformElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateDataTerraformRemoteStateSwift_IsTerraformElementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktf.DataTerraformRemoteStateSwift",
+		"isTerraformElement",
 		[]interface{}{x},
 		&returns,
 	)
