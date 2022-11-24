@@ -13,13 +13,21 @@ type TerraformLocal interface {
 	TerraformElement
 	ITerraformAddressable
 	// Experimental.
+	AsAnyMap() *map[string]interface{}
+	// Experimental.
 	AsBoolean() IResolvable
+	// Experimental.
+	AsBooleanMap() *map[string]*bool
 	// Experimental.
 	AsList() *[]*string
 	// Experimental.
 	AsNumber() *float64
 	// Experimental.
+	AsNumberMap() *map[string]*float64
+	// Experimental.
 	AsString() *string
+	// Experimental.
+	AsStringMap() *map[string]*string
 	// Experimental.
 	CdktfStack() TerraformStack
 	// Experimental.
@@ -60,11 +68,31 @@ type jsiiProxy_TerraformLocal struct {
 	jsiiProxy_ITerraformAddressable
 }
 
+func (j *jsiiProxy_TerraformLocal) AsAnyMap() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"asAnyMap",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformLocal) AsBoolean() IResolvable {
 	var returns IResolvable
 	_jsii_.Get(
 		j,
 		"asBoolean",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformLocal) AsBooleanMap() *map[string]*bool {
+	var returns *map[string]*bool
+	_jsii_.Get(
+		j,
+		"asBooleanMap",
 		&returns,
 	)
 	return returns
@@ -90,11 +118,31 @@ func (j *jsiiProxy_TerraformLocal) AsNumber() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformLocal) AsNumberMap() *map[string]*float64 {
+	var returns *map[string]*float64
+	_jsii_.Get(
+		j,
+		"asNumberMap",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformLocal) AsString() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"asString",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformLocal) AsStringMap() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"asStringMap",
 		&returns,
 	)
 	return returns
