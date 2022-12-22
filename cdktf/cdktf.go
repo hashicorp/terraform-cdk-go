@@ -1162,12 +1162,14 @@ func init() {
 		"cdktf.IResolveContext",
 		reflect.TypeOf((*IResolveContext)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ignoreEscapes", GoGetter: "IgnoreEscapes"},
 			_jsii_.MemberProperty{JsiiProperty: "iteratorContext", GoGetter: "IteratorContext"},
 			_jsii_.MemberProperty{JsiiProperty: "preparing", GoGetter: "Preparing"},
 			_jsii_.MemberMethod{JsiiMethod: "registerPostProcessor", GoMethod: "RegisterPostProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberProperty{JsiiProperty: "suppressBraces", GoGetter: "SuppressBraces"},
+			_jsii_.MemberProperty{JsiiProperty: "warnEscapes", GoGetter: "WarnEscapes"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IResolveContext{}
@@ -2357,9 +2359,12 @@ func init() {
 		"cdktf.TokenizedStringFragments",
 		reflect.TypeOf((*TokenizedStringFragments)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addEscape", GoMethod: "AddEscape"},
 			_jsii_.MemberMethod{JsiiMethod: "addIntrinsic", GoMethod: "AddIntrinsic"},
 			_jsii_.MemberMethod{JsiiMethod: "addLiteral", GoMethod: "AddLiteral"},
 			_jsii_.MemberMethod{JsiiMethod: "addToken", GoMethod: "AddToken"},
+			_jsii_.MemberMethod{JsiiMethod: "concat", GoMethod: "Concat"},
+			_jsii_.MemberProperty{JsiiProperty: "escapes", GoGetter: "Escapes"},
 			_jsii_.MemberProperty{JsiiProperty: "firstToken", GoGetter: "FirstToken"},
 			_jsii_.MemberProperty{JsiiProperty: "firstValue", GoGetter: "FirstValue"},
 			_jsii_.MemberProperty{JsiiProperty: "intrinsic", GoGetter: "Intrinsic"},

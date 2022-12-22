@@ -16,6 +16,11 @@ type IResolveContext interface {
 	// Resolve an inner object.
 	// Experimental.
 	Resolve(x interface{}) interface{}
+	// True when ${} should not be parsed, and treated as literals.
+	// Experimental.
+	IgnoreEscapes() *bool
+	// Experimental.
+	SetIgnoreEscapes(i *bool)
 	// TerraformIterators can be passed for block attributes and normal list attributes both require different handling when the iterable variable is accessed e.g. a dynamic block needs each.key while a for expression just needs key.
 	// Experimental.
 	IteratorContext() *string
@@ -32,6 +37,13 @@ type IResolveContext interface {
 	SuppressBraces() *bool
 	// Experimental.
 	SetSuppressBraces(s *bool)
+	// True when ${} should not be included in the string to be resolved, outputs a warning.
+	//
+	// Default: false.
+	// Experimental.
+	WarnEscapes() *bool
+	// Experimental.
+	SetWarnEscapes(w *bool)
 }
 
 // The jsii proxy for IResolveContext
@@ -64,6 +76,24 @@ func (i *jsiiProxy_IResolveContext) Resolve(x interface{}) interface{} {
 	)
 
 	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) IgnoreEscapes() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"ignoreEscapes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResolveContext)SetIgnoreEscapes(val *bool) {
+	_jsii_.Set(
+		j,
+		"ignoreEscapes",
+		val,
+	)
 }
 
 func (j *jsiiProxy_IResolveContext) IteratorContext() *string {
@@ -118,6 +148,24 @@ func (j *jsiiProxy_IResolveContext)SetSuppressBraces(val *bool) {
 	_jsii_.Set(
 		j,
 		"suppressBraces",
+		val,
+	)
+}
+
+func (j *jsiiProxy_IResolveContext) WarnEscapes() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"warnEscapes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResolveContext)SetWarnEscapes(val *bool) {
+	_jsii_.Set(
+		j,
+		"warnEscapes",
 		val,
 	)
 }

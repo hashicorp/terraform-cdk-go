@@ -9,6 +9,9 @@ import (
 // Fragments of a concatenated string containing stringified Tokens.
 // Experimental.
 type TokenizedStringFragments interface {
+	// Return all escape fragments from this string.
+	// Experimental.
+	Escapes() *[]IResolvable
 	// Returns the first token.
 	// Experimental.
 	FirstToken() IResolvable
@@ -27,6 +30,8 @@ type TokenizedStringFragments interface {
 	// Return all Tokens from this string.
 	// Experimental.
 	Tokens() *[]IResolvable
+	// Experimental.
+	AddEscape(kind *string)
 	// Adds an intrinsic fragment.
 	// Experimental.
 	AddIntrinsic(value interface{})
@@ -36,6 +41,8 @@ type TokenizedStringFragments interface {
 	// Adds a token fragment.
 	// Experimental.
 	AddToken(token IResolvable)
+	// Experimental.
+	Concat(other TokenizedStringFragments)
 	// Combine the string fragments using the given joiner.
 	//
 	// If there are any.
@@ -43,12 +50,22 @@ type TokenizedStringFragments interface {
 	Join(concat IFragmentConcatenator) interface{}
 	// Apply a transformation function to all tokens in the string.
 	// Experimental.
-	MapTokens(mapper ITokenMapper) TokenizedStringFragments
+	MapTokens(context IResolveContext) TokenizedStringFragments
 }
 
 // The jsii proxy struct for TokenizedStringFragments
 type jsiiProxy_TokenizedStringFragments struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_TokenizedStringFragments) Escapes() *[]IResolvable {
+	var returns *[]IResolvable
+	_jsii_.Get(
+		j,
+		"escapes",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TokenizedStringFragments) FirstToken() IResolvable {
@@ -138,6 +155,17 @@ func NewTokenizedStringFragments_Override(t TokenizedStringFragments) {
 	)
 }
 
+func (t *jsiiProxy_TokenizedStringFragments) AddEscape(kind *string) {
+	if err := t.validateAddEscapeParameters(kind); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"addEscape",
+		[]interface{}{kind},
+	)
+}
+
 func (t *jsiiProxy_TokenizedStringFragments) AddIntrinsic(value interface{}) {
 	if err := t.validateAddIntrinsicParameters(value); err != nil {
 		panic(err)
@@ -171,6 +199,17 @@ func (t *jsiiProxy_TokenizedStringFragments) AddToken(token IResolvable) {
 	)
 }
 
+func (t *jsiiProxy_TokenizedStringFragments) Concat(other TokenizedStringFragments) {
+	if err := t.validateConcatParameters(other); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"concat",
+		[]interface{}{other},
+	)
+}
+
 func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) interface{} {
 	if err := t.validateJoinParameters(concat); err != nil {
 		panic(err)
@@ -187,8 +226,8 @@ func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) 
 	return returns
 }
 
-func (t *jsiiProxy_TokenizedStringFragments) MapTokens(mapper ITokenMapper) TokenizedStringFragments {
-	if err := t.validateMapTokensParameters(mapper); err != nil {
+func (t *jsiiProxy_TokenizedStringFragments) MapTokens(context IResolveContext) TokenizedStringFragments {
+	if err := t.validateMapTokensParameters(context); err != nil {
 		panic(err)
 	}
 	var returns TokenizedStringFragments
@@ -196,7 +235,7 @@ func (t *jsiiProxy_TokenizedStringFragments) MapTokens(mapper ITokenMapper) Toke
 	_jsii_.Invoke(
 		t,
 		"mapTokens",
-		[]interface{}{mapper},
+		[]interface{}{context},
 		&returns,
 	)
 

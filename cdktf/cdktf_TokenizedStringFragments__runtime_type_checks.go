@@ -7,6 +7,14 @@ import (
 	"fmt"
 )
 
+func (t *jsiiProxy_TokenizedStringFragments) validateAddEscapeParameters(kind *string) error {
+	if kind == nil {
+		return fmt.Errorf("parameter kind is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TokenizedStringFragments) validateAddIntrinsicParameters(value interface{}) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")
@@ -31,6 +39,14 @@ func (t *jsiiProxy_TokenizedStringFragments) validateAddTokenParameters(token IR
 	return nil
 }
 
+func (t *jsiiProxy_TokenizedStringFragments) validateConcatParameters(other TokenizedStringFragments) error {
+	if other == nil {
+		return fmt.Errorf("parameter other is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TokenizedStringFragments) validateJoinParameters(concat IFragmentConcatenator) error {
 	if concat == nil {
 		return fmt.Errorf("parameter concat is required, but nil was provided")
@@ -39,9 +55,9 @@ func (t *jsiiProxy_TokenizedStringFragments) validateJoinParameters(concat IFrag
 	return nil
 }
 
-func (t *jsiiProxy_TokenizedStringFragments) validateMapTokensParameters(mapper ITokenMapper) error {
-	if mapper == nil {
-		return fmt.Errorf("parameter mapper is required, but nil was provided")
+func (t *jsiiProxy_TokenizedStringFragments) validateMapTokensParameters(context IResolveContext) error {
+	if context == nil {
+		return fmt.Errorf("parameter context is required, but nil was provided")
 	}
 
 	return nil
