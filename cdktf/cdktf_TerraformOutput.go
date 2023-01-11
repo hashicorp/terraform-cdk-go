@@ -310,17 +310,17 @@ func TerraformOutput_IsTerraformElement(x interface{}) *bool {
 }
 
 // Experimental.
-func TerraformOutput_IsTerrafromOutput(x interface{}) *bool {
+func TerraformOutput_IsTerraformOutput(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateTerraformOutput_IsTerrafromOutputParameters(x); err != nil {
+	if err := validateTerraformOutput_IsTerraformOutputParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
 		"cdktf.TerraformOutput",
-		"isTerrafromOutput",
+		"isTerraformOutput",
 		[]interface{}{x},
 		&returns,
 	)
