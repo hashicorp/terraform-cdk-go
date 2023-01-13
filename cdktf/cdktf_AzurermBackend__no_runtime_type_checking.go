@@ -29,7 +29,7 @@ func validateAzurermBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewAzurermBackendParameters(scope constructs.Construct, props *AzurermBackendProps) error {
+func validateNewAzurermBackendParameters(scope constructs.Construct, props *AzurermBackendConfig) error {
 	return nil
 }
 

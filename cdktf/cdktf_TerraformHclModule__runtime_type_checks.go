@@ -134,7 +134,7 @@ func validateTerraformHclModule_IsTerraformElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateNewTerraformHclModuleParameters(scope constructs.Construct, id *string, options *TerraformHclModuleOptions) error {
+func validateNewTerraformHclModuleParameters(scope constructs.Construct, id *string, options *TerraformHclModuleConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -126,7 +126,7 @@ func (j *jsiiProxy_MantaBackend) RawOverrides() interface{} {
 
 
 // Deprecated: CDK for Terraform no longer supports the manta backend. Terraform deprecated manta in v1.2.3 and removed it in v1.3.
-func NewMantaBackend(scope constructs.Construct, props *MantaBackendProps) MantaBackend {
+func NewMantaBackend(scope constructs.Construct, props *MantaBackendConfig) MantaBackend {
 	_init_.Initialize()
 
 	if err := validateNewMantaBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewMantaBackend(scope constructs.Construct, props *MantaBackendProps) Manta
 }
 
 // Deprecated: CDK for Terraform no longer supports the manta backend. Terraform deprecated manta in v1.2.3 and removed it in v1.3.
-func NewMantaBackend_Override(m MantaBackend, scope constructs.Construct, props *MantaBackendProps) {
+func NewMantaBackend_Override(m MantaBackend, scope constructs.Construct, props *MantaBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

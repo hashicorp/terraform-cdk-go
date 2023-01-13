@@ -11,7 +11,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/cos
 // Experimental.
-type CosBackendProps struct {
+type CosBackendConfig struct {
 	// (Required) The name of the COS bucket.
 	//
 	// You shall manually create it first.

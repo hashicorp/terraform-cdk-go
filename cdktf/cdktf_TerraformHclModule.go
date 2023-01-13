@@ -214,7 +214,7 @@ func (j *jsiiProxy_TerraformHclModule) Version() *string {
 
 
 // Experimental.
-func NewTerraformHclModule(scope constructs.Construct, id *string, options *TerraformHclModuleOptions) TerraformHclModule {
+func NewTerraformHclModule(scope constructs.Construct, id *string, options *TerraformHclModuleConfig) TerraformHclModule {
 	_init_.Initialize()
 
 	if err := validateNewTerraformHclModuleParameters(scope, id, options); err != nil {
@@ -232,7 +232,7 @@ func NewTerraformHclModule(scope constructs.Construct, id *string, options *Terr
 }
 
 // Experimental.
-func NewTerraformHclModule_Override(t TerraformHclModule, scope constructs.Construct, id *string, options *TerraformHclModuleOptions) {
+func NewTerraformHclModule_Override(t TerraformHclModule, scope constructs.Construct, id *string, options *TerraformHclModuleConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

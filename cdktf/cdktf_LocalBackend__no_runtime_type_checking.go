@@ -29,7 +29,7 @@ func validateLocalBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewLocalBackendParameters(scope constructs.Construct, props *LocalBackendProps) error {
+func validateNewLocalBackendParameters(scope constructs.Construct, props *LocalBackendConfig) error {
 	return nil
 }
 

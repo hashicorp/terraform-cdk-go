@@ -21,7 +21,7 @@ func validateApp_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
-func validateNewAppParameters(options *AppOptions) error {
+func validateNewAppParameters(config *AppConfig) error {
 	return nil
 }
 

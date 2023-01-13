@@ -98,17 +98,17 @@ func (j *jsiiProxy_App) TargetStackId() *string {
 
 // Defines an app.
 // Experimental.
-func NewApp(options *AppOptions) App {
+func NewApp(config *AppConfig) App {
 	_init_.Initialize()
 
-	if err := validateNewAppParameters(options); err != nil {
+	if err := validateNewAppParameters(config); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_App{}
 
 	_jsii_.Create(
 		"cdktf.App",
-		[]interface{}{options},
+		[]interface{}{config},
 		&j,
 	)
 
@@ -117,12 +117,12 @@ func NewApp(options *AppOptions) App {
 
 // Defines an app.
 // Experimental.
-func NewApp_Override(a App, options *AppOptions) {
+func NewApp_Override(a App, config *AppConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.App",
-		[]interface{}{options},
+		[]interface{}{config},
 		a,
 	)
 }

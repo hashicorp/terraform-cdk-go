@@ -126,7 +126,7 @@ func (j *jsiiProxy_PgBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewPgBackend(scope constructs.Construct, props *PgBackendProps) PgBackend {
+func NewPgBackend(scope constructs.Construct, props *PgBackendConfig) PgBackend {
 	_init_.Initialize()
 
 	if err := validateNewPgBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewPgBackend(scope constructs.Construct, props *PgBackendProps) PgBackend {
 }
 
 // Experimental.
-func NewPgBackend_Override(p PgBackend, scope constructs.Construct, props *PgBackendProps) {
+func NewPgBackend_Override(p PgBackend, scope constructs.Construct, props *PgBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

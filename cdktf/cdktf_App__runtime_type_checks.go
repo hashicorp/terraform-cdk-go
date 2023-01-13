@@ -51,8 +51,8 @@ func validateApp_OfParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
-func validateNewAppParameters(options *AppOptions) error {
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+func validateNewAppParameters(config *AppConfig) error {
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
 		return err
 	}
 

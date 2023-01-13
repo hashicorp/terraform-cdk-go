@@ -71,7 +71,7 @@ func validateGcsBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewGcsBackendParameters(scope constructs.Construct, props *GcsBackendProps) error {
+func validateNewGcsBackendParameters(scope constructs.Construct, props *GcsBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

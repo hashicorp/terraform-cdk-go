@@ -126,7 +126,7 @@ func (j *jsiiProxy_HttpBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewHttpBackend(scope constructs.Construct, props *HttpBackendProps) HttpBackend {
+func NewHttpBackend(scope constructs.Construct, props *HttpBackendConfig) HttpBackend {
 	_init_.Initialize()
 
 	if err := validateNewHttpBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewHttpBackend(scope constructs.Construct, props *HttpBackendProps) HttpBac
 }
 
 // Experimental.
-func NewHttpBackend_Override(h HttpBackend, scope constructs.Construct, props *HttpBackendProps) {
+func NewHttpBackend_Override(h HttpBackend, scope constructs.Construct, props *HttpBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

@@ -126,7 +126,7 @@ func (j *jsiiProxy_RemoteBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewRemoteBackend(scope constructs.Construct, props *RemoteBackendProps) RemoteBackend {
+func NewRemoteBackend(scope constructs.Construct, props *RemoteBackendConfig) RemoteBackend {
 	_init_.Initialize()
 
 	if err := validateNewRemoteBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewRemoteBackend(scope constructs.Construct, props *RemoteBackendProps) Rem
 }
 
 // Experimental.
-func NewRemoteBackend_Override(r RemoteBackend, scope constructs.Construct, props *RemoteBackendProps) {
+func NewRemoteBackend_Override(r RemoteBackend, scope constructs.Construct, props *RemoteBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

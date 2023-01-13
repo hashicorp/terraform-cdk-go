@@ -29,7 +29,7 @@ func validateEtcdV3Backend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewEtcdV3BackendParameters(scope constructs.Construct, props *EtcdV3BackendProps) error {
+func validateNewEtcdV3BackendParameters(scope constructs.Construct, props *EtcdV3BackendConfig) error {
 	return nil
 }
 

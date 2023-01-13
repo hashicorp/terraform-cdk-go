@@ -126,7 +126,7 @@ func (j *jsiiProxy_SwiftBackend) RawOverrides() interface{} {
 
 
 // Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
-func NewSwiftBackend(scope constructs.Construct, props *SwiftBackendProps) SwiftBackend {
+func NewSwiftBackend(scope constructs.Construct, props *SwiftBackendConfig) SwiftBackend {
 	_init_.Initialize()
 
 	if err := validateNewSwiftBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewSwiftBackend(scope constructs.Construct, props *SwiftBackendProps) Swift
 }
 
 // Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
-func NewSwiftBackend_Override(s SwiftBackend, scope constructs.Construct, props *SwiftBackendProps) {
+func NewSwiftBackend_Override(s SwiftBackend, scope constructs.Construct, props *SwiftBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

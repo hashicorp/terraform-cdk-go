@@ -15,7 +15,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/azurerm
 // Experimental.
-type AzurermBackendProps struct {
+type AzurermBackendConfig struct {
 	// (Required) The Name of the Storage Container within the Storage Account.
 	// Experimental.
 	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`

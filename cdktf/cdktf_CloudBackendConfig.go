@@ -6,7 +6,7 @@ package cdktf
 //
 // https://www.terraform.io/cli/cloud/settings#arguments
 // Experimental.
-type CloudBackendProps struct {
+type CloudBackendConfig struct {
 	// The name of the organization containing the workspace(s) the current configuration should use.
 	// Experimental.
 	Organization *string `field:"required" json:"organization" yaml:"organization"`

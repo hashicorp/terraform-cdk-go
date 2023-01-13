@@ -71,7 +71,7 @@ func validateLocalBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewLocalBackendParameters(scope constructs.Construct, props *LocalBackendProps) error {
+func validateNewLocalBackendParameters(scope constructs.Construct, props *LocalBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

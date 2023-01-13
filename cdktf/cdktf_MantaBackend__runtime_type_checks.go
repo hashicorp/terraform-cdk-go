@@ -71,7 +71,7 @@ func validateMantaBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewMantaBackendParameters(scope constructs.Construct, props *MantaBackendProps) error {
+func validateNewMantaBackendParameters(scope constructs.Construct, props *MantaBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

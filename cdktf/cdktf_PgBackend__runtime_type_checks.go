@@ -71,7 +71,7 @@ func validatePgBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewPgBackendParameters(scope constructs.Construct, props *PgBackendProps) error {
+func validateNewPgBackendParameters(scope constructs.Construct, props *PgBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

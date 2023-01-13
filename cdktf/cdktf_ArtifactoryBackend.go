@@ -126,7 +126,7 @@ func (j *jsiiProxy_ArtifactoryBackend) RawOverrides() interface{} {
 
 
 // Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
-func NewArtifactoryBackend(scope constructs.Construct, props *ArtifactoryBackendProps) ArtifactoryBackend {
+func NewArtifactoryBackend(scope constructs.Construct, props *ArtifactoryBackendConfig) ArtifactoryBackend {
 	_init_.Initialize()
 
 	if err := validateNewArtifactoryBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewArtifactoryBackend(scope constructs.Construct, props *ArtifactoryBackend
 }
 
 // Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
-func NewArtifactoryBackend_Override(a ArtifactoryBackend, scope constructs.Construct, props *ArtifactoryBackendProps) {
+func NewArtifactoryBackend_Override(a ArtifactoryBackend, scope constructs.Construct, props *ArtifactoryBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

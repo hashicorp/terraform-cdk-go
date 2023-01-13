@@ -127,7 +127,7 @@ func (j *jsiiProxy_CloudBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewCloudBackend(scope constructs.Construct, props *CloudBackendProps) CloudBackend {
+func NewCloudBackend(scope constructs.Construct, props *CloudBackendConfig) CloudBackend {
 	_init_.Initialize()
 
 	if err := validateNewCloudBackendParameters(scope, props); err != nil {
@@ -145,7 +145,7 @@ func NewCloudBackend(scope constructs.Construct, props *CloudBackendProps) Cloud
 }
 
 // Experimental.
-func NewCloudBackend_Override(c CloudBackend, scope constructs.Construct, props *CloudBackendProps) {
+func NewCloudBackend_Override(c CloudBackend, scope constructs.Construct, props *CloudBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

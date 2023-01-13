@@ -126,7 +126,7 @@ func (j *jsiiProxy_EtcdV3Backend) RawOverrides() interface{} {
 
 
 // Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
-func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendProps) EtcdV3Backend {
+func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendConfig) EtcdV3Backend {
 	_init_.Initialize()
 
 	if err := validateNewEtcdV3BackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewEtcdV3Backend(scope constructs.Construct, props *EtcdV3BackendProps) Etc
 }
 
 // Deprecated: CDK for Terraform no longer supports the etcdv3 backend. Terraform deprecated etcdv3 in v1.2.3 and removed it in v1.3.
-func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, props *EtcdV3BackendProps) {
+func NewEtcdV3Backend_Override(e EtcdV3Backend, scope constructs.Construct, props *EtcdV3BackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

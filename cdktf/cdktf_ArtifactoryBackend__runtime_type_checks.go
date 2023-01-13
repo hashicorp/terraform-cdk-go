@@ -71,7 +71,7 @@ func validateArtifactoryBackend_IsTerraformElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateNewArtifactoryBackendParameters(scope constructs.Construct, props *ArtifactoryBackendProps) error {
+func validateNewArtifactoryBackendParameters(scope constructs.Construct, props *ArtifactoryBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

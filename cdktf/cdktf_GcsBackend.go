@@ -126,7 +126,7 @@ func (j *jsiiProxy_GcsBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewGcsBackend(scope constructs.Construct, props *GcsBackendProps) GcsBackend {
+func NewGcsBackend(scope constructs.Construct, props *GcsBackendConfig) GcsBackend {
 	_init_.Initialize()
 
 	if err := validateNewGcsBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewGcsBackend(scope constructs.Construct, props *GcsBackendProps) GcsBacken
 }
 
 // Experimental.
-func NewGcsBackend_Override(g GcsBackend, scope constructs.Construct, props *GcsBackendProps) {
+func NewGcsBackend_Override(g GcsBackend, scope constructs.Construct, props *GcsBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

@@ -3,7 +3,7 @@ package cdktf
 
 
 // Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
-type SwiftBackendProps struct {
+type SwiftBackendConfig struct {
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	Container *string `field:"required" json:"container" yaml:"container"`
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.

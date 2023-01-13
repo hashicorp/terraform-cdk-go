@@ -71,7 +71,7 @@ func validateConsulBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewConsulBackendParameters(scope constructs.Construct, props *ConsulBackendProps) error {
+func validateNewConsulBackendParameters(scope constructs.Construct, props *ConsulBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

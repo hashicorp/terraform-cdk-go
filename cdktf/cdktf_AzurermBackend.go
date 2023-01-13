@@ -126,7 +126,7 @@ func (j *jsiiProxy_AzurermBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewAzurermBackend(scope constructs.Construct, props *AzurermBackendProps) AzurermBackend {
+func NewAzurermBackend(scope constructs.Construct, props *AzurermBackendConfig) AzurermBackend {
 	_init_.Initialize()
 
 	if err := validateNewAzurermBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewAzurermBackend(scope constructs.Construct, props *AzurermBackendProps) A
 }
 
 // Experimental.
-func NewAzurermBackend_Override(a AzurermBackend, scope constructs.Construct, props *AzurermBackendProps) {
+func NewAzurermBackend_Override(a AzurermBackend, scope constructs.Construct, props *AzurermBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

@@ -7,7 +7,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/consul
 // Experimental.
-type ConsulBackendProps struct {
+type ConsulBackendConfig struct {
 	// (Required) Access token.
 	// Experimental.
 	AccessToken *string `field:"required" json:"accessToken" yaml:"accessToken"`

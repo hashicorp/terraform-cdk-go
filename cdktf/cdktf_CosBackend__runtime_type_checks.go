@@ -71,7 +71,7 @@ func validateCosBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCosBackendParameters(scope constructs.Construct, props *CosBackendProps) error {
+func validateNewCosBackendParameters(scope constructs.Construct, props *CosBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

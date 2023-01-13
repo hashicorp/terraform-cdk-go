@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type TestingAppOptions struct {
+type TestingAppConfig struct {
 	// Experimental.
 	EnableFutureFlags *bool `field:"optional" json:"enableFutureFlags" yaml:"enableFutureFlags"`
 	// Experimental.

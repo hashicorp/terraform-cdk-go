@@ -29,7 +29,7 @@ func validateSwiftBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewSwiftBackendParameters(scope constructs.Construct, props *SwiftBackendProps) error {
+func validateNewSwiftBackendParameters(scope constructs.Construct, props *SwiftBackendConfig) error {
 	return nil
 }
 

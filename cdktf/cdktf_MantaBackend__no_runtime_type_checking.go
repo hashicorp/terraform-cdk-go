@@ -29,7 +29,7 @@ func validateMantaBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewMantaBackendParameters(scope constructs.Construct, props *MantaBackendProps) error {
+func validateNewMantaBackendParameters(scope constructs.Construct, props *MantaBackendConfig) error {
 	return nil
 }
 

@@ -9,7 +9,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/etcd
 // Deprecated: CDK for Terraform no longer supports the etcd backend. Terraform deprecated etcd in v1.2.3 and removed it in v1.3.
-type EtcdBackendProps struct {
+type EtcdBackendConfig struct {
 	// (Required) A space-separated list of the etcd endpoints.
 	// Deprecated: CDK for Terraform no longer supports the etcd backend. Terraform deprecated etcd in v1.2.3 and removed it in v1.3.
 	Endpoints *string `field:"required" json:"endpoints" yaml:"endpoints"`

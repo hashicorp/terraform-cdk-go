@@ -126,7 +126,7 @@ func (j *jsiiProxy_CosBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewCosBackend(scope constructs.Construct, props *CosBackendProps) CosBackend {
+func NewCosBackend(scope constructs.Construct, props *CosBackendConfig) CosBackend {
 	_init_.Initialize()
 
 	if err := validateNewCosBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewCosBackend(scope constructs.Construct, props *CosBackendProps) CosBacken
 }
 
 // Experimental.
-func NewCosBackend_Override(c CosBackend, scope constructs.Construct, props *CosBackendProps) {
+func NewCosBackend_Override(c CosBackend, scope constructs.Construct, props *CosBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

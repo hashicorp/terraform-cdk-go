@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type PgBackendProps struct {
+type PgBackendConfig struct {
 	// Experimental.
 	ConnStr *string `field:"required" json:"connStr" yaml:"connStr"`
 	// Experimental.

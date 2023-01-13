@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func validateTesting_AppParameters(options *TestingAppOptions) error {
+func validateTesting_AppParameters(options *TestingAppConfig) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

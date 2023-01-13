@@ -7,7 +7,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/local
 // Experimental.
-type LocalBackendProps struct {
+type LocalBackendConfig struct {
 	// Path where the state file is stored.
 	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`

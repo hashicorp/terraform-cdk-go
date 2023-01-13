@@ -126,7 +126,7 @@ func (j *jsiiProxy_OssBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewOssBackend(scope constructs.Construct, props *OssBackendProps) OssBackend {
+func NewOssBackend(scope constructs.Construct, props *OssBackendConfig) OssBackend {
 	_init_.Initialize()
 
 	if err := validateNewOssBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewOssBackend(scope constructs.Construct, props *OssBackendProps) OssBacken
 }
 
 // Experimental.
-func NewOssBackend_Override(o OssBackend, scope constructs.Construct, props *OssBackendProps) {
+func NewOssBackend_Override(o OssBackend, scope constructs.Construct, props *OssBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

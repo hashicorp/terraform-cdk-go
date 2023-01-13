@@ -194,7 +194,7 @@ func (j *jsiiProxy_TerraformModule) Version() *string {
 
 
 // Experimental.
-func NewTerraformModule_Override(t TerraformModule, scope constructs.Construct, id *string, options *TerraformModuleOptions) {
+func NewTerraformModule_Override(t TerraformModule, scope constructs.Construct, id *string, options *TerraformModuleConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

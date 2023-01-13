@@ -126,7 +126,7 @@ func (j *jsiiProxy_ConsulBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewConsulBackend(scope constructs.Construct, props *ConsulBackendProps) ConsulBackend {
+func NewConsulBackend(scope constructs.Construct, props *ConsulBackendConfig) ConsulBackend {
 	_init_.Initialize()
 
 	if err := validateNewConsulBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewConsulBackend(scope constructs.Construct, props *ConsulBackendProps) Con
 }
 
 // Experimental.
-func NewConsulBackend_Override(c ConsulBackend, scope constructs.Construct, props *ConsulBackendProps) {
+func NewConsulBackend_Override(c ConsulBackend, scope constructs.Construct, props *ConsulBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

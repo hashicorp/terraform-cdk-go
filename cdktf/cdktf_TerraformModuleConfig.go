@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type TerraformModuleUserOptions struct {
+type TerraformModuleConfig struct {
 	// Experimental.
 	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
@@ -12,5 +12,9 @@ type TerraformModuleUserOptions struct {
 	Providers *[]interface{} `field:"optional" json:"providers" yaml:"providers"`
 	// Experimental.
 	SkipAssetCreationFromLocalModules *bool `field:"optional" json:"skipAssetCreationFromLocalModules" yaml:"skipAssetCreationFromLocalModules"`
+	// Experimental.
+	Source *string `field:"required" json:"source" yaml:"source"`
+	// Experimental.
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

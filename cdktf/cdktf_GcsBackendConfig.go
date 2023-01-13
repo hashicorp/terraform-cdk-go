@@ -14,7 +14,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/gcs
 // Experimental.
-type GcsBackendProps struct {
+type GcsBackendConfig struct {
 	// (Required) The name of the GCS bucket.
 	//
 	// This name must be globally unique.

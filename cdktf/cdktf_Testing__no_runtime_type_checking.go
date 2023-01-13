@@ -5,7 +5,7 @@ package cdktf
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateTesting_AppParameters(options *TestingAppOptions) error {
+func validateTesting_AppParameters(options *TestingAppConfig) error {
 	return nil
 }
 

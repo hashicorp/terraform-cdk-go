@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type AppOptions struct {
+type AppConfig struct {
 	// Additional context values for the application.
 	//
 	// Context set by the CLI or the `context` key in `cdktf.json` has precedence.

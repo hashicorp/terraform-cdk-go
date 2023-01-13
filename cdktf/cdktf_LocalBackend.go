@@ -126,7 +126,7 @@ func (j *jsiiProxy_LocalBackend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewLocalBackend(scope constructs.Construct, props *LocalBackendProps) LocalBackend {
+func NewLocalBackend(scope constructs.Construct, props *LocalBackendConfig) LocalBackend {
 	_init_.Initialize()
 
 	if err := validateNewLocalBackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewLocalBackend(scope constructs.Construct, props *LocalBackendProps) Local
 }
 
 // Experimental.
-func NewLocalBackend_Override(l LocalBackend, scope constructs.Construct, props *LocalBackendProps) {
+func NewLocalBackend_Override(l LocalBackend, scope constructs.Construct, props *LocalBackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

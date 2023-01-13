@@ -3,7 +3,7 @@ package cdktf
 
 
 // Deprecated: CDK for Terraform no longer supports the manta backend. Terraform deprecated manta in v1.2.3 and removed it in v1.3.
-type MantaBackendProps struct {
+type MantaBackendConfig struct {
 	// Deprecated: CDK for Terraform no longer supports the manta backend. Terraform deprecated manta in v1.2.3 and removed it in v1.3.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Deprecated: CDK for Terraform no longer supports the manta backend. Terraform deprecated manta in v1.2.3 and removed it in v1.3.

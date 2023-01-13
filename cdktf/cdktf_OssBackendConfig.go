@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type OssBackendProps struct {
+type OssBackendConfig struct {
 	// Experimental.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Experimental.

@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type TerraformModuleOptions struct {
+type TerraformHclModuleConfig struct {
 	// Experimental.
 	DependsOn *[]ITerraformDependable `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// Experimental.
@@ -16,5 +16,7 @@ type TerraformModuleOptions struct {
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
+	// Experimental.
+	Variables *map[string]interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 

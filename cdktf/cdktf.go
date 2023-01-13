@@ -91,8 +91,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.AppOptions",
-		reflect.TypeOf((*AppOptions)(nil)).Elem(),
+		"cdktf.AppConfig",
+		reflect.TypeOf((*AppConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.ArtifactoryBackend",
@@ -121,8 +121,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.ArtifactoryBackendProps",
-		reflect.TypeOf((*ArtifactoryBackendProps)(nil)).Elem(),
+		"cdktf.ArtifactoryBackendConfig",
+		reflect.TypeOf((*ArtifactoryBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.Aspects",
@@ -171,8 +171,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.AzurermBackendProps",
-		reflect.TypeOf((*AzurermBackendProps)(nil)).Elem(),
+		"cdktf.AzurermBackendConfig",
+		reflect.TypeOf((*AzurermBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.BooleanMap",
@@ -244,8 +244,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.CloudBackendProps",
-		reflect.TypeOf((*CloudBackendProps)(nil)).Elem(),
+		"cdktf.CloudBackendConfig",
+		reflect.TypeOf((*CloudBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.CloudWorkspace",
@@ -388,8 +388,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.ConsulBackendProps",
-		reflect.TypeOf((*ConsulBackendProps)(nil)).Elem(),
+		"cdktf.ConsulBackendConfig",
+		reflect.TypeOf((*ConsulBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.CosBackend",
@@ -418,8 +418,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.CosBackendProps",
-		reflect.TypeOf((*CosBackendProps)(nil)).Elem(),
+		"cdktf.CosBackendConfig",
+		reflect.TypeOf((*CosBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.DataTerraformRemoteState",
@@ -952,8 +952,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.EtcdBackendProps",
-		reflect.TypeOf((*EtcdBackendProps)(nil)).Elem(),
+		"cdktf.EtcdBackendConfig",
+		reflect.TypeOf((*EtcdBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.EtcdV3Backend",
@@ -982,8 +982,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.EtcdV3BackendProps",
-		reflect.TypeOf((*EtcdV3BackendProps)(nil)).Elem(),
+		"cdktf.EtcdV3BackendConfig",
+		reflect.TypeOf((*EtcdV3BackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.FileProvisioner",
@@ -1024,8 +1024,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.GcsBackendProps",
-		reflect.TypeOf((*GcsBackendProps)(nil)).Elem(),
+		"cdktf.GcsBackendConfig",
+		reflect.TypeOf((*GcsBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.HttpBackend",
@@ -1054,8 +1054,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.HttpBackendProps",
-		reflect.TypeOf((*HttpBackendProps)(nil)).Elem(),
+		"cdktf.HttpBackendConfig",
+		reflect.TypeOf((*HttpBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"cdktf.IAnyProducer",
@@ -1397,8 +1397,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.LocalBackendProps",
-		reflect.TypeOf((*LocalBackendProps)(nil)).Elem(),
+		"cdktf.LocalBackendConfig",
+		reflect.TypeOf((*LocalBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.LocalExecProvisioner",
@@ -1448,8 +1448,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.MantaBackendProps",
-		reflect.TypeOf((*MantaBackendProps)(nil)).Elem(),
+		"cdktf.MantaBackendConfig",
+		reflect.TypeOf((*MantaBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.MapTerraformIterator",
@@ -1583,8 +1583,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.OssBackendProps",
-		reflect.TypeOf((*OssBackendProps)(nil)).Elem(),
+		"cdktf.OssBackendConfig",
+		reflect.TypeOf((*OssBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.PgBackend",
@@ -1613,8 +1613,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.PgBackendProps",
-		reflect.TypeOf((*PgBackendProps)(nil)).Elem(),
+		"cdktf.PgBackendConfig",
+		reflect.TypeOf((*PgBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.PrefixedRemoteWorkspaces",
@@ -1655,8 +1655,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.RemoteBackendProps",
-		reflect.TypeOf((*RemoteBackendProps)(nil)).Elem(),
+		"cdktf.RemoteBackendConfig",
+		reflect.TypeOf((*RemoteBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.RemoteExecProvisioner",
@@ -1708,8 +1708,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.S3BackendProps",
-		reflect.TypeOf((*S3BackendProps)(nil)).Elem(),
+		"cdktf.S3BackendConfig",
+		reflect.TypeOf((*S3BackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.SSHProvisionerConnection",
@@ -1805,8 +1805,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.SwiftBackendProps",
-		reflect.TypeOf((*SwiftBackendProps)(nil)).Elem(),
+		"cdktf.SwiftBackendConfig",
+		reflect.TypeOf((*SwiftBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TaggedCloudWorkspaces",
@@ -1980,8 +1980,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.TerraformHclModuleOptions",
-		reflect.TypeOf((*TerraformHclModuleOptions)(nil)).Elem(),
+		"cdktf.TerraformHclModuleConfig",
+		reflect.TypeOf((*TerraformHclModuleConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformIterator",
@@ -2078,16 +2078,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.TerraformModuleOptions",
-		reflect.TypeOf((*TerraformModuleOptions)(nil)).Elem(),
+		"cdktf.TerraformModuleConfig",
+		reflect.TypeOf((*TerraformModuleConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.TerraformModuleProvider",
 		reflect.TypeOf((*TerraformModuleProvider)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.TerraformModuleUserOptions",
-		reflect.TypeOf((*TerraformModuleUserOptions)(nil)).Elem(),
+		"cdktf.TerraformModuleUserConfig",
+		reflect.TypeOf((*TerraformModuleUserConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformOutput",
@@ -2336,8 +2336,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.TestingAppOptions",
-		reflect.TypeOf((*TestingAppOptions)(nil)).Elem(),
+		"cdktf.TestingAppConfig",
+		reflect.TypeOf((*TestingAppConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.Token",

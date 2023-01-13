@@ -71,7 +71,7 @@ func validateOssBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewOssBackendParameters(scope constructs.Construct, props *OssBackendProps) error {
+func validateNewOssBackendParameters(scope constructs.Construct, props *OssBackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

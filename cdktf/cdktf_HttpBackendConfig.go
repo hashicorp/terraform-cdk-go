@@ -16,7 +16,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/http
 // Experimental.
-type HttpBackendProps struct {
+type HttpBackendConfig struct {
 	// (Required) The address of the REST endpoint.
 	// Experimental.
 	Address *string `field:"required" json:"address" yaml:"address"`

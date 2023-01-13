@@ -3,7 +3,7 @@ package cdktf
 
 
 // Experimental.
-type RemoteBackendProps struct {
+type RemoteBackendConfig struct {
 	// Experimental.
 	Organization *string `field:"required" json:"organization" yaml:"organization"`
 	// Experimental.

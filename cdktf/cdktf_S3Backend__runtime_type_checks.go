@@ -71,7 +71,7 @@ func validateS3Backend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewS3BackendParameters(scope constructs.Construct, props *S3BackendProps) error {
+func validateNewS3BackendParameters(scope constructs.Construct, props *S3BackendConfig) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

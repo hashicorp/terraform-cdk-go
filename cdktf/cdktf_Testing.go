@@ -46,7 +46,7 @@ func NewTesting_Override(t Testing) {
 
 // Returns an app for testing with the following properties: - Output directory is a temp dir.
 // Experimental.
-func Testing_App(options *TestingAppOptions) App {
+func Testing_App(options *TestingAppConfig) App {
 	_init_.Initialize()
 
 	if err := validateTesting_AppParameters(options); err != nil {

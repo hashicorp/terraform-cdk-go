@@ -15,7 +15,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/artifactory
 // Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
-type ArtifactoryBackendProps struct {
+type ArtifactoryBackendConfig struct {
 	// (Required) - The password.
 	// Deprecated: CDK for Terraform no longer supports the artifactory backend. Terraform deprecated artifactory in v1.2.3 and removed it in v1.3.
 	Password *string `field:"required" json:"password" yaml:"password"`

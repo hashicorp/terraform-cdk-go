@@ -29,7 +29,7 @@ func validateGcsBackend_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewGcsBackendParameters(scope constructs.Construct, props *GcsBackendProps) error {
+func validateNewGcsBackendParameters(scope constructs.Construct, props *GcsBackendConfig) error {
 	return nil
 }
 

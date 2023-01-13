@@ -126,7 +126,7 @@ func (j *jsiiProxy_S3Backend) RawOverrides() interface{} {
 
 
 // Experimental.
-func NewS3Backend(scope constructs.Construct, props *S3BackendProps) S3Backend {
+func NewS3Backend(scope constructs.Construct, props *S3BackendConfig) S3Backend {
 	_init_.Initialize()
 
 	if err := validateNewS3BackendParameters(scope, props); err != nil {
@@ -144,7 +144,7 @@ func NewS3Backend(scope constructs.Construct, props *S3BackendProps) S3Backend {
 }
 
 // Experimental.
-func NewS3Backend_Override(s S3Backend, scope constructs.Construct, props *S3BackendProps) {
+func NewS3Backend_Override(s S3Backend, scope constructs.Construct, props *S3BackendConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(

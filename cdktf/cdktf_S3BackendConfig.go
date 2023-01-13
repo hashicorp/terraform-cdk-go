@@ -18,7 +18,7 @@ package cdktf
 // Read more about this backend in the Terraform docs:
 // https://www.terraform.io/language/settings/backends/s3
 // Experimental.
-type S3BackendProps struct {
+type S3BackendConfig struct {
 	// Name of the S3 Bucket.
 	// Experimental.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
