@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -13,7 +16,7 @@ package cdktf
 // so that MSAL authentication is used by default.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/azurerm
+// https://developer.hashicorp.com/terraform/language/settings/backends/azurerm
 // Experimental.
 type AzurermBackendConfig struct {
 	// (Required) The Name of the Storage Container within the Storage Account.

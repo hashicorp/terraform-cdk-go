@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -7,7 +10,7 @@ package cdktf
 // This backend does not support state locking.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/etcd
+// https://developer.hashicorp.com/terraform/language/v1.2.x/settings/backends/etcd
 // Deprecated: CDK for Terraform no longer supports the etcd backend. Terraform deprecated etcd in v1.2.3 and removed it in v1.3.
 type EtcdBackendConfig struct {
 	// (Required) A space-separated list of the etcd endpoints.

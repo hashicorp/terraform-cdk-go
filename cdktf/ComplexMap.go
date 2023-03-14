@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -27,6 +30,8 @@ type ComplexMap interface {
 	SetTerraformResource(val IInterpolatingParent)
 	// Experimental.
 	ComputeFqn() *string
+	// Experimental.
+	InterpolationForAttribute(property *string) IResolvable
 	// Produce the Token's value at resolution time.
 	// Experimental.
 	Resolve(_context IResolveContext) interface{}
@@ -124,6 +129,22 @@ func (c *jsiiProxy_ComplexMap) ComputeFqn() *string {
 		c,
 		"computeFqn",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComplexMap) InterpolationForAttribute(property *string) IResolvable {
+	if err := c.validateInterpolationForAttributeParameters(property); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		c,
+		"interpolationForAttribute",
+		[]interface{}{property},
 		&returns,
 	)
 

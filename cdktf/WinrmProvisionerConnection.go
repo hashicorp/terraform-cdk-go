@@ -1,10 +1,13 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
 
 // Most provisioners require access to the remote resource via SSH or WinRM and expect a nested connection block with details about how to connect.
 //
-// See {@link https://www.terraform.io/language/resources/provisioners/connection connection}
+// See {@link https://developer.hashicorp.com/terraform/language/resources/provisioners/connection connection}
 // Experimental.
 type WinrmProvisionerConnection struct {
 	// The address of the resource to connect to.
@@ -34,7 +37,7 @@ type WinrmProvisionerConnection struct {
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The path used to copy scripts meant for remote execution.
 	//
-	// Refer to {@link https://www.terraform.io/language/resources/provisioners/connection#how-provisioners-execute-remote-scripts How Provisioners Execute Remote Scripts below for more details}
+	// Refer to {@link https://developer.hashicorp.com/terraform/language/resources/provisioners/connection#how-provisioners-execute-remote-scripts How Provisioners Execute Remote Scripts below for more details}
 	// Experimental.
 	ScriptPath *string `field:"optional" json:"scriptPath" yaml:"scriptPath"`
 	// The timeout to wait for the connection to become available.

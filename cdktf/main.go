@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package cdktf
 
 import (
@@ -26,6 +29,26 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_Annotations{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.AnyListMap",
+		reflect.TypeOf((*AnyListMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AnyListMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexMap)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -65,9 +88,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_AnyMapList{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapList)
 			return &j
 		},
 	)
@@ -175,6 +196,46 @@ func init() {
 		reflect.TypeOf((*AzurermBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdktf.BooleanList",
+		reflect.TypeOf((*BooleanList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BooleanList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.BooleanListMap",
+		reflect.TypeOf((*BooleanListMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BooleanListMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexMap)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.BooleanMap",
 		reflect.TypeOf((*BooleanMap)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -211,9 +272,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_BooleanMapList{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapList)
 			return &j
 		},
 	)
@@ -316,6 +375,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
@@ -994,7 +1054,17 @@ func init() {
 		reflect.TypeOf((*Fn)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_Fn{}
+			j := jsiiProxy_Fn{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_FnGenerated)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.FnGenerated",
+		reflect.TypeOf((*FnGenerated)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_FnGenerated{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1452,6 +1522,28 @@ func init() {
 		reflect.TypeOf((*MantaBackendConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdktf.MapList",
+		reflect.TypeOf((*MapList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MapList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.MapTerraformIterator",
 		reflect.TypeOf((*MapTerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1502,6 +1594,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.NumberListMap",
+		reflect.TypeOf((*NumberListMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NumberListMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexMap)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.NumberMap",
 		reflect.TypeOf((*NumberMap)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1538,9 +1650,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_NumberMapList{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapList)
 			return &j
 		},
 	)
@@ -1736,6 +1846,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.StringListMap",
+		reflect.TypeOf((*StringListMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StringListMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexMap)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.StringMap",
 		reflect.TypeOf((*StringMap)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1772,9 +1902,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_StringMapList{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterpolatingParent)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolvable)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITerraformAddressable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapList)
 			return &j
 		},
 	)

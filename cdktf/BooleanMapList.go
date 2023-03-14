@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -8,9 +11,7 @@ import (
 
 // Experimental.
 type BooleanMapList interface {
-	IInterpolatingParent
-	IResolvable
-	ITerraformAddressable
+	MapList
 	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
 	//
 	// If this returns an empty array the stack will not be attached.
@@ -48,9 +49,7 @@ type BooleanMapList interface {
 
 // The jsii proxy struct for BooleanMapList
 type jsiiProxy_BooleanMapList struct {
-	jsiiProxy_IInterpolatingParent
-	jsiiProxy_IResolvable
-	jsiiProxy_ITerraformAddressable
+	jsiiProxy_MapList
 }
 
 func (j *jsiiProxy_BooleanMapList) CreationStack() *[]*string {

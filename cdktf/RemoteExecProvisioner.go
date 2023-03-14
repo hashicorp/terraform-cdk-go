@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -7,7 +10,7 @@ package cdktf
 // This can be used to run a configuration management tool, bootstrap into a cluster, etc
 // The remote-exec provisioner requires a connection and supports both ssh and winrm.
 //
-// See {@link https://www.terraform.io/language/resources/provisioners/remote-exec remote-exec}
+// See {@link https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec remote-exec}
 // Experimental.
 type RemoteExecProvisioner struct {
 	// Experimental.

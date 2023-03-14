@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -12,7 +15,7 @@ package cdktf
 // to allow for state recovery in the case of accidental deletions and human error.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/gcs
+// https://developer.hashicorp.com/terraform/language/settings/backends/gcs
 // Experimental.
 type GcsBackendConfig struct {
 	// (Required) The name of the GCS bucket.

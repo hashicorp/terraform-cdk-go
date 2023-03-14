@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -5,7 +8,7 @@ package cdktf
 // Stores the state in the Consul KV store at a given path. This backend supports state locking.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/consul
+// https://developer.hashicorp.com/terraform/language/settings/backends/consul
 // Experimental.
 type ConsulBackendConfig struct {
 	// (Required) Access token.

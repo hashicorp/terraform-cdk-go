@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -13,7 +16,7 @@ type ListTerraformIterator interface {
 	//
 	// For lists this is the same as `iterator.value`. If you need the index,
 	// use count using the escape hatch:
-	// https://www.terraform.io/cdktf/concepts/resources#escape-hatch
+	// https://developer.hashicorp.com/terraform/cdktf/concepts/resources#escape-hatch
 	// Experimental.
 	Key() interface{}
 	// Returns the value of the current item iterated over.

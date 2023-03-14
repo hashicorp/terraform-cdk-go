@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -6,7 +9,7 @@ package cdktf
 //
 // This invokes a process on the machine running Terraform, not on the resource.
 //
-// See {@link https://www.terraform.io/language/resources/provisioners/local-exec local-exec}
+// See {@link https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec local-exec}
 // Experimental.
 type LocalExecProvisioner struct {
 	// This is the command to execute.

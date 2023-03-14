@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -16,7 +19,7 @@ package cdktf
 // and human error.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/s3
+// https://developer.hashicorp.com/terraform/language/settings/backends/s3
 // Experimental.
 type S3BackendConfig struct {
 	// Name of the S3 Bucket.

@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Package jsii contains the functionaility needed for jsii packages to
 // initialize their dependencies and themselves. Users should never need to use this package
 // directly. If you find you need to - please report a bug at
@@ -12,7 +15,7 @@ import (
 	constructs "github.com/aws/constructs-go/constructs/v10/jsii"
 )
 
-//go:embed cdktf-0.16.0-pre.44.tgz
+//go:embed cdktf-0.16.0-pre.75.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -22,5 +25,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("cdktf", "0.16.0-pre.44", tarball)
+	_jsii_.Load("cdktf", "0.16.0-pre.75", tarball)
 }

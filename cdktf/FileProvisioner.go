@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -6,7 +9,7 @@ package cdktf
 //
 // The file provisioner supports both ssh and winrm type connections.
 //
-// See {@link https://www.terraform.io/language/resources/provisioners/file file}
+// See {@link https://developer.hashicorp.com/terraform/language/resources/provisioners/file file}
 // Experimental.
 type FileProvisioner struct {
 	// The source file or directory.

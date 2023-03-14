@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -32,7 +35,7 @@ type TerraformVariableConfig struct {
 	// - object({\<ATTR NAME\> = \<TYPE\>, ... })
 	// - tuple([\<TYPE\>, ...])
 	//
-	// The keyword any may be used to indicate that any type is acceptable. For more information on the meaning and behavior of these different types, as well as detailed information about automatic conversion of complex types, see {@link https://www.terraform.io/docs/configuration/types.html|Type Constraints}.
+	// The keyword any may be used to indicate that any type is acceptable. For more information on the meaning and behavior of these different types, as well as detailed information about automatic conversion of complex types, refer to {@link https://developer.hashicorp.com/terraform/language/expressions/type-constraints Type Constraints}.
 	//
 	// If both the type and default arguments are specified, the given default value must be convertible to the specified type.
 	// Experimental.

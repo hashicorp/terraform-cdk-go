@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -14,7 +17,7 @@ package cdktf
 // The ID of the holding lock info will be added as a query parameter to state updates requests.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/http
+// https://developer.hashicorp.com/terraform/language/settings/backends/http
 // Experimental.
 type HttpBackendConfig struct {
 	// (Required) The address of the REST endpoint.

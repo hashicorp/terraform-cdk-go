@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 // Cloud Development Kit for Terraform
 package cdktf
 
@@ -9,7 +12,7 @@ package cdktf
 // Warning! It is highly recommended that you enable Object Versioning on the COS bucket to allow for state recovery in the case of accidental deletions and human error.
 //
 // Read more about this backend in the Terraform docs:
-// https://www.terraform.io/language/settings/backends/cos
+// https://developer.hashicorp.com/terraform/language/settings/backends/cos
 // Experimental.
 type CosBackendConfig struct {
 	// (Required) The name of the COS bucket.
