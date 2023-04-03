@@ -12,6 +12,12 @@ type TerraformResourceLifecycle struct {
 	// Experimental.
 	IgnoreChanges interface{} `field:"optional" json:"ignoreChanges" yaml:"ignoreChanges"`
 	// Experimental.
+	Postcondition *[]*Postcondition `field:"optional" json:"postcondition" yaml:"postcondition"`
+	// Experimental.
+	Precondition *[]*Precondition `field:"optional" json:"precondition" yaml:"precondition"`
+	// Experimental.
 	PreventDestroy *bool `field:"optional" json:"preventDestroy" yaml:"preventDestroy"`
+	// Experimental.
+	ReplaceTriggeredBy *[]interface{} `field:"optional" json:"replaceTriggeredBy" yaml:"replaceTriggeredBy"`
 }
 

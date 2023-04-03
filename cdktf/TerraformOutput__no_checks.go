@@ -28,6 +28,10 @@ func validateTerraformOutput_IsTerraformOutputParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_TerraformOutput) validateSetPreconditionParameters(val *Precondition) error {
+	return nil
+}
+
 func (j *jsiiProxy_TerraformOutput) validateSetStaticIdParameters(val *bool) error {
 	return nil
 }

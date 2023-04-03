@@ -34,6 +34,10 @@ type TerraformOutput interface {
 	// Experimental.
 	Node() constructs.Node
 	// Experimental.
+	Precondition() *Precondition
+	// Experimental.
+	SetPrecondition(val *Precondition)
+	// Experimental.
 	RawOverrides() interface{}
 	// Experimental.
 	Sensitive() *bool
@@ -141,6 +145,16 @@ func (j *jsiiProxy_TerraformOutput) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_TerraformOutput) Precondition() *Precondition {
+	var returns *Precondition
+	_jsii_.Get(
+		j,
+		"precondition",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TerraformOutput) RawOverrides() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -223,6 +237,17 @@ func (j *jsiiProxy_TerraformOutput)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformOutput)SetPrecondition(val *Precondition) {
+	if err := j.validateSetPreconditionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"precondition",
 		val,
 	)
 }

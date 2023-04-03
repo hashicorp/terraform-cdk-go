@@ -5,9 +5,8 @@
 package cdktf
 
 
-// Add one or more validation blocks within the variable block to specify custom conditions.
 // Experimental.
-type TerraformVariableValidationConfig struct {
+type TerraformCondition struct {
 	// This is a boolean expression that should return true if the intended assumption or guarantee is fulfilled or false if it does not.
 	// Experimental.
 	Condition interface{} `field:"required" json:"condition" yaml:"condition"`

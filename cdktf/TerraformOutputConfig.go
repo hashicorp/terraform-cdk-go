@@ -14,6 +14,8 @@ type TerraformOutputConfig struct {
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Experimental.
+	Precondition *Precondition `field:"optional" json:"precondition" yaml:"precondition"`
+	// Experimental.
 	Sensitive *bool `field:"optional" json:"sensitive" yaml:"sensitive"`
 	// If set to true the synthesized Terraform Output will be named after the `id` passed to the constructor instead of the default (TerraformOutput.friendlyUniqueId).
 	// Experimental.

@@ -1726,6 +1726,14 @@ func init() {
 		"cdktf.PgBackendConfig",
 		reflect.TypeOf((*PgBackendConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"cdktf.Postcondition",
+		reflect.TypeOf((*Postcondition)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.Precondition",
+		reflect.TypeOf((*Precondition)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"cdktf.PrefixedRemoteWorkspaces",
 		reflect.TypeOf((*PrefixedRemoteWorkspaces)(nil)).Elem(),
@@ -1996,6 +2004,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"cdktf.TerraformCondition",
+		reflect.TypeOf((*TerraformCondition)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformDataSource",
 		reflect.TypeOf((*TerraformDataSource)(nil)).Elem(),
@@ -2230,6 +2242,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "precondition", GoGetter: "Precondition"},
 			_jsii_.MemberProperty{JsiiProperty: "rawOverrides", GoGetter: "RawOverrides"},
 			_jsii_.MemberMethod{JsiiMethod: "resetOverrideLogicalId", GoMethod: "ResetOverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "sensitive", GoGetter: "Sensitive"},
