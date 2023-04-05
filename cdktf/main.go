@@ -2009,6 +2009,18 @@ func init() {
 		reflect.TypeOf((*TerraformCondition)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdktf.TerraformCount",
+		reflect.TypeOf((*TerraformCount)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "index", GoGetter: "Index"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TerraformCount{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.TerraformDataSource",
 		reflect.TypeOf((*TerraformDataSource)(nil)).Elem(),
 		[]_jsii_.Member{

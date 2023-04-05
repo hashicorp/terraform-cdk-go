@@ -12,6 +12,10 @@ func (i *jsiiProxy_ITerraformResource) validateInterpolationForAttributeParamete
 	return nil
 }
 
+func (j *jsiiProxy_ITerraformResource) validateSetCountParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_ITerraformResource) validateSetLifecycleParameters(val *TerraformResourceLifecycle) error {
 	return nil
 }

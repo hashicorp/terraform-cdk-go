@@ -13,9 +13,9 @@ type ITerraformResource interface {
 	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	// Experimental.
-	Count() *float64
+	Count() interface{}
 	// Experimental.
-	SetCount(c *float64)
+	SetCount(c interface{})
 	// Experimental.
 	DependsOn() *[]*string
 	// Experimental.
@@ -61,8 +61,8 @@ func (i *jsiiProxy_ITerraformResource) InterpolationForAttribute(terraformAttrib
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource) Count() *float64 {
-	var returns *float64
+func (j *jsiiProxy_ITerraformResource) Count() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"count",
@@ -71,7 +71,10 @@ func (j *jsiiProxy_ITerraformResource) Count() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_ITerraformResource)SetCount(val *float64) {
+func (j *jsiiProxy_ITerraformResource)SetCount(val interface{}) {
+	if err := j.validateSetCountParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"count",
