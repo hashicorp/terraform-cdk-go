@@ -55,7 +55,7 @@ type DataTerraformRemoteStateAzurermConfig struct {
 	// (Optional) The Azure Environment which should be used.
 	//
 	// This can also be sourced from the ARM_ENVIRONMENT environment variable.
-	//   Possible values are public, china, german, stack and usgovernment. Defaults to public.
+	//  Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
 	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.

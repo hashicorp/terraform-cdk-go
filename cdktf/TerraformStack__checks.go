@@ -39,13 +39,13 @@ func (t *jsiiProxy_TerraformStack) validateAllocateLogicalIdParameters(tfElement
 		return fmt.Errorf("parameter tfElement is required, but nil was provided")
 	}
 	switch tfElement.(type) {
-	case TerraformElement:
-		// ok
 	case constructs.Node:
+		// ok
+	case TerraformElement:
 		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(tfElement) {
-			return fmt.Errorf("parameter tfElement must be one of the allowed types: TerraformElement, constructs.Node; received %#v (a %T)", tfElement, tfElement)
+			return fmt.Errorf("parameter tfElement must be one of the allowed types: constructs.Node, TerraformElement; received %#v (a %T)", tfElement, tfElement)
 		}
 	}
 
@@ -65,13 +65,13 @@ func (t *jsiiProxy_TerraformStack) validateGetLogicalIdParameters(tfElement inte
 		return fmt.Errorf("parameter tfElement is required, but nil was provided")
 	}
 	switch tfElement.(type) {
-	case TerraformElement:
-		// ok
 	case constructs.Node:
+		// ok
+	case TerraformElement:
 		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(tfElement) {
-			return fmt.Errorf("parameter tfElement must be one of the allowed types: TerraformElement, constructs.Node; received %#v (a %T)", tfElement, tfElement)
+			return fmt.Errorf("parameter tfElement must be one of the allowed types: constructs.Node, TerraformElement; received %#v (a %T)", tfElement, tfElement)
 		}
 	}
 
