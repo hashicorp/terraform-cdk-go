@@ -245,7 +245,7 @@ func Fn_Basename(path *string) *string {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/bcrypt.html bcrypt} computes a hash of the given string using the Blowfish cipher, returning a string in [the _Modular Crypt Format_](https://passlib.readthedocs.io/en/stable/modular_crypt_format.html) usually expected in the shadow password file on many Unix systems.
+// {@link /terraform/docs/language/functions/bcrypt.html bcrypt} computes a hash of the given string using the Blowfish cipher, returning a string in [the _Modular Crypt Format_](https://passlib.readthedocs.io/en/stable/modular_crypt_format.html) usually expected in the shadow password file on many Unix systems.
 // Experimental.
 func Fn_Bcrypt(str *string, cost *float64) *string {
 	_init_.Initialize()
@@ -965,7 +965,7 @@ func Fn_Index(list interface{}, value interface{}) interface{} {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/join.html join} produces a string by concatenating together all elements of a given list of strings with the given delimiter.
+// {@link /terraform/docs/language/functions/join.html join} produces a string by concatenating together all elements of a given list of strings with the given delimiter.
 // Experimental.
 func Fn_Join(separator *string, list *[]*string) *string {
 	_init_.Initialize()
@@ -1085,7 +1085,7 @@ func Fn_Log(num *float64, base *float64) *float64 {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/lookup.html lookup} retrieves the value of a single element from a map, given its key. If the given key does not exist, the given default value is returned instead.
+// {@link /terraform/docs/language/functions/lookup.html lookup} retrieves the value of a single element from a map, given its key. If the given key does not exist, the given default value is returned instead.
 // Experimental.
 func Fn_Lookup(inputMap interface{}, key *string, defaultValue interface{}) interface{} {
 	_init_.Initialize()
@@ -1325,7 +1325,7 @@ func Fn_Pow(num *float64, power *float64) *float64 {
 	return returns
 }
 
-// {@link https://www.terraform.io/docs/language/functions/range.html range} generates a list of numbers using a start value, a limit value, and a step value.
+// {@link /terraform/docs/language/functions/range.html range} generates a list of numbers using a start value, a limit value, and a step value.
 // Experimental.
 func Fn_Range(start *float64, limit *float64, step *float64) *[]*string {
 	_init_.Initialize()
