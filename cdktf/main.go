@@ -32,6 +32,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.AnyListList",
+		reflect.TypeOf((*AnyListList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AnyListList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.AnyListMap",
 		reflect.TypeOf((*AnyListMap)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -211,6 +231,26 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_BooleanList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.BooleanListList",
+		reflect.TypeOf((*BooleanListList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BooleanListList{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
 			return &j
 		},
@@ -1594,6 +1634,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.NumberListList",
+		reflect.TypeOf((*NumberListList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NumberListList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.NumberListMap",
 		reflect.TypeOf((*NumberListMap)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1850,6 +1910,26 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_StringConcat{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFragmentConcatenator)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.StringListList",
+		reflect.TypeOf((*StringListList)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "computeFqn", GoMethod: "ComputeFqn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformAttribute", GoGetter: "TerraformAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResource", GoGetter: "TerraformResource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "wrapsSet", GoGetter: "WrapsSet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StringListList{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComplexList)
 			return &j
 		},
 	)
