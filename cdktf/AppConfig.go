@@ -17,7 +17,10 @@ type AppConfig struct {
 	// The directory to output Terraform resources.
 	// Experimental.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
-	// Whether to skip the validation during synthesis of the app.
+	// Whether to skip backend validation during synthesis of the app.
+	// Experimental.
+	SkipBackendValidation *bool `field:"optional" json:"skipBackendValidation" yaml:"skipBackendValidation"`
+	// Whether to skip all validations during synthesis of the app.
 	// Experimental.
 	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 	// Experimental.

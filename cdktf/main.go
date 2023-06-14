@@ -120,6 +120,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberProperty{JsiiProperty: "skipBackendValidation", GoGetter: "SkipBackendValidation"},
 			_jsii_.MemberProperty{JsiiProperty: "skipValidation", GoGetter: "SkipValidation"},
 			_jsii_.MemberMethod{JsiiMethod: "synth", GoMethod: "Synth"},
 			_jsii_.MemberProperty{JsiiProperty: "targetStackId", GoGetter: "TargetStackId"},

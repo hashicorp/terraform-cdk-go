@@ -24,7 +24,10 @@ type App interface {
 	// The output directory into which resources will be synthesized.
 	// Experimental.
 	Outdir() *string
-	// Whether to skip the validation during synthesis of the app.
+	// Whether to skip backend validation during synthesis of the app.
+	// Experimental.
+	SkipBackendValidation() *bool
+	// Whether to skip all validations during synthesis of the app.
 	// Experimental.
 	SkipValidation() *bool
 	// The stack which will be synthesized.
@@ -73,6 +76,16 @@ func (j *jsiiProxy_App) Outdir() *string {
 	_jsii_.Get(
 		j,
 		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_App) SkipBackendValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipBackendValidation",
 		&returns,
 	)
 	return returns
