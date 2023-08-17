@@ -3,7 +3,6 @@
 
 //go:build no_runtime_type_checking
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -216,7 +215,11 @@ func validateFn_LogParameters(num *float64, base *float64) error {
 	return nil
 }
 
-func validateFn_LookupParameters(inputMap interface{}, key *string, defaultValue interface{}) error {
+func validateFn_LookupParameters(inputMap interface{}, key *string) error {
+	return nil
+}
+
+func validateFn_LookupNestedParameters(inputMap interface{}, path *[]interface{}) error {
 	return nil
 }
 

@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 
@@ -69,6 +68,8 @@ type SSHProvisionerConnection struct {
 	// Experimental.
 	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The port to connect to.
+	// Default: 22.
+	//
 	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The contents of an SSH key to use for the connection.
@@ -108,14 +109,20 @@ type SSHProvisionerConnection struct {
 	// Valid values are "windows" and "unix".
 	// If the platform is set to windows, the default script_path is c:\windows\temp\terraform_%RAND%.cmd, assuming the SSH default shell is cmd.exe.
 	// If the SSH default shell is PowerShell, set script_path to "c:/windows/temp/terraform_%RAND%.ps1"
+	// Default: unix.
+	//
 	// Experimental.
 	TargetPlatform *string `field:"optional" json:"targetPlatform" yaml:"targetPlatform"`
 	// The timeout to wait for the connection to become available.
 	//
 	// Should be provided as a string (e.g., "30s" or "5m".)
+	// Default: 5m.
+	//
 	// Experimental.
 	Timeout *string `field:"optional" json:"timeout" yaml:"timeout"`
 	// The user to use for the connection.
+	// Default: root.
+	//
 	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`
 }

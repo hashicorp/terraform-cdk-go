@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 
@@ -33,6 +32,8 @@ type WinrmProvisionerConnection struct {
 	// Experimental.
 	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The port to connect to.
+	// Default: 22.
+	//
 	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The path used to copy scripts meant for remote execution.
@@ -43,6 +44,8 @@ type WinrmProvisionerConnection struct {
 	// The timeout to wait for the connection to become available.
 	//
 	// Should be provided as a string (e.g., "30s" or "5m".)
+	// Default: 5m.
+	//
 	// Experimental.
 	Timeout *string `field:"optional" json:"timeout" yaml:"timeout"`
 	// Set to true to use NTLM authentication rather than default (basic authentication), removing the requirement for basic authentication to be enabled within the target guest.
@@ -51,6 +54,8 @@ type WinrmProvisionerConnection struct {
 	// Experimental.
 	UseNtlm *bool `field:"optional" json:"useNtlm" yaml:"useNtlm"`
 	// The user to use for the connection.
+	// Default: root.
+	//
 	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`
 }

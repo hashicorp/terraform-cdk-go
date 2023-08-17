@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 
@@ -12,6 +11,8 @@ package cdktf
 // Experimental.
 type LocalBackendConfig struct {
 	// Path where the state file is stored.
+	// Default: - defaults to terraform.${stackId}.tfstate
+	//
 	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// (Optional) The path to non-default workspaces.

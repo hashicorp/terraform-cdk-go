@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 import (
@@ -23,6 +22,8 @@ type ResolveOptions struct {
 	// Experimental.
 	Scope constructs.IConstruct `field:"required" json:"scope" yaml:"scope"`
 	// Whether the resolution is being executed during the prepare phase or not.
+	// Default: false.
+	//
 	// Experimental.
 	Preparing *bool `field:"optional" json:"preparing" yaml:"preparing"`
 }

@@ -3,7 +3,6 @@
 
 //go:build !no_runtime_type_checking
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 import (
@@ -490,7 +489,7 @@ func validateFn_LogParameters(num *float64, base *float64) error {
 	return nil
 }
 
-func validateFn_LookupParameters(inputMap interface{}, key *string, defaultValue interface{}) error {
+func validateFn_LookupParameters(inputMap interface{}, key *string) error {
 	if inputMap == nil {
 		return fmt.Errorf("parameter inputMap is required, but nil was provided")
 	}
@@ -499,8 +498,16 @@ func validateFn_LookupParameters(inputMap interface{}, key *string, defaultValue
 		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
 
-	if defaultValue == nil {
-		return fmt.Errorf("parameter defaultValue is required, but nil was provided")
+	return nil
+}
+
+func validateFn_LookupNestedParameters(inputMap interface{}, path *[]interface{}) error {
+	if inputMap == nil {
+		return fmt.Errorf("parameter inputMap is required, but nil was provided")
+	}
+
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
 	}
 
 	return nil

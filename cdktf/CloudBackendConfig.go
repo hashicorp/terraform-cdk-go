@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 
@@ -19,6 +18,8 @@ type CloudBackendConfig struct {
 	// Experimental.
 	Workspaces interface{} `field:"required" json:"workspaces" yaml:"workspaces"`
 	// The hostname of a Terraform Enterprise installation, if using Terraform Enterprise.
+	// Default: app.terraform.io
+	//
 	// Experimental.
 	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// The token used to authenticate with Terraform Cloud.

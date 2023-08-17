@@ -3,7 +3,6 @@
 
 //go:build !no_runtime_type_checking
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 import (

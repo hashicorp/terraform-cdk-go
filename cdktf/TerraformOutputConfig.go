@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 
@@ -18,6 +17,8 @@ type TerraformOutputConfig struct {
 	// Experimental.
 	Sensitive *bool `field:"optional" json:"sensitive" yaml:"sensitive"`
 	// If set to true the synthesized Terraform Output will be named after the `id` passed to the constructor instead of the default (TerraformOutput.friendlyUniqueId).
+	// Default: false.
+	//
 	// Experimental.
 	StaticId *bool `field:"optional" json:"staticId" yaml:"staticId"`
 }

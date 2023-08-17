@@ -1,7 +1,6 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-// Cloud Development Kit for Terraform
 package cdktf
 
 import (
@@ -1090,7 +1089,7 @@ func Fn_Log(num *float64, base *float64) *float64 {
 func Fn_Lookup(inputMap interface{}, key *string, defaultValue interface{}) interface{} {
 	_init_.Initialize()
 
-	if err := validateFn_LookupParameters(inputMap, key, defaultValue); err != nil {
+	if err := validateFn_LookupParameters(inputMap, key); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -1099,6 +1098,28 @@ func Fn_Lookup(inputMap interface{}, key *string, defaultValue interface{}) inte
 		"cdktf.Fn",
 		"lookup",
 		[]interface{}{inputMap, key, defaultValue},
+		&returns,
+	)
+
+	return returns
+}
+
+// returns a property access expression that accesses the property at the given path in the given inputMap.
+//
+// For example lookupNested(x, ["a", "b", "c"]) will return a Terraform expression like x["a"]["b"]["c"].
+// Experimental.
+func Fn_LookupNested(inputMap interface{}, path *[]interface{}) interface{} {
+	_init_.Initialize()
+
+	if err := validateFn_LookupNestedParameters(inputMap, path); err != nil {
+		panic(err)
+	}
+	var returns interface{}
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"lookupNested",
+		[]interface{}{inputMap, path},
 		&returns,
 	)
 
