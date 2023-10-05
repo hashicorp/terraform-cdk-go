@@ -1200,6 +1200,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktf.IImportableConfig",
+		reflect.TypeOf((*IImportableConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "importId", GoGetter: "ImportId"},
+			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "terraformResourceType", GoGetter: "TerraformResourceType"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IImportableConfig{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktf.IInterpolatingParent",
 		reflect.TypeOf((*IInterpolatingParent)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1418,6 +1430,29 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ITokenResolver{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.ImportableResource",
+		reflect.TypeOf((*ImportableResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
+			_jsii_.MemberProperty{JsiiProperty: "constructNodeMetadata", GoGetter: "ConstructNodeMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "fqn", GoGetter: "Fqn"},
+			_jsii_.MemberProperty{JsiiProperty: "friendlyUniqueId", GoGetter: "FriendlyUniqueId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "rawOverrides", GoGetter: "RawOverrides"},
+			_jsii_.MemberMethod{JsiiMethod: "resetOverrideLogicalId", GoMethod: "ResetOverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "toMetadata", GoMethod: "ToMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ImportableResource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformElement)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2445,6 +2480,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getNumberMapAttribute", GoMethod: "GetNumberMapAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringAttribute", GoMethod: "GetStringAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringMapAttribute", GoMethod: "GetStringMapAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "importFrom", GoMethod: "ImportFrom"},
 			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycle", GoGetter: "Lifecycle"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -2473,6 +2509,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktf.TerraformResourceConfig",
 		reflect.TypeOf((*TerraformResourceConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.TerraformResourceImport",
+		reflect.TypeOf((*TerraformResourceImport)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.TerraformResourceLifecycle",

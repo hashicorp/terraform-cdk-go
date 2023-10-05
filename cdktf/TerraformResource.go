@@ -84,6 +84,8 @@ type TerraformResource interface {
 	// Experimental.
 	GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 	// Experimental.
+	ImportFrom(id *string, provider TerraformProvider)
+	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
 	// Overrides the auto-generated logical ID with a specific ID.
 	// Experimental.
@@ -596,6 +598,17 @@ func (t *jsiiProxy_TerraformResource) GetStringMapAttribute(terraformAttribute *
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TerraformResource) ImportFrom(id *string, provider TerraformProvider) {
+	if err := t.validateImportFromParameters(id); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"importFrom",
+		[]interface{}{id, provider},
+	)
 }
 
 func (t *jsiiProxy_TerraformResource) InterpolationForAttribute(terraformAttribute *string) IResolvable {

@@ -97,6 +97,14 @@ func (t *jsiiProxy_TerraformResource) validateGetStringMapAttributeParameters(te
 	return nil
 }
 
+func (t *jsiiProxy_TerraformResource) validateImportFromParameters(id *string) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TerraformResource) validateInterpolationForAttributeParameters(terraformAttribute *string) error {
 	if terraformAttribute == nil {
 		return fmt.Errorf("parameter terraformAttribute is required, but nil was provided")

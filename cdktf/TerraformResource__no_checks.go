@@ -47,6 +47,10 @@ func (t *jsiiProxy_TerraformResource) validateGetStringMapAttributeParameters(te
 	return nil
 }
 
+func (t *jsiiProxy_TerraformResource) validateImportFromParameters(id *string) error {
+	return nil
+}
+
 func (t *jsiiProxy_TerraformResource) validateInterpolationForAttributeParameters(terraformAttribute *string) error {
 	return nil
 }
