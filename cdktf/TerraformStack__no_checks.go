@@ -51,6 +51,10 @@ func (j *jsiiProxy_TerraformStack) validateSetDependenciesParameters(val *[]Terr
 	return nil
 }
 
+func (j *jsiiProxy_TerraformStack) validateSetMoveTargetsParameters(val TerraformResourceTargets) error {
+	return nil
+}
+
 func (j *jsiiProxy_TerraformStack) validateSetSynthesizerParameters(val IStackSynthesizer) error {
 	return nil
 }

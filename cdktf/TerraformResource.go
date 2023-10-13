@@ -63,6 +63,9 @@ type TerraformResource interface {
 	TerraformMetaArguments() *map[string]interface{}
 	// Experimental.
 	TerraformResourceType() *string
+	// Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+	// Experimental.
+	AddMoveTarget(moveTarget *string)
 	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Experimental.
@@ -87,6 +90,9 @@ type TerraformResource interface {
 	ImportFrom(id *string, provider TerraformProvider)
 	// Experimental.
 	InterpolationForAttribute(terraformAttribute *string) IResolvable
+	// Moves this resource to the target resource given by moveTarget.
+	// Experimental.
+	MoveTo(moveTarget *string, index interface{})
 	// Overrides the auto-generated logical ID with a specific ID.
 	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
@@ -445,6 +451,17 @@ func TerraformResource_IsTerraformResource(x interface{}) *bool {
 	return returns
 }
 
+func (t *jsiiProxy_TerraformResource) AddMoveTarget(moveTarget *string) {
+	if err := t.validateAddMoveTargetParameters(moveTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"addMoveTarget",
+		[]interface{}{moveTarget},
+	)
+}
+
 func (t *jsiiProxy_TerraformResource) AddOverride(path *string, value interface{}) {
 	if err := t.validateAddOverrideParameters(path, value); err != nil {
 		panic(err)
@@ -625,6 +642,17 @@ func (t *jsiiProxy_TerraformResource) InterpolationForAttribute(terraformAttribu
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TerraformResource) MoveTo(moveTarget *string, index interface{}) {
+	if err := t.validateMoveToParameters(moveTarget, index); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"moveTo",
+		[]interface{}{moveTarget, index},
+	)
 }
 
 func (t *jsiiProxy_TerraformResource) OverrideLogicalId(newLogicalId *string) {

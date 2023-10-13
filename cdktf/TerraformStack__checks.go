@@ -125,6 +125,14 @@ func (j *jsiiProxy_TerraformStack) validateSetDependenciesParameters(val *[]Terr
 	return nil
 }
 
+func (j *jsiiProxy_TerraformStack) validateSetMoveTargetsParameters(val TerraformResourceTargets) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_TerraformStack) validateSetSynthesizerParameters(val IStackSynthesizer) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

@@ -2462,6 +2462,7 @@ func init() {
 		"cdktf.TerraformResource",
 		reflect.TypeOf((*TerraformResource)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addMoveTarget", GoMethod: "AddMoveTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "cdktfStack", GoGetter: "CdktfStack"},
 			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
@@ -2483,6 +2484,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "importFrom", GoMethod: "ImportFrom"},
 			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycle", GoGetter: "Lifecycle"},
+			_jsii_.MemberMethod{JsiiMethod: "moveTo", GoMethod: "MoveTo"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
@@ -2518,6 +2520,21 @@ func init() {
 		"cdktf.TerraformResourceLifecycle",
 		reflect.TypeOf((*TerraformResourceLifecycle)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"cdktf.TerraformResourceMove",
+		reflect.TypeOf((*TerraformResourceMove)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktf.TerraformResourceTargets",
+		reflect.TypeOf((*TerraformResourceTargets)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addResourceTarget", GoMethod: "AddResourceTarget"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceByTarget", GoMethod: "GetResourceByTarget"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TerraformResourceTargets{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformSelf",
 		reflect.TypeOf((*TerraformSelf)(nil)).Elem(),
@@ -2538,6 +2555,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "dependsOn", GoMethod: "DependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "ensureBackendExists", GoMethod: "EnsureBackendExists"},
 			_jsii_.MemberMethod{JsiiMethod: "getLogicalId", GoMethod: "GetLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "moveTargets", GoGetter: "MoveTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "prepareStack", GoMethod: "PrepareStack"},
 			_jsii_.MemberMethod{JsiiMethod: "registerIncomingCrossStackReference", GoMethod: "RegisterIncomingCrossStackReference"},

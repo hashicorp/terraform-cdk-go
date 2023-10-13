@@ -18,6 +18,10 @@ type TerraformStack interface {
 	Dependencies() *[]TerraformStack
 	// Experimental.
 	SetDependencies(val *[]TerraformStack)
+	// Experimental.
+	MoveTargets() TerraformResourceTargets
+	// Experimental.
+	SetMoveTargets(val TerraformResourceTargets)
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -70,6 +74,16 @@ func (j *jsiiProxy_TerraformStack) Dependencies() *[]TerraformStack {
 	_jsii_.Get(
 		j,
 		"dependencies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TerraformStack) MoveTargets() TerraformResourceTargets {
+	var returns TerraformResourceTargets
+	_jsii_.Get(
+		j,
+		"moveTargets",
 		&returns,
 	)
 	return returns
@@ -132,6 +146,17 @@ func (j *jsiiProxy_TerraformStack)SetDependencies(val *[]TerraformStack) {
 	_jsii_.Set(
 		j,
 		"dependencies",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TerraformStack)SetMoveTargets(val TerraformResourceTargets) {
+	if err := j.validateSetMoveTargetsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"moveTargets",
 		val,
 	)
 }
