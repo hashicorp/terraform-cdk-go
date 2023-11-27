@@ -1646,6 +1646,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktf.MigrateIds",
+		reflect.TypeOf((*MigrateIds)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MigrateIds{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAspect)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktf.NamedCloudWorkspace",
 		reflect.TypeOf((*NamedCloudWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2481,10 +2493,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getNumberMapAttribute", GoMethod: "GetNumberMapAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringAttribute", GoMethod: "GetStringAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringMapAttribute", GoMethod: "GetStringMapAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "hasResourceMove", GoMethod: "HasResourceMove"},
 			_jsii_.MemberMethod{JsiiMethod: "importFrom", GoMethod: "ImportFrom"},
 			_jsii_.MemberMethod{JsiiMethod: "interpolationForAttribute", GoMethod: "InterpolationForAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycle", GoGetter: "Lifecycle"},
+			_jsii_.MemberMethod{JsiiMethod: "moveFromId", GoMethod: "MoveFromId"},
 			_jsii_.MemberMethod{JsiiMethod: "moveTo", GoMethod: "MoveTo"},
+			_jsii_.MemberMethod{JsiiMethod: "moveToId", GoMethod: "MoveToId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
@@ -2521,8 +2536,12 @@ func init() {
 		reflect.TypeOf((*TerraformResourceLifecycle)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"cdktf.TerraformResourceMove",
-		reflect.TypeOf((*TerraformResourceMove)(nil)).Elem(),
+		"cdktf.TerraformResourceMoveById",
+		reflect.TypeOf((*TerraformResourceMoveById)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.TerraformResourceMoveByTarget",
+		reflect.TypeOf((*TerraformResourceMoveByTarget)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktf.TerraformResourceTargets",
@@ -2555,6 +2574,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "dependsOn", GoMethod: "DependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "ensureBackendExists", GoMethod: "EnsureBackendExists"},
 			_jsii_.MemberMethod{JsiiMethod: "getLogicalId", GoMethod: "GetLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "hasResourceMove", GoMethod: "HasResourceMove"},
 			_jsii_.MemberProperty{JsiiProperty: "moveTargets", GoGetter: "MoveTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "prepareStack", GoMethod: "PrepareStack"},

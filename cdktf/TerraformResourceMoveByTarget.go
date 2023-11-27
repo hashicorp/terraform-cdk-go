@@ -5,7 +5,7 @@ package cdktf
 
 
 // Experimental.
-type TerraformResourceMove struct {
+type TerraformResourceMoveByTarget struct {
 	// Experimental.
 	MoveTarget *string `field:"required" json:"moveTarget" yaml:"moveTarget"`
 	// Experimental.

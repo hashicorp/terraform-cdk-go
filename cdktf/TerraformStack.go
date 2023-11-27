@@ -49,6 +49,8 @@ type TerraformStack interface {
 	// Experimental.
 	GetLogicalId(tfElement interface{}) *string
 	// Experimental.
+	HasResourceMove() *bool
+	// Experimental.
 	PrepareStack()
 	// Experimental.
 	RegisterIncomingCrossStackReference(fromStack TerraformStack) TerraformRemoteState
@@ -336,6 +338,19 @@ func (t *jsiiProxy_TerraformStack) GetLogicalId(tfElement interface{}) *string {
 		t,
 		"getLogicalId",
 		[]interface{}{tfElement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformStack) HasResourceMove() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"hasResourceMove",
+		nil, // no parameters
 		&returns,
 	)
 
