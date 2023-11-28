@@ -19,6 +19,62 @@ func (m *jsiiProxy_MapTerraformIterator) validateDynamicParameters(attributes *m
 	return nil
 }
 
+func (m *jsiiProxy_MapTerraformIterator) validateForExpressionForListParameters(expression interface{}) error {
+	if expression == nil {
+		return fmt.Errorf("parameter expression is required, but nil was provided")
+	}
+	switch expression.(type) {
+	case *string:
+		// ok
+	case string:
+		// ok
+	case IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(expression) {
+			return fmt.Errorf("parameter expression must be one of the allowed types: *string, IResolvable; received %#v (a %T)", expression, expression)
+		}
+	}
+
+	return nil
+}
+
+func (m *jsiiProxy_MapTerraformIterator) validateForExpressionForMapParameters(keyExpression interface{}, valueExpression interface{}) error {
+	if keyExpression == nil {
+		return fmt.Errorf("parameter keyExpression is required, but nil was provided")
+	}
+	switch keyExpression.(type) {
+	case *string:
+		// ok
+	case string:
+		// ok
+	case IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(keyExpression) {
+			return fmt.Errorf("parameter keyExpression must be one of the allowed types: *string, IResolvable; received %#v (a %T)", keyExpression, keyExpression)
+		}
+	}
+
+	if valueExpression == nil {
+		return fmt.Errorf("parameter valueExpression is required, but nil was provided")
+	}
+	switch valueExpression.(type) {
+	case *string:
+		// ok
+	case string:
+		// ok
+	case IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(valueExpression) {
+			return fmt.Errorf("parameter valueExpression must be one of the allowed types: *string, IResolvable; received %#v (a %T)", valueExpression, valueExpression)
+		}
+	}
+
+	return nil
+}
+
 func (m *jsiiProxy_MapTerraformIterator) validateGetAnyParameters(attribute *string) error {
 	if attribute == nil {
 		return fmt.Errorf("parameter attribute is required, but nil was provided")
@@ -102,6 +158,22 @@ func (m *jsiiProxy_MapTerraformIterator) validateGetStringParameters(attribute *
 func (m *jsiiProxy_MapTerraformIterator) validateGetStringMapParameters(attribute *string) error {
 	if attribute == nil {
 		return fmt.Errorf("parameter attribute is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (m *jsiiProxy_MapTerraformIterator) validatePluckPropertyParameters(property *string) error {
+	if property == nil {
+		return fmt.Errorf("parameter property is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateMapTerraformIterator_FromDataSourcesParameters(resource ITerraformResource) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil
@@ -201,6 +273,14 @@ func validateMapTerraformIterator_FromMapParameters(map_ interface{}) error {
 		if !_jsii_.IsAnonymousProxy(map_) {
 			return fmt.Errorf("parameter map_ must be one of the allowed types: ComplexMap, *map[string]interface{}, *map[string]*string, *map[string]*float64, *map[string]*bool; received %#v (a %T)", map_, map_)
 		}
+	}
+
+	return nil
+}
+
+func validateMapTerraformIterator_FromResourcesParameters(resource ITerraformResource) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil

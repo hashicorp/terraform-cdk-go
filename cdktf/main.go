@@ -1497,6 +1497,8 @@ func init() {
 		reflect.TypeOf((*ListTerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForList", GoMethod: "ForExpressionForList"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForMap", GoMethod: "ForExpressionForMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
@@ -1509,7 +1511,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberMethod{JsiiMethod: "keys", GoMethod: "Keys"},
+			_jsii_.MemberMethod{JsiiMethod: "pluckProperty", GoMethod: "PluckProperty"},
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "values", GoMethod: "Values"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ListTerraformIterator{}
@@ -1625,6 +1630,8 @@ func init() {
 		reflect.TypeOf((*MapTerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForList", GoMethod: "ForExpressionForList"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForMap", GoMethod: "ForExpressionForMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
@@ -1637,7 +1644,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberMethod{JsiiMethod: "keys", GoMethod: "Keys"},
+			_jsii_.MemberMethod{JsiiMethod: "pluckProperty", GoMethod: "PluckProperty"},
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "values", GoMethod: "Values"},
 		},
 		func() interface{} {
 			j := jsiiProxy_MapTerraformIterator{}
@@ -1905,6 +1915,36 @@ func init() {
 			j := jsiiProxy_Resource{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktf.ResourceTerraformIterator",
+		reflect.TypeOf((*ResourceTerraformIterator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForList", GoMethod: "ForExpressionForList"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForMap", GoMethod: "ForExpressionForMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
+			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "getBooleanMap", GoMethod: "GetBooleanMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getList", GoMethod: "GetList"},
+			_jsii_.MemberMethod{JsiiMethod: "getMap", GoMethod: "GetMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumber", GoMethod: "GetNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberList", GoMethod: "GetNumberList"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
+			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberMethod{JsiiMethod: "keys", GoMethod: "Keys"},
+			_jsii_.MemberMethod{JsiiMethod: "pluckProperty", GoMethod: "PluckProperty"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "values", GoMethod: "Values"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ResourceTerraformIterator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TerraformIterator)
 			return &j
 		},
 	)
@@ -2269,6 +2309,8 @@ func init() {
 		reflect.TypeOf((*TerraformIterator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForList", GoMethod: "ForExpressionForList"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForMap", GoMethod: "ForExpressionForMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
 			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
@@ -2280,6 +2322,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
 			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
 			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+			_jsii_.MemberMethod{JsiiMethod: "keys", GoMethod: "Keys"},
+			_jsii_.MemberMethod{JsiiMethod: "pluckProperty", GoMethod: "PluckProperty"},
+			_jsii_.MemberMethod{JsiiMethod: "values", GoMethod: "Values"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TerraformIterator{}

@@ -14,15 +14,48 @@ type ListTerraformIterator interface {
 	// Returns the currenty entry in the list or set that is being iterated over.
 	//
 	// For lists this is the same as `iterator.value`. If you need the index,
-	// use count using the escape hatch:
-	// https://developer.hashicorp.com/terraform/cdktf/concepts/resources#escape-hatch
+	// use count via `TerraformCount`:
+	// https://developer.hashicorp.com/terraform/cdktf/concepts/iterators#using-count
 	// Experimental.
 	Key() interface{}
 	// Returns the value of the current item iterated over.
 	// Experimental.
 	Value() interface{}
+	// Creates a dynamic expression that can be used to loop over this iterator in a dynamic block.
+	//
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// See https://developer.hashicorp.com/terraform/cdktf/concepts/iterators#using-iterators-for-list-attributes
 	// Experimental.
 	Dynamic(attributes *map[string]interface{}) IResolvable
+	// Creates a for expression that results in a list.
+	//
+	// This method allows you to create every possible for expression, but requires more knowledge about
+	// Terraform's for expression syntax.
+	// For the most common use cases you can use keys(), values(), and pluckProperty() instead.
+	//
+	// You may write any valid Terraform for each expression, e.g.
+	// `TerraformIterator.fromList(myIteratorSourceVar).forExpressionForList("val.foo if val.bar == true")`
+	// will result in `[ for key, val in var.myIteratorSource: val.foo if val.bar == true ]`.
+	//
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// Experimental.
+	ForExpressionForList(expression interface{}) IResolvable
+	// Creates a for expression that results in a map.
+	//
+	// This method allows you to create every possible for expression, but requires more knowledge about
+	// Terraforms for expression syntax.
+	// For the most common use cases you can use keys(), values(), and pluckProperty instead.
+	//
+	// You may write any valid Terraform for each expression, e.g.
+	// `TerraformIterator.fromMap(myIteratorSourceVar).forExpressionForMap("key", "val.foo if val.bar == true")`
+	// will result in `{ for key, val in var.myIteratorSource: key => val.foo if val.bar == true }`.
+	//
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// Experimental.
+	ForExpressionForMap(keyExpression interface{}, valueExpression interface{}) IResolvable
 	// Returns: the given attribute of the current item iterated over as any.
 	// Experimental.
 	GetAny(attribute *string) IResolvable
@@ -56,6 +89,26 @@ type ListTerraformIterator interface {
 	// Returns: the given attribute of the current item iterated over as a map of strings.
 	// Experimental.
 	GetStringMap(attribute *string) *map[string]*string
+	// Creates a for expression that maps the iterators to its keys.
+	//
+	// For lists these would be the indices, for maps the keys.
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// Experimental.
+	Keys() IResolvable
+	// Creates a for expression that accesses the key on each element of the iterator.
+	//
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// Experimental.
+	PluckProperty(property *string) IResolvable
+	// Creates a for expression that maps the iterators to its value in case it is a map.
+	//
+	// For lists these would stay the same.
+	// As this returns an IResolvable you might need to wrap the output in
+	// a Token, e.g. `Token.asString`.
+	// Experimental.
+	Values() IResolvable
 }
 
 // The jsii proxy struct for ListTerraformIterator
@@ -113,6 +166,26 @@ func NewListTerraformIterator_Override(l ListTerraformIterator, list interface{}
 	)
 }
 
+// Creates a new iterator from a data source that has been created with the `for_each` argument.
+// Experimental.
+func ListTerraformIterator_FromDataSources(resource ITerraformResource) ResourceTerraformIterator {
+	_init_.Initialize()
+
+	if err := validateListTerraformIterator_FromDataSourcesParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns ResourceTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.ListTerraformIterator",
+		"fromDataSources",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new iterator from a list.
 // Experimental.
 func ListTerraformIterator_FromList(list interface{}) ListTerraformIterator {
@@ -153,6 +226,26 @@ func ListTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 	return returns
 }
 
+// Creates a new iterator from a resource that has been created with the `for_each` argument.
+// Experimental.
+func ListTerraformIterator_FromResources(resource ITerraformResource) ResourceTerraformIterator {
+	_init_.Initialize()
+
+	if err := validateListTerraformIterator_FromResourcesParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns ResourceTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.ListTerraformIterator",
+		"fromResources",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_ListTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
 	if err := l.validateDynamicParameters(attributes); err != nil {
 		panic(err)
@@ -163,6 +256,38 @@ func (l *jsiiProxy_ListTerraformIterator) Dynamic(attributes *map[string]interfa
 		l,
 		"dynamic",
 		[]interface{}{attributes},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) ForExpressionForList(expression interface{}) IResolvable {
+	if err := l.validateForExpressionForListParameters(expression); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"forExpressionForList",
+		[]interface{}{expression},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) ForExpressionForMap(keyExpression interface{}, valueExpression interface{}) IResolvable {
+	if err := l.validateForExpressionForMapParameters(keyExpression, valueExpression); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"forExpressionForMap",
+		[]interface{}{keyExpression, valueExpression},
 		&returns,
 	)
 
@@ -339,6 +464,48 @@ func (l *jsiiProxy_ListTerraformIterator) GetStringMap(attribute *string) *map[s
 		l,
 		"getStringMap",
 		[]interface{}{attribute},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) Keys() IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"keys",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) PluckProperty(property *string) IResolvable {
+	if err := l.validatePluckPropertyParameters(property); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"pluckProperty",
+		[]interface{}{property},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_ListTerraformIterator) Values() IResolvable {
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		l,
+		"values",
+		nil, // no parameters
 		&returns,
 	)
 
