@@ -171,6 +171,36 @@ func (r *jsiiProxy_ResourceTerraformIterator) validatePluckPropertyParameters(pr
 	return nil
 }
 
+func validateResourceTerraformIterator_FromComplexListParameters(list interface{}, mapKeyAttributeName *string) error {
+	if list == nil {
+		return fmt.Errorf("parameter list is required, but nil was provided")
+	}
+	switch list.(type) {
+	case IResolvable:
+		// ok
+	case ComplexList:
+		// ok
+	case StringMapList:
+		// ok
+	case NumberMapList:
+		// ok
+	case BooleanMapList:
+		// ok
+	case AnyMapList:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(list) {
+			return fmt.Errorf("parameter list must be one of the allowed types: IResolvable, ComplexList, StringMapList, NumberMapList, BooleanMapList, AnyMapList; received %#v (a %T)", list, list)
+		}
+	}
+
+	if mapKeyAttributeName == nil {
+		return fmt.Errorf("parameter mapKeyAttributeName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateResourceTerraformIterator_FromDataSourcesParameters(resource ITerraformResource) error {
 	if resource == nil {
 		return fmt.Errorf("parameter resource is required, but nil was provided")
@@ -193,16 +223,6 @@ func validateResourceTerraformIterator_FromListParameters(list interface{}) erro
 	case *[]*float64:
 		// ok
 	case []*float64:
-		// ok
-	case ComplexList:
-		// ok
-	case StringMapList:
-		// ok
-	case NumberMapList:
-		// ok
-	case BooleanMapList:
-		// ok
-	case AnyMapList:
 		// ok
 	case *[]interface{}:
 		list := list.(*[]interface{})
@@ -239,7 +259,7 @@ func validateResourceTerraformIterator_FromListParameters(list interface{}) erro
 		}
 	default:
 		if !_jsii_.IsAnonymousProxy(list) {
-			return fmt.Errorf("parameter list must be one of the allowed types: *[]*string, IResolvable, *[]*float64, ComplexList, StringMapList, NumberMapList, BooleanMapList, AnyMapList, *[]interface{}; received %#v (a %T)", list, list)
+			return fmt.Errorf("parameter list must be one of the allowed types: *[]*string, IResolvable, *[]*float64, *[]interface{}; received %#v (a %T)", list, list)
 		}
 	}
 

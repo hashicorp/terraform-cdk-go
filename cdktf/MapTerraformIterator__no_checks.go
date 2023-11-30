@@ -67,6 +67,10 @@ func (m *jsiiProxy_MapTerraformIterator) validatePluckPropertyParameters(propert
 	return nil
 }
 
+func validateMapTerraformIterator_FromComplexListParameters(list interface{}, mapKeyAttributeName *string) error {
+	return nil
+}
+
 func validateMapTerraformIterator_FromDataSourcesParameters(resource ITerraformResource) error {
 	return nil
 }

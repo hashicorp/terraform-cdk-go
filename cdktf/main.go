@@ -1023,6 +1023,36 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"cdktf.DynamicListTerraformIterator",
+		reflect.TypeOf((*DynamicListTerraformIterator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "dynamic", GoMethod: "Dynamic"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForList", GoMethod: "ForExpressionForList"},
+			_jsii_.MemberMethod{JsiiMethod: "forExpressionForMap", GoMethod: "ForExpressionForMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getAny", GoMethod: "GetAny"},
+			_jsii_.MemberMethod{JsiiMethod: "getAnyMap", GoMethod: "GetAnyMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getBoolean", GoMethod: "GetBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "getBooleanMap", GoMethod: "GetBooleanMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getList", GoMethod: "GetList"},
+			_jsii_.MemberMethod{JsiiMethod: "getMap", GoMethod: "GetMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumber", GoMethod: "GetNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberList", GoMethod: "GetNumberList"},
+			_jsii_.MemberMethod{JsiiMethod: "getNumberMap", GoMethod: "GetNumberMap"},
+			_jsii_.MemberMethod{JsiiMethod: "getString", GoMethod: "GetString"},
+			_jsii_.MemberMethod{JsiiMethod: "getStringMap", GoMethod: "GetStringMap"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberMethod{JsiiMethod: "keys", GoMethod: "Keys"},
+			_jsii_.MemberMethod{JsiiMethod: "pluckProperty", GoMethod: "PluckProperty"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "values", GoMethod: "Values"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DynamicListTerraformIterator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapTerraformIterator)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"cdktf.EncodingOptions",
 		reflect.TypeOf((*EncodingOptions)(nil)).Elem(),

@@ -11,7 +11,7 @@ import (
 // Experimental.
 type ResourceTerraformIterator interface {
 	TerraformIterator
-	// Returns the currenty entry in the list or set that is being iterated over.
+	// Returns the current entry in the list or set that is being iterated over.
 	//
 	// For lists this is the same as `iterator.value`. If you need the index,
 	// use count via `TerraformCount`:
@@ -164,6 +164,51 @@ func NewResourceTerraformIterator_Override(r ResourceTerraformIterator, element 
 		[]interface{}{element},
 		r,
 	)
+}
+
+// Creates a new iterator from a complex list.
+//
+// One example for this would be a list of maps.
+// The list will be converted into a map with the mapKeyAttributeName as the key.
+//
+// Example:
+//   const cert = new AcmCertificate(this, "cert", {
+//      domainName: "example.com",
+//      validationMethod: "DNS",
+//    });
+//
+//   const dvoIterator = TerraformIterator.fromComplexList(
+//     cert.domainValidationOptions,
+//     "domain_name"
+//   );
+//
+//   new Route53Record(this, "record", {
+//     allowOverwrite: true,
+//     name: dvoIterator.getString("name"),
+//     records: [dvoIterator.getString("record")],
+//     ttl: 60,
+//     type: dvoIterator.getString("type"),
+//     zoneId: Token.asString(dataAwsRoute53ZoneExample.zoneId),
+//     forEach: dvoIterator,
+//   });
+//
+// Experimental.
+func ResourceTerraformIterator_FromComplexList(list interface{}, mapKeyAttributeName *string) DynamicListTerraformIterator {
+	_init_.Initialize()
+
+	if err := validateResourceTerraformIterator_FromComplexListParameters(list, mapKeyAttributeName); err != nil {
+		panic(err)
+	}
+	var returns DynamicListTerraformIterator
+
+	_jsii_.StaticInvoke(
+		"cdktf.ResourceTerraformIterator",
+		"fromComplexList",
+		[]interface{}{list, mapKeyAttributeName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new iterator from a data source that has been created with the `for_each` argument.
