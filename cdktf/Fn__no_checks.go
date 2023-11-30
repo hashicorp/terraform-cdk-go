@@ -99,10 +99,6 @@ func validateFn_ConcatParameters(seqs *[]interface{}) error {
 	return nil
 }
 
-func validateFn_ConditionalParameters(condition interface{}, trueValue interface{}, falseValue interface{}) error {
-	return nil
-}
-
 func validateFn_ContainsParameters(list interface{}, value interface{}) error {
 	return nil
 }

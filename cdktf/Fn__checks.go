@@ -213,22 +213,6 @@ func validateFn_ConcatParameters(seqs *[]interface{}) error {
 	return nil
 }
 
-func validateFn_ConditionalParameters(condition interface{}, trueValue interface{}, falseValue interface{}) error {
-	if condition == nil {
-		return fmt.Errorf("parameter condition is required, but nil was provided")
-	}
-
-	if trueValue == nil {
-		return fmt.Errorf("parameter trueValue is required, but nil was provided")
-	}
-
-	if falseValue == nil {
-		return fmt.Errorf("parameter falseValue is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateFn_ContainsParameters(list interface{}, value interface{}) error {
 	if list == nil {
 		return fmt.Errorf("parameter list is required, but nil was provided")

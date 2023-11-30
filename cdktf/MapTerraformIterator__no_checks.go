@@ -11,14 +11,6 @@ func (m *jsiiProxy_MapTerraformIterator) validateDynamicParameters(attributes *m
 	return nil
 }
 
-func (m *jsiiProxy_MapTerraformIterator) validateForExpressionForListParameters(expression interface{}) error {
-	return nil
-}
-
-func (m *jsiiProxy_MapTerraformIterator) validateForExpressionForMapParameters(keyExpression interface{}, valueExpression interface{}) error {
-	return nil
-}
-
 func (m *jsiiProxy_MapTerraformIterator) validateGetAnyParameters(attribute *string) error {
 	return nil
 }
@@ -63,27 +55,11 @@ func (m *jsiiProxy_MapTerraformIterator) validateGetStringMapParameters(attribut
 	return nil
 }
 
-func (m *jsiiProxy_MapTerraformIterator) validatePluckPropertyParameters(property *string) error {
-	return nil
-}
-
-func validateMapTerraformIterator_FromComplexListParameters(list interface{}, mapKeyAttributeName *string) error {
-	return nil
-}
-
-func validateMapTerraformIterator_FromDataSourcesParameters(resource ITerraformResource) error {
-	return nil
-}
-
 func validateMapTerraformIterator_FromListParameters(list interface{}) error {
 	return nil
 }
 
 func validateMapTerraformIterator_FromMapParameters(map_ interface{}) error {
-	return nil
-}
-
-func validateMapTerraformIterator_FromResourcesParameters(resource ITerraformResource) error {
 	return nil
 }
 

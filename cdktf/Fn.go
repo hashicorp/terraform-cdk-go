@@ -504,26 +504,6 @@ func Fn_Concat(seqs *[]interface{}) interface{} {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/expressions/conditionals} A conditional expression uses the value of a boolean expression to select one of two values.
-// Experimental.
-func Fn_Conditional(condition interface{}, trueValue interface{}, falseValue interface{}) interface{} {
-	_init_.Initialize()
-
-	if err := validateFn_ConditionalParameters(condition, trueValue, falseValue); err != nil {
-		panic(err)
-	}
-	var returns interface{}
-
-	_jsii_.StaticInvoke(
-		"cdktf.Fn",
-		"conditional",
-		[]interface{}{condition, trueValue, falseValue},
-		&returns,
-	)
-
-	return returns
-}
-
 // {@link https://developer.hashicorp.com/terraform/language/functions/contains contains} determines whether a given list or set contains a given single value as one of its elements.
 // Experimental.
 func Fn_Contains(list interface{}, value interface{}) interface{} {
