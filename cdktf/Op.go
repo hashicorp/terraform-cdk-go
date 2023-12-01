@@ -8,7 +8,7 @@ import (
 	_init_ "github.com/hashicorp/terraform-cdk-go/cdktf/jsii"
 )
 
-// This class contains static functions for all arithmetical and logical operators in the Terraform configutation language.
+// This class contains static functions for all arithmetical and logical operators in the Terraform configuration language.
 // Experimental.
 type Op interface {
 }
@@ -46,13 +46,13 @@ func NewOp_Override(o Op) {
 
 // Renders left + right.
 // Experimental.
-func Op_Add(left interface{}, right interface{}) IResolvable {
+func Op_Add(left interface{}, right interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_AddParameters(left, right); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",
@@ -86,13 +86,13 @@ func Op_And(left interface{}, right interface{}) IResolvable {
 
 // Renders left / right.
 // Experimental.
-func Op_Div(left interface{}, right interface{}) IResolvable {
+func Op_Div(left interface{}, right interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_DivParameters(left, right); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",
@@ -206,13 +206,13 @@ func Op_Lte(left interface{}, right interface{}) IResolvable {
 
 // Renders left % right.
 // Experimental.
-func Op_Mod(left interface{}, right interface{}) IResolvable {
+func Op_Mod(left interface{}, right interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_ModParameters(left, right); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",
@@ -226,13 +226,13 @@ func Op_Mod(left interface{}, right interface{}) IResolvable {
 
 // Renders left * right.
 // Experimental.
-func Op_Mul(left interface{}, right interface{}) IResolvable {
+func Op_Mul(left interface{}, right interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_MulParameters(left, right); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",
@@ -246,13 +246,13 @@ func Op_Mul(left interface{}, right interface{}) IResolvable {
 
 // Renders -expression.
 // Experimental.
-func Op_Negate(expression interface{}) IResolvable {
+func Op_Negate(expression interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_NegateParameters(expression); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",
@@ -326,13 +326,13 @@ func Op_Or(left interface{}, right interface{}) IResolvable {
 
 // Renders left - right.
 // Experimental.
-func Op_Sub(left interface{}, right interface{}) IResolvable {
+func Op_Sub(left interface{}, right interface{}) *float64 {
 	_init_.Initialize()
 
 	if err := validateOp_SubParameters(left, right); err != nil {
 		panic(err)
 	}
-	var returns IResolvable
+	var returns *float64
 
 	_jsii_.StaticInvoke(
 		"cdktf.Op",

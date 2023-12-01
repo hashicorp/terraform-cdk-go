@@ -9,11 +9,15 @@ import (
 )
 
 // Experimental.
-type MapTerraformIterator interface {
+type ResourceTerraformIterator interface {
 	TerraformIterator
-	// Returns the key of the current entry in the map that is being iterated over.
+	// Returns the current entry in the list or set that is being iterated over.
+	//
+	// For lists this is the same as `iterator.value`. If you need the index,
+	// use count via `TerraformCount`:
+	// https://developer.hashicorp.com/terraform/cdktf/concepts/iterators#using-count
 	// Experimental.
-	Key() *string
+	Key() interface{}
 	// Returns the value of the current item iterated over.
 	// Experimental.
 	Value() interface{}
@@ -107,13 +111,13 @@ type MapTerraformIterator interface {
 	Values() IResolvable
 }
 
-// The jsii proxy struct for MapTerraformIterator
-type jsiiProxy_MapTerraformIterator struct {
+// The jsii proxy struct for ResourceTerraformIterator
+type jsiiProxy_ResourceTerraformIterator struct {
 	jsiiProxy_TerraformIterator
 }
 
-func (j *jsiiProxy_MapTerraformIterator) Key() *string {
-	var returns *string
+func (j *jsiiProxy_ResourceTerraformIterator) Key() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"key",
@@ -122,7 +126,7 @@ func (j *jsiiProxy_MapTerraformIterator) Key() *string {
 	return returns
 }
 
-func (j *jsiiProxy_MapTerraformIterator) Value() interface{} {
+func (j *jsiiProxy_ResourceTerraformIterator) Value() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
@@ -134,17 +138,17 @@ func (j *jsiiProxy_MapTerraformIterator) Value() interface{} {
 
 
 // Experimental.
-func NewMapTerraformIterator(map_ interface{}) MapTerraformIterator {
+func NewResourceTerraformIterator(element ITerraformResource) ResourceTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateNewMapTerraformIteratorParameters(map_); err != nil {
+	if err := validateNewResourceTerraformIteratorParameters(element); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_MapTerraformIterator{}
+	j := jsiiProxy_ResourceTerraformIterator{}
 
 	_jsii_.Create(
-		"cdktf.MapTerraformIterator",
-		[]interface{}{map_},
+		"cdktf.ResourceTerraformIterator",
+		[]interface{}{element},
 		&j,
 	)
 
@@ -152,13 +156,13 @@ func NewMapTerraformIterator(map_ interface{}) MapTerraformIterator {
 }
 
 // Experimental.
-func NewMapTerraformIterator_Override(m MapTerraformIterator, map_ interface{}) {
+func NewResourceTerraformIterator_Override(r ResourceTerraformIterator, element ITerraformResource) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"cdktf.MapTerraformIterator",
-		[]interface{}{map_},
-		m,
+		"cdktf.ResourceTerraformIterator",
+		[]interface{}{element},
+		r,
 	)
 }
 
@@ -189,16 +193,16 @@ func NewMapTerraformIterator_Override(m MapTerraformIterator, map_ interface{}) 
 //   });
 //
 // Experimental.
-func MapTerraformIterator_FromComplexList(list interface{}, mapKeyAttributeName *string) DynamicListTerraformIterator {
+func ResourceTerraformIterator_FromComplexList(list interface{}, mapKeyAttributeName *string) DynamicListTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateMapTerraformIterator_FromComplexListParameters(list, mapKeyAttributeName); err != nil {
+	if err := validateResourceTerraformIterator_FromComplexListParameters(list, mapKeyAttributeName); err != nil {
 		panic(err)
 	}
 	var returns DynamicListTerraformIterator
 
 	_jsii_.StaticInvoke(
-		"cdktf.MapTerraformIterator",
+		"cdktf.ResourceTerraformIterator",
 		"fromComplexList",
 		[]interface{}{list, mapKeyAttributeName},
 		&returns,
@@ -209,16 +213,16 @@ func MapTerraformIterator_FromComplexList(list interface{}, mapKeyAttributeName 
 
 // Creates a new iterator from a data source that has been created with the `for_each` argument.
 // Experimental.
-func MapTerraformIterator_FromDataSources(resource ITerraformResource) ResourceTerraformIterator {
+func ResourceTerraformIterator_FromDataSources(resource ITerraformResource) ResourceTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateMapTerraformIterator_FromDataSourcesParameters(resource); err != nil {
+	if err := validateResourceTerraformIterator_FromDataSourcesParameters(resource); err != nil {
 		panic(err)
 	}
 	var returns ResourceTerraformIterator
 
 	_jsii_.StaticInvoke(
-		"cdktf.MapTerraformIterator",
+		"cdktf.ResourceTerraformIterator",
 		"fromDataSources",
 		[]interface{}{resource},
 		&returns,
@@ -229,16 +233,16 @@ func MapTerraformIterator_FromDataSources(resource ITerraformResource) ResourceT
 
 // Creates a new iterator from a list.
 // Experimental.
-func MapTerraformIterator_FromList(list interface{}) ListTerraformIterator {
+func ResourceTerraformIterator_FromList(list interface{}) ListTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateMapTerraformIterator_FromListParameters(list); err != nil {
+	if err := validateResourceTerraformIterator_FromListParameters(list); err != nil {
 		panic(err)
 	}
 	var returns ListTerraformIterator
 
 	_jsii_.StaticInvoke(
-		"cdktf.MapTerraformIterator",
+		"cdktf.ResourceTerraformIterator",
 		"fromList",
 		[]interface{}{list},
 		&returns,
@@ -249,16 +253,16 @@ func MapTerraformIterator_FromList(list interface{}) ListTerraformIterator {
 
 // Creates a new iterator from a map.
 // Experimental.
-func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
+func ResourceTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateMapTerraformIterator_FromMapParameters(map_); err != nil {
+	if err := validateResourceTerraformIterator_FromMapParameters(map_); err != nil {
 		panic(err)
 	}
 	var returns MapTerraformIterator
 
 	_jsii_.StaticInvoke(
-		"cdktf.MapTerraformIterator",
+		"cdktf.ResourceTerraformIterator",
 		"fromMap",
 		[]interface{}{map_},
 		&returns,
@@ -269,16 +273,16 @@ func MapTerraformIterator_FromMap(map_ interface{}) MapTerraformIterator {
 
 // Creates a new iterator from a resource that has been created with the `for_each` argument.
 // Experimental.
-func MapTerraformIterator_FromResources(resource ITerraformResource) ResourceTerraformIterator {
+func ResourceTerraformIterator_FromResources(resource ITerraformResource) ResourceTerraformIterator {
 	_init_.Initialize()
 
-	if err := validateMapTerraformIterator_FromResourcesParameters(resource); err != nil {
+	if err := validateResourceTerraformIterator_FromResourcesParameters(resource); err != nil {
 		panic(err)
 	}
 	var returns ResourceTerraformIterator
 
 	_jsii_.StaticInvoke(
-		"cdktf.MapTerraformIterator",
+		"cdktf.ResourceTerraformIterator",
 		"fromResources",
 		[]interface{}{resource},
 		&returns,
@@ -287,14 +291,14 @@ func MapTerraformIterator_FromResources(resource ITerraformResource) ResourceTer
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
-	if err := m.validateDynamicParameters(attributes); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) Dynamic(attributes *map[string]interface{}) IResolvable {
+	if err := r.validateDynamicParameters(attributes); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"dynamic",
 		[]interface{}{attributes},
 		&returns,
@@ -303,14 +307,14 @@ func (m *jsiiProxy_MapTerraformIterator) Dynamic(attributes *map[string]interfac
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) ForExpressionForList(expression interface{}) IResolvable {
-	if err := m.validateForExpressionForListParameters(expression); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) ForExpressionForList(expression interface{}) IResolvable {
+	if err := r.validateForExpressionForListParameters(expression); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"forExpressionForList",
 		[]interface{}{expression},
 		&returns,
@@ -319,14 +323,14 @@ func (m *jsiiProxy_MapTerraformIterator) ForExpressionForList(expression interfa
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) ForExpressionForMap(keyExpression interface{}, valueExpression interface{}) IResolvable {
-	if err := m.validateForExpressionForMapParameters(keyExpression, valueExpression); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) ForExpressionForMap(keyExpression interface{}, valueExpression interface{}) IResolvable {
+	if err := r.validateForExpressionForMapParameters(keyExpression, valueExpression); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"forExpressionForMap",
 		[]interface{}{keyExpression, valueExpression},
 		&returns,
@@ -335,14 +339,14 @@ func (m *jsiiProxy_MapTerraformIterator) ForExpressionForMap(keyExpression inter
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetAny(attribute *string) IResolvable {
-	if err := m.validateGetAnyParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetAny(attribute *string) IResolvable {
+	if err := r.validateGetAnyParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getAny",
 		[]interface{}{attribute},
 		&returns,
@@ -351,14 +355,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetAny(attribute *string) IResolvable {
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
-	if err := m.validateGetAnyMapParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetAnyMap(attribute *string) *map[string]interface{} {
+	if err := r.validateGetAnyMapParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getAnyMap",
 		[]interface{}{attribute},
 		&returns,
@@ -367,14 +371,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetAnyMap(attribute *string) *map[strin
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetBoolean(attribute *string) IResolvable {
-	if err := m.validateGetBooleanParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetBoolean(attribute *string) IResolvable {
+	if err := r.validateGetBooleanParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getBoolean",
 		[]interface{}{attribute},
 		&returns,
@@ -383,14 +387,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetBoolean(attribute *string) IResolvab
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
-	if err := m.validateGetBooleanMapParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetBooleanMap(attribute *string) *map[string]*bool {
+	if err := r.validateGetBooleanMapParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *map[string]*bool
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getBooleanMap",
 		[]interface{}{attribute},
 		&returns,
@@ -399,14 +403,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetBooleanMap(attribute *string) *map[s
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetList(attribute *string) *[]*string {
-	if err := m.validateGetListParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetList(attribute *string) *[]*string {
+	if err := r.validateGetListParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getList",
 		[]interface{}{attribute},
 		&returns,
@@ -415,14 +419,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetList(attribute *string) *[]*string {
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetMap(attribute *string) *map[string]interface{} {
-	if err := m.validateGetMapParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetMap(attribute *string) *map[string]interface{} {
+	if err := r.validateGetMapParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getMap",
 		[]interface{}{attribute},
 		&returns,
@@ -431,14 +435,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetMap(attribute *string) *map[string]i
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetNumber(attribute *string) *float64 {
-	if err := m.validateGetNumberParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetNumber(attribute *string) *float64 {
+	if err := r.validateGetNumberParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *float64
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getNumber",
 		[]interface{}{attribute},
 		&returns,
@@ -447,14 +451,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumber(attribute *string) *float64 {
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetNumberList(attribute *string) *[]*float64 {
-	if err := m.validateGetNumberListParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetNumberList(attribute *string) *[]*float64 {
+	if err := r.validateGetNumberListParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *[]*float64
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getNumberList",
 		[]interface{}{attribute},
 		&returns,
@@ -463,14 +467,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumberList(attribute *string) *[]*fl
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
-	if err := m.validateGetNumberMapParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetNumberMap(attribute *string) *map[string]*float64 {
+	if err := r.validateGetNumberMapParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *map[string]*float64
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getNumberMap",
 		[]interface{}{attribute},
 		&returns,
@@ -479,14 +483,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetNumberMap(attribute *string) *map[st
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetString(attribute *string) *string {
-	if err := m.validateGetStringParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetString(attribute *string) *string {
+	if err := r.validateGetStringParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *string
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getString",
 		[]interface{}{attribute},
 		&returns,
@@ -495,14 +499,14 @@ func (m *jsiiProxy_MapTerraformIterator) GetString(attribute *string) *string {
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) GetStringMap(attribute *string) *map[string]*string {
-	if err := m.validateGetStringMapParameters(attribute); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) GetStringMap(attribute *string) *map[string]*string {
+	if err := r.validateGetStringMapParameters(attribute); err != nil {
 		panic(err)
 	}
 	var returns *map[string]*string
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"getStringMap",
 		[]interface{}{attribute},
 		&returns,
@@ -511,11 +515,11 @@ func (m *jsiiProxy_MapTerraformIterator) GetStringMap(attribute *string) *map[st
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) Keys() IResolvable {
+func (r *jsiiProxy_ResourceTerraformIterator) Keys() IResolvable {
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"keys",
 		nil, // no parameters
 		&returns,
@@ -524,14 +528,14 @@ func (m *jsiiProxy_MapTerraformIterator) Keys() IResolvable {
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) PluckProperty(property *string) IResolvable {
-	if err := m.validatePluckPropertyParameters(property); err != nil {
+func (r *jsiiProxy_ResourceTerraformIterator) PluckProperty(property *string) IResolvable {
+	if err := r.validatePluckPropertyParameters(property); err != nil {
 		panic(err)
 	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"pluckProperty",
 		[]interface{}{property},
 		&returns,
@@ -540,11 +544,11 @@ func (m *jsiiProxy_MapTerraformIterator) PluckProperty(property *string) IResolv
 	return returns
 }
 
-func (m *jsiiProxy_MapTerraformIterator) Values() IResolvable {
+func (r *jsiiProxy_ResourceTerraformIterator) Values() IResolvable {
 	var returns IResolvable
 
 	_jsii_.Invoke(
-		m,
+		r,
 		"values",
 		nil, // no parameters
 		&returns,
