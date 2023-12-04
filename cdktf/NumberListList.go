@@ -30,6 +30,11 @@ type NumberListList interface {
 	WrapsSet() *bool
 	// Experimental.
 	SetWrapsSet(val *bool)
+	// Creating an iterator for this complex list.
+	//
+	// The list will be converted into a map with the mapKeyAttributeName as the key.
+	// Experimental.
+	AllWithMapKey(mapKeyAttributeName *string) DynamicListTerraformIterator
 	// Experimental.
 	ComputeFqn() *string
 	// Experimental.
@@ -160,6 +165,22 @@ func (j *jsiiProxy_NumberListList)SetWrapsSet(val *bool) {
 		"wrapsSet",
 		val,
 	)
+}
+
+func (n *jsiiProxy_NumberListList) AllWithMapKey(mapKeyAttributeName *string) DynamicListTerraformIterator {
+	if err := n.validateAllWithMapKeyParameters(mapKeyAttributeName); err != nil {
+		panic(err)
+	}
+	var returns DynamicListTerraformIterator
+
+	_jsii_.Invoke(
+		n,
+		"allWithMapKey",
+		[]interface{}{mapKeyAttributeName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (n *jsiiProxy_NumberListList) ComputeFqn() *string {

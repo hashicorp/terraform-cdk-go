@@ -7,6 +7,10 @@ package cdktf
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BooleanList) validateAllWithMapKeyParameters(mapKeyAttributeName *string) error {
+	return nil
+}
+
 func (b *jsiiProxy_BooleanList) validateGetParameters(index *float64) error {
 	return nil
 }
