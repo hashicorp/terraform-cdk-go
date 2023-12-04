@@ -84,7 +84,7 @@ func Fn_Abspath(path *string) *string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/alltrue alltrue} returns `true` if all elements in a given collection are `true` or `&#34;true&#34;`. It also returns `true` if the collection is empty.
+// {@link https://developer.hashicorp.com/terraform/language/functions/alltrue alltrue} returns `true` if all elements in a given collection are `true` or `"true"`. It also returns `true` if the collection is empty.
 // Experimental.
 func Fn_Alltrue(list *[]interface{}) IResolvable {
 	_init_.Initialize()
@@ -104,7 +104,7 @@ func Fn_Alltrue(list *[]interface{}) IResolvable {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/anytrue anytrue} returns `true` if any element in a given collection is `true` or `&#34;true&#34;`. It also returns `false` if the collection is empty.
+// {@link https://developer.hashicorp.com/terraform/language/functions/anytrue anytrue} returns `true` if any element in a given collection is `true` or `"true"`. It also returns `false` if the collection is empty.
 // Experimental.
 func Fn_Anytrue(list *[]interface{}) IResolvable {
 	_init_.Initialize()
@@ -184,7 +184,7 @@ func Fn_Base64gzip(str *string) *string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/base64sha256 base64sha256} computes the SHA256 hash of a given string and encodes it with Base64. This is not equivalent to `base64encode(sha256(&#34;test&#34;))` since `sha256()` returns hexadecimal representation.
+// {@link https://developer.hashicorp.com/terraform/language/functions/base64sha256 base64sha256} computes the SHA256 hash of a given string and encodes it with Base64. This is not equivalent to `base64encode(sha256("test"))` since `sha256()` returns hexadecimal representation.
 // Experimental.
 func Fn_Base64sha256(str *string) *string {
 	_init_.Initialize()
@@ -204,7 +204,7 @@ func Fn_Base64sha256(str *string) *string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/base64sha512 base64sha512} computes the SHA512 hash of a given string and encodes it with Base64. This is not equivalent to `base64encode(sha512(&#34;test&#34;))` since `sha512()` returns hexadecimal representation.
+// {@link https://developer.hashicorp.com/terraform/language/functions/base64sha512 base64sha512} computes the SHA512 hash of a given string and encodes it with Base64. This is not equivalent to `base64encode(sha512("test"))` since `sha512()` returns hexadecimal representation.
 // Experimental.
 func Fn_Base64sha512(str *string) *string {
 	_init_.Initialize()
@@ -424,7 +424,7 @@ func Fn_Cidrsubnets(prefix *string, newbits *[]*float64) *[]*string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/coalesce coalesce} takes any number of arguments and returns the first one that isn&#39;t null or an empty string.
+// {@link https://developer.hashicorp.com/terraform/language/functions/coalesce coalesce} takes any number of arguments and returns the first one that isn't null or an empty string.
 // Experimental.
 func Fn_Coalesce(vals *[]interface{}) interface{} {
 	_init_.Initialize()
@@ -444,7 +444,7 @@ func Fn_Coalesce(vals *[]interface{}) interface{} {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/coalescelist coalescelist} takes any number of list arguments and returns the first one that isn&#39;t empty.
+// {@link https://developer.hashicorp.com/terraform/language/functions/coalescelist coalescelist} takes any number of list arguments and returns the first one that isn't empty.
 // Experimental.
 func Fn_Coalescelist(vals *[]interface{}) interface{} {
 	_init_.Initialize()
@@ -1326,7 +1326,7 @@ func Fn_Parseint(number interface{}, base *float64) interface{} {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/pathexpand pathexpand} takes a filesystem path that might begin with a `~` segment, and if so it replaces that segment with the current user&#39;s home directory path.
+// {@link https://developer.hashicorp.com/terraform/language/functions/pathexpand pathexpand} takes a filesystem path that might begin with a `~` segment, and if so it replaces that segment with the current user's home directory path.
 // Experimental.
 func Fn_Pathexpand(path *string) *string {
 	_init_.Initialize()
@@ -1340,6 +1340,23 @@ func Fn_Pathexpand(path *string) *string {
 		"cdktf.Fn",
 		"pathexpand",
 		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// {@link https://developer.hashicorp.com/terraform/language/functions/plantimestamp plantimestamp} returns a UTC timestamp string in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, fixed to a constant time representing the time of the plan.
+// Experimental.
+func Fn_Plantimestamp() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"plantimestamp",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -1760,6 +1777,26 @@ func Fn_Startswith(str *string, prefix *string) IResolvable {
 		"cdktf.Fn",
 		"startswith",
 		[]interface{}{str, prefix},
+		&returns,
+	)
+
+	return returns
+}
+
+// {@link https://developer.hashicorp.com/terraform/language/functions/strcontains strcontains} takes two values: a string to check and an expected substring. The function returns true if the string has the substring contained within it.
+// Experimental.
+func Fn_Strcontains(str *string, substr *string) IResolvable {
+	_init_.Initialize()
+
+	if err := validateFn_StrcontainsParameters(str, substr); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.StaticInvoke(
+		"cdktf.Fn",
+		"strcontains",
+		[]interface{}{str, substr},
 		&returns,
 	)
 
@@ -2260,7 +2297,7 @@ func Fn_Uuid() *string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/uuidv5 uuidv5} generates a _name-based_ UUID, as described in [RFC 4122 section 4.3](https://tools.ietf.org/html/rfc4122#section-4.3), also known as a &#34;version 5&#34; UUID.
+// {@link https://developer.hashicorp.com/terraform/language/functions/uuidv5 uuidv5} generates a _name-based_ UUID, as described in [RFC 4122 section 4.3](https://tools.ietf.org/html/rfc4122#section-4.3), also known as a "version 5" UUID.
 // Experimental.
 func Fn_Uuidv5(namespace *string, name *string) *string {
 	_init_.Initialize()

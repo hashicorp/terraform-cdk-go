@@ -323,6 +323,10 @@ func validateFnGenerated_StartswithParameters(str *string, prefix *string) error
 	return nil
 }
 
+func validateFnGenerated_StrcontainsParameters(str *string, substr *string) error {
+	return nil
+}
+
 func validateFnGenerated_StrrevParameters(str *string) error {
 	return nil
 }

@@ -845,6 +845,18 @@ func validateFn_StartswithParameters(str *string, prefix *string) error {
 	return nil
 }
 
+func validateFn_StrcontainsParameters(str *string, substr *string) error {
+	if str == nil {
+		return fmt.Errorf("parameter str is required, but nil was provided")
+	}
+
+	if substr == nil {
+		return fmt.Errorf("parameter substr is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFn_StrrevParameters(str *string) error {
 	if str == nil {
 		return fmt.Errorf("parameter str is required, but nil was provided")
