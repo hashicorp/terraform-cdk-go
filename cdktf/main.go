@@ -524,6 +524,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"cdktf.CosBackendAssumeRole",
+		reflect.TypeOf((*CosBackendAssumeRole)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdktf.CosBackendConfig",
 		reflect.TypeOf((*CosBackendConfig)(nil)).Elem(),
 	)
@@ -1768,6 +1772,7 @@ func init() {
 		reflect.TypeOf((*NamedCloudWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "project", GoGetter: "Project"},
 			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
 		},
 		func() interface{} {
@@ -2072,8 +2077,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"cdktf.S3BackendAssumeRoleConfig",
+		reflect.TypeOf((*S3BackendAssumeRoleConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.S3BackendAssumeRoleWithWebIdentityConfig",
+		reflect.TypeOf((*S3BackendAssumeRoleWithWebIdentityConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdktf.S3BackendConfig",
 		reflect.TypeOf((*S3BackendConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktf.S3BackendEndpointConfig",
+		reflect.TypeOf((*S3BackendEndpointConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdktf.SSHProvisionerConnection",
@@ -2215,6 +2232,7 @@ func init() {
 		"cdktf.TaggedCloudWorkspaces",
 		reflect.TypeOf((*TaggedCloudWorkspaces)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "project", GoGetter: "Project"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toTerraform", GoMethod: "ToTerraform"},
 		},

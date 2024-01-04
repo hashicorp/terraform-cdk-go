@@ -15,6 +15,10 @@ import (
 type TaggedCloudWorkspaces interface {
 	CloudWorkspace
 	// Experimental.
+	Project() *string
+	// Experimental.
+	SetProject(val *string)
+	// Experimental.
 	Tags() *[]*string
 	// Experimental.
 	SetTags(val *[]*string)
@@ -25,6 +29,16 @@ type TaggedCloudWorkspaces interface {
 // The jsii proxy struct for TaggedCloudWorkspaces
 type jsiiProxy_TaggedCloudWorkspaces struct {
 	jsiiProxy_CloudWorkspace
+}
+
+func (j *jsiiProxy_TaggedCloudWorkspaces) Project() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"project",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_TaggedCloudWorkspaces) Tags() *[]*string {
@@ -39,7 +53,7 @@ func (j *jsiiProxy_TaggedCloudWorkspaces) Tags() *[]*string {
 
 
 // Experimental.
-func NewTaggedCloudWorkspaces(tags *[]*string) TaggedCloudWorkspaces {
+func NewTaggedCloudWorkspaces(tags *[]*string, project *string) TaggedCloudWorkspaces {
 	_init_.Initialize()
 
 	if err := validateNewTaggedCloudWorkspacesParameters(tags); err != nil {
@@ -49,7 +63,7 @@ func NewTaggedCloudWorkspaces(tags *[]*string) TaggedCloudWorkspaces {
 
 	_jsii_.Create(
 		"cdktf.TaggedCloudWorkspaces",
-		[]interface{}{tags},
+		[]interface{}{tags, project},
 		&j,
 	)
 
@@ -57,13 +71,21 @@ func NewTaggedCloudWorkspaces(tags *[]*string) TaggedCloudWorkspaces {
 }
 
 // Experimental.
-func NewTaggedCloudWorkspaces_Override(t TaggedCloudWorkspaces, tags *[]*string) {
+func NewTaggedCloudWorkspaces_Override(t TaggedCloudWorkspaces, tags *[]*string, project *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.TaggedCloudWorkspaces",
-		[]interface{}{tags},
+		[]interface{}{tags, project},
 		t,
+	)
+}
+
+func (j *jsiiProxy_TaggedCloudWorkspaces)SetProject(val *string) {
+	_jsii_.Set(
+		j,
+		"project",
+		val,
 	)
 }
 

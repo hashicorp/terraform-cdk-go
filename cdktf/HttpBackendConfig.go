@@ -22,6 +22,15 @@ type HttpBackendConfig struct {
 	// (Required) The address of the REST endpoint.
 	// Experimental.
 	Address *string `field:"required" json:"address" yaml:"address"`
+	// (Optional) A PEM-encoded CA certificate chain used by the client to verify server certificates during TLS authentication.
+	// Experimental.
+	ClientCaCertificatePem *string `field:"optional" json:"clientCaCertificatePem" yaml:"clientCaCertificatePem"`
+	// (Optional) A PEM-encoded certificate used by the server to verify the client during mutual TLS (mTLS) authentication.
+	// Experimental.
+	ClientCertificatePem *string `field:"optional" json:"clientCertificatePem" yaml:"clientCertificatePem"`
+	// (Optional) A PEM-encoded private key, required if client_certificate_pem is specified.
+	// Experimental.
+	ClientPrivateKeyPem *string `field:"optional" json:"clientPrivateKeyPem" yaml:"clientPrivateKeyPem"`
 	// (Optional) The address of the lock REST endpoint.
 	//
 	// Defaults to disabled.

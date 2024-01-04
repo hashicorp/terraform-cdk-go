@@ -65,6 +65,9 @@ type AzurermBackendConfig struct {
 	//  Possible values are public, china, german, stack and usgovernment. Defaults to public.
 	// Experimental.
 	Environment *string `field:"optional" json:"environment" yaml:"environment"`
+	// (Optional) The Hostname of the Azure Metadata Service (for example management.azure.com), used to obtain the Cloud Environment when using a Custom Azure Environment. This can also be sourced from the ARM_METADATA_HOSTNAME Environment Variable.).
+	// Experimental.
+	MetadataHost *string `field:"optional" json:"metadataHost" yaml:"metadataHost"`
 	// (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified.
 	//
 	// This can also be sourced from the ARM_MSI_ENDPOINT environment variable.
@@ -83,6 +86,16 @@ type AzurermBackendConfig struct {
 	// ACTIONS_ID_TOKEN_REQUEST_URL environment variables.
 	// Experimental.
 	OidcRequestUrl *string `field:"optional" json:"oidcRequestUrl" yaml:"oidcRequestUrl"`
+	// (Optional) The ID token when authenticating using OpenID Connect (OIDC).
+	//
+	// This can also be sourced from the ARM_OIDC_TOKEN environment variable.
+	// Experimental.
+	OidcToken *string `field:"optional" json:"oidcToken" yaml:"oidcToken"`
+	// (Optional) The path to a file containing an ID token when authenticating using OpenID Connect (OIDC).
+	//
+	// This can also be sourced from the ARM_OIDC_TOKEN_FILE_PATH environment variable.
+	// Experimental.
+	OidcTokenFilePath *string `field:"optional" json:"oidcTokenFilePath" yaml:"oidcTokenFilePath"`
 	// (Required) The Name of the Resource Group in which the Storage Account exists.
 	// Experimental.
 	ResourceGroupName *string `field:"optional" json:"resourceGroupName" yaml:"resourceGroupName"`

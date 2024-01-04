@@ -19,6 +19,10 @@ type NamedCloudWorkspace interface {
 	// Experimental.
 	SetName(val *string)
 	// Experimental.
+	Project() *string
+	// Experimental.
+	SetProject(val *string)
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -37,9 +41,19 @@ func (j *jsiiProxy_NamedCloudWorkspace) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_NamedCloudWorkspace) Project() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"project",
+		&returns,
+	)
+	return returns
+}
+
 
 // Experimental.
-func NewNamedCloudWorkspace(name *string) NamedCloudWorkspace {
+func NewNamedCloudWorkspace(name *string, project *string) NamedCloudWorkspace {
 	_init_.Initialize()
 
 	if err := validateNewNamedCloudWorkspaceParameters(name); err != nil {
@@ -49,7 +63,7 @@ func NewNamedCloudWorkspace(name *string) NamedCloudWorkspace {
 
 	_jsii_.Create(
 		"cdktf.NamedCloudWorkspace",
-		[]interface{}{name},
+		[]interface{}{name, project},
 		&j,
 	)
 
@@ -57,12 +71,12 @@ func NewNamedCloudWorkspace(name *string) NamedCloudWorkspace {
 }
 
 // Experimental.
-func NewNamedCloudWorkspace_Override(n NamedCloudWorkspace, name *string) {
+func NewNamedCloudWorkspace_Override(n NamedCloudWorkspace, name *string, project *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.NamedCloudWorkspace",
-		[]interface{}{name},
+		[]interface{}{name, project},
 		n,
 	)
 }
@@ -74,6 +88,14 @@ func (j *jsiiProxy_NamedCloudWorkspace)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_NamedCloudWorkspace)SetProject(val *string) {
+	_jsii_.Set(
+		j,
+		"project",
 		val,
 	)
 }

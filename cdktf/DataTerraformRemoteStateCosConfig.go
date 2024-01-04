@@ -15,16 +15,37 @@ type DataTerraformRemoteStateCosConfig struct {
 	// You shall manually create it first.
 	// Experimental.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
+	// (Optional) Whether to enable global Acceleration.
+	//
+	// Defaults to false.
+	// Experimental.
+	Accelerate *bool `field:"optional" json:"accelerate" yaml:"accelerate"`
 	// (Optional) Object ACL to be applied to the state file, allows private and public-read.
 	//
 	// Defaults to private.
 	// Experimental.
 	Acl *string `field:"optional" json:"acl" yaml:"acl"`
+	// (Optional) The assume_role block.
+	//
+	// If provided, terraform will attempt to assume this role using the supplied credentials.
+	// Experimental.
+	AssumeRole *CosBackendAssumeRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
+	// (Optional) The root domain of the API request.
+	//
+	// Defaults to tencentcloudapi.com.
+	// It supports the environment variable TENCENTCLOUD_DOMAIN.
+	// Experimental.
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// (Optional) Whether to enable server side encryption of the state file.
 	//
 	// If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
 	// Experimental.
 	Encrypt *bool `field:"optional" json:"encrypt" yaml:"encrypt"`
+	// (Optional) The Custom Endpoint for the COS backend.
+	//
+	// It supports the environment variable TENCENTCLOUD_ENDPOINT.
+	// Experimental.
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// (Optional) The path for saving the state file in bucket.
 	//
 	// Defaults to terraform.tfstate.
@@ -50,5 +71,10 @@ type DataTerraformRemoteStateCosConfig struct {
 	// It supports environment variables TENCENTCLOUD_SECRET_KEY.
 	// Experimental.
 	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
+	// (Optional) TencentCloud Security Token of temporary access credentials.
+	//
+	// It supports environment variables TENCENTCLOUD_SECURITY_TOKEN.
+	// Experimental.
+	SecurityToken *string `field:"optional" json:"securityToken" yaml:"securityToken"`
 }
 

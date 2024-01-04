@@ -40,10 +40,21 @@ type DataTerraformRemoteStateGcsConfig struct {
 	// (Optional) The delegation chain for an impersonating a service account.
 	// Experimental.
 	ImpersonateServiceAccountDelegates *[]*string `field:"optional" json:"impersonateServiceAccountDelegates" yaml:"impersonateServiceAccountDelegates"`
+	// (Optional) A Cloud KMS key ('customer-managed encryption key') used when reading and writing state files in the bucket.
+	//
+	// Format should be projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}/cryptoKeys/{{name}}.
+	// For more information, including IAM requirements, see {@link https://cloud.google.com/storage/docs/encryption/customer-managed-keys Customer-managed Encryption Keys}.
+	// Experimental.
+	KmsEncryptionKey *string `field:"optional" json:"kmsEncryptionKey" yaml:"kmsEncryptionKey"`
 	// (Optional) GCS prefix inside the bucket.
 	//
 	// Named states for workspaces are stored in an object called <prefix>/<name>.tfstate.
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
+	// (Optional) A URL containing three parts: the protocol, the DNS name pointing to a Private Service Connect endpoint, and the path for the Cloud Storage API (/storage/v1/b).
+	//
+	// {@link https://developer.hashicorp.com/terraform/language/settings/backends/gcs#storage_custom_endpoint See here for more details}
+	// Experimental.
+	StoreageCustomEndpoint *string `field:"optional" json:"storeageCustomEndpoint" yaml:"storeageCustomEndpoint"`
 }
 
