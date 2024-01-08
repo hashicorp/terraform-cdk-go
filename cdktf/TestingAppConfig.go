@@ -7,6 +7,8 @@ package cdktf
 // Experimental.
 type TestingAppConfig struct {
 	// Experimental.
+	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
+	// Experimental.
 	EnableFutureFlags *bool `field:"optional" json:"enableFutureFlags" yaml:"enableFutureFlags"`
 	// Experimental.
 	FakeCdktfJsonPath *bool `field:"optional" json:"fakeCdktfJsonPath" yaml:"fakeCdktfJsonPath"`

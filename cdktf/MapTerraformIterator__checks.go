@@ -311,13 +311,13 @@ func validateNewMapTerraformIteratorParameters(map_ interface{}) error {
 		return fmt.Errorf("parameter map_ is required, but nil was provided")
 	}
 	switch map_.(type) {
+	case AnyMap:
+		// ok
 	case StringMap:
 		// ok
 	case NumberMap:
 		// ok
 	case BooleanMap:
-		// ok
-	case AnyMap:
 		// ok
 	case ComplexMap:
 		// ok
@@ -335,7 +335,7 @@ func validateNewMapTerraformIteratorParameters(map_ interface{}) error {
 		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(map_) {
-			return fmt.Errorf("parameter map_ must be one of the allowed types: StringMap, NumberMap, BooleanMap, AnyMap, ComplexMap, *map[string]interface{}, *map[string]*string, *map[string]*float64; received %#v (a %T)", map_, map_)
+			return fmt.Errorf("parameter map_ must be one of the allowed types: AnyMap, StringMap, NumberMap, BooleanMap, ComplexMap, *map[string]interface{}, *map[string]*string, *map[string]*float64; received %#v (a %T)", map_, map_)
 		}
 	}
 
