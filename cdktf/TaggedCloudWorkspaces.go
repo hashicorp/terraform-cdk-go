@@ -23,6 +23,8 @@ type TaggedCloudWorkspaces interface {
 	// Experimental.
 	SetTags(val *[]*string)
 	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -98,6 +100,19 @@ func (j *jsiiProxy_TaggedCloudWorkspaces)SetTags(val *[]*string) {
 		"tags",
 		val,
 	)
+}
+
+func (t *jsiiProxy_TaggedCloudWorkspaces) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TaggedCloudWorkspaces) ToTerraform() interface{} {

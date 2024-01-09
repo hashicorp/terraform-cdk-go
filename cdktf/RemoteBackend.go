@@ -42,6 +42,10 @@ type RemoteBackend interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -282,6 +286,32 @@ func (r *jsiiProxy_RemoteBackend) SynthesizeAttributes() *map[string]interface{}
 	_jsii_.Invoke(
 		r,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RemoteBackend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		r,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RemoteBackend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		r,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

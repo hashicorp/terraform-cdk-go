@@ -42,6 +42,10 @@ type SwiftBackend interface {
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	SynthesizeAttributes() *map[string]interface{}
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
+	ToHclTerraform() interface{}
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
@@ -282,6 +286,32 @@ func (s *jsiiProxy_SwiftBackend) SynthesizeAttributes() *map[string]interface{} 
 	_jsii_.Invoke(
 		s,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SwiftBackend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		s,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SwiftBackend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

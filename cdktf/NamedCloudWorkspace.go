@@ -23,6 +23,8 @@ type NamedCloudWorkspace interface {
 	// Experimental.
 	SetProject(val *string)
 	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToTerraform() interface{}
 }
 
@@ -98,6 +100,19 @@ func (j *jsiiProxy_NamedCloudWorkspace)SetProject(val *string) {
 		"project",
 		val,
 	)
+}
+
+func (n *jsiiProxy_NamedCloudWorkspace) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		n,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (n *jsiiProxy_NamedCloudWorkspace) ToTerraform() interface{} {

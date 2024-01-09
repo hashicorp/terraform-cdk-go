@@ -42,6 +42,10 @@ type LocalBackend interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -282,6 +286,32 @@ func (l *jsiiProxy_LocalBackend) SynthesizeAttributes() *map[string]interface{} 
 	_jsii_.Invoke(
 		l,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LocalBackend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		l,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LocalBackend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

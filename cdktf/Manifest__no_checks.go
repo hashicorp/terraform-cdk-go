@@ -11,7 +11,7 @@ func (m *jsiiProxy_Manifest) validateForStackParameters(stack TerraformStack) er
 	return nil
 }
 
-func validateNewManifestParameters(version *string, outdir *string) error {
+func validateNewManifestParameters(version *string, outdir *string, hclOutput *bool) error {
 	return nil
 }
 

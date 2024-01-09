@@ -42,6 +42,10 @@ type S3Backend interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -282,6 +286,32 @@ func (s *jsiiProxy_S3Backend) SynthesizeAttributes() *map[string]interface{} {
 	_jsii_.Invoke(
 		s,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3Backend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		s,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3Backend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

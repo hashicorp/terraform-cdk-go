@@ -42,6 +42,10 @@ type HttpBackend interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -282,6 +286,32 @@ func (h *jsiiProxy_HttpBackend) SynthesizeAttributes() *map[string]interface{} {
 	_jsii_.Invoke(
 		h,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (h *jsiiProxy_HttpBackend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		h,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (h *jsiiProxy_HttpBackend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		h,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

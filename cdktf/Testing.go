@@ -192,6 +192,26 @@ func Testing_Synth(stack TerraformStack, runValidations *bool) *string {
 	return returns
 }
 
+// Returns the Terraform synthesized JSON.
+// Experimental.
+func Testing_SynthHcl(stack TerraformStack, runValidations *bool, returnMetadata *bool) interface{} {
+	_init_.Initialize()
+
+	if err := validateTesting_SynthHclParameters(stack); err != nil {
+		panic(err)
+	}
+	var returns interface{}
+
+	_jsii_.StaticInvoke(
+		"cdktf.Testing",
+		"synthHcl",
+		[]interface{}{stack, runValidations, returnMetadata},
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func Testing_SynthScope(fn IScopeCallback) *string {
 	_init_.Initialize()

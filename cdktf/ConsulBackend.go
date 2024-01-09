@@ -42,6 +42,10 @@ type ConsulBackend interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -282,6 +286,32 @@ func (c *jsiiProxy_ConsulBackend) SynthesizeAttributes() *map[string]interface{}
 	_jsii_.Invoke(
 		c,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConsulBackend) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConsulBackend) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

@@ -45,6 +45,9 @@ type TerraformRemoteState interface {
 	// Resets a previously passed logical Id to use the auto-generated logical id again.
 	// Experimental.
 	ResetOverrideLogicalId()
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
+	ToHclTerraform() interface{}
 	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
@@ -307,6 +310,19 @@ func (t *jsiiProxy_TerraformRemoteState) ResetOverrideLogicalId() {
 		"resetOverrideLogicalId",
 		nil, // no parameters
 	)
+}
+
+func (t *jsiiProxy_TerraformRemoteState) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TerraformRemoteState) ToMetadata() interface{} {

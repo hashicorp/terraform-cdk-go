@@ -86,6 +86,11 @@ type TerraformDataSource interface {
 	// Experimental.
 	SynthesizeAttributes() *map[string]interface{}
 	// Experimental.
+	SynthesizeHclAttributes() *map[string]interface{}
+	// Adds this resource to the terraform JSON output.
+	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -589,6 +594,32 @@ func (t *jsiiProxy_TerraformDataSource) SynthesizeAttributes() *map[string]inter
 	_jsii_.Invoke(
 		t,
 		"synthesizeAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformDataSource) SynthesizeHclAttributes() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"synthesizeHclAttributes",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TerraformDataSource) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toHclTerraform",
 		nil, // no parameters
 		&returns,
 	)

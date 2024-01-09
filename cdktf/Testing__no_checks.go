@@ -35,6 +35,10 @@ func validateTesting_SynthParameters(stack TerraformStack) error {
 	return nil
 }
 
+func validateTesting_SynthHclParameters(stack TerraformStack) error {
+	return nil
+}
+
 func validateTesting_SynthScopeParameters(fn IScopeCallback) error {
 	return nil
 }

@@ -36,6 +36,8 @@ type TerraformElement interface {
 	// Experimental.
 	ResetOverrideLogicalId()
 	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -222,6 +224,19 @@ func (t *jsiiProxy_TerraformElement) ResetOverrideLogicalId() {
 		"resetOverrideLogicalId",
 		nil, // no parameters
 	)
+}
+
+func (t *jsiiProxy_TerraformElement) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TerraformElement) ToMetadata() interface{} {

@@ -69,6 +69,14 @@ func validateTesting_SynthParameters(stack TerraformStack) error {
 	return nil
 }
 
+func validateTesting_SynthHclParameters(stack TerraformStack) error {
+	if stack == nil {
+		return fmt.Errorf("parameter stack is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateTesting_SynthScopeParameters(fn IScopeCallback) error {
 	if fn == nil {
 		return fmt.Errorf("parameter fn is required, but nil was provided")

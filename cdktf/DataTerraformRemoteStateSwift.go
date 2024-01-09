@@ -44,6 +44,9 @@ type DataTerraformRemoteStateSwift interface {
 	// Resets a previously passed logical Id to use the auto-generated logical id again.
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ResetOverrideLogicalId()
+	// Adds this resource to the terraform JSON output.
+	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
+	ToHclTerraform() interface{}
 	// Deprecated: CDK for Terraform no longer supports the swift backend. Terraform deprecated swift in v1.2.3 and removed it in v1.3.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
@@ -323,6 +326,19 @@ func (d *jsiiProxy_DataTerraformRemoteStateSwift) ResetOverrideLogicalId() {
 		"resetOverrideLogicalId",
 		nil, // no parameters
 	)
+}
+
+func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (d *jsiiProxy_DataTerraformRemoteStateSwift) ToMetadata() interface{} {

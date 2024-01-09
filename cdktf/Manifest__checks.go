@@ -17,13 +17,17 @@ func (m *jsiiProxy_Manifest) validateForStackParameters(stack TerraformStack) er
 	return nil
 }
 
-func validateNewManifestParameters(version *string, outdir *string) error {
+func validateNewManifestParameters(version *string, outdir *string, hclOutput *bool) error {
 	if version == nil {
 		return fmt.Errorf("parameter version is required, but nil was provided")
 	}
 
 	if outdir == nil {
 		return fmt.Errorf("parameter outdir is required, but nil was provided")
+	}
+
+	if hclOutput == nil {
+		return fmt.Errorf("parameter hclOutput is required, but nil was provided")
 	}
 
 	return nil

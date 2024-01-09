@@ -16,6 +16,8 @@ import (
 type App interface {
 	constructs.Construct
 	// Experimental.
+	HclOutput() *bool
+	// Experimental.
 	Manifest() Manifest
 	// The tree node.
 	// Experimental.
@@ -48,6 +50,16 @@ type App interface {
 // The jsii proxy struct for App
 type jsiiProxy_App struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_App) HclOutput() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hclOutput",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_App) Manifest() Manifest {

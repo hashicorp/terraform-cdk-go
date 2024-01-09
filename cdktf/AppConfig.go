@@ -15,6 +15,8 @@ type AppConfig struct {
 	//
 	// Experimental.
 	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
+	// Experimental.
+	HclOutput *bool `field:"optional" json:"hclOutput" yaml:"hclOutput"`
 	// The directory to output Terraform resources.
 	// Default: - CDKTF_OUTDIR if defined, otherwise "cdktf.out"
 	//

@@ -12,7 +12,11 @@ import (
 type Manifest interface {
 	IManifest
 	// Experimental.
+	HclOutput() *bool
+	// Experimental.
 	Outdir() *string
+	// Experimental.
+	StackFileName() *string
 	// Experimental.
 	Stacks() *map[string]*StackManifest
 	// Experimental.
@@ -30,11 +34,31 @@ type jsiiProxy_Manifest struct {
 	jsiiProxy_IManifest
 }
 
+func (j *jsiiProxy_Manifest) HclOutput() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hclOutput",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Manifest) Outdir() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Manifest) StackFileName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackFileName",
 		&returns,
 	)
 	return returns
@@ -62,17 +86,17 @@ func (j *jsiiProxy_Manifest) Version() *string {
 
 
 // Experimental.
-func NewManifest(version *string, outdir *string) Manifest {
+func NewManifest(version *string, outdir *string, hclOutput *bool) Manifest {
 	_init_.Initialize()
 
-	if err := validateNewManifestParameters(version, outdir); err != nil {
+	if err := validateNewManifestParameters(version, outdir, hclOutput); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_Manifest{}
 
 	_jsii_.Create(
 		"cdktf.Manifest",
-		[]interface{}{version, outdir},
+		[]interface{}{version, outdir, hclOutput},
 		&j,
 	)
 
@@ -80,12 +104,12 @@ func NewManifest(version *string, outdir *string) Manifest {
 }
 
 // Experimental.
-func NewManifest_Override(m Manifest, version *string, outdir *string) {
+func NewManifest_Override(m Manifest, version *string, outdir *string, hclOutput *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktf.Manifest",
-		[]interface{}{version, outdir},
+		[]interface{}{version, outdir, hclOutput},
 		m,
 	)
 }
@@ -101,12 +125,12 @@ func Manifest_FileName() *string {
 	return returns
 }
 
-func Manifest_StackFileName() *string {
+func Manifest_StackMetadataPath() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
 		"cdktf.Manifest",
-		"stackFileName",
+		"stackMetadataPath",
 		&returns,
 	)
 	return returns

@@ -15,6 +15,8 @@ type StackManifest struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Experimental.
+	StackMetadataPath *string `field:"required" json:"stackMetadataPath" yaml:"stackMetadataPath"`
+	// Experimental.
 	SynthesizedStackPath *string `field:"required" json:"synthesizedStackPath" yaml:"synthesizedStackPath"`
 	// Experimental.
 	WorkingDirectory *string `field:"required" json:"workingDirectory" yaml:"workingDirectory"`

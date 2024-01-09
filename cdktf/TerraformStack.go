@@ -59,6 +59,8 @@ type TerraformStack interface {
 	// Run all validations on the stack.
 	// Experimental.
 	RunAllValidations()
+	// Experimental.
+	ToHclTerraform() *map[string]interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -403,6 +405,19 @@ func (t *jsiiProxy_TerraformStack) RunAllValidations() {
 		"runAllValidations",
 		nil, // no parameters
 	)
+}
+
+func (t *jsiiProxy_TerraformStack) ToHclTerraform() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TerraformStack) ToString() *string {

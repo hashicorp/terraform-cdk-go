@@ -36,6 +36,8 @@ type ImportableResource interface {
 	// Experimental.
 	ResetOverrideLogicalId()
 	// Experimental.
+	ToHclTerraform() interface{}
+	// Experimental.
 	ToMetadata() interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -222,6 +224,19 @@ func (i *jsiiProxy_ImportableResource) ResetOverrideLogicalId() {
 		"resetOverrideLogicalId",
 		nil, // no parameters
 	)
+}
+
+func (i *jsiiProxy_ImportableResource) ToHclTerraform() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		i,
+		"toHclTerraform",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_ImportableResource) ToMetadata() interface{} {
