@@ -1380,7 +1380,7 @@ func FnGenerated_Rsadecrypt(ciphertext *string, privatekey *string) *string {
 	return returns
 }
 
-// {@link https://developer.hashicorp.com/terraform/language/functions/sensitive sensitive} takes any value and returns a copy of it marked so that Terraform will treat it as sensitive, with the same meaning and behavior as for [sensitive input variables](/language/values/variables#suppressing-values-in-cli-output).
+// {@link https://developer.hashicorp.com/terraform/language/functions/sensitive sensitive} takes any value and returns a copy of it marked so that Terraform will treat it as sensitive, with the same meaning and behavior as for [sensitive input variables](/terraform/language/values/variables#suppressing-values-in-cli-output).
 // Experimental.
 func FnGenerated_Sensitive(value interface{}) interface{} {
 	_init_.Initialize()
