@@ -45,7 +45,7 @@ type S3BackendConfig struct {
 	//
 	// Conflicts with forbidden_account_ids.
 	// Experimental.
-	AllowedAccountIds *string `field:"optional" json:"allowedAccountIds" yaml:"allowedAccountIds"`
+	AllowedAccountIds *[]*string `field:"optional" json:"allowedAccountIds" yaml:"allowedAccountIds"`
 	// Assuming an IAM Role can be configured in two ways.
 	//
 	// The preferred way is to use the argument assume_role, the other, which is deprecated, is with arguments at the top level.
@@ -112,7 +112,7 @@ type S3BackendConfig struct {
 	//
 	// Conflicts with allowed_account_ids.
 	// Experimental.
-	ForbiddenAccountIds *string `field:"optional" json:"forbiddenAccountIds" yaml:"forbiddenAccountIds"`
+	ForbiddenAccountIds *[]*string `field:"optional" json:"forbiddenAccountIds" yaml:"forbiddenAccountIds"`
 	// (Optional) Enable path-style S3 URLs (https://<HOST>/<BUCKET> instead of https://<BUCKET>.<HOST>).
 	// Deprecated: Use usePathStyle instead.
 	ForcePathStyle *bool `field:"optional" json:"forcePathStyle" yaml:"forcePathStyle"`
